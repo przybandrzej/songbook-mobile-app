@@ -7,11 +7,25 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "env:dev": "node config/set-environment.js dev",
+    "env:prod": "node config/set-environment.js prod",
+    "ios:dev": "npm run env:dev && npm run ios",
+    "ios:prod": "npm run env:prod && npm run ios",
+    "android:dev": "npm run env:dev && npm run android",
+    "android:prod": "npm run env:prod && npm run android",
+    "_build:ios": "react-native bundle --platform ios ...",
+    "build:ios:dev": "npm run env:dev && npm run _build:ios",
+    "build:ios:prod": "npm run env:prod && npm run _build:ios",
+    "_build:android": "react-native bundle --platform android ...",
+    "build:android:dev": "npm run env:dev && npm run _build:android",
+    "build:android:prod": "npm run env:prod && npm run _build:android"
   },
   "dependencies": {
     "react": "16.13.1",
-    "react-native": "0.63.3"
+    "react-native": "0.63.3",
+    "superagent": "3.7.0",
+    "querystring": "0.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
@@ -27,7 +41,10 @@
     "jest": "^25.1.0",
     "metro-react-native-babel-preset": "^0.59.0",
     "react-test-renderer": "16.13.1",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "mocha": "~2.3.4",
+    "sinon": "1.17.3",
+    "expect.js": "~0.3.1"
   },
   "jest": {
     "preset": "react-native",
