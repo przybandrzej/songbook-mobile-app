@@ -7,7 +7,19 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "env:dev": "node config/set-environment.js dev",
+    "env:prod": "node config/set-environment.js prod",
+    "ios:dev": "npm run env:dev && npm run ios",
+    "ios:prod": "npm run env:prod && npm run ios",
+    "android:dev": "npm run env:dev && npm run android",
+    "android:prod": "npm run env:prod && npm run android",
+    "_build:ios": "react-native bundle --platform ios ...",
+    "build:ios:dev": "npm run env:dev && npm run _build:ios",
+    "build:ios:prod": "npm run env:prod && npm run _build:ios",
+    "_build:android": "react-native bundle --platform android ...",
+    "build:android:dev": "npm run env:dev && npm run _build:android",
+    "build:android:prod": "npm run env:prod && npm run _build:android"
   },
   "dependencies": {
     "react": "16.13.1",
