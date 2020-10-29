@@ -14,7 +14,7 @@
  *
  */
 
-(function(root, factory) {
+(function (root, factory) {
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
     define(['superagent', 'querystring'], factory);
@@ -28,7 +28,7 @@
     }
     root.SongbookApi.ApiClient = factory(root.superagent, root.querystring);
   }
-}(this, function(superagent, querystring) {
+}(this, function (superagent, querystring) {
   'use strict';
 
   /**
@@ -43,7 +43,7 @@
    * @alias module:ApiClient
    * @class
    */
-  var exports = function() {
+  var exports = function () {
     /**
      * The base URL against which to resolve every API call's (relative) path.
      * @type {String}
@@ -105,7 +105,7 @@
    * @param param The actual parameter.
    * @returns {String} The string representation of <code>param</code>.
    */
-  exports.prototype.paramToString = function(param) {
+  exports.prototype.paramToString = function (param) {
     if (param == undefined || param == null) {
       return '';
     }
@@ -122,13 +122,13 @@
    * @param {Object} pathParams The parameter values to append.
    * @returns {String} The encoded path with parameter values substituted.
    */
-  exports.prototype.buildUrl = function(path, pathParams) {
+  exports.prototype.buildUrl = function (path, pathParams) {
     if (!path.match(/^\//)) {
       path = '/' + path;
     }
     var url = this.basePath + path;
     var _this = this;
-    url = url.replace(/\{([\w-]+)\}/g, function(fullMatch, key) {
+    url = url.replace(/\{([\w-]+)\}/g, function (fullMatch, key) {
       var value;
       if (pathParams.hasOwnProperty(key)) {
         value = _this.paramToString(pathParams[key]);
@@ -151,7 +151,7 @@
    * @param {String} contentType The MIME content type to check.
    * @returns {Boolean} <code>true</code> if <code>contentType</code> represents JSON, otherwise <code>false</code>.
    */
-  exports.prototype.isJsonMime = function(contentType) {
+  exports.prototype.isJsonMime = function (contentType) {
     return Boolean(contentType != null && contentType.match(/^application\/json(;.*)?$/i));
   };
 
@@ -160,7 +160,7 @@
    * @param {Array.<String>} contentTypes
    * @returns {String} The chosen content type, preferring JSON.
    */
-  exports.prototype.jsonPreferredMime = function(contentTypes) {
+  exports.prototype.jsonPreferredMime = function (contentTypes) {
     for (var i = 0; i < contentTypes.length; i++) {
       if (this.isJsonMime(contentTypes[i])) {
         return contentTypes[i];
@@ -174,13 +174,13 @@
    * @param param The parameter to check.
    * @returns {Boolean} <code>true</code> if <code>param</code> represents a file.
    */
-  exports.prototype.isFileParam = function(param) {
+  exports.prototype.isFileParam = function (param) {
     // fs.ReadStream in Node.js and Electron (but not in runtime like browserify)
     if (typeof require === 'function') {
       var fs;
       try {
         fs = require('fs');
-      } catch (err) {}
+      } catch (err) { }
       if (fs && fs.ReadStream && param instanceof fs.ReadStream) {
         return true;
       }
@@ -210,7 +210,7 @@
    * @param {Object.<String, Object>} params The parameters as object properties.
    * @returns {Object.<String, Object>} normalized parameters.
    */
-  exports.prototype.normalizeParams = function(params) {
+  exports.prototype.normalizeParams = function (params) {
     var newParams = {};
     for (var key in params) {
       if (params.hasOwnProperty(key) && params[key] != undefined && params[key] != null) {
@@ -291,9 +291,9 @@
    * @param {Object} request The request object created by a <code>superagent()</code> call.
    * @param {Array.<String>} authNames An array of authentication method names.
    */
-  exports.prototype.applyAuthToRequest = function(request, authNames) {
+  exports.prototype.applyAuthToRequest = function (request, authNames) {
     var _this = this;
-    authNames.forEach(function(authName) {
+    authNames.forEach(function (authName) {
       var auth = _this.authentications[authName];
       switch (auth.type) {
         case 'basic':
@@ -318,7 +318,7 @@
           break;
         case 'oauth2':
           if (auth.accessToken) {
-            request.set({'Authorization': 'Bearer ' + auth.accessToken});
+            request.set({ 'Authorization': 'Bearer ' + auth.accessToken });
           }
           break;
         default:
@@ -377,8 +377,8 @@
    * @returns {Object} The SuperAgent request object.
    */
   exports.prototype.callApi = function callApi(path, httpMethod, pathParams,
-      queryParams, collectionQueryParams, headerParams, formParams, bodyParam, authNames, contentTypes, accepts,
-      returnType, callback) {
+    queryParams, collectionQueryParams, headerParams, formParams, bodyParam, authNames, contentTypes, accepts,
+    returnType, callback) {
 
     var _this = this;
     var url = this.buildUrl(path, pathParams);
@@ -408,7 +408,7 @@
 
     // set query parameters
     if (httpMethod.toUpperCase() === 'GET' && this.cache === false) {
-        queryParams['_'] = new Date().getTime();
+      queryParams['_'] = new Date().getTime();
     }
     request.query(this.normalizeParams(queryParams));
 
@@ -427,7 +427,7 @@
     var contentType = this.jsonPreferredMime(contentTypes);
     if (contentType) {
       // Issue with superagent and multipart/form-data (https://github.com/visionmedia/superagent/issues/746)
-      if(contentType != 'multipart/form-data') {
+      if (contentType != 'multipart/form-data') {
         request.type(contentType);
       }
     } else if (!request.header['Content-Type']) {
@@ -464,7 +464,7 @@
     }
 
     // Attach previously saved cookies, if enabled
-    if (this.enableCookies){
+    if (this.enableCookies) {
       if (typeof window === 'undefined') {
         this.agent.attachCookies(request);
       }
@@ -474,13 +474,13 @@
     }
 
 
-    request.end(function(error, response) {
+    request.end(function (error, response) {
       if (callback) {
         var data = null;
         if (!error) {
           try {
             data = _this.deserialize(response, returnType);
-            if (_this.enableCookies && typeof window === 'undefined'){
+            if (_this.enableCookies && typeof window === 'undefined') {
               _this.agent.saveCookies(response);
             }
           } catch (err) {
@@ -499,7 +499,7 @@
    * @param {String} str The date value as an ISO-8601 full-date or date-time string.
    * @returns {Date} The parsed date object.
    */
-  exports.parseDate = function(str) {
+  exports.parseDate = function (str) {
     // OpenAPI 2.0 & 3.0 specs state that:
     // - date values are serialized as ISO-8601 full-date strings. 
     // - date-time values are serialized as ISO-8601 date-time strings, in which the timezone offset is mandatory. 
@@ -515,7 +515,7 @@
    * all properties on <code>data<code> will be converted to this type.
    * @returns An instance of the specified type or null or undefined if data is null or undefined.
    */
-  exports.convertToType = function(data, type) {
+  exports.convertToType = function (data, type) {
     if (data === null || data === undefined)
       return data
 
@@ -531,7 +531,7 @@
       case 'Date':
         return this.parseDate(String(data));
       case 'Blob':
-      	return data;
+        return data;
       default:
         if (type === Object) {
           // generic object, return directly
@@ -542,7 +542,7 @@
         } else if (Array.isArray(type)) {
           // for array type like: ['String']
           var itemType = type[0];
-          return data.map(function(item) {
+          return data.map(function (item) {
             return exports.convertToType(item, itemType);
           });
         } else if (typeof type === 'object') {
@@ -576,7 +576,7 @@
    * @param data {Object|Array} The REST data.
    * @param obj {Object|Array} The target object or array.
    */
-  exports.constructFromObject = function(data, obj, itemType) {
+  exports.constructFromObject = function (data, obj, itemType) {
     if (Array.isArray(data)) {
       for (var i = 0; i < data.length; i++) {
         if (data.hasOwnProperty(i))
@@ -594,7 +594,8 @@
    * The default API client implementation.
    * @type {module:ApiClient}
    */
-exports.setBasePath = function (path) {this.basePath = path;}
+  exports.setBasePath = function (path) { this.basePath = path; }
+  exports.getBasePath = function () { return this.basePath; }
   exports.instance = new exports();
 
   return exports;
