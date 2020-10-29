@@ -14,36 +14,21 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.TokenDTO = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The TokenDTO model module.
-   * @module model/TokenDTO
-   * @version 1.5.5
-   */
-
+/**
+ * The TokenDTO model module.
+ * @module model/TokenDTO
+ * @version 1.5.5
+ */
+export class TokenDTO {
   /**
    * Constructs a new <code>TokenDTO</code>.
    * @alias module:model/TokenDTO
    * @class
    */
-  var exports = function() {
-  };
+  constructor() {
+  }
 
   /**
    * Constructs a <code>TokenDTO</code> from a plain JavaScript object, optionally creating a new instance.
@@ -52,20 +37,19 @@
    * @param {module:model/TokenDTO} obj Optional instance to populate.
    * @return {module:model/TokenDTO} The populated <code>TokenDTO</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new TokenDTO();
       if (data.hasOwnProperty('idToken'))
         obj.idToken = ApiClient.convertToType(data['idToken'], 'String');
     }
     return obj;
   }
+}
 
-  /**
-   * @member {String} idToken
-   */
-  exports.prototype.idToken = undefined;
+/**
+ * @member {String} idToken
+ */
+TokenDTO.prototype.idToken = undefined;
 
-  return exports;
 
-}));

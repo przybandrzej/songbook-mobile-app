@@ -14,36 +14,21 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.LoginForm = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The LoginForm model module.
-   * @module model/LoginForm
-   * @version 1.5.5
-   */
-
+/**
+ * The LoginForm model module.
+ * @module model/LoginForm
+ * @version 1.5.5
+ */
+export class LoginForm {
   /**
    * Constructs a new <code>LoginForm</code>.
    * @alias module:model/LoginForm
    * @class
    */
-  var exports = function() {
-  };
+  constructor() {
+  }
 
   /**
    * Constructs a <code>LoginForm</code> from a plain JavaScript object, optionally creating a new instance.
@@ -52,9 +37,9 @@
    * @param {module:model/LoginForm} obj Optional instance to populate.
    * @return {module:model/LoginForm} The populated <code>LoginForm</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new LoginForm();
       if (data.hasOwnProperty('login'))
         obj.login = ApiClient.convertToType(data['login'], 'String');
       if (data.hasOwnProperty('password'))
@@ -64,22 +49,21 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {String} login
-   */
-  exports.prototype.login = undefined;
+/**
+ * @member {String} login
+ */
+LoginForm.prototype.login = undefined;
 
-  /**
-   * @member {String} password
-   */
-  exports.prototype.password = undefined;
+/**
+ * @member {String} password
+ */
+LoginForm.prototype.password = undefined;
 
-  /**
-   * @member {Boolean} rememberMe
-   */
-  exports.prototype.rememberMe = undefined;
+/**
+ * @member {Boolean} rememberMe
+ */
+LoginForm.prototype.rememberMe = undefined;
 
-  return exports;
 
-}));

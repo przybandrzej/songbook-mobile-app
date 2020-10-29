@@ -14,29 +14,14 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.RegisterNewUserForm = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The RegisterNewUserForm model module.
-   * @module model/RegisterNewUserForm
-   * @version 1.5.5
-   */
-
+/**
+ * The RegisterNewUserForm model module.
+ * @module model/RegisterNewUserForm
+ * @version 1.5.5
+ */
+export class RegisterNewUserForm {
   /**
    * Constructs a new <code>RegisterNewUserForm</code>.
    * @alias module:model/RegisterNewUserForm
@@ -45,11 +30,11 @@
    * @param password {String} 
    * @param username {String} 
    */
-  var exports = function(email, password, username) {
+  constructor(email, password, username) {
     this.email = email;
     this.password = password;
     this.username = username;
-  };
+  }
 
   /**
    * Constructs a <code>RegisterNewUserForm</code> from a plain JavaScript object, optionally creating a new instance.
@@ -58,9 +43,9 @@
    * @param {module:model/RegisterNewUserForm} obj Optional instance to populate.
    * @return {module:model/RegisterNewUserForm} The populated <code>RegisterNewUserForm</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new RegisterNewUserForm();
       if (data.hasOwnProperty('email'))
         obj.email = ApiClient.convertToType(data['email'], 'String');
       if (data.hasOwnProperty('firstName'))
@@ -74,32 +59,31 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {String} email
-   */
-  exports.prototype.email = undefined;
+/**
+ * @member {String} email
+ */
+RegisterNewUserForm.prototype.email = undefined;
 
-  /**
-   * @member {String} firstName
-   */
-  exports.prototype.firstName = undefined;
+/**
+ * @member {String} firstName
+ */
+RegisterNewUserForm.prototype.firstName = undefined;
 
-  /**
-   * @member {String} lastName
-   */
-  exports.prototype.lastName = undefined;
+/**
+ * @member {String} lastName
+ */
+RegisterNewUserForm.prototype.lastName = undefined;
 
-  /**
-   * @member {String} password
-   */
-  exports.prototype.password = undefined;
+/**
+ * @member {String} password
+ */
+RegisterNewUserForm.prototype.password = undefined;
 
-  /**
-   * @member {String} username
-   */
-  exports.prototype.username = undefined;
+/**
+ * @member {String} username
+ */
+RegisterNewUserForm.prototype.username = undefined;
 
-  return exports;
 
-}));

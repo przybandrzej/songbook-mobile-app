@@ -14,29 +14,20 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/AuthorDTO', 'model/CategoryDTO', 'model/SongAddDTO', 'model/SongCoauthorDTO', 'model/SongEditDTO', 'model/TagDTO'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./AuthorDTO'), require('./CategoryDTO'), require('./SongAddDTO'), require('./SongCoauthorDTO'), require('./SongEditDTO'), require('./TagDTO'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.SongDTO = factory(root.SongbookApi.ApiClient, root.SongbookApi.AuthorDTO, root.SongbookApi.CategoryDTO, root.SongbookApi.SongAddDTO, root.SongbookApi.SongCoauthorDTO, root.SongbookApi.SongEditDTO, root.SongbookApi.TagDTO);
-  }
-}(this, function(ApiClient, AuthorDTO, CategoryDTO, SongAddDTO, SongCoauthorDTO, SongEditDTO, TagDTO) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
+import {AuthorDTO} from './AuthorDTO';
+import {CategoryDTO} from './CategoryDTO';
+import {SongAddDTO} from './SongAddDTO';
+import {SongCoauthorDTO} from './SongCoauthorDTO';
+import {SongEditDTO} from './SongEditDTO';
+import {TagDTO} from './TagDTO';
 
-  /**
-   * The SongDTO model module.
-   * @module model/SongDTO
-   * @version 1.5.5
-   */
-
+/**
+ * The SongDTO model module.
+ * @module model/SongDTO
+ * @version 1.5.5
+ */
+export class SongDTO {
   /**
    * Constructs a new <code>SongDTO</code>.
    * @alias module:model/SongDTO
@@ -47,13 +38,13 @@
    * @param tags {Array.<module:model/TagDTO>} 
    * @param title {String} 
    */
-  var exports = function(coauthors, edits, id, tags, title) {
+  constructor(coauthors, edits, id, tags, title) {
     this.coauthors = coauthors;
     this.edits = edits;
     this.id = id;
     this.tags = tags;
     this.title = title;
-  };
+  }
 
   /**
    * Constructs a <code>SongDTO</code> from a plain JavaScript object, optionally creating a new instance.
@@ -62,9 +53,9 @@
    * @param {module:model/SongDTO} obj Optional instance to populate.
    * @return {module:model/SongDTO} The populated <code>SongDTO</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new SongDTO();
       if (data.hasOwnProperty('addedBy'))
         obj.addedBy = SongAddDTO.constructFromObject(data['addedBy']);
       if (data.hasOwnProperty('author'))
@@ -94,72 +85,71 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {module:model/SongAddDTO} addedBy
-   */
-  exports.prototype.addedBy = undefined;
+/**
+ * @member {module:model/SongAddDTO} addedBy
+ */
+SongDTO.prototype.addedBy = undefined;
 
-  /**
-   * @member {module:model/AuthorDTO} author
-   */
-  exports.prototype.author = undefined;
+/**
+ * @member {module:model/AuthorDTO} author
+ */
+SongDTO.prototype.author = undefined;
 
-  /**
-   * @member {Number} averageRating
-   */
-  exports.prototype.averageRating = undefined;
+/**
+ * @member {Number} averageRating
+ */
+SongDTO.prototype.averageRating = undefined;
 
-  /**
-   * @member {module:model/CategoryDTO} category
-   */
-  exports.prototype.category = undefined;
+/**
+ * @member {module:model/CategoryDTO} category
+ */
+SongDTO.prototype.category = undefined;
 
-  /**
-   * @member {Array.<module:model/SongCoauthorDTO>} coauthors
-   */
-  exports.prototype.coauthors = undefined;
+/**
+ * @member {Array.<module:model/SongCoauthorDTO>} coauthors
+ */
+SongDTO.prototype.coauthors = undefined;
 
-  /**
-   * @member {Array.<module:model/SongEditDTO>} edits
-   */
-  exports.prototype.edits = undefined;
+/**
+ * @member {Array.<module:model/SongEditDTO>} edits
+ */
+SongDTO.prototype.edits = undefined;
 
-  /**
-   * @member {String} guitarTabs
-   */
-  exports.prototype.guitarTabs = undefined;
+/**
+ * @member {String} guitarTabs
+ */
+SongDTO.prototype.guitarTabs = undefined;
 
-  /**
-   * @member {Number} id
-   */
-  exports.prototype.id = undefined;
+/**
+ * @member {Number} id
+ */
+SongDTO.prototype.id = undefined;
 
-  /**
-   * @member {Boolean} isAwaiting
-   */
-  exports.prototype.isAwaiting = undefined;
+/**
+ * @member {Boolean} isAwaiting
+ */
+SongDTO.prototype.isAwaiting = undefined;
 
-  /**
-   * @member {String} lyrics
-   */
-  exports.prototype.lyrics = undefined;
+/**
+ * @member {String} lyrics
+ */
+SongDTO.prototype.lyrics = undefined;
 
-  /**
-   * @member {Array.<module:model/TagDTO>} tags
-   */
-  exports.prototype.tags = undefined;
+/**
+ * @member {Array.<module:model/TagDTO>} tags
+ */
+SongDTO.prototype.tags = undefined;
 
-  /**
-   * @member {String} title
-   */
-  exports.prototype.title = undefined;
+/**
+ * @member {String} title
+ */
+SongDTO.prototype.title = undefined;
 
-  /**
-   * @member {String} trivia
-   */
-  exports.prototype.trivia = undefined;
+/**
+ * @member {String} trivia
+ */
+SongDTO.prototype.trivia = undefined;
 
-  return exports;
 
-}));

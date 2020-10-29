@@ -14,29 +14,14 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.SongAddDTO = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The SongAddDTO model module.
-   * @module model/SongAddDTO
-   * @version 1.5.5
-   */
-
+/**
+ * The SongAddDTO model module.
+ * @module model/SongAddDTO
+ * @version 1.5.5
+ */
+export class SongAddDTO {
   /**
    * Constructs a new <code>SongAddDTO</code>.
    * @alias module:model/SongAddDTO
@@ -45,11 +30,11 @@
    * @param addedSong {Number} 
    * @param id {Number} 
    */
-  var exports = function(addedBy, addedSong, id) {
+  constructor(addedBy, addedSong, id) {
     this.addedBy = addedBy;
     this.addedSong = addedSong;
     this.id = id;
-  };
+  }
 
   /**
    * Constructs a <code>SongAddDTO</code> from a plain JavaScript object, optionally creating a new instance.
@@ -58,9 +43,9 @@
    * @param {module:model/SongAddDTO} obj Optional instance to populate.
    * @return {module:model/SongAddDTO} The populated <code>SongAddDTO</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new SongAddDTO();
       if (data.hasOwnProperty('addedBy'))
         obj.addedBy = ApiClient.convertToType(data['addedBy'], 'Number');
       if (data.hasOwnProperty('addedSong'))
@@ -72,27 +57,26 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {Number} addedBy
-   */
-  exports.prototype.addedBy = undefined;
+/**
+ * @member {Number} addedBy
+ */
+SongAddDTO.prototype.addedBy = undefined;
 
-  /**
-   * @member {Number} addedSong
-   */
-  exports.prototype.addedSong = undefined;
+/**
+ * @member {Number} addedSong
+ */
+SongAddDTO.prototype.addedSong = undefined;
 
-  /**
-   * @member {Number} id
-   */
-  exports.prototype.id = undefined;
+/**
+ * @member {Number} id
+ */
+SongAddDTO.prototype.id = undefined;
 
-  /**
-   * @member {Date} timestamp
-   */
-  exports.prototype.timestamp = undefined;
+/**
+ * @member {Date} timestamp
+ */
+SongAddDTO.prototype.timestamp = undefined;
 
-  return exports;
 
-}));

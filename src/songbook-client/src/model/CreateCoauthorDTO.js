@@ -14,38 +14,23 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.CreateCoauthorDTO = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The CreateCoauthorDTO model module.
-   * @module model/CreateCoauthorDTO
-   * @version 1.5.5
-   */
-
+/**
+ * The CreateCoauthorDTO model module.
+ * @module model/CreateCoauthorDTO
+ * @version 1.5.5
+ */
+export class CreateCoauthorDTO {
   /**
    * Constructs a new <code>CreateCoauthorDTO</code>.
    * @alias module:model/CreateCoauthorDTO
    * @class
    * @param coauthorFunction {module:model/CreateCoauthorDTO.CoauthorFunctionEnum} 
    */
-  var exports = function(coauthorFunction) {
+  constructor(coauthorFunction) {
     this.coauthorFunction = coauthorFunction;
-  };
+  }
 
   /**
    * Constructs a <code>CreateCoauthorDTO</code> from a plain JavaScript object, optionally creating a new instance.
@@ -54,9 +39,9 @@
    * @param {module:model/CreateCoauthorDTO} obj Optional instance to populate.
    * @return {module:model/CreateCoauthorDTO} The populated <code>CreateCoauthorDTO</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new CreateCoauthorDTO();
       if (data.hasOwnProperty('authorName'))
         obj.authorName = ApiClient.convertToType(data['authorName'], 'String');
       if (data.hasOwnProperty('coauthorFunction'))
@@ -64,37 +49,35 @@
     }
     return obj;
   }
+}
+
+/**
+ * @member {String} authorName
+ */
+CreateCoauthorDTO.prototype.authorName = undefined;
+
+/**
+ * Allowed values for the <code>coauthorFunction</code> property.
+ * @enum {String}
+ * @readonly
+ */
+CreateCoauthorDTO.CoauthorFunctionEnum = {
+  /**
+   * value: "MUSIC"
+   * @const
+   */
+  MUSIC: "MUSIC",
 
   /**
-   * @member {String} authorName
+   * value: "TEXT"
+   * @const
    */
-  exports.prototype.authorName = undefined;
+  TEXT: "TEXT"
+};
 
-  /**
-   * @member {module:model/CreateCoauthorDTO.CoauthorFunctionEnum} coauthorFunction
-   */
-  exports.prototype.coauthorFunction = undefined;
+/**
+ * @member {module:model/CreateCoauthorDTO.CoauthorFunctionEnum} coauthorFunction
+ */
+CreateCoauthorDTO.prototype.coauthorFunction = undefined;
 
 
-  /**
-   * Allowed values for the <code>coauthorFunction</code> property.
-   * @enum {String}
-   * @readonly
-   */
-  exports.CoauthorFunctionEnum = {
-    /**
-     * value: "MUSIC"
-     * @const
-     */
-    MUSIC: "MUSIC",
-
-    /**
-     * value: "TEXT"
-     * @const
-     */
-    TEXT: "TEXT"
-  };
-
-  return exports;
-
-}));

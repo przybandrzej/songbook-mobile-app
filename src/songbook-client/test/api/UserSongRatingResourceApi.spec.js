@@ -53,11 +53,11 @@
             // TODO: update response assertions
             expect(data).to.be.a(SongbookApi.UserSongRatingDTO);
             expect(data.rating).to.be.a('number');
-            expect(data.rating).to.be();
+            // expect(data.rating).to.be();
             expect(data.songId).to.be.a('number');
-            expect(data.songId).to.be("0");
+            // expect(data.songId).to.be("0");
             expect(data.userId).to.be.a('number');
-            expect(data.userId).to.be("0");
+            // expect(data.userId).to.be("0");
 
             done();
           });
@@ -108,11 +108,11 @@
               let data = dataCtr[p];
               expect(data).to.be.a(SongbookApi.UserSongRatingDTO);
               expect(data.rating).to.be.a('number');
-              expect(data.rating).to.be();
+              // expect(data.rating).to.be();
               expect(data.songId).to.be.a('number');
-              expect(data.songId).to.be("0");
+              // expect(data.songId).to.be("0");
               expect(data.userId).to.be.a('number');
-              expect(data.userId).to.be("0");
+              // expect(data.userId).to.be("0");
             }
 
             done();
@@ -141,11 +141,11 @@
               let data = dataCtr[p];
               expect(data).to.be.a(SongbookApi.UserSongRatingDTO);
               expect(data.rating).to.be.a('number');
-              expect(data.rating).to.be();
+              // expect(data.rating).to.be();
               expect(data.songId).to.be.a('number');
-              expect(data.songId).to.be("0");
+              // expect(data.songId).to.be("0");
               expect(data.userId).to.be.a('number');
-              expect(data.userId).to.be("0");
+              // expect(data.userId).to.be("0");
             }
 
             done();
@@ -170,11 +170,11 @@
             // TODO: update response assertions
             expect(data).to.be.a(SongbookApi.UserSongRatingDTO);
             expect(data.rating).to.be.a('number');
-            expect(data.rating).to.be();
+            // expect(data.rating).to.be();
             expect(data.songId).to.be.a('number');
-            expect(data.songId).to.be("0");
+            // expect(data.songId).to.be("0");
             expect(data.userId).to.be.a('number');
-            expect(data.userId).to.be("0");
+            // expect(data.userId).to.be("0");
 
             done();
           });
@@ -202,11 +202,11 @@
               let data = dataCtr[p];
               expect(data).to.be.a(SongbookApi.UserSongRatingDTO);
               expect(data.rating).to.be.a('number');
-              expect(data.rating).to.be();
+              // expect(data.rating).to.be();
               expect(data.songId).to.be.a('number');
-              expect(data.songId).to.be("0");
+              // expect(data.songId).to.be("0");
               expect(data.userId).to.be.a('number');
-              expect(data.userId).to.be("0");
+              // expect(data.userId).to.be("0");
             }
 
             done();
@@ -233,11 +233,11 @@
             // TODO: update response assertions
             expect(data).to.be.a(SongbookApi.UserSongRatingDTO);
             expect(data.rating).to.be.a('number');
-            expect(data.rating).to.be();
+            // expect(data.rating).to.be();
             expect(data.songId).to.be.a('number');
-            expect(data.songId).to.be("0");
+            // expect(data.songId).to.be("0");
             expect(data.userId).to.be.a('number');
-            expect(data.userId).to.be("0");
+            // expect(data.userId).to.be("0");
 
             done();
           });

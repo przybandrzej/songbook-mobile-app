@@ -50,19 +50,19 @@
             // TODO: update response assertions
             expect(data).to.be.a(SongbookApi.UserDTO);
             expect(data.activated).to.be.a('boolean');
-            expect(data.activated).to.be(false);
+            // expect(data.activated).to.be(false);
             expect(data.email).to.be.a('string');
-            expect(data.email).to.be("");
+            // expect(data.email).to.be("");
             expect(data.firstName).to.be.a('string');
-            expect(data.firstName).to.be("");
+            // expect(data.firstName).to.be("");
             expect(data.id).to.be.a('number');
-            expect(data.id).to.be("0");
+            // expect(data.id).to.be("0");
             expect(data.imageUrl).to.be.a('string');
-            expect(data.imageUrl).to.be("");
+            // expect(data.imageUrl).to.be("");
             expect(data.lastName).to.be.a('string');
-            expect(data.lastName).to.be("");
+            // expect(data.lastName).to.be("");
             expect(data.registrationDate).to.be.a(Date);
-            expect(data.registrationDate).to.be(new Date());
+            // expect(data.registrationDate).to.be(new Date());
             {
               let dataCtr = data.songs;
               expect(dataCtr).to.be.an(Array);
@@ -70,13 +70,13 @@
               for (let p in dataCtr) {
                 let data = dataCtr[p];
                 expect(data).to.be.a('number');
-                expect(data).to.be("0");
+                // expect(data).to.be("0");
               }
             }
             expect(data.userRoleId).to.be.a('number');
-            expect(data.userRoleId).to.be("0");
+            // expect(data.userRoleId).to.be("0");
             expect(data.username).to.be.a('string');
-            expect(data.username).to.be("");
+            // expect(data.username).to.be("");
 
             done();
           });
@@ -100,19 +100,19 @@
             // TODO: update response assertions
             expect(data).to.be.a(SongbookApi.UserDTO);
             expect(data.activated).to.be.a('boolean');
-            expect(data.activated).to.be(false);
+            // expect(data.activated).to.be(false);
             expect(data.email).to.be.a('string');
-            expect(data.email).to.be("");
+            // expect(data.email).to.be("");
             expect(data.firstName).to.be.a('string');
-            expect(data.firstName).to.be("");
+            // expect(data.firstName).to.be("");
             expect(data.id).to.be.a('number');
-            expect(data.id).to.be("0");
+            // expect(data.id).to.be("0");
             expect(data.imageUrl).to.be.a('string');
-            expect(data.imageUrl).to.be("");
+            // expect(data.imageUrl).to.be("");
             expect(data.lastName).to.be.a('string');
-            expect(data.lastName).to.be("");
+            // expect(data.lastName).to.be("");
             expect(data.registrationDate).to.be.a(Date);
-            expect(data.registrationDate).to.be(new Date());
+            // expect(data.registrationDate).to.be(new Date());
             {
               let dataCtr = data.songs;
               expect(dataCtr).to.be.an(Array);
@@ -120,13 +120,13 @@
               for (let p in dataCtr) {
                 let data = dataCtr[p];
                 expect(data).to.be.a('number');
-                expect(data).to.be("0");
+                // expect(data).to.be("0");
               }
             }
             expect(data.userRoleId).to.be.a('number');
-            expect(data.userRoleId).to.be("0");
+            // expect(data.userRoleId).to.be("0");
             expect(data.username).to.be.a('string');
-            expect(data.username).to.be("");
+            // expect(data.username).to.be("");
 
             done();
           });
@@ -159,19 +159,19 @@
             // TODO: update response assertions
             expect(data).to.be.a(SongbookApi.UserDTO);
             expect(data.activated).to.be.a('boolean');
-            expect(data.activated).to.be(false);
+            // expect(data.activated).to.be(false);
             expect(data.email).to.be.a('string');
-            expect(data.email).to.be("");
+            // expect(data.email).to.be("");
             expect(data.firstName).to.be.a('string');
-            expect(data.firstName).to.be("");
+            // expect(data.firstName).to.be("");
             expect(data.id).to.be.a('number');
-            expect(data.id).to.be("0");
+            // expect(data.id).to.be("0");
             expect(data.imageUrl).to.be.a('string');
-            expect(data.imageUrl).to.be("");
+            // expect(data.imageUrl).to.be("");
             expect(data.lastName).to.be.a('string');
-            expect(data.lastName).to.be("");
+            // expect(data.lastName).to.be("");
             expect(data.registrationDate).to.be.a(Date);
-            expect(data.registrationDate).to.be(new Date());
+            // expect(data.registrationDate).to.be(new Date());
             {
               let dataCtr = data.songs;
               expect(dataCtr).to.be.an(Array);
@@ -179,13 +179,13 @@
               for (let p in dataCtr) {
                 let data = dataCtr[p];
                 expect(data).to.be.a('number');
-                expect(data).to.be("0");
+                // expect(data).to.be("0");
               }
             }
             expect(data.userRoleId).to.be.a('number');
-            expect(data.userRoleId).to.be("0");
+            // expect(data.userRoleId).to.be("0");
             expect(data.username).to.be.a('string');
-            expect(data.username).to.be("");
+            // expect(data.username).to.be("");
 
             done();
           });

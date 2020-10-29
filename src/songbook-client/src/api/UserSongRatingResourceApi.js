@@ -14,38 +14,26 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/UserSongRatingDTO'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/UserSongRatingDTO'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
+import {ApiClient} from "../ApiClient";
+import {UserSongRatingDTO} from '../model/UserSongRatingDTO';
+
+/**
+* UserSongRatingResource service.
+* @module api/UserSongRatingResourceApi
+* @version 1.5.5
+*/
+export class UserSongRatingResourceApi {
+
+    /**
+    * Constructs a new UserSongRatingResourceApi. 
+    * @alias module:api/UserSongRatingResourceApi
+    * @class
+    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+    * default to {@link module:ApiClient#instance} if unspecified.
+    */
+    constructor(apiClient) {
+        this.apiClient = apiClient || ApiClient.instance;
     }
-    root.SongbookApi.UserSongRatingResourceApi = factory(root.SongbookApi.ApiClient, root.SongbookApi.UserSongRatingDTO);
-  }
-}(this, function(ApiClient, UserSongRatingDTO) {
-  'use strict';
-
-  /**
-   * UserSongRatingResource service.
-   * @module api/UserSongRatingResourceApi
-   * @version 1.5.5
-   */
-
-  /**
-   * Constructs a new UserSongRatingResourceApi. 
-   * @alias module:api/UserSongRatingResourceApi
-   * @class
-   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-   * default to {@link module:ApiClient#instance} if unspecified.
-   */
-  var exports = function(apiClient) {
-    this.apiClient = apiClient || ApiClient.instance;
 
 
     /**
@@ -62,8 +50,8 @@
      * @param {module:api/UserSongRatingResourceApi~createUsingPOST7Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserSongRatingDTO}
      */
-    this.createUsingPOST7 = function(dto, callback) {
-      var postBody = dto;
+    createUsingPOST7(dto, callback) {
+      let postBody = dto;
 
       // verify the required parameter 'dto' is set
       if (dto === undefined || dto === null) {
@@ -71,25 +59,23 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = UserSongRatingDTO;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = UserSongRatingDTO;
 
       return this.apiClient.callApi(
         '/api/ratings', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -108,8 +94,8 @@
      * @param {Number} userId userId
      * @param {module:api/UserSongRatingResourceApi~deleteUsingDELETE8Callback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.deleteUsingDELETE8 = function(songId, userId, callback) {
-      var postBody = null;
+    deleteUsingDELETE8(songId, userId, callback) {
+      let postBody = null;
 
       // verify the required parameter 'songId' is set
       if (songId === undefined || songId === null) {
@@ -122,27 +108,25 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'songId': songId,
         'userId': userId
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = null;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/ratings/{userId}/{songId}', 'DELETE',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -164,33 +148,31 @@
      * @param {module:api/UserSongRatingResourceApi~getAllUsingGET8Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/UserSongRatingDTO>}
      */
-    this.getAllUsingGET8 = function(opts, callback) {
+    getAllUsingGET8(opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      let postBody = null;
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
         'equal': opts['equal'],
         'greaterThanEqual': opts['greaterThanEqual'],
-        'lessThanEqual': opts['lessThanEqual'],
+        'lessThanEqual': opts['lessThanEqual']
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [UserSongRatingDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [UserSongRatingDTO];
 
       return this.apiClient.callApi(
         '/api/ratings', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -209,8 +191,8 @@
      * @param {module:api/UserSongRatingResourceApi~getBySongIdUsingGET1Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/UserSongRatingDTO>}
      */
-    this.getBySongIdUsingGET1 = function(id, callback) {
-      var postBody = null;
+    getBySongIdUsingGET1(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -218,26 +200,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [UserSongRatingDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [UserSongRatingDTO];
 
       return this.apiClient.callApi(
         '/api/ratings/song/{id}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -257,8 +237,8 @@
      * @param {module:api/UserSongRatingResourceApi~getByUserIdAndSongIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserSongRatingDTO}
      */
-    this.getByUserIdAndSongIdUsingGET = function(songId, userId, callback) {
-      var postBody = null;
+    getByUserIdAndSongIdUsingGET(songId, userId, callback) {
+      let postBody = null;
 
       // verify the required parameter 'songId' is set
       if (songId === undefined || songId === null) {
@@ -271,27 +251,25 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'songId': songId,
         'userId': userId
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = UserSongRatingDTO;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = UserSongRatingDTO;
 
       return this.apiClient.callApi(
         '/api/ratings/{userId}/{songId}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -310,8 +288,8 @@
      * @param {module:api/UserSongRatingResourceApi~getByUserIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/UserSongRatingDTO>}
      */
-    this.getByUserIdUsingGET = function(id, callback) {
-      var postBody = null;
+    getByUserIdUsingGET(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -319,26 +297,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [UserSongRatingDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [UserSongRatingDTO];
 
       return this.apiClient.callApi(
         '/api/ratings/user/{id}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -357,8 +333,8 @@
      * @param {module:api/UserSongRatingResourceApi~updateUsingPUT7Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserSongRatingDTO}
      */
-    this.updateUsingPUT7 = function(dto, callback) {
-      var postBody = dto;
+    updateUsingPUT7(dto, callback) {
+      let postBody = dto;
 
       // verify the required parameter 'dto' is set
       if (dto === undefined || dto === null) {
@@ -366,29 +342,26 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = UserSongRatingDTO;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = UserSongRatingDTO;
 
       return this.apiClient.callApi(
         '/api/ratings', 'PUT',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
-  };
 
-  return exports;
-}));
+
+}

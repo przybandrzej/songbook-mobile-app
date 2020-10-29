@@ -20,21 +20,20 @@ create
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongCoauthorResourceApi();
+let apiInstance = new SongbookApi.SongCoauthorResourceApi();
 
-var songCoauthorDTO = new SongbookApi.SongCoauthorDTO(); // SongCoauthorDTO | songCoauthorDTO
+let songCoauthorDTO = new SongbookApi.SongCoauthorDTO(); // SongCoauthorDTO | songCoauthorDTO
 
 
-var callback = function(error, data, response) {
+apiInstance.createUsingPOST3(songCoauthorDTO, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.createUsingPOST3(songCoauthorDTO, callback);
+});
 ```
 
 ### Parameters
@@ -64,25 +63,24 @@ delete
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongCoauthorResourceApi();
+let apiInstance = new SongbookApi.SongCoauthorResourceApi();
 
-var authorId = 789; // Number | authorId
+let authorId = 789; // Number | authorId
 
-var _function = "_function_example"; // String | function
+let _function = "_function_example"; // String | function
 
-var songId = 789; // Number | songId
+let songId = 789; // Number | songId
 
 
-var callback = function(error, data, response) {
+apiInstance.deleteUsingDELETE3(authorId, _function, songId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.deleteUsingDELETE3(authorId, _function, songId, callback);
+});
 ```
 
 ### Parameters
@@ -114,21 +112,20 @@ getByAuthorId
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongCoauthorResourceApi();
+let apiInstance = new SongbookApi.SongCoauthorResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getByAuthorIdUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByAuthorIdUsingGET(id, callback);
+});
 ```
 
 ### Parameters
@@ -158,21 +155,20 @@ getByFunction
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongCoauthorResourceApi();
+let apiInstance = new SongbookApi.SongCoauthorResourceApi();
 
-var _function = "_function_example"; // String | function
+let _function = "_function_example"; // String | function
 
 
-var callback = function(error, data, response) {
+apiInstance.getByFunctionUsingGET(_function, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByFunctionUsingGET(_function, callback);
+});
 ```
 
 ### Parameters
@@ -202,21 +198,20 @@ getBySongId
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongCoauthorResourceApi();
+let apiInstance = new SongbookApi.SongCoauthorResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getBySongIdUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getBySongIdUsingGET(id, callback);
+});
 ```
 
 ### Parameters
@@ -246,21 +241,20 @@ update
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongCoauthorResourceApi();
+let apiInstance = new SongbookApi.SongCoauthorResourceApi();
 
-var songCoauthorDTO = new SongbookApi.SongCoauthorDTO(); // SongCoauthorDTO | songCoauthorDTO
+let songCoauthorDTO = new SongbookApi.SongCoauthorDTO(); // SongCoauthorDTO | songCoauthorDTO
 
 
-var callback = function(error, data, response) {
+apiInstance.updateUsingPUT3(songCoauthorDTO, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.updateUsingPUT3(songCoauthorDTO, callback);
+});
 ```
 
 ### Parameters

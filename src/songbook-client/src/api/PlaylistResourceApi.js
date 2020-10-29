@@ -14,38 +14,28 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CreatePlaylistDTO', 'model/PlaylistDTO', 'model/Resource'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CreatePlaylistDTO'), require('../model/PlaylistDTO'), require('../model/Resource'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
+import {ApiClient} from "../ApiClient";
+import {CreatePlaylistDTO} from '../model/CreatePlaylistDTO';
+import {PlaylistDTO} from '../model/PlaylistDTO';
+import {Resource} from '../model/Resource';
+
+/**
+* PlaylistResource service.
+* @module api/PlaylistResourceApi
+* @version 1.5.5
+*/
+export class PlaylistResourceApi {
+
+    /**
+    * Constructs a new PlaylistResourceApi. 
+    * @alias module:api/PlaylistResourceApi
+    * @class
+    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+    * default to {@link module:ApiClient#instance} if unspecified.
+    */
+    constructor(apiClient) {
+        this.apiClient = apiClient || ApiClient.instance;
     }
-    root.SongbookApi.PlaylistResourceApi = factory(root.SongbookApi.ApiClient, root.SongbookApi.CreatePlaylistDTO, root.SongbookApi.PlaylistDTO, root.SongbookApi.Resource);
-  }
-}(this, function(ApiClient, CreatePlaylistDTO, PlaylistDTO, Resource) {
-  'use strict';
-
-  /**
-   * PlaylistResource service.
-   * @module api/PlaylistResourceApi
-   * @version 1.5.5
-   */
-
-  /**
-   * Constructs a new PlaylistResourceApi. 
-   * @alias module:api/PlaylistResourceApi
-   * @class
-   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-   * default to {@link module:ApiClient#instance} if unspecified.
-   */
-  var exports = function(apiClient) {
-    this.apiClient = apiClient || ApiClient.instance;
 
 
     /**
@@ -62,8 +52,8 @@
      * @param {Number} songId songId
      * @param {module:api/PlaylistResourceApi~addSongUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.addSongUsingPATCH = function(id, songId, callback) {
-      var postBody = null;
+    addSongUsingPATCH(id, songId, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -76,27 +66,25 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id,
         'songId': songId
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = null;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/playlists/{id}/add-song/{songId}', 'PATCH',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -115,8 +103,8 @@
      * @param {module:api/PlaylistResourceApi~createUsingPOST2Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PlaylistDTO}
      */
-    this.createUsingPOST2 = function(dto, callback) {
-      var postBody = dto;
+    createUsingPOST2(dto, callback) {
+      let postBody = dto;
 
       // verify the required parameter 'dto' is set
       if (dto === undefined || dto === null) {
@@ -124,25 +112,23 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = PlaylistDTO;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = PlaylistDTO;
 
       return this.apiClient.callApi(
         '/api/playlists', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -160,8 +146,8 @@
      * @param {Number} id id
      * @param {module:api/PlaylistResourceApi~deleteUsingDELETE2Callback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.deleteUsingDELETE2 = function(id, callback) {
-      var postBody = null;
+    deleteUsingDELETE2(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -169,26 +155,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = null;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/playlists/id/{id}', 'DELETE',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -207,8 +191,8 @@
      * @param {module:api/PlaylistResourceApi~downloadPlaylistPdfSongbookUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/Resource}
      */
-    this.downloadPlaylistPdfSongbookUsingGET = function(id, callback) {
-      var postBody = null;
+    downloadPlaylistPdfSongbookUsingGET(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -216,26 +200,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = Resource;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = Resource;
 
       return this.apiClient.callApi(
         '/api/playlists/download/{id}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -256,32 +238,30 @@
      * @param {module:api/PlaylistResourceApi~getAllUsingGET3Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/PlaylistDTO>}
      */
-    this.getAllUsingGET3 = function(opts, callback) {
+    getAllUsingGET3(opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      let postBody = null;
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
         'include_private': opts['includePrivate'],
-        'limit': opts['limit'],
+        'limit': opts['limit']
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [PlaylistDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [PlaylistDTO];
 
       return this.apiClient.callApi(
         '/api/playlists', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -300,8 +280,8 @@
      * @param {module:api/PlaylistResourceApi~getByIdUsingGET3Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PlaylistDTO}
      */
-    this.getByIdUsingGET3 = function(id, callback) {
-      var postBody = null;
+    getByIdUsingGET3(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -309,26 +289,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = PlaylistDTO;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = PlaylistDTO;
 
       return this.apiClient.callApi(
         '/api/playlists/id/{id}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -350,9 +328,9 @@
      * @param {module:api/PlaylistResourceApi~getByNameUsingGET1Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/PlaylistDTO>}
      */
-    this.getByNameUsingGET1 = function(name, opts, callback) {
+    getByNameUsingGET1(name, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      let postBody = null;
 
       // verify the required parameter 'name' is set
       if (name === undefined || name === null) {
@@ -360,28 +338,26 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'name': name
       };
-      var queryParams = {
+      let queryParams = {
         'include_private': opts['includePrivate'],
-        'limit': opts['limit'],
+        'limit': opts['limit']
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [PlaylistDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [PlaylistDTO];
 
       return this.apiClient.callApi(
         '/api/playlists/name/{name}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -402,9 +378,9 @@
      * @param {module:api/PlaylistResourceApi~getByOwnerIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/PlaylistDTO>}
      */
-    this.getByOwnerIdUsingGET = function(id, opts, callback) {
+    getByOwnerIdUsingGET(id, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -412,27 +388,25 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
-        'include_private': opts['includePrivate'],
+      let queryParams = {
+        'include_private': opts['includePrivate']
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [PlaylistDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [PlaylistDTO];
 
       return this.apiClient.callApi(
         '/api/playlists/ownerId/{id}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -451,8 +425,8 @@
      * @param {Number} songId songId
      * @param {module:api/PlaylistResourceApi~removeSongUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.removeSongUsingPATCH = function(id, songId, callback) {
-      var postBody = null;
+    removeSongUsingPATCH(id, songId, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -465,27 +439,25 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id,
         'songId': songId
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = null;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/playlists/{id}/remove-song/{songId}', 'PATCH',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -504,8 +476,8 @@
      * @param {module:api/PlaylistResourceApi~updateUsingPUT2Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PlaylistDTO}
      */
-    this.updateUsingPUT2 = function(dto, callback) {
-      var postBody = dto;
+    updateUsingPUT2(dto, callback) {
+      let postBody = dto;
 
       // verify the required parameter 'dto' is set
       if (dto === undefined || dto === null) {
@@ -513,29 +485,26 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = PlaylistDTO;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = PlaylistDTO;
 
       return this.apiClient.callApi(
         '/api/playlists', 'PUT',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
-  };
 
-  return exports;
-}));
+
+}

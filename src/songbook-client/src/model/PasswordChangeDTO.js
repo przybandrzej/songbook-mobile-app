@@ -14,38 +14,23 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.PasswordChangeDTO = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The PasswordChangeDTO model module.
-   * @module model/PasswordChangeDTO
-   * @version 1.5.5
-   */
-
+/**
+ * The PasswordChangeDTO model module.
+ * @module model/PasswordChangeDTO
+ * @version 1.5.5
+ */
+export class PasswordChangeDTO {
   /**
    * Constructs a new <code>PasswordChangeDTO</code>.
    * @alias module:model/PasswordChangeDTO
    * @class
    * @param newPassword {String} 
    */
-  var exports = function(newPassword) {
+  constructor(newPassword) {
     this.newPassword = newPassword;
-  };
+  }
 
   /**
    * Constructs a <code>PasswordChangeDTO</code> from a plain JavaScript object, optionally creating a new instance.
@@ -54,9 +39,9 @@
    * @param {module:model/PasswordChangeDTO} obj Optional instance to populate.
    * @return {module:model/PasswordChangeDTO} The populated <code>PasswordChangeDTO</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new PasswordChangeDTO();
       if (data.hasOwnProperty('currentPassword'))
         obj.currentPassword = ApiClient.convertToType(data['currentPassword'], 'String');
       if (data.hasOwnProperty('newPassword'))
@@ -64,17 +49,16 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {String} currentPassword
-   */
-  exports.prototype.currentPassword = undefined;
+/**
+ * @member {String} currentPassword
+ */
+PasswordChangeDTO.prototype.currentPassword = undefined;
 
-  /**
-   * @member {String} newPassword
-   */
-  exports.prototype.newPassword = undefined;
+/**
+ * @member {String} newPassword
+ */
+PasswordChangeDTO.prototype.newPassword = undefined;
 
-  return exports;
 
-}));

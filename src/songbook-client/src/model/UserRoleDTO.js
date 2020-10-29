@@ -14,29 +14,14 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.UserRoleDTO = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The UserRoleDTO model module.
-   * @module model/UserRoleDTO
-   * @version 1.5.5
-   */
-
+/**
+ * The UserRoleDTO model module.
+ * @module model/UserRoleDTO
+ * @version 1.5.5
+ */
+export class UserRoleDTO {
   /**
    * Constructs a new <code>UserRoleDTO</code>.
    * @alias module:model/UserRoleDTO
@@ -44,10 +29,10 @@
    * @param id {Number} 
    * @param name {String} 
    */
-  var exports = function(id, name) {
+  constructor(id, name) {
     this.id = id;
     this.name = name;
-  };
+  }
 
   /**
    * Constructs a <code>UserRoleDTO</code> from a plain JavaScript object, optionally creating a new instance.
@@ -56,9 +41,9 @@
    * @param {module:model/UserRoleDTO} obj Optional instance to populate.
    * @return {module:model/UserRoleDTO} The populated <code>UserRoleDTO</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new UserRoleDTO();
       if (data.hasOwnProperty('id'))
         obj.id = ApiClient.convertToType(data['id'], 'Number');
       if (data.hasOwnProperty('name'))
@@ -66,17 +51,16 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {Number} id
-   */
-  exports.prototype.id = undefined;
+/**
+ * @member {Number} id
+ */
+UserRoleDTO.prototype.id = undefined;
 
-  /**
-   * @member {String} name
-   */
-  exports.prototype.name = undefined;
+/**
+ * @member {String} name
+ */
+UserRoleDTO.prototype.name = undefined;
 
-  return exports;
 
-}));

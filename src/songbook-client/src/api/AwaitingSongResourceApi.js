@@ -14,38 +14,26 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/SongDTO'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/SongDTO'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
+import {ApiClient} from "../ApiClient";
+import {SongDTO} from '../model/SongDTO';
+
+/**
+* AwaitingSongResource service.
+* @module api/AwaitingSongResourceApi
+* @version 1.5.5
+*/
+export class AwaitingSongResourceApi {
+
+    /**
+    * Constructs a new AwaitingSongResourceApi. 
+    * @alias module:api/AwaitingSongResourceApi
+    * @class
+    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+    * default to {@link module:ApiClient#instance} if unspecified.
+    */
+    constructor(apiClient) {
+        this.apiClient = apiClient || ApiClient.instance;
     }
-    root.SongbookApi.AwaitingSongResourceApi = factory(root.SongbookApi.ApiClient, root.SongbookApi.SongDTO);
-  }
-}(this, function(ApiClient, SongDTO) {
-  'use strict';
-
-  /**
-   * AwaitingSongResource service.
-   * @module api/AwaitingSongResourceApi
-   * @version 1.5.5
-   */
-
-  /**
-   * Constructs a new AwaitingSongResourceApi. 
-   * @alias module:api/AwaitingSongResourceApi
-   * @class
-   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-   * default to {@link module:ApiClient#instance} if unspecified.
-   */
-  var exports = function(apiClient) {
-    this.apiClient = apiClient || ApiClient.instance;
 
 
     /**
@@ -63,31 +51,29 @@
      * @param {module:api/AwaitingSongResourceApi~getAllUsingGET1Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongDTO>}
      */
-    this.getAllUsingGET1 = function(opts, callback) {
+    getAllUsingGET1(opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      let postBody = null;
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
-        'limit': opts['limit'],
+      let queryParams = {
+        'limit': opts['limit']
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [SongDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongDTO];
 
       return this.apiClient.callApi(
         '/api/awaiting-songs', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -108,9 +94,9 @@
      * @param {module:api/AwaitingSongResourceApi~getByCategoryUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongDTO>}
      */
-    this.getByCategoryUsingGET = function(categoryId, opts, callback) {
+    getByCategoryUsingGET(categoryId, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      let postBody = null;
 
       // verify the required parameter 'categoryId' is set
       if (categoryId === undefined || categoryId === null) {
@@ -118,27 +104,25 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'categoryId': categoryId
       };
-      var queryParams = {
-        'limit': opts['limit'],
+      let queryParams = {
+        'limit': opts['limit']
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [SongDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongDTO];
 
       return this.apiClient.callApi(
         '/api/awaiting-songs/category/{categoryId}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -157,8 +141,8 @@
      * @param {module:api/AwaitingSongResourceApi~getByIdUsingGET1Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SongDTO}
      */
-    this.getByIdUsingGET1 = function(id, callback) {
-      var postBody = null;
+    getByIdUsingGET1(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -166,26 +150,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = SongDTO;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = SongDTO;
 
       return this.apiClient.callApi(
         '/api/awaiting-songs/id/{id}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -206,9 +188,9 @@
      * @param {module:api/AwaitingSongResourceApi~getByLyricsFragmentUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongDTO>}
      */
-    this.getByLyricsFragmentUsingGET = function(value, opts, callback) {
+    getByLyricsFragmentUsingGET(value, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      let postBody = null;
 
       // verify the required parameter 'value' is set
       if (value === undefined || value === null) {
@@ -216,27 +198,25 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'value': value
       };
-      var queryParams = {
-        'limit': opts['limit'],
+      let queryParams = {
+        'limit': opts['limit']
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [SongDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongDTO];
 
       return this.apiClient.callApi(
         '/api/awaiting-songs/lyrics_fragment/{value}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -257,9 +237,9 @@
      * @param {module:api/AwaitingSongResourceApi~getByTagUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongDTO>}
      */
-    this.getByTagUsingGET = function(tagId, opts, callback) {
+    getByTagUsingGET(tagId, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      let postBody = null;
 
       // verify the required parameter 'tagId' is set
       if (tagId === undefined || tagId === null) {
@@ -267,27 +247,25 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'tagId': tagId
       };
-      var queryParams = {
-        'limit': opts['limit'],
+      let queryParams = {
+        'limit': opts['limit']
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [SongDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongDTO];
 
       return this.apiClient.callApi(
         '/api/awaiting-songs/tag/{tagId}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -308,9 +286,9 @@
      * @param {module:api/AwaitingSongResourceApi~getByTitleFragmentUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongDTO>}
      */
-    this.getByTitleFragmentUsingGET = function(title, opts, callback) {
+    getByTitleFragmentUsingGET(title, opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      let postBody = null;
 
       // verify the required parameter 'title' is set
       if (title === undefined || title === null) {
@@ -318,27 +296,25 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'title': title
       };
-      var queryParams = {
-        'limit': opts['limit'],
+      let queryParams = {
+        'limit': opts['limit']
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [SongDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongDTO];
 
       return this.apiClient.callApi(
         '/api/awaiting-songs/title/{title}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -357,8 +333,8 @@
      * @param {module:api/AwaitingSongResourceApi~getLatestUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongDTO>}
      */
-    this.getLatestUsingGET = function(limit, callback) {
-      var postBody = null;
+    getLatestUsingGET(limit, callback) {
+      let postBody = null;
 
       // verify the required parameter 'limit' is set
       if (limit === undefined || limit === null) {
@@ -366,30 +342,27 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
-        'limit': limit,
+      let queryParams = {
+        'limit': limit
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [SongDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongDTO];
 
       return this.apiClient.callApi(
         '/api/awaiting-songs/latest', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
-  };
 
-  return exports;
-}));
+
+}

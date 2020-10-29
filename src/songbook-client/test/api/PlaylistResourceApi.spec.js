@@ -73,15 +73,15 @@
             // TODO: update response assertions
             expect(data).to.be.a(SongbookApi.PlaylistDTO);
             expect(data.creationTime).to.be.a(Date);
-            expect(data.creationTime).to.be(new Date());
+            // expect(data.creationTime).to.be(new Date());
             expect(data.id).to.be.a('number');
-            expect(data.id).to.be("0");
+            // expect(data.id).to.be("0");
             expect(data.isPrivate).to.be.a('boolean');
-            expect(data.isPrivate).to.be(false);
+            // expect(data.isPrivate).to.be(false);
             expect(data.name).to.be.a('string');
-            expect(data.name).to.be("");
+            // expect(data.name).to.be("");
             expect(data.ownerId).to.be.a('number');
-            expect(data.ownerId).to.be("0");
+            // expect(data.ownerId).to.be("0");
             {
               let dataCtr = data.songs;
               expect(dataCtr).to.be.an(Array);
@@ -89,7 +89,7 @@
               for (let p in dataCtr) {
                 let data = dataCtr[p];
                 expect(data).to.be.a('number');
-                expect(data).to.be("0");
+                // expect(data).to.be("0");
               }
             }
 
@@ -133,74 +133,74 @@
             // TODO: update response assertions
             expect(data).to.be.a(SongbookApi.Resource);
             expect(data.description).to.be.a('string');
-            expect(data.description).to.be("");
+            // expect(data.description).to.be("");
             expect(data.file).to.be.a(File);
-            expect(data.file).to.be();
+            // expect(data.file).to.be();
             expect(data.filename).to.be.a('string');
-            expect(data.filename).to.be("");
+            // expect(data.filename).to.be("");
             expect(data.inputStream).to.be.a(SongbookApi.InputStream);
                 expect(data.open).to.be.a('boolean');
-            expect(data.open).to.be(false);
+            // expect(data.open).to.be(false);
             expect(data.readable).to.be.a('boolean');
-            expect(data.readable).to.be(false);
+            // expect(data.readable).to.be(false);
             expect(data.uri).to.be.a(SongbookApi.URI);
                   expect(data.uri.absolute).to.be.a('boolean');
-              expect(data.uri.absolute).to.be(false);
+              // expect(data.uri.absolute).to.be(false);
               expect(data.uri.authority).to.be.a('string');
-              expect(data.uri.authority).to.be("");
+              // expect(data.uri.authority).to.be("");
               expect(data.uri.fragment).to.be.a('string');
-              expect(data.uri.fragment).to.be("");
+              // expect(data.uri.fragment).to.be("");
               expect(data.uri.host).to.be.a('string');
-              expect(data.uri.host).to.be("");
+              // expect(data.uri.host).to.be("");
               expect(data.uri.opaque).to.be.a('boolean');
-              expect(data.uri.opaque).to.be(false);
+              // expect(data.uri.opaque).to.be(false);
               expect(data.uri.path).to.be.a('string');
-              expect(data.uri.path).to.be("");
+              // expect(data.uri.path).to.be("");
               expect(data.uri.port).to.be.a('number');
-              expect(data.uri.port).to.be(0);
+              // expect(data.uri.port).to.be(0);
               expect(data.uri.query).to.be.a('string');
-              expect(data.uri.query).to.be("");
+              // expect(data.uri.query).to.be("");
               expect(data.uri.rawAuthority).to.be.a('string');
-              expect(data.uri.rawAuthority).to.be("");
+              // expect(data.uri.rawAuthority).to.be("");
               expect(data.uri.rawFragment).to.be.a('string');
-              expect(data.uri.rawFragment).to.be("");
+              // expect(data.uri.rawFragment).to.be("");
               expect(data.uri.rawPath).to.be.a('string');
-              expect(data.uri.rawPath).to.be("");
+              // expect(data.uri.rawPath).to.be("");
               expect(data.uri.rawQuery).to.be.a('string');
-              expect(data.uri.rawQuery).to.be("");
+              // expect(data.uri.rawQuery).to.be("");
               expect(data.uri.rawSchemeSpecificPart).to.be.a('string');
-              expect(data.uri.rawSchemeSpecificPart).to.be("");
+              // expect(data.uri.rawSchemeSpecificPart).to.be("");
               expect(data.uri.rawUserInfo).to.be.a('string');
-              expect(data.uri.rawUserInfo).to.be("");
+              // expect(data.uri.rawUserInfo).to.be("");
               expect(data.uri.scheme).to.be.a('string');
-              expect(data.uri.scheme).to.be("");
+              // expect(data.uri.scheme).to.be("");
               expect(data.uri.schemeSpecificPart).to.be.a('string');
-              expect(data.uri.schemeSpecificPart).to.be("");
+              // expect(data.uri.schemeSpecificPart).to.be("");
               expect(data.uri.userInfo).to.be.a('string');
-              expect(data.uri.userInfo).to.be("");
+              // expect(data.uri.userInfo).to.be("");
             expect(data.url).to.be.a(SongbookApi.URL);
                   expect(data.url.authority).to.be.a('string');
-              expect(data.url.authority).to.be("");
+              // expect(data.url.authority).to.be("");
               expect(data.url.content).to.be.a(Object);
-              expect(data.url.content).to.be();
+              // expect(data.url.content).to.be();
               expect(data.url.defaultPort).to.be.a('number');
-              expect(data.url.defaultPort).to.be(0);
+              // expect(data.url.defaultPort).to.be(0);
               expect(data.url.file).to.be.a('string');
-              expect(data.url.file).to.be("");
+              // expect(data.url.file).to.be("");
               expect(data.url.host).to.be.a('string');
-              expect(data.url.host).to.be("");
+              // expect(data.url.host).to.be("");
               expect(data.url.path).to.be.a('string');
-              expect(data.url.path).to.be("");
+              // expect(data.url.path).to.be("");
               expect(data.url.port).to.be.a('number');
-              expect(data.url.port).to.be(0);
+              // expect(data.url.port).to.be(0);
               expect(data.url.protocol).to.be.a('string');
-              expect(data.url.protocol).to.be("");
+              // expect(data.url.protocol).to.be("");
               expect(data.url.query).to.be.a('string');
-              expect(data.url.query).to.be("");
+              // expect(data.url.query).to.be("");
               expect(data.url.ref).to.be.a('string');
-              expect(data.url.ref).to.be("");
+              // expect(data.url.ref).to.be("");
               expect(data.url.userInfo).to.be.a('string');
-              expect(data.url.userInfo).to.be("");
+              // expect(data.url.userInfo).to.be("");
 
             done();
           });
@@ -230,15 +230,15 @@
               let data = dataCtr[p];
               expect(data).to.be.a(SongbookApi.PlaylistDTO);
               expect(data.creationTime).to.be.a(Date);
-              expect(data.creationTime).to.be(new Date());
+              // expect(data.creationTime).to.be(new Date());
               expect(data.id).to.be.a('number');
-              expect(data.id).to.be("0");
+              // expect(data.id).to.be("0");
               expect(data.isPrivate).to.be.a('boolean');
-              expect(data.isPrivate).to.be(false);
+              // expect(data.isPrivate).to.be(false);
               expect(data.name).to.be.a('string');
-              expect(data.name).to.be("");
+              // expect(data.name).to.be("");
               expect(data.ownerId).to.be.a('number');
-              expect(data.ownerId).to.be("0");
+              // expect(data.ownerId).to.be("0");
               {
                 let dataCtr = data.songs;
                 expect(dataCtr).to.be.an(Array);
@@ -246,7 +246,7 @@
                 for (let p in dataCtr) {
                   let data = dataCtr[p];
                   expect(data).to.be.a('number');
-                  expect(data).to.be("0");
+                  // expect(data).to.be("0");
                 }
               }
             }
@@ -272,15 +272,15 @@
             // TODO: update response assertions
             expect(data).to.be.a(SongbookApi.PlaylistDTO);
             expect(data.creationTime).to.be.a(Date);
-            expect(data.creationTime).to.be(new Date());
+            // expect(data.creationTime).to.be(new Date());
             expect(data.id).to.be.a('number');
-            expect(data.id).to.be("0");
+            // expect(data.id).to.be("0");
             expect(data.isPrivate).to.be.a('boolean');
-            expect(data.isPrivate).to.be(false);
+            // expect(data.isPrivate).to.be(false);
             expect(data.name).to.be.a('string');
-            expect(data.name).to.be("");
+            // expect(data.name).to.be("");
             expect(data.ownerId).to.be.a('number');
-            expect(data.ownerId).to.be("0");
+            // expect(data.ownerId).to.be("0");
             {
               let dataCtr = data.songs;
               expect(dataCtr).to.be.an(Array);
@@ -288,7 +288,7 @@
               for (let p in dataCtr) {
                 let data = dataCtr[p];
                 expect(data).to.be.a('number');
-                expect(data).to.be("0");
+                // expect(data).to.be("0");
               }
             }
 
@@ -321,15 +321,15 @@
               let data = dataCtr[p];
               expect(data).to.be.a(SongbookApi.PlaylistDTO);
               expect(data.creationTime).to.be.a(Date);
-              expect(data.creationTime).to.be(new Date());
+              // expect(data.creationTime).to.be(new Date());
               expect(data.id).to.be.a('number');
-              expect(data.id).to.be("0");
+              // expect(data.id).to.be("0");
               expect(data.isPrivate).to.be.a('boolean');
-              expect(data.isPrivate).to.be(false);
+              // expect(data.isPrivate).to.be(false);
               expect(data.name).to.be.a('string');
-              expect(data.name).to.be("");
+              // expect(data.name).to.be("");
               expect(data.ownerId).to.be.a('number');
-              expect(data.ownerId).to.be("0");
+              // expect(data.ownerId).to.be("0");
               {
                 let dataCtr = data.songs;
                 expect(dataCtr).to.be.an(Array);
@@ -337,7 +337,7 @@
                 for (let p in dataCtr) {
                   let data = dataCtr[p];
                   expect(data).to.be.a('number');
-                  expect(data).to.be("0");
+                  // expect(data).to.be("0");
                 }
               }
             }
@@ -370,15 +370,15 @@
               let data = dataCtr[p];
               expect(data).to.be.a(SongbookApi.PlaylistDTO);
               expect(data.creationTime).to.be.a(Date);
-              expect(data.creationTime).to.be(new Date());
+              // expect(data.creationTime).to.be(new Date());
               expect(data.id).to.be.a('number');
-              expect(data.id).to.be("0");
+              // expect(data.id).to.be("0");
               expect(data.isPrivate).to.be.a('boolean');
-              expect(data.isPrivate).to.be(false);
+              // expect(data.isPrivate).to.be(false);
               expect(data.name).to.be.a('string');
-              expect(data.name).to.be("");
+              // expect(data.name).to.be("");
               expect(data.ownerId).to.be.a('number');
-              expect(data.ownerId).to.be("0");
+              // expect(data.ownerId).to.be("0");
               {
                 let dataCtr = data.songs;
                 expect(dataCtr).to.be.an(Array);
@@ -386,7 +386,7 @@
                 for (let p in dataCtr) {
                   let data = dataCtr[p];
                   expect(data).to.be.a('number');
-                  expect(data).to.be("0");
+                  // expect(data).to.be("0");
                 }
               }
             }
@@ -438,15 +438,15 @@
             // TODO: update response assertions
             expect(data).to.be.a(SongbookApi.PlaylistDTO);
             expect(data.creationTime).to.be.a(Date);
-            expect(data.creationTime).to.be(new Date());
+            // expect(data.creationTime).to.be(new Date());
             expect(data.id).to.be.a('number');
-            expect(data.id).to.be("0");
+            // expect(data.id).to.be("0");
             expect(data.isPrivate).to.be.a('boolean');
-            expect(data.isPrivate).to.be(false);
+            // expect(data.isPrivate).to.be(false);
             expect(data.name).to.be.a('string');
-            expect(data.name).to.be("");
+            // expect(data.name).to.be("");
             expect(data.ownerId).to.be.a('number');
-            expect(data.ownerId).to.be("0");
+            // expect(data.ownerId).to.be("0");
             {
               let dataCtr = data.songs;
               expect(dataCtr).to.be.an(Array);
@@ -454,7 +454,7 @@
               for (let p in dataCtr) {
                 let data = dataCtr[p];
                 expect(data).to.be.a('number');
-                expect(data).to.be("0");
+                // expect(data).to.be("0");
               }
             }
 

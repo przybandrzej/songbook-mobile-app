@@ -14,38 +14,26 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/SongCoauthorDTO'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/SongCoauthorDTO'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
+import {ApiClient} from "../ApiClient";
+import {SongCoauthorDTO} from '../model/SongCoauthorDTO';
+
+/**
+* SongCoauthorResource service.
+* @module api/SongCoauthorResourceApi
+* @version 1.5.5
+*/
+export class SongCoauthorResourceApi {
+
+    /**
+    * Constructs a new SongCoauthorResourceApi. 
+    * @alias module:api/SongCoauthorResourceApi
+    * @class
+    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+    * default to {@link module:ApiClient#instance} if unspecified.
+    */
+    constructor(apiClient) {
+        this.apiClient = apiClient || ApiClient.instance;
     }
-    root.SongbookApi.SongCoauthorResourceApi = factory(root.SongbookApi.ApiClient, root.SongbookApi.SongCoauthorDTO);
-  }
-}(this, function(ApiClient, SongCoauthorDTO) {
-  'use strict';
-
-  /**
-   * SongCoauthorResource service.
-   * @module api/SongCoauthorResourceApi
-   * @version 1.5.5
-   */
-
-  /**
-   * Constructs a new SongCoauthorResourceApi. 
-   * @alias module:api/SongCoauthorResourceApi
-   * @class
-   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-   * default to {@link module:ApiClient#instance} if unspecified.
-   */
-  var exports = function(apiClient) {
-    this.apiClient = apiClient || ApiClient.instance;
 
 
     /**
@@ -62,8 +50,8 @@
      * @param {module:api/SongCoauthorResourceApi~createUsingPOST3Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SongCoauthorDTO}
      */
-    this.createUsingPOST3 = function(songCoauthorDTO, callback) {
-      var postBody = songCoauthorDTO;
+    createUsingPOST3(songCoauthorDTO, callback) {
+      let postBody = songCoauthorDTO;
 
       // verify the required parameter 'songCoauthorDTO' is set
       if (songCoauthorDTO === undefined || songCoauthorDTO === null) {
@@ -71,25 +59,23 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = SongCoauthorDTO;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = SongCoauthorDTO;
 
       return this.apiClient.callApi(
         '/api/coauthors', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -109,8 +95,8 @@
      * @param {Number} songId songId
      * @param {module:api/SongCoauthorResourceApi~deleteUsingDELETE3Callback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.deleteUsingDELETE3 = function(authorId, _function, songId, callback) {
-      var postBody = null;
+    deleteUsingDELETE3(authorId, _function, songId, callback) {
+      let postBody = null;
 
       // verify the required parameter 'authorId' is set
       if (authorId === undefined || authorId === null) {
@@ -128,28 +114,26 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'authorId': authorId,
         'function': _function,
         'songId': songId
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = null;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/coauthors/{songId}/{authorId}/{function}', 'DELETE',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -168,8 +152,8 @@
      * @param {module:api/SongCoauthorResourceApi~getByAuthorIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongCoauthorDTO>}
      */
-    this.getByAuthorIdUsingGET = function(id, callback) {
-      var postBody = null;
+    getByAuthorIdUsingGET(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -177,26 +161,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [SongCoauthorDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongCoauthorDTO];
 
       return this.apiClient.callApi(
         '/api/coauthors/author/{id}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -215,8 +197,8 @@
      * @param {module:api/SongCoauthorResourceApi~getByFunctionUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongCoauthorDTO>}
      */
-    this.getByFunctionUsingGET = function(_function, callback) {
-      var postBody = null;
+    getByFunctionUsingGET(_function, callback) {
+      let postBody = null;
 
       // verify the required parameter '_function' is set
       if (_function === undefined || _function === null) {
@@ -224,26 +206,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'function': _function
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [SongCoauthorDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongCoauthorDTO];
 
       return this.apiClient.callApi(
         '/api/coauthors/function/{function}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -262,8 +242,8 @@
      * @param {module:api/SongCoauthorResourceApi~getBySongIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongCoauthorDTO>}
      */
-    this.getBySongIdUsingGET = function(id, callback) {
-      var postBody = null;
+    getBySongIdUsingGET(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -271,26 +251,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [SongCoauthorDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongCoauthorDTO];
 
       return this.apiClient.callApi(
         '/api/coauthors/song/{id}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -309,8 +287,8 @@
      * @param {module:api/SongCoauthorResourceApi~updateUsingPUT3Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SongCoauthorDTO}
      */
-    this.updateUsingPUT3 = function(songCoauthorDTO, callback) {
-      var postBody = songCoauthorDTO;
+    updateUsingPUT3(songCoauthorDTO, callback) {
+      let postBody = songCoauthorDTO;
 
       // verify the required parameter 'songCoauthorDTO' is set
       if (songCoauthorDTO === undefined || songCoauthorDTO === null) {
@@ -318,29 +296,26 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = SongCoauthorDTO;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = SongCoauthorDTO;
 
       return this.apiClient.callApi(
         '/api/coauthors', 'PUT',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
-  };
 
-  return exports;
-}));
+
+}

@@ -38,23 +38,22 @@ addTagToSong
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
-var tag = new SongbookApi.UniversalCreateDTO(); // UniversalCreateDTO | tag
+let tag = new SongbookApi.UniversalCreateDTO(); // UniversalCreateDTO | tag
 
 
-var callback = function(error, data, response) {
+apiInstance.addTagToSongUsingPATCH(id, tag, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.addTagToSongUsingPATCH(id, tag, callback);
+});
 ```
 
 ### Parameters
@@ -85,23 +84,22 @@ addTagsToSongBulk
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
-var tags = [new SongbookApi.UniversalCreateDTO()]; // [UniversalCreateDTO] | tags
+let tags = [new SongbookApi.UniversalCreateDTO()]; // [UniversalCreateDTO] | tags
 
 
-var callback = function(error, data, response) {
+apiInstance.addTagsToSongBulkUsingPATCH(id, tags, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.addTagsToSongBulkUsingPATCH(id, tags, callback);
+});
 ```
 
 ### Parameters
@@ -132,21 +130,20 @@ approveSong
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.approveSongUsingPUT(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.approveSongUsingPUT(id, callback);
+});
 ```
 
 ### Parameters
@@ -176,21 +173,20 @@ create
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var obj = new SongbookApi.CreateSongDTO(); // CreateSongDTO | obj
+let obj = new SongbookApi.CreateSongDTO(); // CreateSongDTO | obj
 
 
-var callback = function(error, data, response) {
+apiInstance.createUsingPOST4(obj, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.createUsingPOST4(obj, callback);
+});
 ```
 
 ### Parameters
@@ -220,21 +216,20 @@ delete
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.deleteUsingDELETE4(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.deleteUsingDELETE4(id, callback);
+});
 ```
 
 ### Parameters
@@ -264,23 +259,22 @@ getAll
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var opts = { 
+let opts = { 
   'includeAwaiting': true, // Boolean | include_awaiting
   'limit': 56 // Number | limit
 };
 
-var callback = function(error, data, response) {
+apiInstance.getAllUsingGET4(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getAllUsingGET4(opts, callback);
+});
 ```
 
 ### Parameters
@@ -311,24 +305,23 @@ getByAuthor
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var authorId = 789; // Number | authorId
+let authorId = 789; // Number | authorId
 
-var opts = { 
+let opts = { 
   'limit': 56 // Number | limit
 };
 
-var callback = function(error, data, response) {
+apiInstance.getByAuthorUsingGET(authorId, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByAuthorUsingGET(authorId, opts, callback);
+});
 ```
 
 ### Parameters
@@ -359,24 +352,23 @@ getByCategory
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var categoryId = 789; // Number | categoryId
+let categoryId = 789; // Number | categoryId
 
-var opts = { 
+let opts = { 
   'limit': 56 // Number | limit
 };
 
-var callback = function(error, data, response) {
+apiInstance.getByCategoryUsingGET1(categoryId, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByCategoryUsingGET1(categoryId, opts, callback);
+});
 ```
 
 ### Parameters
@@ -407,21 +399,20 @@ getById
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getByIdUsingGET4(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByIdUsingGET4(id, callback);
+});
 ```
 
 ### Parameters
@@ -451,24 +442,23 @@ getByLyricsFragment
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var value = "value_example"; // String | value
+let value = "value_example"; // String | value
 
-var opts = { 
+let opts = { 
   'limit': 56 // Number | limit
 };
 
-var callback = function(error, data, response) {
+apiInstance.getByLyricsFragmentUsingGET1(value, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByLyricsFragmentUsingGET1(value, opts, callback);
+});
 ```
 
 ### Parameters
@@ -499,24 +489,23 @@ getByRating
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var opts = { 
+let opts = { 
   'equal': 1.2, // Number | equal
   'greaterThanEqual': 1.2, // Number | greaterThanEqual
   'lessThanEqual': 1.2 // Number | lessThanEqual
 };
 
-var callback = function(error, data, response) {
+apiInstance.getByRatingUsingGET(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByRatingUsingGET(opts, callback);
+});
 ```
 
 ### Parameters
@@ -548,24 +537,23 @@ getByTag
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var tagId = 789; // Number | tagId
+let tagId = 789; // Number | tagId
 
-var opts = { 
+let opts = { 
   'limit': 56 // Number | limit
 };
 
-var callback = function(error, data, response) {
+apiInstance.getByTagUsingGET1(tagId, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByTagUsingGET1(tagId, opts, callback);
+});
 ```
 
 ### Parameters
@@ -596,24 +584,23 @@ getByTitleFragment
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var title = "title_example"; // String | title
+let title = "title_example"; // String | title
 
-var opts = { 
+let opts = { 
   'limit': 56 // Number | limit
 };
 
-var callback = function(error, data, response) {
+apiInstance.getByTitleFragmentUsingGET1(title, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByTitleFragmentUsingGET1(title, opts, callback);
+});
 ```
 
 ### Parameters
@@ -644,21 +631,20 @@ getLatest
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var limit = 56; // Number | limit
+let limit = 56; // Number | limit
 
 
-var callback = function(error, data, response) {
+apiInstance.getLatestUsingGET1(limit, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getLatestUsingGET1(limit, callback);
+});
 ```
 
 ### Parameters
@@ -688,21 +674,20 @@ getSongPlaylists
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getSongPlaylistsUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getSongPlaylistsUsingGET(id, callback);
+});
 ```
 
 ### Parameters
@@ -732,21 +717,20 @@ getSongRatings
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getSongRatingsUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getSongRatingsUsingGET(id, callback);
+});
 ```
 
 ### Parameters
@@ -776,21 +760,20 @@ getSongUserLibraries
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getSongUserLibrariesUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getSongUserLibrariesUsingGET(id, callback);
+});
 ```
 
 ### Parameters
@@ -820,21 +803,20 @@ getSongsAddedByUser
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getSongsAddedByUserUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getSongsAddedByUserUsingGET(id, callback);
+});
 ```
 
 ### Parameters
@@ -864,21 +846,20 @@ getSongsEditedByUser
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getSongsEditedByUserUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getSongsEditedByUserUsingGET(id, callback);
+});
 ```
 
 ### Parameters
@@ -908,21 +889,20 @@ getUserSongs
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getUserSongsUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getUserSongsUsingGET(id, callback);
+});
 ```
 
 ### Parameters
@@ -952,21 +932,20 @@ loadFromFile
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var file = "/path/to/file.txt"; // File | file
+let file = "/path/to/file.txt"; // File | file
 
 
-var callback = function(error, data, response) {
+apiInstance.loadFromFileUsingPOST(file, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.loadFromFileUsingPOST(file, callback);
+});
 ```
 
 ### Parameters
@@ -996,23 +975,22 @@ removeTagFromSong
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
-var tagId = 789; // Number | tagId
+let tagId = 789; // Number | tagId
 
 
-var callback = function(error, data, response) {
+apiInstance.removeTagFromSongUsingPATCH(id, tagId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.removeTagFromSongUsingPATCH(id, tagId, callback);
+});
 ```
 
 ### Parameters
@@ -1043,23 +1021,22 @@ removeTagsFromSongBulk
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
-var tagIds = "tagIds_example"; // String | tagIds
+let tagIds = "tagIds_example"; // String | tagIds
 
 
-var callback = function(error, data, response) {
+apiInstance.removeTagsFromSongBulkUsingPATCH(id, tagIds, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.removeTagsFromSongBulkUsingPATCH(id, tagIds, callback);
+});
 ```
 
 ### Parameters
@@ -1090,21 +1067,20 @@ update
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.SongResourceApi();
+let apiInstance = new SongbookApi.SongResourceApi();
 
-var obj = new SongbookApi.SongDTO(); // SongDTO | obj
+let obj = new SongbookApi.SongDTO(); // SongDTO | obj
 
 
-var callback = function(error, data, response) {
+apiInstance.updateUsingPUT4(obj, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.updateUsingPUT4(obj, callback);
+});
 ```
 
 ### Parameters

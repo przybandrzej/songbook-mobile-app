@@ -14,38 +14,26 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/UserDTO'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/UserDTO'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
+import {ApiClient} from "../ApiClient";
+import {UserDTO} from '../model/UserDTO';
+
+/**
+* AdminResource service.
+* @module api/AdminResourceApi
+* @version 1.5.5
+*/
+export class AdminResourceApi {
+
+    /**
+    * Constructs a new AdminResourceApi. 
+    * @alias module:api/AdminResourceApi
+    * @class
+    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+    * default to {@link module:ApiClient#instance} if unspecified.
+    */
+    constructor(apiClient) {
+        this.apiClient = apiClient || ApiClient.instance;
     }
-    root.SongbookApi.AdminResourceApi = factory(root.SongbookApi.ApiClient, root.SongbookApi.UserDTO);
-  }
-}(this, function(ApiClient, UserDTO) {
-  'use strict';
-
-  /**
-   * AdminResource service.
-   * @module api/AdminResourceApi
-   * @version 1.5.5
-   */
-
-  /**
-   * Constructs a new AdminResourceApi. 
-   * @alias module:api/AdminResourceApi
-   * @class
-   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-   * default to {@link module:ApiClient#instance} if unspecified.
-   */
-  var exports = function(apiClient) {
-    this.apiClient = apiClient || ApiClient.instance;
 
 
     /**
@@ -62,8 +50,8 @@
      * @param {module:api/AdminResourceApi~activateUserUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserDTO}
      */
-    this.activateUserUsingPATCH = function(userId, callback) {
-      var postBody = null;
+    activateUserUsingPATCH(userId, callback) {
+      let postBody = null;
 
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
@@ -71,26 +59,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'userId': userId
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = UserDTO;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = UserDTO;
 
       return this.apiClient.callApi(
         '/api/admin/activate-user/{userId}', 'PATCH',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -110,8 +96,8 @@
      * @param {module:api/AdminResourceApi~updateUserRoleUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserDTO}
      */
-    this.updateUserRoleUsingPATCH = function(roleId, userId, callback) {
-      var postBody = null;
+    updateUserRoleUsingPATCH(roleId, userId, callback) {
+      let postBody = null;
 
       // verify the required parameter 'roleId' is set
       if (roleId === undefined || roleId === null) {
@@ -124,27 +110,25 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'roleId': roleId,
         'userId': userId
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = UserDTO;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = UserDTO;
 
       return this.apiClient.callApi(
         '/api/admin/update-role/{userId}/{roleId}', 'PATCH',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -163,8 +147,8 @@
      * @param {module:api/AdminResourceApi~updateUserUsingPUTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserDTO}
      */
-    this.updateUserUsingPUT = function(userDTO, callback) {
-      var postBody = userDTO;
+    updateUserUsingPUT(userDTO, callback) {
+      let postBody = userDTO;
 
       // verify the required parameter 'userDTO' is set
       if (userDTO === undefined || userDTO === null) {
@@ -172,29 +156,26 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = UserDTO;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = UserDTO;
 
       return this.apiClient.callApi(
         '/api/admin/update-user', 'PUT',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
-  };
 
-  return exports;
-}));
+
+}

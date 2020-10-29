@@ -14,29 +14,14 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.UserDTO = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The UserDTO model module.
-   * @module model/UserDTO
-   * @version 1.5.5
-   */
-
+/**
+ * The UserDTO model module.
+ * @module model/UserDTO
+ * @version 1.5.5
+ */
+export class UserDTO {
   /**
    * Constructs a new <code>UserDTO</code>.
    * @alias module:model/UserDTO
@@ -47,13 +32,13 @@
    * @param userRoleId {Number} 
    * @param username {String} 
    */
-  var exports = function(email, id, songs, userRoleId, username) {
+  constructor(email, id, songs, userRoleId, username) {
     this.email = email;
     this.id = id;
     this.songs = songs;
     this.userRoleId = userRoleId;
     this.username = username;
-  };
+  }
 
   /**
    * Constructs a <code>UserDTO</code> from a plain JavaScript object, optionally creating a new instance.
@@ -62,9 +47,9 @@
    * @param {module:model/UserDTO} obj Optional instance to populate.
    * @return {module:model/UserDTO} The populated <code>UserDTO</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new UserDTO();
       if (data.hasOwnProperty('activated'))
         obj.activated = ApiClient.convertToType(data['activated'], 'Boolean');
       if (data.hasOwnProperty('email'))
@@ -88,57 +73,56 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {Boolean} activated
-   */
-  exports.prototype.activated = undefined;
+/**
+ * @member {Boolean} activated
+ */
+UserDTO.prototype.activated = undefined;
 
-  /**
-   * @member {String} email
-   */
-  exports.prototype.email = undefined;
+/**
+ * @member {String} email
+ */
+UserDTO.prototype.email = undefined;
 
-  /**
-   * @member {String} firstName
-   */
-  exports.prototype.firstName = undefined;
+/**
+ * @member {String} firstName
+ */
+UserDTO.prototype.firstName = undefined;
 
-  /**
-   * @member {Number} id
-   */
-  exports.prototype.id = undefined;
+/**
+ * @member {Number} id
+ */
+UserDTO.prototype.id = undefined;
 
-  /**
-   * @member {String} imageUrl
-   */
-  exports.prototype.imageUrl = undefined;
+/**
+ * @member {String} imageUrl
+ */
+UserDTO.prototype.imageUrl = undefined;
 
-  /**
-   * @member {String} lastName
-   */
-  exports.prototype.lastName = undefined;
+/**
+ * @member {String} lastName
+ */
+UserDTO.prototype.lastName = undefined;
 
-  /**
-   * @member {Date} registrationDate
-   */
-  exports.prototype.registrationDate = undefined;
+/**
+ * @member {Date} registrationDate
+ */
+UserDTO.prototype.registrationDate = undefined;
 
-  /**
-   * @member {Array.<Number>} songs
-   */
-  exports.prototype.songs = undefined;
+/**
+ * @member {Array.<Number>} songs
+ */
+UserDTO.prototype.songs = undefined;
 
-  /**
-   * @member {Number} userRoleId
-   */
-  exports.prototype.userRoleId = undefined;
+/**
+ * @member {Number} userRoleId
+ */
+UserDTO.prototype.userRoleId = undefined;
 
-  /**
-   * @member {String} username
-   */
-  exports.prototype.username = undefined;
+/**
+ * @member {String} username
+ */
+UserDTO.prototype.username = undefined;
 
-  return exports;
 
-}));

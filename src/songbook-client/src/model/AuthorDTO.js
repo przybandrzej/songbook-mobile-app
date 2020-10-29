@@ -14,29 +14,14 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.AuthorDTO = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The AuthorDTO model module.
-   * @module model/AuthorDTO
-   * @version 1.5.5
-   */
-
+/**
+ * The AuthorDTO model module.
+ * @module model/AuthorDTO
+ * @version 1.5.5
+ */
+export class AuthorDTO {
   /**
    * Constructs a new <code>AuthorDTO</code>.
    * @alias module:model/AuthorDTO
@@ -44,10 +29,10 @@
    * @param id {Number} 
    * @param name {String} 
    */
-  var exports = function(id, name) {
+  constructor(id, name) {
     this.id = id;
     this.name = name;
-  };
+  }
 
   /**
    * Constructs a <code>AuthorDTO</code> from a plain JavaScript object, optionally creating a new instance.
@@ -56,9 +41,9 @@
    * @param {module:model/AuthorDTO} obj Optional instance to populate.
    * @return {module:model/AuthorDTO} The populated <code>AuthorDTO</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new AuthorDTO();
       if (data.hasOwnProperty('id'))
         obj.id = ApiClient.convertToType(data['id'], 'Number');
       if (data.hasOwnProperty('name'))
@@ -66,17 +51,16 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {Number} id
-   */
-  exports.prototype.id = undefined;
+/**
+ * @member {Number} id
+ */
+AuthorDTO.prototype.id = undefined;
 
-  /**
-   * @member {String} name
-   */
-  exports.prototype.name = undefined;
+/**
+ * @member {String} name
+ */
+AuthorDTO.prototype.name = undefined;
 
-  return exports;
 
-}));

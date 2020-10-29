@@ -14,38 +14,28 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/UniversalCreateDTO', 'model/UserDTO', 'model/UserRoleDTO'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/UniversalCreateDTO'), require('../model/UserDTO'), require('../model/UserRoleDTO'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
+import {ApiClient} from "../ApiClient";
+import {UniversalCreateDTO} from '../model/UniversalCreateDTO';
+import {UserDTO} from '../model/UserDTO';
+import {UserRoleDTO} from '../model/UserRoleDTO';
+
+/**
+* UserRoleResource service.
+* @module api/UserRoleResourceApi
+* @version 1.5.5
+*/
+export class UserRoleResourceApi {
+
+    /**
+    * Constructs a new UserRoleResourceApi. 
+    * @alias module:api/UserRoleResourceApi
+    * @class
+    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+    * default to {@link module:ApiClient#instance} if unspecified.
+    */
+    constructor(apiClient) {
+        this.apiClient = apiClient || ApiClient.instance;
     }
-    root.SongbookApi.UserRoleResourceApi = factory(root.SongbookApi.ApiClient, root.SongbookApi.UniversalCreateDTO, root.SongbookApi.UserDTO, root.SongbookApi.UserRoleDTO);
-  }
-}(this, function(ApiClient, UniversalCreateDTO, UserDTO, UserRoleDTO) {
-  'use strict';
-
-  /**
-   * UserRoleResource service.
-   * @module api/UserRoleResourceApi
-   * @version 1.5.5
-   */
-
-  /**
-   * Constructs a new UserRoleResourceApi. 
-   * @alias module:api/UserRoleResourceApi
-   * @class
-   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-   * default to {@link module:ApiClient#instance} if unspecified.
-   */
-  var exports = function(apiClient) {
-    this.apiClient = apiClient || ApiClient.instance;
 
 
     /**
@@ -62,8 +52,8 @@
      * @param {module:api/UserRoleResourceApi~createUsingPOST6Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserRoleDTO}
      */
-    this.createUsingPOST6 = function(userRoleDto, callback) {
-      var postBody = userRoleDto;
+    createUsingPOST6(userRoleDto, callback) {
+      let postBody = userRoleDto;
 
       // verify the required parameter 'userRoleDto' is set
       if (userRoleDto === undefined || userRoleDto === null) {
@@ -71,25 +61,23 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = UserRoleDTO;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = UserRoleDTO;
 
       return this.apiClient.callApi(
         '/api/user_roles', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -107,8 +95,8 @@
      * @param {Number} id id
      * @param {module:api/UserRoleResourceApi~deleteUsingDELETE7Callback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.deleteUsingDELETE7 = function(id, callback) {
-      var postBody = null;
+    deleteUsingDELETE7(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -116,26 +104,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = null;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/user_roles/id/{id}', 'DELETE',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -153,29 +139,27 @@
      * @param {module:api/UserRoleResourceApi~getAllUsingGET7Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/UserRoleDTO>}
      */
-    this.getAllUsingGET7 = function(callback) {
-      var postBody = null;
+    getAllUsingGET7(callback) {
+      let postBody = null;
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [UserRoleDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [UserRoleDTO];
 
       return this.apiClient.callApi(
         '/api/user_roles', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -194,8 +178,8 @@
      * @param {module:api/UserRoleResourceApi~getByIdUsingGET7Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserRoleDTO}
      */
-    this.getByIdUsingGET7 = function(id, callback) {
-      var postBody = null;
+    getByIdUsingGET7(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -203,26 +187,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = UserRoleDTO;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = UserRoleDTO;
 
       return this.apiClient.callApi(
         '/api/user_roles/id/{id}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -241,8 +223,8 @@
      * @param {module:api/UserRoleResourceApi~getByNameSearchQueryUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/UserRoleDTO>}
      */
-    this.getByNameSearchQueryUsingGET = function(searchQuery, callback) {
-      var postBody = null;
+    getByNameSearchQueryUsingGET(searchQuery, callback) {
+      let postBody = null;
 
       // verify the required parameter 'searchQuery' is set
       if (searchQuery === undefined || searchQuery === null) {
@@ -250,26 +232,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'searchQuery': searchQuery
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [UserRoleDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [UserRoleDTO];
 
       return this.apiClient.callApi(
         '/api/user_roles/name/{searchQuery}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -288,8 +268,8 @@
      * @param {module:api/UserRoleResourceApi~getUsersByUserRoleIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/UserDTO>}
      */
-    this.getUsersByUserRoleIdUsingGET = function(id, callback) {
-      var postBody = null;
+    getUsersByUserRoleIdUsingGET(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -297,26 +277,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [UserDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [UserDTO];
 
       return this.apiClient.callApi(
         '/api/user_roles/id/{id}/users', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -335,8 +313,8 @@
      * @param {module:api/UserRoleResourceApi~updateUsingPUT6Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserRoleDTO}
      */
-    this.updateUsingPUT6 = function(userRoleDto, callback) {
-      var postBody = userRoleDto;
+    updateUsingPUT6(userRoleDto, callback) {
+      let postBody = userRoleDto;
 
       // verify the required parameter 'userRoleDto' is set
       if (userRoleDto === undefined || userRoleDto === null) {
@@ -344,29 +322,26 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = UserRoleDTO;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = UserRoleDTO;
 
       return this.apiClient.callApi(
         '/api/user_roles', 'PUT',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
-  };
 
-  return exports;
-}));
+
+}

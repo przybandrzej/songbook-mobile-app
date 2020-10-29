@@ -14,29 +14,14 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.CreatePlaylistDTO = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The CreatePlaylistDTO model module.
-   * @module model/CreatePlaylistDTO
-   * @version 1.5.5
-   */
-
+/**
+ * The CreatePlaylistDTO model module.
+ * @module model/CreatePlaylistDTO
+ * @version 1.5.5
+ */
+export class CreatePlaylistDTO {
   /**
    * Constructs a new <code>CreatePlaylistDTO</code>.
    * @alias module:model/CreatePlaylistDTO
@@ -44,10 +29,10 @@
    * @param isPrivate {Boolean} 
    * @param songs {Array.<Number>} 
    */
-  var exports = function(isPrivate, songs) {
+  constructor(isPrivate, songs) {
     this.isPrivate = isPrivate;
     this.songs = songs;
-  };
+  }
 
   /**
    * Constructs a <code>CreatePlaylistDTO</code> from a plain JavaScript object, optionally creating a new instance.
@@ -56,9 +41,9 @@
    * @param {module:model/CreatePlaylistDTO} obj Optional instance to populate.
    * @return {module:model/CreatePlaylistDTO} The populated <code>CreatePlaylistDTO</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new CreatePlaylistDTO();
       if (data.hasOwnProperty('isPrivate'))
         obj.isPrivate = ApiClient.convertToType(data['isPrivate'], 'Boolean');
       if (data.hasOwnProperty('name'))
@@ -68,22 +53,21 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {Boolean} isPrivate
-   */
-  exports.prototype.isPrivate = undefined;
+/**
+ * @member {Boolean} isPrivate
+ */
+CreatePlaylistDTO.prototype.isPrivate = undefined;
 
-  /**
-   * @member {String} name
-   */
-  exports.prototype.name = undefined;
+/**
+ * @member {String} name
+ */
+CreatePlaylistDTO.prototype.name = undefined;
 
-  /**
-   * @member {Array.<Number>} songs
-   */
-  exports.prototype.songs = undefined;
+/**
+ * @member {Array.<Number>} songs
+ */
+CreatePlaylistDTO.prototype.songs = undefined;
 
-  return exports;
 
-}));

@@ -14,29 +14,14 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.PlaylistDTO = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The PlaylistDTO model module.
-   * @module model/PlaylistDTO
-   * @version 1.5.5
-   */
-
+/**
+ * The PlaylistDTO model module.
+ * @module model/PlaylistDTO
+ * @version 1.5.5
+ */
+export class PlaylistDTO {
   /**
    * Constructs a new <code>PlaylistDTO</code>.
    * @alias module:model/PlaylistDTO
@@ -47,13 +32,13 @@
    * @param ownerId {Number} 
    * @param songs {Array.<Number>} 
    */
-  var exports = function(id, isPrivate, name, ownerId, songs) {
+  constructor(id, isPrivate, name, ownerId, songs) {
     this.id = id;
     this.isPrivate = isPrivate;
     this.name = name;
     this.ownerId = ownerId;
     this.songs = songs;
-  };
+  }
 
   /**
    * Constructs a <code>PlaylistDTO</code> from a plain JavaScript object, optionally creating a new instance.
@@ -62,9 +47,9 @@
    * @param {module:model/PlaylistDTO} obj Optional instance to populate.
    * @return {module:model/PlaylistDTO} The populated <code>PlaylistDTO</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new PlaylistDTO();
       if (data.hasOwnProperty('creationTime'))
         obj.creationTime = ApiClient.convertToType(data['creationTime'], 'Date');
       if (data.hasOwnProperty('id'))
@@ -80,37 +65,36 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {Date} creationTime
-   */
-  exports.prototype.creationTime = undefined;
+/**
+ * @member {Date} creationTime
+ */
+PlaylistDTO.prototype.creationTime = undefined;
 
-  /**
-   * @member {Number} id
-   */
-  exports.prototype.id = undefined;
+/**
+ * @member {Number} id
+ */
+PlaylistDTO.prototype.id = undefined;
 
-  /**
-   * @member {Boolean} isPrivate
-   */
-  exports.prototype.isPrivate = undefined;
+/**
+ * @member {Boolean} isPrivate
+ */
+PlaylistDTO.prototype.isPrivate = undefined;
 
-  /**
-   * @member {String} name
-   */
-  exports.prototype.name = undefined;
+/**
+ * @member {String} name
+ */
+PlaylistDTO.prototype.name = undefined;
 
-  /**
-   * @member {Number} ownerId
-   */
-  exports.prototype.ownerId = undefined;
+/**
+ * @member {Number} ownerId
+ */
+PlaylistDTO.prototype.ownerId = undefined;
 
-  /**
-   * @member {Array.<Number>} songs
-   */
-  exports.prototype.songs = undefined;
+/**
+ * @member {Array.<Number>} songs
+ */
+PlaylistDTO.prototype.songs = undefined;
 
-  return exports;
 
-}));

@@ -21,22 +21,21 @@ getAll
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AwaitingSongResourceApi();
+let apiInstance = new SongbookApi.AwaitingSongResourceApi();
 
-var opts = { 
+let opts = { 
   'limit': 56 // Number | limit
 };
 
-var callback = function(error, data, response) {
+apiInstance.getAllUsingGET1(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getAllUsingGET1(opts, callback);
+});
 ```
 
 ### Parameters
@@ -66,24 +65,23 @@ getByCategory
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AwaitingSongResourceApi();
+let apiInstance = new SongbookApi.AwaitingSongResourceApi();
 
-var categoryId = 789; // Number | categoryId
+let categoryId = 789; // Number | categoryId
 
-var opts = { 
+let opts = { 
   'limit': 56 // Number | limit
 };
 
-var callback = function(error, data, response) {
+apiInstance.getByCategoryUsingGET(categoryId, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByCategoryUsingGET(categoryId, opts, callback);
+});
 ```
 
 ### Parameters
@@ -114,21 +112,20 @@ getById
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AwaitingSongResourceApi();
+let apiInstance = new SongbookApi.AwaitingSongResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getByIdUsingGET1(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByIdUsingGET1(id, callback);
+});
 ```
 
 ### Parameters
@@ -158,24 +155,23 @@ getByLyricsFragment
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AwaitingSongResourceApi();
+let apiInstance = new SongbookApi.AwaitingSongResourceApi();
 
-var value = "value_example"; // String | value
+let value = "value_example"; // String | value
 
-var opts = { 
+let opts = { 
   'limit': 56 // Number | limit
 };
 
-var callback = function(error, data, response) {
+apiInstance.getByLyricsFragmentUsingGET(value, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByLyricsFragmentUsingGET(value, opts, callback);
+});
 ```
 
 ### Parameters
@@ -206,24 +202,23 @@ getByTag
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AwaitingSongResourceApi();
+let apiInstance = new SongbookApi.AwaitingSongResourceApi();
 
-var tagId = 789; // Number | tagId
+let tagId = 789; // Number | tagId
 
-var opts = { 
+let opts = { 
   'limit': 56 // Number | limit
 };
 
-var callback = function(error, data, response) {
+apiInstance.getByTagUsingGET(tagId, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByTagUsingGET(tagId, opts, callback);
+});
 ```
 
 ### Parameters
@@ -254,24 +249,23 @@ getByTitleFragment
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AwaitingSongResourceApi();
+let apiInstance = new SongbookApi.AwaitingSongResourceApi();
 
-var title = "title_example"; // String | title
+let title = "title_example"; // String | title
 
-var opts = { 
+let opts = { 
   'limit': 56 // Number | limit
 };
 
-var callback = function(error, data, response) {
+apiInstance.getByTitleFragmentUsingGET(title, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByTitleFragmentUsingGET(title, opts, callback);
+});
 ```
 
 ### Parameters
@@ -302,21 +296,20 @@ getLatest
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AwaitingSongResourceApi();
+let apiInstance = new SongbookApi.AwaitingSongResourceApi();
 
-var limit = 56; // Number | limit
+let limit = 56; // Number | limit
 
 
-var callback = function(error, data, response) {
+apiInstance.getLatestUsingGET(limit, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getLatestUsingGET(limit, callback);
+});
 ```
 
 ### Parameters

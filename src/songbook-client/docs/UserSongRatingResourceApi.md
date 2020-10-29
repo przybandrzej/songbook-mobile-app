@@ -21,21 +21,20 @@ create
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserSongRatingResourceApi();
+let apiInstance = new SongbookApi.UserSongRatingResourceApi();
 
-var dto = new SongbookApi.UserSongRatingDTO(); // UserSongRatingDTO | dto
+let dto = new SongbookApi.UserSongRatingDTO(); // UserSongRatingDTO | dto
 
 
-var callback = function(error, data, response) {
+apiInstance.createUsingPOST7(dto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.createUsingPOST7(dto, callback);
+});
 ```
 
 ### Parameters
@@ -65,23 +64,22 @@ delete
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserSongRatingResourceApi();
+let apiInstance = new SongbookApi.UserSongRatingResourceApi();
 
-var songId = 789; // Number | songId
+let songId = 789; // Number | songId
 
-var userId = 789; // Number | userId
+let userId = 789; // Number | userId
 
 
-var callback = function(error, data, response) {
+apiInstance.deleteUsingDELETE8(songId, userId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.deleteUsingDELETE8(songId, userId, callback);
+});
 ```
 
 ### Parameters
@@ -112,24 +110,23 @@ getAll
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserSongRatingResourceApi();
+let apiInstance = new SongbookApi.UserSongRatingResourceApi();
 
-var opts = { 
+let opts = { 
   'equal': 8.14, // Number | equal
   'greaterThanEqual': 8.14, // Number | greaterThanEqual
   'lessThanEqual': 8.14 // Number | lessThanEqual
 };
 
-var callback = function(error, data, response) {
+apiInstance.getAllUsingGET8(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getAllUsingGET8(opts, callback);
+});
 ```
 
 ### Parameters
@@ -161,21 +158,20 @@ getBySongId
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserSongRatingResourceApi();
+let apiInstance = new SongbookApi.UserSongRatingResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getBySongIdUsingGET1(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getBySongIdUsingGET1(id, callback);
+});
 ```
 
 ### Parameters
@@ -205,23 +201,22 @@ getByUserIdAndSongId
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserSongRatingResourceApi();
+let apiInstance = new SongbookApi.UserSongRatingResourceApi();
 
-var songId = 789; // Number | songId
+let songId = 789; // Number | songId
 
-var userId = 789; // Number | userId
+let userId = 789; // Number | userId
 
 
-var callback = function(error, data, response) {
+apiInstance.getByUserIdAndSongIdUsingGET(songId, userId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByUserIdAndSongIdUsingGET(songId, userId, callback);
+});
 ```
 
 ### Parameters
@@ -252,21 +247,20 @@ getByUserId
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserSongRatingResourceApi();
+let apiInstance = new SongbookApi.UserSongRatingResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getByUserIdUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByUserIdUsingGET(id, callback);
+});
 ```
 
 ### Parameters
@@ -296,21 +290,20 @@ update
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserSongRatingResourceApi();
+let apiInstance = new SongbookApi.UserSongRatingResourceApi();
 
-var dto = new SongbookApi.UserSongRatingDTO(); // UserSongRatingDTO | dto
+let dto = new SongbookApi.UserSongRatingDTO(); // UserSongRatingDTO | dto
 
 
-var callback = function(error, data, response) {
+apiInstance.updateUsingPUT7(dto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.updateUsingPUT7(dto, callback);
+});
 ```
 
 ### Parameters

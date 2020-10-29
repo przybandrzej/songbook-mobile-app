@@ -14,38 +14,28 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CategoryDTO', 'model/SongDTO', 'model/UniversalCreateDTO'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/CategoryDTO'), require('../model/SongDTO'), require('../model/UniversalCreateDTO'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
+import {ApiClient} from "../ApiClient";
+import {CategoryDTO} from '../model/CategoryDTO';
+import {SongDTO} from '../model/SongDTO';
+import {UniversalCreateDTO} from '../model/UniversalCreateDTO';
+
+/**
+* CategoryResource service.
+* @module api/CategoryResourceApi
+* @version 1.5.5
+*/
+export class CategoryResourceApi {
+
+    /**
+    * Constructs a new CategoryResourceApi. 
+    * @alias module:api/CategoryResourceApi
+    * @class
+    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+    * default to {@link module:ApiClient#instance} if unspecified.
+    */
+    constructor(apiClient) {
+        this.apiClient = apiClient || ApiClient.instance;
     }
-    root.SongbookApi.CategoryResourceApi = factory(root.SongbookApi.ApiClient, root.SongbookApi.CategoryDTO, root.SongbookApi.SongDTO, root.SongbookApi.UniversalCreateDTO);
-  }
-}(this, function(ApiClient, CategoryDTO, SongDTO, UniversalCreateDTO) {
-  'use strict';
-
-  /**
-   * CategoryResource service.
-   * @module api/CategoryResourceApi
-   * @version 1.5.5
-   */
-
-  /**
-   * Constructs a new CategoryResourceApi. 
-   * @alias module:api/CategoryResourceApi
-   * @class
-   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-   * default to {@link module:ApiClient#instance} if unspecified.
-   */
-  var exports = function(apiClient) {
-    this.apiClient = apiClient || ApiClient.instance;
 
 
     /**
@@ -62,8 +52,8 @@
      * @param {module:api/CategoryResourceApi~createUsingPOST1Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CategoryDTO}
      */
-    this.createUsingPOST1 = function(categoryDto, callback) {
-      var postBody = categoryDto;
+    createUsingPOST1(categoryDto, callback) {
+      let postBody = categoryDto;
 
       // verify the required parameter 'categoryDto' is set
       if (categoryDto === undefined || categoryDto === null) {
@@ -71,25 +61,23 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = CategoryDTO;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = CategoryDTO;
 
       return this.apiClient.callApi(
         '/api/categories', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -107,8 +95,8 @@
      * @param {Number} id id
      * @param {module:api/CategoryResourceApi~deleteUsingDELETE1Callback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.deleteUsingDELETE1 = function(id, callback) {
-      var postBody = null;
+    deleteUsingDELETE1(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -116,26 +104,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = null;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/categories/id/{id}', 'DELETE',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -153,29 +139,27 @@
      * @param {module:api/CategoryResourceApi~getAllUsingGET2Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/CategoryDTO>}
      */
-    this.getAllUsingGET2 = function(callback) {
-      var postBody = null;
+    getAllUsingGET2(callback) {
+      let postBody = null;
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [CategoryDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [CategoryDTO];
 
       return this.apiClient.callApi(
         '/api/categories', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -194,8 +178,8 @@
      * @param {module:api/CategoryResourceApi~getByIdUsingGET2Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CategoryDTO}
      */
-    this.getByIdUsingGET2 = function(id, callback) {
-      var postBody = null;
+    getByIdUsingGET2(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -203,26 +187,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = CategoryDTO;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = CategoryDTO;
 
       return this.apiClient.callApi(
         '/api/categories/id/{id}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -241,8 +223,8 @@
      * @param {module:api/CategoryResourceApi~getByNameUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/CategoryDTO>}
      */
-    this.getByNameUsingGET = function(name, callback) {
-      var postBody = null;
+    getByNameUsingGET(name, callback) {
+      let postBody = null;
 
       // verify the required parameter 'name' is set
       if (name === undefined || name === null) {
@@ -250,26 +232,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'name': name
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [CategoryDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [CategoryDTO];
 
       return this.apiClient.callApi(
         '/api/categories/name/{name}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -288,8 +268,8 @@
      * @param {module:api/CategoryResourceApi~getSongsByCategoryIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongDTO>}
      */
-    this.getSongsByCategoryIdUsingGET = function(id, callback) {
-      var postBody = null;
+    getSongsByCategoryIdUsingGET(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -297,26 +277,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [SongDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongDTO];
 
       return this.apiClient.callApi(
         '/api/categories/id/{id}/songs', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -335,8 +313,8 @@
      * @param {module:api/CategoryResourceApi~updateUsingPUT1Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CategoryDTO}
      */
-    this.updateUsingPUT1 = function(categoryDto, callback) {
-      var postBody = categoryDto;
+    updateUsingPUT1(categoryDto, callback) {
+      let postBody = categoryDto;
 
       // verify the required parameter 'categoryDto' is set
       if (categoryDto === undefined || categoryDto === null) {
@@ -344,29 +322,26 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = CategoryDTO;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = CategoryDTO;
 
       return this.apiClient.callApi(
         '/api/categories', 'PUT',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
-  };
 
-  return exports;
-}));
+
+}

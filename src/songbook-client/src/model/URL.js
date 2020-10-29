@@ -14,36 +14,21 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.URL = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The URL model module.
-   * @module model/URL
-   * @version 1.5.5
-   */
-
+/**
+ * The URL model module.
+ * @module model/URL
+ * @version 1.5.5
+ */
+export class URL {
   /**
    * Constructs a new <code>URL</code>.
    * @alias module:model/URL
    * @class
    */
-  var exports = function() {
-  };
+  constructor() {
+  }
 
   /**
    * Constructs a <code>URL</code> from a plain JavaScript object, optionally creating a new instance.
@@ -52,9 +37,9 @@
    * @param {module:model/URL} obj Optional instance to populate.
    * @return {module:model/URL} The populated <code>URL</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new URL();
       if (data.hasOwnProperty('authority'))
         obj.authority = ApiClient.convertToType(data['authority'], 'String');
       if (data.hasOwnProperty('content'))
@@ -80,62 +65,61 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {String} authority
-   */
-  exports.prototype.authority = undefined;
+/**
+ * @member {String} authority
+ */
+URL.prototype.authority = undefined;
 
-  /**
-   * @member {Object} content
-   */
-  exports.prototype.content = undefined;
+/**
+ * @member {Object} content
+ */
+URL.prototype.content = undefined;
 
-  /**
-   * @member {Number} defaultPort
-   */
-  exports.prototype.defaultPort = undefined;
+/**
+ * @member {Number} defaultPort
+ */
+URL.prototype.defaultPort = undefined;
 
-  /**
-   * @member {String} file
-   */
-  exports.prototype.file = undefined;
+/**
+ * @member {String} file
+ */
+URL.prototype.file = undefined;
 
-  /**
-   * @member {String} host
-   */
-  exports.prototype.host = undefined;
+/**
+ * @member {String} host
+ */
+URL.prototype.host = undefined;
 
-  /**
-   * @member {String} path
-   */
-  exports.prototype.path = undefined;
+/**
+ * @member {String} path
+ */
+URL.prototype.path = undefined;
 
-  /**
-   * @member {Number} port
-   */
-  exports.prototype.port = undefined;
+/**
+ * @member {Number} port
+ */
+URL.prototype.port = undefined;
 
-  /**
-   * @member {String} protocol
-   */
-  exports.prototype.protocol = undefined;
+/**
+ * @member {String} protocol
+ */
+URL.prototype.protocol = undefined;
 
-  /**
-   * @member {String} query
-   */
-  exports.prototype.query = undefined;
+/**
+ * @member {String} query
+ */
+URL.prototype.query = undefined;
 
-  /**
-   * @member {String} ref
-   */
-  exports.prototype.ref = undefined;
+/**
+ * @member {String} ref
+ */
+URL.prototype.ref = undefined;
 
-  /**
-   * @member {String} userInfo
-   */
-  exports.prototype.userInfo = undefined;
+/**
+ * @member {String} userInfo
+ */
+URL.prototype.userInfo = undefined;
 
-  return exports;
 
-}));

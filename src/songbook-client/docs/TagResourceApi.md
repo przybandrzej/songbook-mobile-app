@@ -21,21 +21,20 @@ create
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.TagResourceApi();
+let apiInstance = new SongbookApi.TagResourceApi();
 
-var tagDto = new SongbookApi.UniversalCreateDTO(); // UniversalCreateDTO | tagDto
+let tagDto = new SongbookApi.UniversalCreateDTO(); // UniversalCreateDTO | tagDto
 
 
-var callback = function(error, data, response) {
+apiInstance.createUsingPOST5(tagDto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.createUsingPOST5(tagDto, callback);
+});
 ```
 
 ### Parameters
@@ -65,21 +64,20 @@ delete
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.TagResourceApi();
+let apiInstance = new SongbookApi.TagResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.deleteUsingDELETE5(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.deleteUsingDELETE5(id, callback);
+});
 ```
 
 ### Parameters
@@ -109,22 +107,21 @@ getAll
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.TagResourceApi();
+let apiInstance = new SongbookApi.TagResourceApi();
 
-var opts = { 
+let opts = { 
   'limit': 56 // Number | limit
 };
 
-var callback = function(error, data, response) {
+apiInstance.getAllUsingGET5(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getAllUsingGET5(opts, callback);
+});
 ```
 
 ### Parameters
@@ -154,21 +151,20 @@ getById
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.TagResourceApi();
+let apiInstance = new SongbookApi.TagResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getByIdUsingGET5(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByIdUsingGET5(id, callback);
+});
 ```
 
 ### Parameters
@@ -198,21 +194,20 @@ getByName
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.TagResourceApi();
+let apiInstance = new SongbookApi.TagResourceApi();
 
-var name = "name_example"; // String | name
+let name = "name_example"; // String | name
 
 
-var callback = function(error, data, response) {
+apiInstance.getByNameUsingGET2(name, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByNameUsingGET2(name, callback);
+});
 ```
 
 ### Parameters
@@ -242,21 +237,20 @@ getSongsByTagId
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.TagResourceApi();
+let apiInstance = new SongbookApi.TagResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getSongsByTagIdUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getSongsByTagIdUsingGET(id, callback);
+});
 ```
 
 ### Parameters
@@ -286,21 +280,20 @@ update
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.TagResourceApi();
+let apiInstance = new SongbookApi.TagResourceApi();
 
-var tagDto = new SongbookApi.TagDTO(); // TagDTO | tagDto
+let tagDto = new SongbookApi.TagDTO(); // TagDTO | tagDto
 
 
-var callback = function(error, data, response) {
+apiInstance.updateUsingPUT5(tagDto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.updateUsingPUT5(tagDto, callback);
+});
 ```
 
 ### Parameters

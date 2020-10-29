@@ -21,23 +21,22 @@ addSongToLibrary
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserResourceApi();
+let apiInstance = new SongbookApi.UserResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
-var songId = 789; // Number | songId
+let songId = 789; // Number | songId
 
 
-var callback = function(error, data, response) {
+apiInstance.addSongToLibraryUsingPATCH(id, songId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.addSongToLibraryUsingPATCH(id, songId, callback);
+});
 ```
 
 ### Parameters
@@ -68,21 +67,20 @@ delete
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserResourceApi();
+let apiInstance = new SongbookApi.UserResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.deleteUsingDELETE6(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.deleteUsingDELETE6(id, callback);
+});
 ```
 
 ### Parameters
@@ -112,22 +110,21 @@ getAll
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserResourceApi();
+let apiInstance = new SongbookApi.UserResourceApi();
 
-var opts = { 
+let opts = { 
   'limit': 56 // Number | limit
 };
 
-var callback = function(error, data, response) {
+apiInstance.getAllUsingGET6(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getAllUsingGET6(opts, callback);
+});
 ```
 
 ### Parameters
@@ -157,21 +154,20 @@ getById
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserResourceApi();
+let apiInstance = new SongbookApi.UserResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getByIdUsingGET6(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByIdUsingGET6(id, callback);
+});
 ```
 
 ### Parameters
@@ -201,21 +197,20 @@ getPlaylistsByUserId
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserResourceApi();
+let apiInstance = new SongbookApi.UserResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getPlaylistsByUserIdUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getPlaylistsByUserIdUsingGET(id, callback);
+});
 ```
 
 ### Parameters
@@ -245,21 +240,20 @@ getRatingsByUserId
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserResourceApi();
+let apiInstance = new SongbookApi.UserResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getRatingsByUserIdUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getRatingsByUserIdUsingGET(id, callback);
+});
 ```
 
 ### Parameters
@@ -289,23 +283,22 @@ removeSongFromLibrary
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserResourceApi();
+let apiInstance = new SongbookApi.UserResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
-var songId = 789; // Number | songId
+let songId = 789; // Number | songId
 
 
-var callback = function(error, data, response) {
+apiInstance.removeSongFromLibraryUsingPATCH(id, songId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.removeSongFromLibraryUsingPATCH(id, songId, callback);
+});
 ```
 
 ### Parameters

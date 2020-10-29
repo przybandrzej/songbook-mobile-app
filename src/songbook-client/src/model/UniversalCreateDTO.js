@@ -14,38 +14,23 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.UniversalCreateDTO = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The UniversalCreateDTO model module.
-   * @module model/UniversalCreateDTO
-   * @version 1.5.5
-   */
-
+/**
+ * The UniversalCreateDTO model module.
+ * @module model/UniversalCreateDTO
+ * @version 1.5.5
+ */
+export class UniversalCreateDTO {
   /**
    * Constructs a new <code>UniversalCreateDTO</code>.
    * @alias module:model/UniversalCreateDTO
    * @class
    * @param name {String} 
    */
-  var exports = function(name) {
+  constructor(name) {
     this.name = name;
-  };
+  }
 
   /**
    * Constructs a <code>UniversalCreateDTO</code> from a plain JavaScript object, optionally creating a new instance.
@@ -54,9 +39,9 @@
    * @param {module:model/UniversalCreateDTO} obj Optional instance to populate.
    * @return {module:model/UniversalCreateDTO} The populated <code>UniversalCreateDTO</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new UniversalCreateDTO();
       if (data.hasOwnProperty('id'))
         obj.id = ApiClient.convertToType(data['id'], 'Number');
       if (data.hasOwnProperty('name'))
@@ -64,17 +49,16 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {Number} id
-   */
-  exports.prototype.id = undefined;
+/**
+ * @member {Number} id
+ */
+UniversalCreateDTO.prototype.id = undefined;
 
-  /**
-   * @member {String} name
-   */
-  exports.prototype.name = undefined;
+/**
+ * @member {String} name
+ */
+UniversalCreateDTO.prototype.name = undefined;
 
-  return exports;
 
-}));

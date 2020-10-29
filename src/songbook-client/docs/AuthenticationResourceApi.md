@@ -24,21 +24,20 @@ activateAccount
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AuthenticationResourceApi();
+let apiInstance = new SongbookApi.AuthenticationResourceApi();
 
-var key = "key_example"; // String | key
+let key = "key_example"; // String | key
 
 
-var callback = function(error, data, response) {
+apiInstance.activateAccountUsingGET(key, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.activateAccountUsingGET(key, callback);
+});
 ```
 
 ### Parameters
@@ -68,21 +67,20 @@ authenticate
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AuthenticationResourceApi();
+let apiInstance = new SongbookApi.AuthenticationResourceApi();
 
-var form = new SongbookApi.LoginForm(); // LoginForm | form
+let form = new SongbookApi.LoginForm(); // LoginForm | form
 
 
-var callback = function(error, data, response) {
+apiInstance.authenticateUsingPOST(form, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.authenticateUsingPOST(form, callback);
+});
 ```
 
 ### Parameters
@@ -112,21 +110,20 @@ changeEmail
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AuthenticationResourceApi();
+let apiInstance = new SongbookApi.AuthenticationResourceApi();
 
-var emailChangeDTO = new SongbookApi.EmailChangeDTO(); // EmailChangeDTO | emailChangeDTO
+let emailChangeDTO = new SongbookApi.EmailChangeDTO(); // EmailChangeDTO | emailChangeDTO
 
 
-var callback = function(error, data, response) {
+apiInstance.changeEmailUsingPATCH(emailChangeDTO, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.changeEmailUsingPATCH(emailChangeDTO, callback);
+});
 ```
 
 ### Parameters
@@ -156,21 +153,20 @@ changePassword
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AuthenticationResourceApi();
+let apiInstance = new SongbookApi.AuthenticationResourceApi();
 
-var passwordChangeDto = new SongbookApi.PasswordChangeDTO(); // PasswordChangeDTO | passwordChangeDto
+let passwordChangeDto = new SongbookApi.PasswordChangeDTO(); // PasswordChangeDTO | passwordChangeDto
 
 
-var callback = function(error, data, response) {
+apiInstance.changePasswordUsingPOST(passwordChangeDto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.changePasswordUsingPOST(passwordChangeDto, callback);
+});
 ```
 
 ### Parameters
@@ -200,21 +196,20 @@ finishPasswordReset
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AuthenticationResourceApi();
+let apiInstance = new SongbookApi.AuthenticationResourceApi();
 
-var keyAndPassword = new SongbookApi.TokenAndPasswordDTO(); // TokenAndPasswordDTO | keyAndPassword
+let keyAndPassword = new SongbookApi.TokenAndPasswordDTO(); // TokenAndPasswordDTO | keyAndPassword
 
 
-var callback = function(error, data, response) {
+apiInstance.finishPasswordResetUsingPOST(keyAndPassword, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.finishPasswordResetUsingPOST(keyAndPassword, callback);
+});
 ```
 
 ### Parameters
@@ -244,18 +239,17 @@ getAccount
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AuthenticationResourceApi();
+let apiInstance = new SongbookApi.AuthenticationResourceApi();
 
-var callback = function(error, data, response) {
+apiInstance.getAccountUsingGET((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getAccountUsingGET(callback);
+});
 ```
 
 ### Parameters
@@ -282,18 +276,17 @@ isAuthenticated
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AuthenticationResourceApi();
+let apiInstance = new SongbookApi.AuthenticationResourceApi();
 
-var callback = function(error, data, response) {
+apiInstance.isAuthenticatedUsingGET((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.isAuthenticatedUsingGET(callback);
+});
 ```
 
 ### Parameters
@@ -320,21 +313,20 @@ register
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AuthenticationResourceApi();
+let apiInstance = new SongbookApi.AuthenticationResourceApi();
 
-var form = new SongbookApi.RegisterNewUserForm(); // RegisterNewUserForm | form
+let form = new SongbookApi.RegisterNewUserForm(); // RegisterNewUserForm | form
 
 
-var callback = function(error, data, response) {
+apiInstance.registerUsingPOST(form, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.registerUsingPOST(form, callback);
+});
 ```
 
 ### Parameters
@@ -364,21 +356,20 @@ requestPasswordReset
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AuthenticationResourceApi();
+let apiInstance = new SongbookApi.AuthenticationResourceApi();
 
-var mail = "mail_example"; // String | mail
+let mail = "mail_example"; // String | mail
 
 
-var callback = function(error, data, response) {
+apiInstance.requestPasswordResetUsingPOST(mail, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.requestPasswordResetUsingPOST(mail, callback);
+});
 ```
 
 ### Parameters
@@ -408,21 +399,20 @@ saveAccount
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AuthenticationResourceApi();
+let apiInstance = new SongbookApi.AuthenticationResourceApi();
 
-var userDTO = new SongbookApi.UserDTO(); // UserDTO | userDTO
+let userDTO = new SongbookApi.UserDTO(); // UserDTO | userDTO
 
 
-var callback = function(error, data, response) {
+apiInstance.saveAccountUsingPOST(userDTO, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.saveAccountUsingPOST(userDTO, callback);
+});
 ```
 
 ### Parameters

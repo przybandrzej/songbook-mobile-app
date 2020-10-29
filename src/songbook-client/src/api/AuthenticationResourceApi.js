@@ -14,38 +14,32 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/EmailChangeDTO', 'model/LoginForm', 'model/PasswordChangeDTO', 'model/RegisterNewUserForm', 'model/TokenAndPasswordDTO', 'model/TokenDTO', 'model/UserDTO'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/EmailChangeDTO'), require('../model/LoginForm'), require('../model/PasswordChangeDTO'), require('../model/RegisterNewUserForm'), require('../model/TokenAndPasswordDTO'), require('../model/TokenDTO'), require('../model/UserDTO'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
+import {ApiClient} from "../ApiClient";
+import {EmailChangeDTO} from '../model/EmailChangeDTO';
+import {LoginForm} from '../model/LoginForm';
+import {PasswordChangeDTO} from '../model/PasswordChangeDTO';
+import {RegisterNewUserForm} from '../model/RegisterNewUserForm';
+import {TokenAndPasswordDTO} from '../model/TokenAndPasswordDTO';
+import {TokenDTO} from '../model/TokenDTO';
+import {UserDTO} from '../model/UserDTO';
+
+/**
+* AuthenticationResource service.
+* @module api/AuthenticationResourceApi
+* @version 1.5.5
+*/
+export class AuthenticationResourceApi {
+
+    /**
+    * Constructs a new AuthenticationResourceApi. 
+    * @alias module:api/AuthenticationResourceApi
+    * @class
+    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+    * default to {@link module:ApiClient#instance} if unspecified.
+    */
+    constructor(apiClient) {
+        this.apiClient = apiClient || ApiClient.instance;
     }
-    root.SongbookApi.AuthenticationResourceApi = factory(root.SongbookApi.ApiClient, root.SongbookApi.EmailChangeDTO, root.SongbookApi.LoginForm, root.SongbookApi.PasswordChangeDTO, root.SongbookApi.RegisterNewUserForm, root.SongbookApi.TokenAndPasswordDTO, root.SongbookApi.TokenDTO, root.SongbookApi.UserDTO);
-  }
-}(this, function(ApiClient, EmailChangeDTO, LoginForm, PasswordChangeDTO, RegisterNewUserForm, TokenAndPasswordDTO, TokenDTO, UserDTO) {
-  'use strict';
-
-  /**
-   * AuthenticationResource service.
-   * @module api/AuthenticationResourceApi
-   * @version 1.5.5
-   */
-
-  /**
-   * Constructs a new AuthenticationResourceApi. 
-   * @alias module:api/AuthenticationResourceApi
-   * @class
-   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-   * default to {@link module:ApiClient#instance} if unspecified.
-   */
-  var exports = function(apiClient) {
-    this.apiClient = apiClient || ApiClient.instance;
 
 
     /**
@@ -61,8 +55,8 @@
      * @param {String} key key
      * @param {module:api/AuthenticationResourceApi~activateAccountUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.activateAccountUsingGET = function(key, callback) {
-      var postBody = null;
+    activateAccountUsingGET(key, callback) {
+      let postBody = null;
 
       // verify the required parameter 'key' is set
       if (key === undefined || key === null) {
@@ -70,26 +64,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
-        'key': key,
+      let queryParams = {
+        'key': key
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = null;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/activate', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -108,8 +100,8 @@
      * @param {module:api/AuthenticationResourceApi~authenticateUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TokenDTO}
      */
-    this.authenticateUsingPOST = function(form, callback) {
-      var postBody = form;
+    authenticateUsingPOST(form, callback) {
+      let postBody = form;
 
       // verify the required parameter 'form' is set
       if (form === undefined || form === null) {
@@ -117,25 +109,23 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = TokenDTO;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = TokenDTO;
 
       return this.apiClient.callApi(
         '/api/authenticate', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -153,8 +143,8 @@
      * @param {module:model/EmailChangeDTO} emailChangeDTO emailChangeDTO
      * @param {module:api/AuthenticationResourceApi~changeEmailUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.changeEmailUsingPATCH = function(emailChangeDTO, callback) {
-      var postBody = emailChangeDTO;
+    changeEmailUsingPATCH(emailChangeDTO, callback) {
+      let postBody = emailChangeDTO;
 
       // verify the required parameter 'emailChangeDTO' is set
       if (emailChangeDTO === undefined || emailChangeDTO === null) {
@@ -162,25 +152,23 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = null;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/account/change-email', 'PATCH',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -198,8 +186,8 @@
      * @param {module:model/PasswordChangeDTO} passwordChangeDto passwordChangeDto
      * @param {module:api/AuthenticationResourceApi~changePasswordUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.changePasswordUsingPOST = function(passwordChangeDto, callback) {
-      var postBody = passwordChangeDto;
+    changePasswordUsingPOST(passwordChangeDto, callback) {
+      let postBody = passwordChangeDto;
 
       // verify the required parameter 'passwordChangeDto' is set
       if (passwordChangeDto === undefined || passwordChangeDto === null) {
@@ -207,25 +195,23 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = null;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/account/change-password', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -243,8 +229,8 @@
      * @param {module:model/TokenAndPasswordDTO} keyAndPassword keyAndPassword
      * @param {module:api/AuthenticationResourceApi~finishPasswordResetUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.finishPasswordResetUsingPOST = function(keyAndPassword, callback) {
-      var postBody = keyAndPassword;
+    finishPasswordResetUsingPOST(keyAndPassword, callback) {
+      let postBody = keyAndPassword;
 
       // verify the required parameter 'keyAndPassword' is set
       if (keyAndPassword === undefined || keyAndPassword === null) {
@@ -252,25 +238,23 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = null;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/account/reset-password/finish', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -288,29 +272,27 @@
      * @param {module:api/AuthenticationResourceApi~getAccountUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserDTO}
      */
-    this.getAccountUsingGET = function(callback) {
-      var postBody = null;
+    getAccountUsingGET(callback) {
+      let postBody = null;
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = UserDTO;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = UserDTO;
 
       return this.apiClient.callApi(
         '/api/account', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -328,29 +310,27 @@
      * @param {module:api/AuthenticationResourceApi~isAuthenticatedUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link 'Boolean'}
      */
-    this.isAuthenticatedUsingGET = function(callback) {
-      var postBody = null;
+    isAuthenticatedUsingGET(callback) {
+      let postBody = null;
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = 'Boolean';
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = 'Boolean';
 
       return this.apiClient.callApi(
         '/api/is-authenticated', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -368,8 +348,8 @@
      * @param {module:model/RegisterNewUserForm} form form
      * @param {module:api/AuthenticationResourceApi~registerUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.registerUsingPOST = function(form, callback) {
-      var postBody = form;
+    registerUsingPOST(form, callback) {
+      let postBody = form;
 
       // verify the required parameter 'form' is set
       if (form === undefined || form === null) {
@@ -377,25 +357,23 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = null;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/register', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -413,8 +391,8 @@
      * @param {String} mail mail
      * @param {module:api/AuthenticationResourceApi~requestPasswordResetUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.requestPasswordResetUsingPOST = function(mail, callback) {
-      var postBody = mail;
+    requestPasswordResetUsingPOST(mail, callback) {
+      let postBody = mail;
 
       // verify the required parameter 'mail' is set
       if (mail === undefined || mail === null) {
@@ -422,25 +400,23 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = null;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/account/reset-password/init', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -459,8 +435,8 @@
      * @param {module:api/AuthenticationResourceApi~saveAccountUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserDTO}
      */
-    this.saveAccountUsingPOST = function(userDTO, callback) {
-      var postBody = userDTO;
+    saveAccountUsingPOST(userDTO, callback) {
+      let postBody = userDTO;
 
       // verify the required parameter 'userDTO' is set
       if (userDTO === undefined || userDTO === null) {
@@ -468,29 +444,26 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = UserDTO;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = UserDTO;
 
       return this.apiClient.callApi(
         '/api/account', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
-  };
 
-  return exports;
-}));
+
+}

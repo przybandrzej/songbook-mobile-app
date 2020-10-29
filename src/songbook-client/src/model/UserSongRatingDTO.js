@@ -14,29 +14,14 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.UserSongRatingDTO = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The UserSongRatingDTO model module.
-   * @module model/UserSongRatingDTO
-   * @version 1.5.5
-   */
-
+/**
+ * The UserSongRatingDTO model module.
+ * @module model/UserSongRatingDTO
+ * @version 1.5.5
+ */
+export class UserSongRatingDTO {
   /**
    * Constructs a new <code>UserSongRatingDTO</code>.
    * @alias module:model/UserSongRatingDTO
@@ -45,11 +30,11 @@
    * @param songId {Number} 
    * @param userId {Number} 
    */
-  var exports = function(rating, songId, userId) {
+  constructor(rating, songId, userId) {
     this.rating = rating;
     this.songId = songId;
     this.userId = userId;
-  };
+  }
 
   /**
    * Constructs a <code>UserSongRatingDTO</code> from a plain JavaScript object, optionally creating a new instance.
@@ -58,9 +43,9 @@
    * @param {module:model/UserSongRatingDTO} obj Optional instance to populate.
    * @return {module:model/UserSongRatingDTO} The populated <code>UserSongRatingDTO</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new UserSongRatingDTO();
       if (data.hasOwnProperty('rating'))
         obj.rating = ApiClient.convertToType(data['rating'], 'Number');
       if (data.hasOwnProperty('songId'))
@@ -70,22 +55,21 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {Number} rating
-   */
-  exports.prototype.rating = undefined;
+/**
+ * @member {Number} rating
+ */
+UserSongRatingDTO.prototype.rating = undefined;
 
-  /**
-   * @member {Number} songId
-   */
-  exports.prototype.songId = undefined;
+/**
+ * @member {Number} songId
+ */
+UserSongRatingDTO.prototype.songId = undefined;
 
-  /**
-   * @member {Number} userId
-   */
-  exports.prototype.userId = undefined;
+/**
+ * @member {Number} userId
+ */
+UserSongRatingDTO.prototype.userId = undefined;
 
-  return exports;
 
-}));

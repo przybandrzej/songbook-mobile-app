@@ -14,36 +14,24 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/InputStream', 'model/URI', 'model/URL'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./InputStream'), require('./URI'), require('./URL'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.Resource = factory(root.SongbookApi.ApiClient, root.SongbookApi.InputStream, root.SongbookApi.URI, root.SongbookApi.URL);
-  }
-}(this, function(ApiClient, InputStream, URI, URL) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
+import {InputStream} from './InputStream';
+import {URI} from './URI';
+import {URL} from './URL';
 
-  /**
-   * The Resource model module.
-   * @module model/Resource
-   * @version 1.5.5
-   */
-
+/**
+ * The Resource model module.
+ * @module model/Resource
+ * @version 1.5.5
+ */
+export class Resource {
   /**
    * Constructs a new <code>Resource</code>.
    * @alias module:model/Resource
    * @class
    */
-  var exports = function() {
-  };
+  constructor() {
+  }
 
   /**
    * Constructs a <code>Resource</code> from a plain JavaScript object, optionally creating a new instance.
@@ -52,9 +40,9 @@
    * @param {module:model/Resource} obj Optional instance to populate.
    * @return {module:model/Resource} The populated <code>Resource</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new Resource();
       if (data.hasOwnProperty('description'))
         obj.description = ApiClient.convertToType(data['description'], 'String');
       if (data.hasOwnProperty('file'))
@@ -74,47 +62,46 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {String} description
-   */
-  exports.prototype.description = undefined;
+/**
+ * @member {String} description
+ */
+Resource.prototype.description = undefined;
 
-  /**
-   * @member {File} file
-   */
-  exports.prototype.file = undefined;
+/**
+ * @member {File} file
+ */
+Resource.prototype.file = undefined;
 
-  /**
-   * @member {String} filename
-   */
-  exports.prototype.filename = undefined;
+/**
+ * @member {String} filename
+ */
+Resource.prototype.filename = undefined;
 
-  /**
-   * @member {module:model/InputStream} inputStream
-   */
-  exports.prototype.inputStream = undefined;
+/**
+ * @member {module:model/InputStream} inputStream
+ */
+Resource.prototype.inputStream = undefined;
 
-  /**
-   * @member {Boolean} open
-   */
-  exports.prototype.open = undefined;
+/**
+ * @member {Boolean} open
+ */
+Resource.prototype.open = undefined;
 
-  /**
-   * @member {Boolean} readable
-   */
-  exports.prototype.readable = undefined;
+/**
+ * @member {Boolean} readable
+ */
+Resource.prototype.readable = undefined;
 
-  /**
-   * @member {module:model/URI} uri
-   */
-  exports.prototype.uri = undefined;
+/**
+ * @member {module:model/URI} uri
+ */
+Resource.prototype.uri = undefined;
 
-  /**
-   * @member {module:model/URL} url
-   */
-  exports.prototype.url = undefined;
+/**
+ * @member {module:model/URL} url
+ */
+Resource.prototype.url = undefined;
 
-  return exports;
 
-}));

@@ -14,36 +14,21 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.File = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The File model module.
-   * @module model/File
-   * @version 1.5.5
-   */
-
+/**
+ * The File model module.
+ * @module model/File
+ * @version 1.5.5
+ */
+export class File {
   /**
    * Constructs a new <code>File</code>.
    * @alias module:model/File
    * @class
    */
-  var exports = function() {
-  };
+  constructor() {
+  }
 
   /**
    * Constructs a <code>File</code> from a plain JavaScript object, optionally creating a new instance.
@@ -52,9 +37,9 @@
    * @param {module:model/File} obj Optional instance to populate.
    * @return {module:model/File} The populated <code>File</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new File();
       if (data.hasOwnProperty('absolute'))
         obj.absolute = ApiClient.convertToType(data['absolute'], 'Boolean');
       if (data.hasOwnProperty('absoluteFile'))
@@ -88,82 +73,81 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {Boolean} absolute
-   */
-  exports.prototype.absolute = undefined;
+/**
+ * @member {Boolean} absolute
+ */
+File.prototype.absolute = undefined;
 
-  /**
-   * @member {File} absoluteFile
-   */
-  exports.prototype.absoluteFile = undefined;
+/**
+ * @member {File} absoluteFile
+ */
+File.prototype.absoluteFile = undefined;
 
-  /**
-   * @member {String} absolutePath
-   */
-  exports.prototype.absolutePath = undefined;
+/**
+ * @member {String} absolutePath
+ */
+File.prototype.absolutePath = undefined;
 
-  /**
-   * @member {File} canonicalFile
-   */
-  exports.prototype.canonicalFile = undefined;
+/**
+ * @member {File} canonicalFile
+ */
+File.prototype.canonicalFile = undefined;
 
-  /**
-   * @member {String} canonicalPath
-   */
-  exports.prototype.canonicalPath = undefined;
+/**
+ * @member {String} canonicalPath
+ */
+File.prototype.canonicalPath = undefined;
 
-  /**
-   * @member {Boolean} directory
-   */
-  exports.prototype.directory = undefined;
+/**
+ * @member {Boolean} directory
+ */
+File.prototype.directory = undefined;
 
-  /**
-   * @member {Boolean} file
-   */
-  exports.prototype.file = undefined;
+/**
+ * @member {Boolean} file
+ */
+File.prototype.file = undefined;
 
-  /**
-   * @member {Number} freeSpace
-   */
-  exports.prototype.freeSpace = undefined;
+/**
+ * @member {Number} freeSpace
+ */
+File.prototype.freeSpace = undefined;
 
-  /**
-   * @member {Boolean} hidden
-   */
-  exports.prototype.hidden = undefined;
+/**
+ * @member {Boolean} hidden
+ */
+File.prototype.hidden = undefined;
 
-  /**
-   * @member {String} name
-   */
-  exports.prototype.name = undefined;
+/**
+ * @member {String} name
+ */
+File.prototype.name = undefined;
 
-  /**
-   * @member {String} parent
-   */
-  exports.prototype.parent = undefined;
+/**
+ * @member {String} parent
+ */
+File.prototype.parent = undefined;
 
-  /**
-   * @member {File} parentFile
-   */
-  exports.prototype.parentFile = undefined;
+/**
+ * @member {File} parentFile
+ */
+File.prototype.parentFile = undefined;
 
-  /**
-   * @member {String} path
-   */
-  exports.prototype.path = undefined;
+/**
+ * @member {String} path
+ */
+File.prototype.path = undefined;
 
-  /**
-   * @member {Number} totalSpace
-   */
-  exports.prototype.totalSpace = undefined;
+/**
+ * @member {Number} totalSpace
+ */
+File.prototype.totalSpace = undefined;
 
-  /**
-   * @member {Number} usableSpace
-   */
-  exports.prototype.usableSpace = undefined;
+/**
+ * @member {Number} usableSpace
+ */
+File.prototype.usableSpace = undefined;
 
-  return exports;
 
-}));

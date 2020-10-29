@@ -14,38 +14,23 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.EmailChangeDTO = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The EmailChangeDTO model module.
-   * @module model/EmailChangeDTO
-   * @version 1.5.5
-   */
-
+/**
+ * The EmailChangeDTO model module.
+ * @module model/EmailChangeDTO
+ * @version 1.5.5
+ */
+export class EmailChangeDTO {
   /**
    * Constructs a new <code>EmailChangeDTO</code>.
    * @alias module:model/EmailChangeDTO
    * @class
    * @param email {String} 
    */
-  var exports = function(email) {
+  constructor(email) {
     this.email = email;
-  };
+  }
 
   /**
    * Constructs a <code>EmailChangeDTO</code> from a plain JavaScript object, optionally creating a new instance.
@@ -54,20 +39,19 @@
    * @param {module:model/EmailChangeDTO} obj Optional instance to populate.
    * @return {module:model/EmailChangeDTO} The populated <code>EmailChangeDTO</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new EmailChangeDTO();
       if (data.hasOwnProperty('email'))
         obj.email = ApiClient.convertToType(data['email'], 'String');
     }
     return obj;
   }
+}
 
-  /**
-   * @member {String} email
-   */
-  exports.prototype.email = undefined;
+/**
+ * @member {String} email
+ */
+EmailChangeDTO.prototype.email = undefined;
 
-  return exports;
 
-}));

@@ -14,29 +14,15 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/CreateCoauthorDTO'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('./CreateCoauthorDTO'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.CreateSongDTO = factory(root.SongbookApi.ApiClient, root.SongbookApi.CreateCoauthorDTO);
-  }
-}(this, function(ApiClient, CreateCoauthorDTO) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
+import {CreateCoauthorDTO} from './CreateCoauthorDTO';
 
-  /**
-   * The CreateSongDTO model module.
-   * @module model/CreateSongDTO
-   * @version 1.5.5
-   */
-
+/**
+ * The CreateSongDTO model module.
+ * @module model/CreateSongDTO
+ * @version 1.5.5
+ */
+export class CreateSongDTO {
   /**
    * Constructs a new <code>CreateSongDTO</code>.
    * Class representing a DTO for creating songs in the application.
@@ -50,7 +36,7 @@
    * @param guitarTabs {String} 
    * @param tags {Array.<String>} 
    */
-  var exports = function(authorName, categoryId, title, coauthors, lyrics, guitarTabs, tags) {
+  constructor(authorName, categoryId, title, coauthors, lyrics, guitarTabs, tags) {
     this.authorName = authorName;
     this.categoryId = categoryId;
     this.title = title;
@@ -58,7 +44,7 @@
     this.lyrics = lyrics;
     this.guitarTabs = guitarTabs;
     this.tags = tags;
-  };
+  }
 
   /**
    * Constructs a <code>CreateSongDTO</code> from a plain JavaScript object, optionally creating a new instance.
@@ -67,9 +53,9 @@
    * @param {module:model/CreateSongDTO} obj Optional instance to populate.
    * @return {module:model/CreateSongDTO} The populated <code>CreateSongDTO</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new CreateSongDTO();
       if (data.hasOwnProperty('authorName'))
         obj.authorName = ApiClient.convertToType(data['authorName'], 'String');
       if (data.hasOwnProperty('categoryId'))
@@ -89,49 +75,48 @@
     }
     return obj;
   }
+}
 
-  /**
-   * Author's name (doesn't have to exist)
-   * @member {String} authorName
-   */
-  exports.prototype.authorName = undefined;
+/**
+ * Author's name (doesn't have to exist)
+ * @member {String} authorName
+ */
+CreateSongDTO.prototype.authorName = undefined;
 
-  /**
-   * Category
-   * @member {Number} categoryId
-   */
-  exports.prototype.categoryId = undefined;
+/**
+ * Category
+ * @member {Number} categoryId
+ */
+CreateSongDTO.prototype.categoryId = undefined;
 
-  /**
-   * @member {String} title
-   */
-  exports.prototype.title = undefined;
+/**
+ * @member {String} title
+ */
+CreateSongDTO.prototype.title = undefined;
 
-  /**
-   * @member {Array.<module:model/CreateCoauthorDTO>} coauthors
-   */
-  exports.prototype.coauthors = undefined;
+/**
+ * @member {Array.<module:model/CreateCoauthorDTO>} coauthors
+ */
+CreateSongDTO.prototype.coauthors = undefined;
 
-  /**
-   * @member {String} lyrics
-   */
-  exports.prototype.lyrics = undefined;
+/**
+ * @member {String} lyrics
+ */
+CreateSongDTO.prototype.lyrics = undefined;
 
-  /**
-   * @member {String} guitarTabs
-   */
-  exports.prototype.guitarTabs = undefined;
+/**
+ * @member {String} guitarTabs
+ */
+CreateSongDTO.prototype.guitarTabs = undefined;
 
-  /**
-   * @member {String} trivia
-   */
-  exports.prototype.trivia = undefined;
+/**
+ * @member {String} trivia
+ */
+CreateSongDTO.prototype.trivia = undefined;
 
-  /**
-   * @member {Array.<String>} tags
-   */
-  exports.prototype.tags = undefined;
+/**
+ * @member {Array.<String>} tags
+ */
+CreateSongDTO.prototype.tags = undefined;
 
-  return exports;
 
-}));

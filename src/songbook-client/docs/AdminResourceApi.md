@@ -17,21 +17,20 @@ activateUser
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AdminResourceApi();
+let apiInstance = new SongbookApi.AdminResourceApi();
 
-var userId = 789; // Number | userId
+let userId = 789; // Number | userId
 
 
-var callback = function(error, data, response) {
+apiInstance.activateUserUsingPATCH(userId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.activateUserUsingPATCH(userId, callback);
+});
 ```
 
 ### Parameters
@@ -61,23 +60,22 @@ updateUserRole
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AdminResourceApi();
+let apiInstance = new SongbookApi.AdminResourceApi();
 
-var roleId = 789; // Number | roleId
+let roleId = 789; // Number | roleId
 
-var userId = 789; // Number | userId
+let userId = 789; // Number | userId
 
 
-var callback = function(error, data, response) {
+apiInstance.updateUserRoleUsingPATCH(roleId, userId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.updateUserRoleUsingPATCH(roleId, userId, callback);
+});
 ```
 
 ### Parameters
@@ -108,21 +106,20 @@ updateUser
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AdminResourceApi();
+let apiInstance = new SongbookApi.AdminResourceApi();
 
-var userDTO = new SongbookApi.UserDTO(); // UserDTO | userDTO
+let userDTO = new SongbookApi.UserDTO(); // UserDTO | userDTO
 
 
-var callback = function(error, data, response) {
+apiInstance.updateUserUsingPUT(userDTO, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.updateUserUsingPUT(userDTO, callback);
+});
 ```
 
 ### Parameters

@@ -14,38 +14,28 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/SongDTO', 'model/TagDTO', 'model/UniversalCreateDTO'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/SongDTO'), require('../model/TagDTO'), require('../model/UniversalCreateDTO'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
+import {ApiClient} from "../ApiClient";
+import {SongDTO} from '../model/SongDTO';
+import {TagDTO} from '../model/TagDTO';
+import {UniversalCreateDTO} from '../model/UniversalCreateDTO';
+
+/**
+* TagResource service.
+* @module api/TagResourceApi
+* @version 1.5.5
+*/
+export class TagResourceApi {
+
+    /**
+    * Constructs a new TagResourceApi. 
+    * @alias module:api/TagResourceApi
+    * @class
+    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+    * default to {@link module:ApiClient#instance} if unspecified.
+    */
+    constructor(apiClient) {
+        this.apiClient = apiClient || ApiClient.instance;
     }
-    root.SongbookApi.TagResourceApi = factory(root.SongbookApi.ApiClient, root.SongbookApi.SongDTO, root.SongbookApi.TagDTO, root.SongbookApi.UniversalCreateDTO);
-  }
-}(this, function(ApiClient, SongDTO, TagDTO, UniversalCreateDTO) {
-  'use strict';
-
-  /**
-   * TagResource service.
-   * @module api/TagResourceApi
-   * @version 1.5.5
-   */
-
-  /**
-   * Constructs a new TagResourceApi. 
-   * @alias module:api/TagResourceApi
-   * @class
-   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-   * default to {@link module:ApiClient#instance} if unspecified.
-   */
-  var exports = function(apiClient) {
-    this.apiClient = apiClient || ApiClient.instance;
 
 
     /**
@@ -62,8 +52,8 @@
      * @param {module:api/TagResourceApi~createUsingPOST5Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TagDTO}
      */
-    this.createUsingPOST5 = function(tagDto, callback) {
-      var postBody = tagDto;
+    createUsingPOST5(tagDto, callback) {
+      let postBody = tagDto;
 
       // verify the required parameter 'tagDto' is set
       if (tagDto === undefined || tagDto === null) {
@@ -71,25 +61,23 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = TagDTO;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = TagDTO;
 
       return this.apiClient.callApi(
         '/api/tags', 'POST',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -107,8 +95,8 @@
      * @param {Number} id id
      * @param {module:api/TagResourceApi~deleteUsingDELETE5Callback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.deleteUsingDELETE5 = function(id, callback) {
-      var postBody = null;
+    deleteUsingDELETE5(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -116,26 +104,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = null;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/tags/id/{id}', 'DELETE',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -155,31 +141,29 @@
      * @param {module:api/TagResourceApi~getAllUsingGET5Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/TagDTO>}
      */
-    this.getAllUsingGET5 = function(opts, callback) {
+    getAllUsingGET5(opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      let postBody = null;
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
-        'limit': opts['limit'],
+      let queryParams = {
+        'limit': opts['limit']
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [TagDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [TagDTO];
 
       return this.apiClient.callApi(
         '/api/tags', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -198,8 +182,8 @@
      * @param {module:api/TagResourceApi~getByIdUsingGET5Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TagDTO}
      */
-    this.getByIdUsingGET5 = function(id, callback) {
-      var postBody = null;
+    getByIdUsingGET5(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -207,26 +191,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = TagDTO;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = TagDTO;
 
       return this.apiClient.callApi(
         '/api/tags/id/{id}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -245,8 +227,8 @@
      * @param {module:api/TagResourceApi~getByNameUsingGET2Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/TagDTO>}
      */
-    this.getByNameUsingGET2 = function(name, callback) {
-      var postBody = null;
+    getByNameUsingGET2(name, callback) {
+      let postBody = null;
 
       // verify the required parameter 'name' is set
       if (name === undefined || name === null) {
@@ -254,26 +236,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'name': name
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [TagDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [TagDTO];
 
       return this.apiClient.callApi(
         '/api/tags/name/{name}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -292,8 +272,8 @@
      * @param {module:api/TagResourceApi~getSongsByTagIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongDTO>}
      */
-    this.getSongsByTagIdUsingGET = function(id, callback) {
-      var postBody = null;
+    getSongsByTagIdUsingGET(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -301,26 +281,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [SongDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongDTO];
 
       return this.apiClient.callApi(
         '/api/tags/id/{id}/songs', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -339,8 +317,8 @@
      * @param {module:api/TagResourceApi~updateUsingPUT5Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TagDTO}
      */
-    this.updateUsingPUT5 = function(tagDto, callback) {
-      var postBody = tagDto;
+    updateUsingPUT5(tagDto, callback) {
+      let postBody = tagDto;
 
       // verify the required parameter 'tagDto' is set
       if (tagDto === undefined || tagDto === null) {
@@ -348,29 +326,26 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = TagDTO;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = TagDTO;
 
       return this.apiClient.callApi(
         '/api/tags', 'PUT',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
-  };
 
-  return exports;
-}));
+
+}

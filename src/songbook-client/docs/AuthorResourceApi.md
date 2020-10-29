@@ -21,21 +21,20 @@ create
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AuthorResourceApi();
+let apiInstance = new SongbookApi.AuthorResourceApi();
 
-var authorDto = new SongbookApi.UniversalCreateDTO(); // UniversalCreateDTO | authorDto
+let authorDto = new SongbookApi.UniversalCreateDTO(); // UniversalCreateDTO | authorDto
 
 
-var callback = function(error, data, response) {
+apiInstance.createUsingPOST(authorDto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.createUsingPOST(authorDto, callback);
+});
 ```
 
 ### Parameters
@@ -65,21 +64,20 @@ delete
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AuthorResourceApi();
+let apiInstance = new SongbookApi.AuthorResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.deleteUsingDELETE(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.deleteUsingDELETE(id, callback);
+});
 ```
 
 ### Parameters
@@ -109,22 +107,21 @@ getAll
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AuthorResourceApi();
+let apiInstance = new SongbookApi.AuthorResourceApi();
 
-var opts = { 
+let opts = { 
   'limit': 56 // Number | limit
 };
 
-var callback = function(error, data, response) {
+apiInstance.getAllUsingGET(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getAllUsingGET(opts, callback);
+});
 ```
 
 ### Parameters
@@ -154,21 +151,20 @@ getById
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AuthorResourceApi();
+let apiInstance = new SongbookApi.AuthorResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getByIdUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByIdUsingGET(id, callback);
+});
 ```
 
 ### Parameters
@@ -198,24 +194,23 @@ getByNameFragment
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AuthorResourceApi();
+let apiInstance = new SongbookApi.AuthorResourceApi();
 
-var name = "name_example"; // String | name
+let name = "name_example"; // String | name
 
-var opts = { 
+let opts = { 
   'limit': 56 // Number | limit
 };
 
-var callback = function(error, data, response) {
+apiInstance.getByNameFragmentUsingGET(name, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByNameFragmentUsingGET(name, opts, callback);
+});
 ```
 
 ### Parameters
@@ -246,21 +241,20 @@ getSongsByAuthorId
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AuthorResourceApi();
+let apiInstance = new SongbookApi.AuthorResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getSongsByAuthorIdUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getSongsByAuthorIdUsingGET(id, callback);
+});
 ```
 
 ### Parameters
@@ -290,21 +284,20 @@ update
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.AuthorResourceApi();
+let apiInstance = new SongbookApi.AuthorResourceApi();
 
-var authorDto = new SongbookApi.AuthorDTO(); // AuthorDTO | authorDto
+let authorDto = new SongbookApi.AuthorDTO(); // AuthorDTO | authorDto
 
 
-var callback = function(error, data, response) {
+apiInstance.updateUsingPUT(authorDto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.updateUsingPUT(authorDto, callback);
+});
 ```
 
 ### Parameters

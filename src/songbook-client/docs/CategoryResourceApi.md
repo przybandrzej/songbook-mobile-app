@@ -21,21 +21,20 @@ create
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.CategoryResourceApi();
+let apiInstance = new SongbookApi.CategoryResourceApi();
 
-var categoryDto = new SongbookApi.UniversalCreateDTO(); // UniversalCreateDTO | categoryDto
+let categoryDto = new SongbookApi.UniversalCreateDTO(); // UniversalCreateDTO | categoryDto
 
 
-var callback = function(error, data, response) {
+apiInstance.createUsingPOST1(categoryDto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.createUsingPOST1(categoryDto, callback);
+});
 ```
 
 ### Parameters
@@ -65,21 +64,20 @@ delete
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.CategoryResourceApi();
+let apiInstance = new SongbookApi.CategoryResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.deleteUsingDELETE1(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.deleteUsingDELETE1(id, callback);
+});
 ```
 
 ### Parameters
@@ -109,18 +107,17 @@ getAll
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.CategoryResourceApi();
+let apiInstance = new SongbookApi.CategoryResourceApi();
 
-var callback = function(error, data, response) {
+apiInstance.getAllUsingGET2((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getAllUsingGET2(callback);
+});
 ```
 
 ### Parameters
@@ -147,21 +144,20 @@ getById
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.CategoryResourceApi();
+let apiInstance = new SongbookApi.CategoryResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getByIdUsingGET2(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByIdUsingGET2(id, callback);
+});
 ```
 
 ### Parameters
@@ -191,21 +187,20 @@ getByName
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.CategoryResourceApi();
+let apiInstance = new SongbookApi.CategoryResourceApi();
 
-var name = "name_example"; // String | name
+let name = "name_example"; // String | name
 
 
-var callback = function(error, data, response) {
+apiInstance.getByNameUsingGET(name, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByNameUsingGET(name, callback);
+});
 ```
 
 ### Parameters
@@ -235,21 +230,20 @@ getSongsByCategoryId
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.CategoryResourceApi();
+let apiInstance = new SongbookApi.CategoryResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getSongsByCategoryIdUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getSongsByCategoryIdUsingGET(id, callback);
+});
 ```
 
 ### Parameters
@@ -279,21 +273,20 @@ update
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.CategoryResourceApi();
+let apiInstance = new SongbookApi.CategoryResourceApi();
 
-var categoryDto = new SongbookApi.CategoryDTO(); // CategoryDTO | categoryDto
+let categoryDto = new SongbookApi.CategoryDTO(); // CategoryDTO | categoryDto
 
 
-var callback = function(error, data, response) {
+apiInstance.updateUsingPUT1(categoryDto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.updateUsingPUT1(categoryDto, callback);
+});
 ```
 
 ### Parameters

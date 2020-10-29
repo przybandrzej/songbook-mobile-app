@@ -14,38 +14,28 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient', 'model/PlaylistDTO', 'model/UserDTO', 'model/UserSongRatingDTO'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'), require('../model/PlaylistDTO'), require('../model/UserDTO'), require('../model/UserSongRatingDTO'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
+import {ApiClient} from "../ApiClient";
+import {PlaylistDTO} from '../model/PlaylistDTO';
+import {UserDTO} from '../model/UserDTO';
+import {UserSongRatingDTO} from '../model/UserSongRatingDTO';
+
+/**
+* UserResource service.
+* @module api/UserResourceApi
+* @version 1.5.5
+*/
+export class UserResourceApi {
+
+    /**
+    * Constructs a new UserResourceApi. 
+    * @alias module:api/UserResourceApi
+    * @class
+    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+    * default to {@link module:ApiClient#instance} if unspecified.
+    */
+    constructor(apiClient) {
+        this.apiClient = apiClient || ApiClient.instance;
     }
-    root.SongbookApi.UserResourceApi = factory(root.SongbookApi.ApiClient, root.SongbookApi.PlaylistDTO, root.SongbookApi.UserDTO, root.SongbookApi.UserSongRatingDTO);
-  }
-}(this, function(ApiClient, PlaylistDTO, UserDTO, UserSongRatingDTO) {
-  'use strict';
-
-  /**
-   * UserResource service.
-   * @module api/UserResourceApi
-   * @version 1.5.5
-   */
-
-  /**
-   * Constructs a new UserResourceApi. 
-   * @alias module:api/UserResourceApi
-   * @class
-   * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-   * default to {@link module:ApiClient#instance} if unspecified.
-   */
-  var exports = function(apiClient) {
-    this.apiClient = apiClient || ApiClient.instance;
 
 
     /**
@@ -62,8 +52,8 @@
      * @param {Number} songId songId
      * @param {module:api/UserResourceApi~addSongToLibraryUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.addSongToLibraryUsingPATCH = function(id, songId, callback) {
-      var postBody = null;
+    addSongToLibraryUsingPATCH(id, songId, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -76,27 +66,25 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id,
         'songId': songId
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = null;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/users/{id}/add-song/{songId}', 'PATCH',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -114,8 +102,8 @@
      * @param {Number} id id
      * @param {module:api/UserResourceApi~deleteUsingDELETE6Callback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.deleteUsingDELETE6 = function(id, callback) {
-      var postBody = null;
+    deleteUsingDELETE6(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -123,26 +111,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = null;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/users/id/{id}', 'DELETE',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -162,31 +148,29 @@
      * @param {module:api/UserResourceApi~getAllUsingGET6Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/UserDTO>}
      */
-    this.getAllUsingGET6 = function(opts, callback) {
+    getAllUsingGET6(opts, callback) {
       opts = opts || {};
-      var postBody = null;
+      let postBody = null;
 
 
-      var pathParams = {
+      let pathParams = {
       };
-      var queryParams = {
-        'limit': opts['limit'],
+      let queryParams = {
+        'limit': opts['limit']
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [UserDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [UserDTO];
 
       return this.apiClient.callApi(
         '/api/users', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -205,8 +189,8 @@
      * @param {module:api/UserResourceApi~getByIdUsingGET6Callback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserDTO}
      */
-    this.getByIdUsingGET6 = function(id, callback) {
-      var postBody = null;
+    getByIdUsingGET6(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -214,26 +198,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = UserDTO;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = UserDTO;
 
       return this.apiClient.callApi(
         '/api/users/id/{id}', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -252,8 +234,8 @@
      * @param {module:api/UserResourceApi~getPlaylistsByUserIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/PlaylistDTO>}
      */
-    this.getPlaylistsByUserIdUsingGET = function(id, callback) {
-      var postBody = null;
+    getPlaylistsByUserIdUsingGET(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -261,26 +243,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [PlaylistDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [PlaylistDTO];
 
       return this.apiClient.callApi(
         '/api/users/id/{id}/playlists', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -299,8 +279,8 @@
      * @param {module:api/UserResourceApi~getRatingsByUserIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/UserSongRatingDTO>}
      */
-    this.getRatingsByUserIdUsingGET = function(id, callback) {
-      var postBody = null;
+    getRatingsByUserIdUsingGET(id, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -308,26 +288,24 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = [];
-      var accepts = ['*/*'];
-      var returnType = [UserSongRatingDTO];
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [UserSongRatingDTO];
 
       return this.apiClient.callApi(
         '/api/users/id/{id}/ratings', 'GET',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
@@ -346,8 +324,8 @@
      * @param {Number} songId songId
      * @param {module:api/UserResourceApi~removeSongFromLibraryUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    this.removeSongFromLibraryUsingPATCH = function(id, songId, callback) {
-      var postBody = null;
+    removeSongFromLibraryUsingPATCH(id, songId, callback) {
+      let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
@@ -360,31 +338,28 @@
       }
 
 
-      var pathParams = {
+      let pathParams = {
         'id': id,
         'songId': songId
       };
-      var queryParams = {
+      let queryParams = {
       };
-      var collectionQueryParams = {
+      let headerParams = {
       };
-      var headerParams = {
-      };
-      var formParams = {
+      let formParams = {
       };
 
-      var authNames = [];
-      var contentTypes = ['application/json'];
-      var accepts = ['*/*'];
-      var returnType = null;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/users/{id}/remove-song/{songId}', 'PATCH',
-        pathParams, queryParams, collectionQueryParams, headerParams, formParams, postBody,
+        pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
-  };
 
-  return exports;
-}));
+
+}

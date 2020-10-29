@@ -21,21 +21,20 @@ create
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserRoleResourceApi();
+let apiInstance = new SongbookApi.UserRoleResourceApi();
 
-var userRoleDto = new SongbookApi.UniversalCreateDTO(); // UniversalCreateDTO | userRoleDto
+let userRoleDto = new SongbookApi.UniversalCreateDTO(); // UniversalCreateDTO | userRoleDto
 
 
-var callback = function(error, data, response) {
+apiInstance.createUsingPOST6(userRoleDto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.createUsingPOST6(userRoleDto, callback);
+});
 ```
 
 ### Parameters
@@ -65,21 +64,20 @@ delete
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserRoleResourceApi();
+let apiInstance = new SongbookApi.UserRoleResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.deleteUsingDELETE7(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully.');
   }
-};
-apiInstance.deleteUsingDELETE7(id, callback);
+});
 ```
 
 ### Parameters
@@ -109,18 +107,17 @@ getAll
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserRoleResourceApi();
+let apiInstance = new SongbookApi.UserRoleResourceApi();
 
-var callback = function(error, data, response) {
+apiInstance.getAllUsingGET7((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getAllUsingGET7(callback);
+});
 ```
 
 ### Parameters
@@ -147,21 +144,20 @@ getById
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserRoleResourceApi();
+let apiInstance = new SongbookApi.UserRoleResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getByIdUsingGET7(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByIdUsingGET7(id, callback);
+});
 ```
 
 ### Parameters
@@ -191,21 +187,20 @@ getByNameSearchQuery
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserRoleResourceApi();
+let apiInstance = new SongbookApi.UserRoleResourceApi();
 
-var searchQuery = "searchQuery_example"; // String | searchQuery
+let searchQuery = "searchQuery_example"; // String | searchQuery
 
 
-var callback = function(error, data, response) {
+apiInstance.getByNameSearchQueryUsingGET(searchQuery, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getByNameSearchQueryUsingGET(searchQuery, callback);
+});
 ```
 
 ### Parameters
@@ -235,21 +230,20 @@ getUsersByUserRoleId
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserRoleResourceApi();
+let apiInstance = new SongbookApi.UserRoleResourceApi();
 
-var id = 789; // Number | id
+let id = 789; // Number | id
 
 
-var callback = function(error, data, response) {
+apiInstance.getUsersByUserRoleIdUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.getUsersByUserRoleIdUsingGET(id, callback);
+});
 ```
 
 ### Parameters
@@ -279,21 +273,20 @@ update
 
 ### Example
 ```javascript
-var SongbookApi = require('songbook_api');
+import {SongbookApi} from 'songbook_api';
 
-var apiInstance = new SongbookApi.UserRoleResourceApi();
+let apiInstance = new SongbookApi.UserRoleResourceApi();
 
-var userRoleDto = new SongbookApi.UserRoleDTO(); // UserRoleDTO | userRoleDto
+let userRoleDto = new SongbookApi.UserRoleDTO(); // UserRoleDTO | userRoleDto
 
 
-var callback = function(error, data, response) {
+apiInstance.updateUsingPUT6(userRoleDto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
     console.log('API called successfully. Returned data: ' + data);
   }
-};
-apiInstance.updateUsingPUT6(userRoleDto, callback);
+});
 ```
 
 ### Parameters

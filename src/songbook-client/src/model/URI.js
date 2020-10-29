@@ -14,36 +14,21 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.URI = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The URI model module.
-   * @module model/URI
-   * @version 1.5.5
-   */
-
+/**
+ * The URI model module.
+ * @module model/URI
+ * @version 1.5.5
+ */
+export class URI {
   /**
    * Constructs a new <code>URI</code>.
    * @alias module:model/URI
    * @class
    */
-  var exports = function() {
-  };
+  constructor() {
+  }
 
   /**
    * Constructs a <code>URI</code> from a plain JavaScript object, optionally creating a new instance.
@@ -52,9 +37,9 @@
    * @param {module:model/URI} obj Optional instance to populate.
    * @return {module:model/URI} The populated <code>URI</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new URI();
       if (data.hasOwnProperty('absolute'))
         obj.absolute = ApiClient.convertToType(data['absolute'], 'Boolean');
       if (data.hasOwnProperty('authority'))
@@ -92,92 +77,91 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {Boolean} absolute
-   */
-  exports.prototype.absolute = undefined;
+/**
+ * @member {Boolean} absolute
+ */
+URI.prototype.absolute = undefined;
 
-  /**
-   * @member {String} authority
-   */
-  exports.prototype.authority = undefined;
+/**
+ * @member {String} authority
+ */
+URI.prototype.authority = undefined;
 
-  /**
-   * @member {String} fragment
-   */
-  exports.prototype.fragment = undefined;
+/**
+ * @member {String} fragment
+ */
+URI.prototype.fragment = undefined;
 
-  /**
-   * @member {String} host
-   */
-  exports.prototype.host = undefined;
+/**
+ * @member {String} host
+ */
+URI.prototype.host = undefined;
 
-  /**
-   * @member {Boolean} opaque
-   */
-  exports.prototype.opaque = undefined;
+/**
+ * @member {Boolean} opaque
+ */
+URI.prototype.opaque = undefined;
 
-  /**
-   * @member {String} path
-   */
-  exports.prototype.path = undefined;
+/**
+ * @member {String} path
+ */
+URI.prototype.path = undefined;
 
-  /**
-   * @member {Number} port
-   */
-  exports.prototype.port = undefined;
+/**
+ * @member {Number} port
+ */
+URI.prototype.port = undefined;
 
-  /**
-   * @member {String} query
-   */
-  exports.prototype.query = undefined;
+/**
+ * @member {String} query
+ */
+URI.prototype.query = undefined;
 
-  /**
-   * @member {String} rawAuthority
-   */
-  exports.prototype.rawAuthority = undefined;
+/**
+ * @member {String} rawAuthority
+ */
+URI.prototype.rawAuthority = undefined;
 
-  /**
-   * @member {String} rawFragment
-   */
-  exports.prototype.rawFragment = undefined;
+/**
+ * @member {String} rawFragment
+ */
+URI.prototype.rawFragment = undefined;
 
-  /**
-   * @member {String} rawPath
-   */
-  exports.prototype.rawPath = undefined;
+/**
+ * @member {String} rawPath
+ */
+URI.prototype.rawPath = undefined;
 
-  /**
-   * @member {String} rawQuery
-   */
-  exports.prototype.rawQuery = undefined;
+/**
+ * @member {String} rawQuery
+ */
+URI.prototype.rawQuery = undefined;
 
-  /**
-   * @member {String} rawSchemeSpecificPart
-   */
-  exports.prototype.rawSchemeSpecificPart = undefined;
+/**
+ * @member {String} rawSchemeSpecificPart
+ */
+URI.prototype.rawSchemeSpecificPart = undefined;
 
-  /**
-   * @member {String} rawUserInfo
-   */
-  exports.prototype.rawUserInfo = undefined;
+/**
+ * @member {String} rawUserInfo
+ */
+URI.prototype.rawUserInfo = undefined;
 
-  /**
-   * @member {String} scheme
-   */
-  exports.prototype.scheme = undefined;
+/**
+ * @member {String} scheme
+ */
+URI.prototype.scheme = undefined;
 
-  /**
-   * @member {String} schemeSpecificPart
-   */
-  exports.prototype.schemeSpecificPart = undefined;
+/**
+ * @member {String} schemeSpecificPart
+ */
+URI.prototype.schemeSpecificPart = undefined;
 
-  /**
-   * @member {String} userInfo
-   */
-  exports.prototype.userInfo = undefined;
+/**
+ * @member {String} userInfo
+ */
+URI.prototype.userInfo = undefined;
 
-  return exports;
 
-}));

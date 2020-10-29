@@ -14,29 +14,14 @@
  *
  */
 
-(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    // AMD. Register as an anonymous module.
-    define(['ApiClient'], factory);
-  } else if (typeof module === 'object' && module.exports) {
-    // CommonJS-like environments that support module.exports, like Node.
-    module.exports = factory(require('../ApiClient'));
-  } else {
-    // Browser globals (root is window)
-    if (!root.SongbookApi) {
-      root.SongbookApi = {};
-    }
-    root.SongbookApi.SongEditDTO = factory(root.SongbookApi.ApiClient);
-  }
-}(this, function(ApiClient) {
-  'use strict';
+import {ApiClient} from '../ApiClient';
 
-  /**
-   * The SongEditDTO model module.
-   * @module model/SongEditDTO
-   * @version 1.5.5
-   */
-
+/**
+ * The SongEditDTO model module.
+ * @module model/SongEditDTO
+ * @version 1.5.5
+ */
+export class SongEditDTO {
   /**
    * Constructs a new <code>SongEditDTO</code>.
    * @alias module:model/SongEditDTO
@@ -45,11 +30,11 @@
    * @param editedSong {Number} 
    * @param id {Number} 
    */
-  var exports = function(editedBy, editedSong, id) {
+  constructor(editedBy, editedSong, id) {
     this.editedBy = editedBy;
     this.editedSong = editedSong;
     this.id = id;
-  };
+  }
 
   /**
    * Constructs a <code>SongEditDTO</code> from a plain JavaScript object, optionally creating a new instance.
@@ -58,9 +43,9 @@
    * @param {module:model/SongEditDTO} obj Optional instance to populate.
    * @return {module:model/SongEditDTO} The populated <code>SongEditDTO</code> instance.
    */
-  exports.constructFromObject = function(data, obj) {
+  static constructFromObject(data, obj) {
     if (data) {
-      obj = obj || new exports();
+      obj = obj || new SongEditDTO();
       if (data.hasOwnProperty('editedBy'))
         obj.editedBy = ApiClient.convertToType(data['editedBy'], 'Number');
       if (data.hasOwnProperty('editedSong'))
@@ -72,27 +57,26 @@
     }
     return obj;
   }
+}
 
-  /**
-   * @member {Number} editedBy
-   */
-  exports.prototype.editedBy = undefined;
+/**
+ * @member {Number} editedBy
+ */
+SongEditDTO.prototype.editedBy = undefined;
 
-  /**
-   * @member {Number} editedSong
-   */
-  exports.prototype.editedSong = undefined;
+/**
+ * @member {Number} editedSong
+ */
+SongEditDTO.prototype.editedSong = undefined;
 
-  /**
-   * @member {Number} id
-   */
-  exports.prototype.id = undefined;
+/**
+ * @member {Number} id
+ */
+SongEditDTO.prototype.id = undefined;
 
-  /**
-   * @member {Date} timestamp
-   */
-  exports.prototype.timestamp = undefined;
+/**
+ * @member {Date} timestamp
+ */
+SongEditDTO.prototype.timestamp = undefined;
 
-  return exports;
 
-}));
