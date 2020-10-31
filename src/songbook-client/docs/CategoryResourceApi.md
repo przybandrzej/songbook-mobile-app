@@ -1,23 +1,23 @@
 # SongbookApi.CategoryResourceApi
 
-All URIs are relative to *https://stk-uep.pl*
+All URIs are relative to *https://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createUsingPOST1**](CategoryResourceApi.md#createUsingPOST1) | **POST** /api/categories | create
-[**deleteUsingDELETE1**](CategoryResourceApi.md#deleteUsingDELETE1) | **DELETE** /api/categories/id/{id} | delete
-[**getAllUsingGET2**](CategoryResourceApi.md#getAllUsingGET2) | **GET** /api/categories | getAll
-[**getByIdUsingGET2**](CategoryResourceApi.md#getByIdUsingGET2) | **GET** /api/categories/id/{id} | getById
-[**getByNameUsingGET**](CategoryResourceApi.md#getByNameUsingGET) | **GET** /api/categories/name/{name} | getByName
-[**getSongsByCategoryIdUsingGET**](CategoryResourceApi.md#getSongsByCategoryIdUsingGET) | **GET** /api/categories/id/{id}/songs | getSongsByCategoryId
-[**updateUsingPUT1**](CategoryResourceApi.md#updateUsingPUT1) | **PUT** /api/categories | update
+[**createCategoryUsingPOST**](CategoryResourceApi.md#createCategoryUsingPOST) | **POST** /api/categories | createCategory
+[**deleteCategoryUsingDELETE**](CategoryResourceApi.md#deleteCategoryUsingDELETE) | **DELETE** /api/categories/{id} | deleteCategory
+[**getAllCategoriesUsingGET**](CategoryResourceApi.md#getAllCategoriesUsingGET) | **GET** /api/categories | getAllCategories
+[**getCategoryByIdUsingGET**](CategoryResourceApi.md#getCategoryByIdUsingGET) | **GET** /api/categories/{id} | getCategoryById
+[**getCategoryByNameUsingGET**](CategoryResourceApi.md#getCategoryByNameUsingGET) | **GET** /api/categories/name/{name} | getCategoryByName
+[**getSongsByCategoryIdUsingGET**](CategoryResourceApi.md#getSongsByCategoryIdUsingGET) | **GET** /api/categories/{id}/songs | getSongsByCategoryId
+[**updateCategoryUsingPUT**](CategoryResourceApi.md#updateCategoryUsingPUT) | **PUT** /api/categories | updateCategory
 
 
-<a name="createUsingPOST1"></a>
-# **createUsingPOST1**
-> CategoryDTO createUsingPOST1(categoryDto)
+<a name="createCategoryUsingPOST"></a>
+# **createCategoryUsingPOST**
+> CategoryDTO createCategoryUsingPOST(categoryDto)
 
-create
+createCategory
 
 ### Example
 ```javascript
@@ -28,7 +28,7 @@ let apiInstance = new SongbookApi.CategoryResourceApi();
 let categoryDto = new SongbookApi.UniversalCreateDTO(); // UniversalCreateDTO | categoryDto
 
 
-apiInstance.createUsingPOST1(categoryDto, (error, data, response) => {
+apiInstance.createCategoryUsingPOST(categoryDto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -56,11 +56,11 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: */*
 
-<a name="deleteUsingDELETE1"></a>
-# **deleteUsingDELETE1**
-> deleteUsingDELETE1(id)
+<a name="deleteCategoryUsingDELETE"></a>
+# **deleteCategoryUsingDELETE**
+> deleteCategoryUsingDELETE(id)
 
-delete
+deleteCategory
 
 ### Example
 ```javascript
@@ -71,7 +71,7 @@ let apiInstance = new SongbookApi.CategoryResourceApi();
 let id = 789; // Number | id
 
 
-apiInstance.deleteUsingDELETE1(id, (error, data, response) => {
+apiInstance.deleteCategoryUsingDELETE(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -99,11 +99,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getAllUsingGET2"></a>
-# **getAllUsingGET2**
-> [CategoryDTO] getAllUsingGET2()
+<a name="getAllCategoriesUsingGET"></a>
+# **getAllCategoriesUsingGET**
+> [CategoryDTO] getAllCategoriesUsingGET()
 
-getAll
+getAllCategories
 
 ### Example
 ```javascript
@@ -111,7 +111,7 @@ import {SongbookApi} from 'songbook_api';
 
 let apiInstance = new SongbookApi.CategoryResourceApi();
 
-apiInstance.getAllUsingGET2((error, data, response) => {
+apiInstance.getAllCategoriesUsingGET((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -136,11 +136,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getByIdUsingGET2"></a>
-# **getByIdUsingGET2**
-> CategoryDTO getByIdUsingGET2(id)
+<a name="getCategoryByIdUsingGET"></a>
+# **getCategoryByIdUsingGET**
+> CategoryDTO getCategoryByIdUsingGET(id)
 
-getById
+getCategoryById
 
 ### Example
 ```javascript
@@ -151,7 +151,7 @@ let apiInstance = new SongbookApi.CategoryResourceApi();
 let id = 789; // Number | id
 
 
-apiInstance.getByIdUsingGET2(id, (error, data, response) => {
+apiInstance.getCategoryByIdUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -179,11 +179,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getByNameUsingGET"></a>
-# **getByNameUsingGET**
-> [CategoryDTO] getByNameUsingGET(name)
+<a name="getCategoryByNameUsingGET"></a>
+# **getCategoryByNameUsingGET**
+> [CategoryDTO] getCategoryByNameUsingGET(name)
 
-getByName
+getCategoryByName
 
 ### Example
 ```javascript
@@ -194,7 +194,7 @@ let apiInstance = new SongbookApi.CategoryResourceApi();
 let name = "name_example"; // String | name
 
 
-apiInstance.getByNameUsingGET(name, (error, data, response) => {
+apiInstance.getCategoryByNameUsingGET(name, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -265,11 +265,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="updateUsingPUT1"></a>
-# **updateUsingPUT1**
-> CategoryDTO updateUsingPUT1(categoryDto)
+<a name="updateCategoryUsingPUT"></a>
+# **updateCategoryUsingPUT**
+> CategoryDTO updateCategoryUsingPUT(categoryDto)
 
-update
+updateCategory
 
 ### Example
 ```javascript
@@ -280,7 +280,7 @@ let apiInstance = new SongbookApi.CategoryResourceApi();
 let categoryDto = new SongbookApi.CategoryDTO(); // CategoryDTO | categoryDto
 
 
-apiInstance.updateUsingPUT1(categoryDto, (error, data, response) => {
+apiInstance.updateCategoryUsingPUT(categoryDto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {

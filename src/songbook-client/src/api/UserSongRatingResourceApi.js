@@ -37,25 +37,25 @@ export class UserSongRatingResourceApi {
 
 
     /**
-     * Callback function to receive the result of the createUsingPOST7 operation.
-     * @callback module:api/UserSongRatingResourceApi~createUsingPOST7Callback
+     * Callback function to receive the result of the createRatingUsingPOST operation.
+     * @callback module:api/UserSongRatingResourceApi~createRatingUsingPOSTCallback
      * @param {String} error Error message, if any.
      * @param {module:model/UserSongRatingDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * create
+     * createRating
      * @param {module:model/UserSongRatingDTO} dto dto
-     * @param {module:api/UserSongRatingResourceApi~createUsingPOST7Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UserSongRatingResourceApi~createRatingUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserSongRatingDTO}
      */
-    createUsingPOST7(dto, callback) {
+    createRatingUsingPOST(dto, callback) {
       let postBody = dto;
 
       // verify the required parameter 'dto' is set
       if (dto === undefined || dto === null) {
-        throw new Error("Missing the required parameter 'dto' when calling createUsingPOST7");
+        throw new Error("Missing the required parameter 'dto' when calling createRatingUsingPOST");
       }
 
 
@@ -81,36 +81,29 @@ export class UserSongRatingResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the deleteUsingDELETE8 operation.
-     * @callback module:api/UserSongRatingResourceApi~deleteUsingDELETE8Callback
+     * Callback function to receive the result of the deleteRatingUsingDELETE operation.
+     * @callback module:api/UserSongRatingResourceApi~deleteRatingUsingDELETECallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * delete
-     * @param {Number} songId songId
-     * @param {Number} userId userId
-     * @param {module:api/UserSongRatingResourceApi~deleteUsingDELETE8Callback} callback The callback function, accepting three arguments: error, data, response
+     * deleteRating
+     * @param {Number} id id
+     * @param {module:api/UserSongRatingResourceApi~deleteRatingUsingDELETECallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteUsingDELETE8(songId, userId, callback) {
+    deleteRatingUsingDELETE(id, callback) {
       let postBody = null;
 
-      // verify the required parameter 'songId' is set
-      if (songId === undefined || songId === null) {
-        throw new Error("Missing the required parameter 'songId' when calling deleteUsingDELETE8");
-      }
-
-      // verify the required parameter 'userId' is set
-      if (userId === undefined || userId === null) {
-        throw new Error("Missing the required parameter 'userId' when calling deleteUsingDELETE8");
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling deleteRatingUsingDELETE");
       }
 
 
       let pathParams = {
-        'songId': songId,
-        'userId': userId
+        'id': id
       };
       let queryParams = {
       };
@@ -125,30 +118,30 @@ export class UserSongRatingResourceApi {
       let returnType = null;
 
       return this.apiClient.callApi(
-        '/api/ratings/{userId}/{songId}', 'DELETE',
+        '/api/ratings/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getAllUsingGET8 operation.
-     * @callback module:api/UserSongRatingResourceApi~getAllUsingGET8Callback
+     * Callback function to receive the result of the getAllRatingsUsingGET operation.
+     * @callback module:api/UserSongRatingResourceApi~getAllRatingsUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/UserSongRatingDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getAll
+     * getAllRatings
      * @param {Object} opts Optional parameters
      * @param {Number} opts.equal equal
      * @param {Number} opts.greaterThanEqual greaterThanEqual
      * @param {Number} opts.lessThanEqual lessThanEqual
-     * @param {module:api/UserSongRatingResourceApi~getAllUsingGET8Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UserSongRatingResourceApi~getAllRatingsUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/UserSongRatingDTO>}
      */
-    getAllUsingGET8(opts, callback) {
+    getAllRatingsUsingGET(opts, callback) {
       opts = opts || {};
       let postBody = null;
 
@@ -178,25 +171,25 @@ export class UserSongRatingResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the getBySongIdUsingGET1 operation.
-     * @callback module:api/UserSongRatingResourceApi~getBySongIdUsingGET1Callback
+     * Callback function to receive the result of the getRatingByIdUsingGET operation.
+     * @callback module:api/UserSongRatingResourceApi~getRatingByIdUsingGETCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/UserSongRatingDTO>} data The data returned by the service call.
+     * @param {module:model/UserSongRatingDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getBySongId
+     * getRatingById
      * @param {Number} id id
-     * @param {module:api/UserSongRatingResourceApi~getBySongIdUsingGET1Callback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/UserSongRatingDTO>}
+     * @param {module:api/UserSongRatingResourceApi~getRatingByIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/UserSongRatingDTO}
      */
-    getBySongIdUsingGET1(id, callback) {
+    getRatingByIdUsingGET(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getBySongIdUsingGET1");
+        throw new Error("Missing the required parameter 'id' when calling getRatingByIdUsingGET");
       }
 
 
@@ -213,41 +206,41 @@ export class UserSongRatingResourceApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['*/*'];
-      let returnType = [UserSongRatingDTO];
+      let returnType = UserSongRatingDTO;
 
       return this.apiClient.callApi(
-        '/api/ratings/song/{id}', 'GET',
+        '/api/ratings/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getByUserIdAndSongIdUsingGET operation.
-     * @callback module:api/UserSongRatingResourceApi~getByUserIdAndSongIdUsingGETCallback
+     * Callback function to receive the result of the getRatingByUserIdAndSongIdUsingGET operation.
+     * @callback module:api/UserSongRatingResourceApi~getRatingByUserIdAndSongIdUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {module:model/UserSongRatingDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getByUserIdAndSongId
+     * getRatingByUserIdAndSongId
      * @param {Number} songId songId
      * @param {Number} userId userId
-     * @param {module:api/UserSongRatingResourceApi~getByUserIdAndSongIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UserSongRatingResourceApi~getRatingByUserIdAndSongIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserSongRatingDTO}
      */
-    getByUserIdAndSongIdUsingGET(songId, userId, callback) {
+    getRatingByUserIdAndSongIdUsingGET(songId, userId, callback) {
       let postBody = null;
 
       // verify the required parameter 'songId' is set
       if (songId === undefined || songId === null) {
-        throw new Error("Missing the required parameter 'songId' when calling getByUserIdAndSongIdUsingGET");
+        throw new Error("Missing the required parameter 'songId' when calling getRatingByUserIdAndSongIdUsingGET");
       }
 
       // verify the required parameter 'userId' is set
       if (userId === undefined || userId === null) {
-        throw new Error("Missing the required parameter 'userId' when calling getByUserIdAndSongIdUsingGET");
+        throw new Error("Missing the required parameter 'userId' when calling getRatingByUserIdAndSongIdUsingGET");
       }
 
 
@@ -275,70 +268,25 @@ export class UserSongRatingResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the getByUserIdUsingGET operation.
-     * @callback module:api/UserSongRatingResourceApi~getByUserIdUsingGETCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/UserSongRatingDTO>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * getByUserId
-     * @param {Number} id id
-     * @param {module:api/UserSongRatingResourceApi~getByUserIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/UserSongRatingDTO>}
-     */
-    getByUserIdUsingGET(id, callback) {
-      let postBody = null;
-
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getByUserIdUsingGET");
-      }
-
-
-      let pathParams = {
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['*/*'];
-      let returnType = [UserSongRatingDTO];
-
-      return this.apiClient.callApi(
-        '/api/ratings/user/{id}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the updateUsingPUT7 operation.
-     * @callback module:api/UserSongRatingResourceApi~updateUsingPUT7Callback
+     * Callback function to receive the result of the updateRatingUsingPUT operation.
+     * @callback module:api/UserSongRatingResourceApi~updateRatingUsingPUTCallback
      * @param {String} error Error message, if any.
      * @param {module:model/UserSongRatingDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * update
+     * updateRating
      * @param {module:model/UserSongRatingDTO} dto dto
-     * @param {module:api/UserSongRatingResourceApi~updateUsingPUT7Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UserSongRatingResourceApi~updateRatingUsingPUTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserSongRatingDTO}
      */
-    updateUsingPUT7(dto, callback) {
+    updateRatingUsingPUT(dto, callback) {
       let postBody = dto;
 
       // verify the required parameter 'dto' is set
       if (dto === undefined || dto === null) {
-        throw new Error("Missing the required parameter 'dto' when calling updateUsingPUT7");
+        throw new Error("Missing the required parameter 'dto' when calling updateRatingUsingPUT");
       }
 
 

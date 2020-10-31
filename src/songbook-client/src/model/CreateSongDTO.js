@@ -16,6 +16,7 @@
 
 import {ApiClient} from '../ApiClient';
 import {CreateCoauthorDTO} from './CreateCoauthorDTO';
+import {CreateVerseDTO} from './CreateVerseDTO';
 
 /**
  * The CreateSongDTO model module.
@@ -31,18 +32,12 @@ export class CreateSongDTO {
    * @param authorName {String} Author's name (doesn't have to exist)
    * @param categoryId {Number} Category
    * @param title {String} 
-   * @param coauthors {Array.<module:model/CreateCoauthorDTO>} 
-   * @param lyrics {String} 
-   * @param guitarTabs {String} 
    * @param tags {Array.<String>} 
    */
-  constructor(authorName, categoryId, title, coauthors, lyrics, guitarTabs, tags) {
+  constructor(authorName, categoryId, title, tags) {
     this.authorName = authorName;
     this.categoryId = categoryId;
     this.title = title;
-    this.coauthors = coauthors;
-    this.lyrics = lyrics;
-    this.guitarTabs = guitarTabs;
     this.tags = tags;
   }
 
@@ -64,10 +59,8 @@ export class CreateSongDTO {
         obj.title = ApiClient.convertToType(data['title'], 'String');
       if (data.hasOwnProperty('coauthors'))
         obj.coauthors = ApiClient.convertToType(data['coauthors'], [CreateCoauthorDTO]);
-      if (data.hasOwnProperty('lyrics'))
-        obj.lyrics = ApiClient.convertToType(data['lyrics'], 'String');
-      if (data.hasOwnProperty('guitarTabs'))
-        obj.guitarTabs = ApiClient.convertToType(data['guitarTabs'], 'String');
+      if (data.hasOwnProperty('verses'))
+        obj.verses = ApiClient.convertToType(data['verses'], [CreateVerseDTO]);
       if (data.hasOwnProperty('trivia'))
         obj.trivia = ApiClient.convertToType(data['trivia'], 'String');
       if (data.hasOwnProperty('tags'))
@@ -100,14 +93,9 @@ CreateSongDTO.prototype.title = undefined;
 CreateSongDTO.prototype.coauthors = undefined;
 
 /**
- * @member {String} lyrics
+ * @member {Array.<module:model/CreateVerseDTO>} verses
  */
-CreateSongDTO.prototype.lyrics = undefined;
-
-/**
- * @member {String} guitarTabs
- */
-CreateSongDTO.prototype.guitarTabs = undefined;
+CreateSongDTO.prototype.verses = undefined;
 
 /**
  * @member {String} trivia

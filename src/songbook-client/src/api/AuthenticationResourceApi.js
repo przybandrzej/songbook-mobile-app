@@ -17,6 +17,7 @@
 import {ApiClient} from "../ApiClient";
 import {EmailChangeDTO} from '../model/EmailChangeDTO';
 import {LoginForm} from '../model/LoginForm';
+import {NameChangeDTO} from '../model/NameChangeDTO';
 import {PasswordChangeDTO} from '../model/PasswordChangeDTO';
 import {RegisterNewUserForm} from '../model/RegisterNewUserForm';
 import {TokenAndPasswordDTO} from '../model/TokenAndPasswordDTO';
@@ -168,6 +169,136 @@ export class AuthenticationResourceApi {
 
       return this.apiClient.callApi(
         '/api/account/change-email', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the changeFirstNameUsingPATCH operation.
+     * @callback module:api/AuthenticationResourceApi~changeFirstNameUsingPATCHCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * changeFirstName
+     * @param {module:model/NameChangeDTO} nameChangeDTO nameChangeDTO
+     * @param {module:api/AuthenticationResourceApi~changeFirstNameUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    changeFirstNameUsingPATCH(nameChangeDTO, callback) {
+      let postBody = nameChangeDTO;
+
+      // verify the required parameter 'nameChangeDTO' is set
+      if (nameChangeDTO === undefined || nameChangeDTO === null) {
+        throw new Error("Missing the required parameter 'nameChangeDTO' when calling changeFirstNameUsingPATCH");
+      }
+
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/api/account/change-first-name', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the changeImageUrlUsingPATCH operation.
+     * @callback module:api/AuthenticationResourceApi~changeImageUrlUsingPATCHCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * changeImageUrl
+     * @param {String} url url
+     * @param {module:api/AuthenticationResourceApi~changeImageUrlUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    changeImageUrlUsingPATCH(url, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'url' is set
+      if (url === undefined || url === null) {
+        throw new Error("Missing the required parameter 'url' when calling changeImageUrlUsingPATCH");
+      }
+
+
+      let pathParams = {
+        'url': url
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/api/account/change-image/{url}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the changeLastNameUsingPATCH operation.
+     * @callback module:api/AuthenticationResourceApi~changeLastNameUsingPATCHCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * changeLastName
+     * @param {module:model/NameChangeDTO} nameChangeDTO nameChangeDTO
+     * @param {module:api/AuthenticationResourceApi~changeLastNameUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    changeLastNameUsingPATCH(nameChangeDTO, callback) {
+      let postBody = nameChangeDTO;
+
+      // verify the required parameter 'nameChangeDTO' is set
+      if (nameChangeDTO === undefined || nameChangeDTO === null) {
+        throw new Error("Missing the required parameter 'nameChangeDTO' when calling changeLastNameUsingPATCH");
+      }
+
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/api/account/change-last-name', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -416,50 +547,6 @@ export class AuthenticationResourceApi {
 
       return this.apiClient.callApi(
         '/api/account/reset-password/init', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the saveAccountUsingPOST operation.
-     * @callback module:api/AuthenticationResourceApi~saveAccountUsingPOSTCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/UserDTO} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * saveAccount
-     * @param {module:model/UserDTO} userDTO userDTO
-     * @param {module:api/AuthenticationResourceApi~saveAccountUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/UserDTO}
-     */
-    saveAccountUsingPOST(userDTO, callback) {
-      let postBody = userDTO;
-
-      // verify the required parameter 'userDTO' is set
-      if (userDTO === undefined || userDTO === null) {
-        throw new Error("Missing the required parameter 'userDTO' when calling saveAccountUsingPOST");
-      }
-
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['*/*'];
-      let returnType = UserDTO;
-
-      return this.apiClient.callApi(
-        '/api/account', 'POST',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

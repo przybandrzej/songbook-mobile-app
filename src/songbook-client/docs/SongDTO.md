@@ -3,17 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**addedBy** | [**SongAddDTO**](SongAddDTO.md) |  | [optional] 
-**author** | [**AuthorDTO**](AuthorDTO.md) |  | [optional] 
+**addedBy** | **Number** |  | [optional] 
+**authorId** | **Number** |  | 
 **averageRating** | **Number** |  | [optional] 
-**category** | [**CategoryDTO**](CategoryDTO.md) |  | [optional] 
-**coauthors** | [**[SongCoauthorDTO]**](SongCoauthorDTO.md) |  | 
-**edits** | [**[SongEditDTO]**](SongEditDTO.md) |  | 
-**guitarTabs** | **String** |  | [optional] 
+**categoryId** | **Number** |  | 
 **id** | **Number** |  | 
 **isAwaiting** | **Boolean** |  | [optional] 
-**lyrics** | **String** |  | [optional] 
-**tags** | [**[TagDTO]**](TagDTO.md) |  | 
 **title** | **String** |  | 
 **trivia** | **String** |  | [optional] 
 

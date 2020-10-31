@@ -15,12 +15,6 @@
  */
 
 import {ApiClient} from '../ApiClient';
-import {AuthorDTO} from './AuthorDTO';
-import {CategoryDTO} from './CategoryDTO';
-import {SongAddDTO} from './SongAddDTO';
-import {SongCoauthorDTO} from './SongCoauthorDTO';
-import {SongEditDTO} from './SongEditDTO';
-import {TagDTO} from './TagDTO';
 
 /**
  * The SongDTO model module.
@@ -32,17 +26,15 @@ export class SongDTO {
    * Constructs a new <code>SongDTO</code>.
    * @alias module:model/SongDTO
    * @class
-   * @param coauthors {Array.<module:model/SongCoauthorDTO>} 
-   * @param edits {Array.<module:model/SongEditDTO>} 
+   * @param authorId {Number} 
+   * @param categoryId {Number} 
    * @param id {Number} 
-   * @param tags {Array.<module:model/TagDTO>} 
    * @param title {String} 
    */
-  constructor(coauthors, edits, id, tags, title) {
-    this.coauthors = coauthors;
-    this.edits = edits;
+  constructor(authorId, categoryId, id, title) {
+    this.authorId = authorId;
+    this.categoryId = categoryId;
     this.id = id;
-    this.tags = tags;
     this.title = title;
   }
 
@@ -57,27 +49,17 @@ export class SongDTO {
     if (data) {
       obj = obj || new SongDTO();
       if (data.hasOwnProperty('addedBy'))
-        obj.addedBy = SongAddDTO.constructFromObject(data['addedBy']);
-      if (data.hasOwnProperty('author'))
-        obj.author = AuthorDTO.constructFromObject(data['author']);
+        obj.addedBy = ApiClient.convertToType(data['addedBy'], 'Number');
+      if (data.hasOwnProperty('authorId'))
+        obj.authorId = ApiClient.convertToType(data['authorId'], 'Number');
       if (data.hasOwnProperty('averageRating'))
         obj.averageRating = ApiClient.convertToType(data['averageRating'], 'Number');
-      if (data.hasOwnProperty('category'))
-        obj.category = CategoryDTO.constructFromObject(data['category']);
-      if (data.hasOwnProperty('coauthors'))
-        obj.coauthors = ApiClient.convertToType(data['coauthors'], [SongCoauthorDTO]);
-      if (data.hasOwnProperty('edits'))
-        obj.edits = ApiClient.convertToType(data['edits'], [SongEditDTO]);
-      if (data.hasOwnProperty('guitarTabs'))
-        obj.guitarTabs = ApiClient.convertToType(data['guitarTabs'], 'String');
+      if (data.hasOwnProperty('categoryId'))
+        obj.categoryId = ApiClient.convertToType(data['categoryId'], 'Number');
       if (data.hasOwnProperty('id'))
         obj.id = ApiClient.convertToType(data['id'], 'Number');
       if (data.hasOwnProperty('isAwaiting'))
         obj.isAwaiting = ApiClient.convertToType(data['isAwaiting'], 'Boolean');
-      if (data.hasOwnProperty('lyrics'))
-        obj.lyrics = ApiClient.convertToType(data['lyrics'], 'String');
-      if (data.hasOwnProperty('tags'))
-        obj.tags = ApiClient.convertToType(data['tags'], [TagDTO]);
       if (data.hasOwnProperty('title'))
         obj.title = ApiClient.convertToType(data['title'], 'String');
       if (data.hasOwnProperty('trivia'))
@@ -88,14 +70,14 @@ export class SongDTO {
 }
 
 /**
- * @member {module:model/SongAddDTO} addedBy
+ * @member {Number} addedBy
  */
 SongDTO.prototype.addedBy = undefined;
 
 /**
- * @member {module:model/AuthorDTO} author
+ * @member {Number} authorId
  */
-SongDTO.prototype.author = undefined;
+SongDTO.prototype.authorId = undefined;
 
 /**
  * @member {Number} averageRating
@@ -103,24 +85,9 @@ SongDTO.prototype.author = undefined;
 SongDTO.prototype.averageRating = undefined;
 
 /**
- * @member {module:model/CategoryDTO} category
+ * @member {Number} categoryId
  */
-SongDTO.prototype.category = undefined;
-
-/**
- * @member {Array.<module:model/SongCoauthorDTO>} coauthors
- */
-SongDTO.prototype.coauthors = undefined;
-
-/**
- * @member {Array.<module:model/SongEditDTO>} edits
- */
-SongDTO.prototype.edits = undefined;
-
-/**
- * @member {String} guitarTabs
- */
-SongDTO.prototype.guitarTabs = undefined;
+SongDTO.prototype.categoryId = undefined;
 
 /**
  * @member {Number} id
@@ -131,16 +98,6 @@ SongDTO.prototype.id = undefined;
  * @member {Boolean} isAwaiting
  */
 SongDTO.prototype.isAwaiting = undefined;
-
-/**
- * @member {String} lyrics
- */
-SongDTO.prototype.lyrics = undefined;
-
-/**
- * @member {Array.<module:model/TagDTO>} tags
- */
-SongDTO.prototype.tags = undefined;
 
 /**
  * @member {String} title

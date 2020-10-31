@@ -88,112 +88,138 @@ api.activateUserUsingPATCH(userId, callback);
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://stk-uep.pl*
+All URIs are relative to *https://localhost:8080*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*SongbookApi.AdminResourceApi* | [**activateUserUsingPATCH**](docs/AdminResourceApi.md#activateUserUsingPATCH) | **PATCH** /api/admin/activate-user/{userId} | activateUser
-*SongbookApi.AdminResourceApi* | [**updateUserRoleUsingPATCH**](docs/AdminResourceApi.md#updateUserRoleUsingPATCH) | **PATCH** /api/admin/update-role/{userId}/{roleId} | updateUserRole
-*SongbookApi.AdminResourceApi* | [**updateUserUsingPUT**](docs/AdminResourceApi.md#updateUserUsingPUT) | **PUT** /api/admin/update-user | updateUser
+*SongbookApi.AdminResourceApi* | [**activateUserUsingPATCH**](docs/AdminResourceApi.md#activateUserUsingPATCH) | **PATCH** /api/admin/{userId}/activate-user | activateUser
+*SongbookApi.AdminResourceApi* | [**updateUserRoleUsingPATCH**](docs/AdminResourceApi.md#updateUserRoleUsingPATCH) | **PATCH** /api/admin/{userId}/update-role/{roleId} | updateUserRole
 *SongbookApi.AuthenticationResourceApi* | [**activateAccountUsingGET**](docs/AuthenticationResourceApi.md#activateAccountUsingGET) | **GET** /api/activate | activateAccount
 *SongbookApi.AuthenticationResourceApi* | [**authenticateUsingPOST**](docs/AuthenticationResourceApi.md#authenticateUsingPOST) | **POST** /api/authenticate | authenticate
 *SongbookApi.AuthenticationResourceApi* | [**changeEmailUsingPATCH**](docs/AuthenticationResourceApi.md#changeEmailUsingPATCH) | **PATCH** /api/account/change-email | changeEmail
+*SongbookApi.AuthenticationResourceApi* | [**changeFirstNameUsingPATCH**](docs/AuthenticationResourceApi.md#changeFirstNameUsingPATCH) | **PATCH** /api/account/change-first-name | changeFirstName
+*SongbookApi.AuthenticationResourceApi* | [**changeImageUrlUsingPATCH**](docs/AuthenticationResourceApi.md#changeImageUrlUsingPATCH) | **PATCH** /api/account/change-image/{url} | changeImageUrl
+*SongbookApi.AuthenticationResourceApi* | [**changeLastNameUsingPATCH**](docs/AuthenticationResourceApi.md#changeLastNameUsingPATCH) | **PATCH** /api/account/change-last-name | changeLastName
 *SongbookApi.AuthenticationResourceApi* | [**changePasswordUsingPOST**](docs/AuthenticationResourceApi.md#changePasswordUsingPOST) | **POST** /api/account/change-password | changePassword
 *SongbookApi.AuthenticationResourceApi* | [**finishPasswordResetUsingPOST**](docs/AuthenticationResourceApi.md#finishPasswordResetUsingPOST) | **POST** /api/account/reset-password/finish | finishPasswordReset
 *SongbookApi.AuthenticationResourceApi* | [**getAccountUsingGET**](docs/AuthenticationResourceApi.md#getAccountUsingGET) | **GET** /api/account | getAccount
 *SongbookApi.AuthenticationResourceApi* | [**isAuthenticatedUsingGET**](docs/AuthenticationResourceApi.md#isAuthenticatedUsingGET) | **GET** /api/is-authenticated | isAuthenticated
 *SongbookApi.AuthenticationResourceApi* | [**registerUsingPOST**](docs/AuthenticationResourceApi.md#registerUsingPOST) | **POST** /api/register | register
 *SongbookApi.AuthenticationResourceApi* | [**requestPasswordResetUsingPOST**](docs/AuthenticationResourceApi.md#requestPasswordResetUsingPOST) | **POST** /api/account/reset-password/init | requestPasswordReset
-*SongbookApi.AuthenticationResourceApi* | [**saveAccountUsingPOST**](docs/AuthenticationResourceApi.md#saveAccountUsingPOST) | **POST** /api/account | saveAccount
-*SongbookApi.AuthorResourceApi* | [**createUsingPOST**](docs/AuthorResourceApi.md#createUsingPOST) | **POST** /api/authors | create
-*SongbookApi.AuthorResourceApi* | [**deleteUsingDELETE**](docs/AuthorResourceApi.md#deleteUsingDELETE) | **DELETE** /api/authors/id/{id} | delete
-*SongbookApi.AuthorResourceApi* | [**getAllUsingGET**](docs/AuthorResourceApi.md#getAllUsingGET) | **GET** /api/authors | getAll
-*SongbookApi.AuthorResourceApi* | [**getByIdUsingGET**](docs/AuthorResourceApi.md#getByIdUsingGET) | **GET** /api/authors/id/{id} | getById
-*SongbookApi.AuthorResourceApi* | [**getByNameFragmentUsingGET**](docs/AuthorResourceApi.md#getByNameFragmentUsingGET) | **GET** /api/authors/name/{name} | getByNameFragment
-*SongbookApi.AuthorResourceApi* | [**getSongsByAuthorIdUsingGET**](docs/AuthorResourceApi.md#getSongsByAuthorIdUsingGET) | **GET** /api/authors/id/{id}/songs | getSongsByAuthorId
-*SongbookApi.AuthorResourceApi* | [**updateUsingPUT**](docs/AuthorResourceApi.md#updateUsingPUT) | **PUT** /api/authors | update
-*SongbookApi.AwaitingSongResourceApi* | [**getAllUsingGET1**](docs/AwaitingSongResourceApi.md#getAllUsingGET1) | **GET** /api/awaiting-songs | getAll
-*SongbookApi.AwaitingSongResourceApi* | [**getByCategoryUsingGET**](docs/AwaitingSongResourceApi.md#getByCategoryUsingGET) | **GET** /api/awaiting-songs/category/{categoryId} | getByCategory
-*SongbookApi.AwaitingSongResourceApi* | [**getByIdUsingGET1**](docs/AwaitingSongResourceApi.md#getByIdUsingGET1) | **GET** /api/awaiting-songs/id/{id} | getById
-*SongbookApi.AwaitingSongResourceApi* | [**getByLyricsFragmentUsingGET**](docs/AwaitingSongResourceApi.md#getByLyricsFragmentUsingGET) | **GET** /api/awaiting-songs/lyrics_fragment/{value} | getByLyricsFragment
-*SongbookApi.AwaitingSongResourceApi* | [**getByTagUsingGET**](docs/AwaitingSongResourceApi.md#getByTagUsingGET) | **GET** /api/awaiting-songs/tag/{tagId} | getByTag
-*SongbookApi.AwaitingSongResourceApi* | [**getByTitleFragmentUsingGET**](docs/AwaitingSongResourceApi.md#getByTitleFragmentUsingGET) | **GET** /api/awaiting-songs/title/{title} | getByTitleFragment
-*SongbookApi.AwaitingSongResourceApi* | [**getLatestUsingGET**](docs/AwaitingSongResourceApi.md#getLatestUsingGET) | **GET** /api/awaiting-songs/latest | getLatest
-*SongbookApi.CategoryResourceApi* | [**createUsingPOST1**](docs/CategoryResourceApi.md#createUsingPOST1) | **POST** /api/categories | create
-*SongbookApi.CategoryResourceApi* | [**deleteUsingDELETE1**](docs/CategoryResourceApi.md#deleteUsingDELETE1) | **DELETE** /api/categories/id/{id} | delete
-*SongbookApi.CategoryResourceApi* | [**getAllUsingGET2**](docs/CategoryResourceApi.md#getAllUsingGET2) | **GET** /api/categories | getAll
-*SongbookApi.CategoryResourceApi* | [**getByIdUsingGET2**](docs/CategoryResourceApi.md#getByIdUsingGET2) | **GET** /api/categories/id/{id} | getById
-*SongbookApi.CategoryResourceApi* | [**getByNameUsingGET**](docs/CategoryResourceApi.md#getByNameUsingGET) | **GET** /api/categories/name/{name} | getByName
-*SongbookApi.CategoryResourceApi* | [**getSongsByCategoryIdUsingGET**](docs/CategoryResourceApi.md#getSongsByCategoryIdUsingGET) | **GET** /api/categories/id/{id}/songs | getSongsByCategoryId
-*SongbookApi.CategoryResourceApi* | [**updateUsingPUT1**](docs/CategoryResourceApi.md#updateUsingPUT1) | **PUT** /api/categories | update
-*SongbookApi.PlaylistResourceApi* | [**addSongUsingPATCH**](docs/PlaylistResourceApi.md#addSongUsingPATCH) | **PATCH** /api/playlists/{id}/add-song/{songId} | addSong
-*SongbookApi.PlaylistResourceApi* | [**createUsingPOST2**](docs/PlaylistResourceApi.md#createUsingPOST2) | **POST** /api/playlists | create
-*SongbookApi.PlaylistResourceApi* | [**deleteUsingDELETE2**](docs/PlaylistResourceApi.md#deleteUsingDELETE2) | **DELETE** /api/playlists/id/{id} | delete
+*SongbookApi.AuthorResourceApi* | [**createAuthorUsingPOST**](docs/AuthorResourceApi.md#createAuthorUsingPOST) | **POST** /api/authors | createAuthor
+*SongbookApi.AuthorResourceApi* | [**deleteAuthorUsingDELETE**](docs/AuthorResourceApi.md#deleteAuthorUsingDELETE) | **DELETE** /api/authors/{id} | deleteAuthor
+*SongbookApi.AuthorResourceApi* | [**getAllAuthorsUsingGET**](docs/AuthorResourceApi.md#getAllAuthorsUsingGET) | **GET** /api/authors | getAllAuthors
+*SongbookApi.AuthorResourceApi* | [**getAuthorByIdUsingGET**](docs/AuthorResourceApi.md#getAuthorByIdUsingGET) | **GET** /api/authors/{id} | getAuthorById
+*SongbookApi.AuthorResourceApi* | [**getAuthorByNameFragmentUsingGET**](docs/AuthorResourceApi.md#getAuthorByNameFragmentUsingGET) | **GET** /api/authors/name/{name} | getAuthorByNameFragment
+*SongbookApi.AuthorResourceApi* | [**getSongsByAuthorIdUsingGET**](docs/AuthorResourceApi.md#getSongsByAuthorIdUsingGET) | **GET** /api/authors/{id}/songs | getSongsByAuthorId
+*SongbookApi.AuthorResourceApi* | [**updateAuthorUsingPUT**](docs/AuthorResourceApi.md#updateAuthorUsingPUT) | **PUT** /api/authors | updateAuthor
+*SongbookApi.AwaitingSongResourceApi* | [**getAllAwaitingSongsUsingGET**](docs/AwaitingSongResourceApi.md#getAllAwaitingSongsUsingGET) | **GET** /api/awaiting-songs | getAllAwaitingSongs
+*SongbookApi.AwaitingSongResourceApi* | [**getAwaitingSongByIdUsingGET**](docs/AwaitingSongResourceApi.md#getAwaitingSongByIdUsingGET) | **GET** /api/awaiting-songs/{id} | getAwaitingSongById
+*SongbookApi.AwaitingSongResourceApi* | [**getAwaitingSongByTitleFragmentUsingGET**](docs/AwaitingSongResourceApi.md#getAwaitingSongByTitleFragmentUsingGET) | **GET** /api/awaiting-songs/title/{title} | getAwaitingSongByTitleFragment
+*SongbookApi.CategoryResourceApi* | [**createCategoryUsingPOST**](docs/CategoryResourceApi.md#createCategoryUsingPOST) | **POST** /api/categories | createCategory
+*SongbookApi.CategoryResourceApi* | [**deleteCategoryUsingDELETE**](docs/CategoryResourceApi.md#deleteCategoryUsingDELETE) | **DELETE** /api/categories/{id} | deleteCategory
+*SongbookApi.CategoryResourceApi* | [**getAllCategoriesUsingGET**](docs/CategoryResourceApi.md#getAllCategoriesUsingGET) | **GET** /api/categories | getAllCategories
+*SongbookApi.CategoryResourceApi* | [**getCategoryByIdUsingGET**](docs/CategoryResourceApi.md#getCategoryByIdUsingGET) | **GET** /api/categories/{id} | getCategoryById
+*SongbookApi.CategoryResourceApi* | [**getCategoryByNameUsingGET**](docs/CategoryResourceApi.md#getCategoryByNameUsingGET) | **GET** /api/categories/name/{name} | getCategoryByName
+*SongbookApi.CategoryResourceApi* | [**getSongsByCategoryIdUsingGET**](docs/CategoryResourceApi.md#getSongsByCategoryIdUsingGET) | **GET** /api/categories/{id}/songs | getSongsByCategoryId
+*SongbookApi.CategoryResourceApi* | [**updateCategoryUsingPUT**](docs/CategoryResourceApi.md#updateCategoryUsingPUT) | **PUT** /api/categories | updateCategory
+*SongbookApi.GuitarCordResourceApi* | [**getAllGuitarCordsUsingGET**](docs/GuitarCordResourceApi.md#getAllGuitarCordsUsingGET) | **GET** /api/guitar-cords | getAllGuitarCords
+*SongbookApi.GuitarCordResourceApi* | [**getGuitarCordByIdUsingGET**](docs/GuitarCordResourceApi.md#getGuitarCordByIdUsingGET) | **GET** /api/guitar-cords/{id} | getGuitarCordById
+*SongbookApi.GuitarCordResourceApi* | [**updateGuitarCordUsingPUT**](docs/GuitarCordResourceApi.md#updateGuitarCordUsingPUT) | **PUT** /api/guitar-cords | updateGuitarCord
+*SongbookApi.LineResourceApi* | [**addGuitarCordUsingPATCH**](docs/LineResourceApi.md#addGuitarCordUsingPATCH) | **PATCH** /api/lines/{id}/add-guitar-cord | addGuitarCord
+*SongbookApi.LineResourceApi* | [**getAllLinesUsingGET**](docs/LineResourceApi.md#getAllLinesUsingGET) | **GET** /api/lines | getAllLines
+*SongbookApi.LineResourceApi* | [**getLineByIdUsingGET**](docs/LineResourceApi.md#getLineByIdUsingGET) | **GET** /api/lines/{id} | getLineById
+*SongbookApi.LineResourceApi* | [**getLineCordsUsingGET**](docs/LineResourceApi.md#getLineCordsUsingGET) | **GET** /api/lines/{id}/guitar-cords | getLineCords
+*SongbookApi.LineResourceApi* | [**removeGuitarCordUsingPATCH**](docs/LineResourceApi.md#removeGuitarCordUsingPATCH) | **PATCH** /api/lines/{id}/remove-guitar-cord/{cordId} | removeGuitarCord
+*SongbookApi.LineResourceApi* | [**updateLineUsingPUT**](docs/LineResourceApi.md#updateLineUsingPUT) | **PUT** /api/lines | updateLine
+*SongbookApi.PlaylistResourceApi* | [**addSongToPlaylistUsingPATCH**](docs/PlaylistResourceApi.md#addSongToPlaylistUsingPATCH) | **PATCH** /api/playlists/{id}/add-song/{songId} | addSongToPlaylist
+*SongbookApi.PlaylistResourceApi* | [**deletePlaylistUsingDELETE**](docs/PlaylistResourceApi.md#deletePlaylistUsingDELETE) | **DELETE** /api/playlists/id/{id} | deletePlaylist
 *SongbookApi.PlaylistResourceApi* | [**downloadPlaylistPdfSongbookUsingGET**](docs/PlaylistResourceApi.md#downloadPlaylistPdfSongbookUsingGET) | **GET** /api/playlists/download/{id} | downloadPlaylistPdfSongbook
-*SongbookApi.PlaylistResourceApi* | [**getAllUsingGET3**](docs/PlaylistResourceApi.md#getAllUsingGET3) | **GET** /api/playlists | getAll
-*SongbookApi.PlaylistResourceApi* | [**getByIdUsingGET3**](docs/PlaylistResourceApi.md#getByIdUsingGET3) | **GET** /api/playlists/id/{id} | getById
-*SongbookApi.PlaylistResourceApi* | [**getByNameUsingGET1**](docs/PlaylistResourceApi.md#getByNameUsingGET1) | **GET** /api/playlists/name/{name} | getByName
-*SongbookApi.PlaylistResourceApi* | [**getByOwnerIdUsingGET**](docs/PlaylistResourceApi.md#getByOwnerIdUsingGET) | **GET** /api/playlists/ownerId/{id} | getByOwnerId
-*SongbookApi.PlaylistResourceApi* | [**removeSongUsingPATCH**](docs/PlaylistResourceApi.md#removeSongUsingPATCH) | **PATCH** /api/playlists/{id}/remove-song/{songId} | removeSong
-*SongbookApi.PlaylistResourceApi* | [**updateUsingPUT2**](docs/PlaylistResourceApi.md#updateUsingPUT2) | **PUT** /api/playlists | update
-*SongbookApi.SongCoauthorResourceApi* | [**createUsingPOST3**](docs/SongCoauthorResourceApi.md#createUsingPOST3) | **POST** /api/coauthors | create
-*SongbookApi.SongCoauthorResourceApi* | [**deleteUsingDELETE3**](docs/SongCoauthorResourceApi.md#deleteUsingDELETE3) | **DELETE** /api/coauthors/{songId}/{authorId}/{function} | delete
-*SongbookApi.SongCoauthorResourceApi* | [**getByAuthorIdUsingGET**](docs/SongCoauthorResourceApi.md#getByAuthorIdUsingGET) | **GET** /api/coauthors/author/{id} | getByAuthorId
-*SongbookApi.SongCoauthorResourceApi* | [**getByFunctionUsingGET**](docs/SongCoauthorResourceApi.md#getByFunctionUsingGET) | **GET** /api/coauthors/function/{function} | getByFunction
-*SongbookApi.SongCoauthorResourceApi* | [**getBySongIdUsingGET**](docs/SongCoauthorResourceApi.md#getBySongIdUsingGET) | **GET** /api/coauthors/song/{id} | getBySongId
-*SongbookApi.SongCoauthorResourceApi* | [**updateUsingPUT3**](docs/SongCoauthorResourceApi.md#updateUsingPUT3) | **PUT** /api/coauthors | update
+*SongbookApi.PlaylistResourceApi* | [**getAllPlaylistsUsingGET**](docs/PlaylistResourceApi.md#getAllPlaylistsUsingGET) | **GET** /api/playlists | getAllPlaylists
+*SongbookApi.PlaylistResourceApi* | [**getPlaylistByIdUsingGET**](docs/PlaylistResourceApi.md#getPlaylistByIdUsingGET) | **GET** /api/playlists/{id} | getPlaylistById
+*SongbookApi.PlaylistResourceApi* | [**getPlaylistByNameUsingGET**](docs/PlaylistResourceApi.md#getPlaylistByNameUsingGET) | **GET** /api/playlists/name/{name} | getPlaylistByName
+*SongbookApi.PlaylistResourceApi* | [**getPlaylistSongsUsingGET**](docs/PlaylistResourceApi.md#getPlaylistSongsUsingGET) | **GET** /api/playlists/{id}/songs | getPlaylistSongs
+*SongbookApi.PlaylistResourceApi* | [**removeSongFromPlaylistUsingPATCH**](docs/PlaylistResourceApi.md#removeSongFromPlaylistUsingPATCH) | **PATCH** /api/playlists/{id}/remove-song/{songId} | removeSongFromPlaylist
+*SongbookApi.PlaylistResourceApi* | [**updatePlaylistUsingPUT**](docs/PlaylistResourceApi.md#updatePlaylistUsingPUT) | **PUT** /api/playlists | updatePlaylist
+*SongbookApi.SongCoauthorResourceApi* | [**createCoauthorUsingPOST**](docs/SongCoauthorResourceApi.md#createCoauthorUsingPOST) | **POST** /api/coauthors | createCoauthor
+*SongbookApi.SongCoauthorResourceApi* | [**deleteCoauthorUsingDELETE**](docs/SongCoauthorResourceApi.md#deleteCoauthorUsingDELETE) | **DELETE** /api/coauthors/{id} | deleteCoauthor
+*SongbookApi.SongCoauthorResourceApi* | [**getAllCoauthorsUsingGET**](docs/SongCoauthorResourceApi.md#getAllCoauthorsUsingGET) | **GET** /api/coauthors | getAllCoauthors
+*SongbookApi.SongCoauthorResourceApi* | [**getCoauthorByIdUsingGET**](docs/SongCoauthorResourceApi.md#getCoauthorByIdUsingGET) | **GET** /api/coauthors/{id} | getCoauthorById
+*SongbookApi.SongCoauthorResourceApi* | [**getCoauthorsByAuthorIdUsingGET**](docs/SongCoauthorResourceApi.md#getCoauthorsByAuthorIdUsingGET) | **GET** /api/coauthors/author/{id} | getCoauthorsByAuthorId
+*SongbookApi.SongCoauthorResourceApi* | [**getCoauthorsByFunctionUsingGET**](docs/SongCoauthorResourceApi.md#getCoauthorsByFunctionUsingGET) | **GET** /api/coauthors/function/{function} | getCoauthorsByFunction
+*SongbookApi.SongCoauthorResourceApi* | [**getCoauthorsBySongIdUsingGET**](docs/SongCoauthorResourceApi.md#getCoauthorsBySongIdUsingGET) | **GET** /api/coauthors/song/{id} | getCoauthorsBySongId
+*SongbookApi.SongCoauthorResourceApi* | [**updateCoauthorUsingPUT**](docs/SongCoauthorResourceApi.md#updateCoauthorUsingPUT) | **PUT** /api/coauthors | updateCoauthor
+*SongbookApi.SongResourceApi* | [**addCoauthorToSongUsingPATCH**](docs/SongResourceApi.md#addCoauthorToSongUsingPATCH) | **PATCH** /api/songs/{id}/add-coauthor | addCoauthorToSong
 *SongbookApi.SongResourceApi* | [**addTagToSongUsingPATCH**](docs/SongResourceApi.md#addTagToSongUsingPATCH) | **PATCH** /api/songs/{id}/add-tag | addTagToSong
 *SongbookApi.SongResourceApi* | [**addTagsToSongBulkUsingPATCH**](docs/SongResourceApi.md#addTagsToSongBulkUsingPATCH) | **PATCH** /api/songs/{id}/add-tag-bulk | addTagsToSongBulk
-*SongbookApi.SongResourceApi* | [**approveSongUsingPUT**](docs/SongResourceApi.md#approveSongUsingPUT) | **PUT** /api/songs/{id}/approve | approveSong
-*SongbookApi.SongResourceApi* | [**createUsingPOST4**](docs/SongResourceApi.md#createUsingPOST4) | **POST** /api/songs | create
-*SongbookApi.SongResourceApi* | [**deleteUsingDELETE4**](docs/SongResourceApi.md#deleteUsingDELETE4) | **DELETE** /api/songs/id/{id} | delete
-*SongbookApi.SongResourceApi* | [**getAllUsingGET4**](docs/SongResourceApi.md#getAllUsingGET4) | **GET** /api/songs | getAll
-*SongbookApi.SongResourceApi* | [**getByAuthorUsingGET**](docs/SongResourceApi.md#getByAuthorUsingGET) | **GET** /api/songs/author/{authorId} | getByAuthor
-*SongbookApi.SongResourceApi* | [**getByCategoryUsingGET1**](docs/SongResourceApi.md#getByCategoryUsingGET1) | **GET** /api/songs/category/{categoryId} | getByCategory
-*SongbookApi.SongResourceApi* | [**getByIdUsingGET4**](docs/SongResourceApi.md#getByIdUsingGET4) | **GET** /api/songs/id/{id} | getById
-*SongbookApi.SongResourceApi* | [**getByLyricsFragmentUsingGET1**](docs/SongResourceApi.md#getByLyricsFragmentUsingGET1) | **GET** /api/songs/lyrics_fragment/{value} | getByLyricsFragment
-*SongbookApi.SongResourceApi* | [**getByRatingUsingGET**](docs/SongResourceApi.md#getByRatingUsingGET) | **GET** /api/songs/rating | getByRating
-*SongbookApi.SongResourceApi* | [**getByTagUsingGET1**](docs/SongResourceApi.md#getByTagUsingGET1) | **GET** /api/songs/tag/{tagId} | getByTag
-*SongbookApi.SongResourceApi* | [**getByTitleFragmentUsingGET1**](docs/SongResourceApi.md#getByTitleFragmentUsingGET1) | **GET** /api/songs/title/{title} | getByTitleFragment
-*SongbookApi.SongResourceApi* | [**getLatestUsingGET1**](docs/SongResourceApi.md#getLatestUsingGET1) | **GET** /api/songs/latest | getLatest
-*SongbookApi.SongResourceApi* | [**getSongPlaylistsUsingGET**](docs/SongResourceApi.md#getSongPlaylistsUsingGET) | **GET** /api/songs/id/{id}/playlists | getSongPlaylists
-*SongbookApi.SongResourceApi* | [**getSongRatingsUsingGET**](docs/SongResourceApi.md#getSongRatingsUsingGET) | **GET** /api/songs/id/{id}/ratings | getSongRatings
-*SongbookApi.SongResourceApi* | [**getSongUserLibrariesUsingGET**](docs/SongResourceApi.md#getSongUserLibrariesUsingGET) | **GET** /api/songs/id/{id}/users | getSongUserLibraries
-*SongbookApi.SongResourceApi* | [**getSongsAddedByUserUsingGET**](docs/SongResourceApi.md#getSongsAddedByUserUsingGET) | **GET** /api/songs/user/{id}/added | getSongsAddedByUser
-*SongbookApi.SongResourceApi* | [**getSongsEditedByUserUsingGET**](docs/SongResourceApi.md#getSongsEditedByUserUsingGET) | **GET** /api/songs/user/{id}/edited | getSongsEditedByUser
-*SongbookApi.SongResourceApi* | [**getUserSongsUsingGET**](docs/SongResourceApi.md#getUserSongsUsingGET) | **GET** /api/songs/user/{id} | getUserSongs
-*SongbookApi.SongResourceApi* | [**loadFromFileUsingPOST**](docs/SongResourceApi.md#loadFromFileUsingPOST) | **POST** /api/songs/upload | loadFromFile
+*SongbookApi.SongResourceApi* | [**addVerseToSongUsingPATCH**](docs/SongResourceApi.md#addVerseToSongUsingPATCH) | **PATCH** /api/songs/{id}/add-verse | addVerseToSong
+*SongbookApi.SongResourceApi* | [**approveSongUsingPATCH**](docs/SongResourceApi.md#approveSongUsingPATCH) | **PATCH** /api/songs/{id}/approve | approveSong
+*SongbookApi.SongResourceApi* | [**createSongUsingPOST**](docs/SongResourceApi.md#createSongUsingPOST) | **POST** /api/songs | createSong
+*SongbookApi.SongResourceApi* | [**deleteSongUsingDELETE**](docs/SongResourceApi.md#deleteSongUsingDELETE) | **DELETE** /api/songs/{id} | deleteSong
+*SongbookApi.SongResourceApi* | [**getAllSongsUsingGET**](docs/SongResourceApi.md#getAllSongsUsingGET) | **GET** /api/songs | getAllSongs
+*SongbookApi.SongResourceApi* | [**getSongAddedByUsingGET**](docs/SongResourceApi.md#getSongAddedByUsingGET) | **GET** /api/songs/{id}/added-by | getSongAddedBy
+*SongbookApi.SongResourceApi* | [**getSongAuthorUsingGET**](docs/SongResourceApi.md#getSongAuthorUsingGET) | **GET** /api/songs/{id}/author | getSongAuthor
+*SongbookApi.SongResourceApi* | [**getSongByIdUsingGET**](docs/SongResourceApi.md#getSongByIdUsingGET) | **GET** /api/songs/{id} | getSongById
+*SongbookApi.SongResourceApi* | [**getSongByTitleFragmentUsingGET**](docs/SongResourceApi.md#getSongByTitleFragmentUsingGET) | **GET** /api/songs/title/{title} | getSongByTitleFragment
+*SongbookApi.SongResourceApi* | [**getSongCategoryUsingGET**](docs/SongResourceApi.md#getSongCategoryUsingGET) | **GET** /api/songs/{id}/category | getSongCategory
+*SongbookApi.SongResourceApi* | [**getSongCoauthorsUsingGET**](docs/SongResourceApi.md#getSongCoauthorsUsingGET) | **GET** /api/songs/{id}/coauthors | getSongCoauthors
+*SongbookApi.SongResourceApi* | [**getSongEditsUsingGET**](docs/SongResourceApi.md#getSongEditsUsingGET) | **GET** /api/songs/{id}/edits | getSongEdits
+*SongbookApi.SongResourceApi* | [**getSongPlaylistsUsingGET**](docs/SongResourceApi.md#getSongPlaylistsUsingGET) | **GET** /api/songs/{id}/playlists | getSongPlaylists
+*SongbookApi.SongResourceApi* | [**getSongRatingsUsingGET**](docs/SongResourceApi.md#getSongRatingsUsingGET) | **GET** /api/songs/{id}/ratings | getSongRatings
+*SongbookApi.SongResourceApi* | [**getSongTagsUsingGET**](docs/SongResourceApi.md#getSongTagsUsingGET) | **GET** /api/songs/{id}/tags | getSongTags
+*SongbookApi.SongResourceApi* | [**getSongUserLibrariesUsingGET**](docs/SongResourceApi.md#getSongUserLibrariesUsingGET) | **GET** /api/songs/{id}/users | getSongUserLibraries
+*SongbookApi.SongResourceApi* | [**getSongVersesUsingGET**](docs/SongResourceApi.md#getSongVersesUsingGET) | **GET** /api/songs/{id}/verses | getSongVerses
+*SongbookApi.SongResourceApi* | [**loadSongFromFileUsingPOST**](docs/SongResourceApi.md#loadSongFromFileUsingPOST) | **POST** /api/songs/upload | loadSongFromFile
+*SongbookApi.SongResourceApi* | [**removeCoauthorFromSongUsingPATCH**](docs/SongResourceApi.md#removeCoauthorFromSongUsingPATCH) | **PATCH** /api/songs/{id}/remove-coauthor/{coauthorId} | removeCoauthorFromSong
 *SongbookApi.SongResourceApi* | [**removeTagFromSongUsingPATCH**](docs/SongResourceApi.md#removeTagFromSongUsingPATCH) | **PATCH** /api/songs/{id}/remove-tag/{tagId} | removeTagFromSong
 *SongbookApi.SongResourceApi* | [**removeTagsFromSongBulkUsingPATCH**](docs/SongResourceApi.md#removeTagsFromSongBulkUsingPATCH) | **PATCH** /api/songs/{id}/remove-tag-bulk/{tagIds} | removeTagsFromSongBulk
-*SongbookApi.SongResourceApi* | [**updateUsingPUT4**](docs/SongResourceApi.md#updateUsingPUT4) | **PUT** /api/songs | update
-*SongbookApi.TagResourceApi* | [**createUsingPOST5**](docs/TagResourceApi.md#createUsingPOST5) | **POST** /api/tags | create
-*SongbookApi.TagResourceApi* | [**deleteUsingDELETE5**](docs/TagResourceApi.md#deleteUsingDELETE5) | **DELETE** /api/tags/id/{id} | delete
-*SongbookApi.TagResourceApi* | [**getAllUsingGET5**](docs/TagResourceApi.md#getAllUsingGET5) | **GET** /api/tags | getAll
-*SongbookApi.TagResourceApi* | [**getByIdUsingGET5**](docs/TagResourceApi.md#getByIdUsingGET5) | **GET** /api/tags/id/{id} | getById
-*SongbookApi.TagResourceApi* | [**getByNameUsingGET2**](docs/TagResourceApi.md#getByNameUsingGET2) | **GET** /api/tags/name/{name} | getByName
-*SongbookApi.TagResourceApi* | [**getSongsByTagIdUsingGET**](docs/TagResourceApi.md#getSongsByTagIdUsingGET) | **GET** /api/tags/id/{id}/songs | getSongsByTagId
-*SongbookApi.TagResourceApi* | [**updateUsingPUT5**](docs/TagResourceApi.md#updateUsingPUT5) | **PUT** /api/tags | update
+*SongbookApi.SongResourceApi* | [**removeVerseFromSongUsingPATCH**](docs/SongResourceApi.md#removeVerseFromSongUsingPATCH) | **PATCH** /api/songs/{id}/remove-verse/{verseId} | removeVerseFromSong
+*SongbookApi.SongResourceApi* | [**setAuthorUsingPATCH**](docs/SongResourceApi.md#setAuthorUsingPATCH) | **PATCH** /api/songs/{id}/set-author/{authorId} | setAuthor
+*SongbookApi.SongResourceApi* | [**setCategoryUsingPATCH**](docs/SongResourceApi.md#setCategoryUsingPATCH) | **PATCH** /api/songs/{id}/set-category/{categoryId} | setCategory
+*SongbookApi.SongResourceApi* | [**updateSongUsingPUT**](docs/SongResourceApi.md#updateSongUsingPUT) | **PUT** /api/songs | updateSong
+*SongbookApi.TagResourceApi* | [**createTagUsingPOST**](docs/TagResourceApi.md#createTagUsingPOST) | **POST** /api/tags | createTag
+*SongbookApi.TagResourceApi* | [**deleteTagUsingDELETE**](docs/TagResourceApi.md#deleteTagUsingDELETE) | **DELETE** /api/tags/id/{id} | deleteTag
+*SongbookApi.TagResourceApi* | [**getAllTagsUsingGET**](docs/TagResourceApi.md#getAllTagsUsingGET) | **GET** /api/tags | getAllTags
+*SongbookApi.TagResourceApi* | [**getSongsByTagUsingGET**](docs/TagResourceApi.md#getSongsByTagUsingGET) | **GET** /api/tags/{id}/songs | getSongsByTag
+*SongbookApi.TagResourceApi* | [**getTagByIdUsingGET**](docs/TagResourceApi.md#getTagByIdUsingGET) | **GET** /api/tags/{id} | getTagById
+*SongbookApi.TagResourceApi* | [**getTagByNameUsingGET**](docs/TagResourceApi.md#getTagByNameUsingGET) | **GET** /api/tags/name/{name} | getTagByName
+*SongbookApi.TagResourceApi* | [**updateTagUsingPUT**](docs/TagResourceApi.md#updateTagUsingPUT) | **PUT** /api/tags | updateTag
+*SongbookApi.UserResourceApi* | [**addPlaylistUsingPATCH**](docs/UserResourceApi.md#addPlaylistUsingPATCH) | **PATCH** /api/users/{id}/add-playlist | addPlaylist
+*SongbookApi.UserResourceApi* | [**addRatingUsingPATCH**](docs/UserResourceApi.md#addRatingUsingPATCH) | **PATCH** /api/users/{id}/add-rating | addRating
 *SongbookApi.UserResourceApi* | [**addSongToLibraryUsingPATCH**](docs/UserResourceApi.md#addSongToLibraryUsingPATCH) | **PATCH** /api/users/{id}/add-song/{songId} | addSongToLibrary
-*SongbookApi.UserResourceApi* | [**deleteUsingDELETE6**](docs/UserResourceApi.md#deleteUsingDELETE6) | **DELETE** /api/users/id/{id} | delete
-*SongbookApi.UserResourceApi* | [**getAllUsingGET6**](docs/UserResourceApi.md#getAllUsingGET6) | **GET** /api/users | getAll
-*SongbookApi.UserResourceApi* | [**getByIdUsingGET6**](docs/UserResourceApi.md#getByIdUsingGET6) | **GET** /api/users/id/{id} | getById
-*SongbookApi.UserResourceApi* | [**getPlaylistsByUserIdUsingGET**](docs/UserResourceApi.md#getPlaylistsByUserIdUsingGET) | **GET** /api/users/id/{id}/playlists | getPlaylistsByUserId
-*SongbookApi.UserResourceApi* | [**getRatingsByUserIdUsingGET**](docs/UserResourceApi.md#getRatingsByUserIdUsingGET) | **GET** /api/users/id/{id}/ratings | getRatingsByUserId
+*SongbookApi.UserResourceApi* | [**deleteUserUsingDELETE**](docs/UserResourceApi.md#deleteUserUsingDELETE) | **DELETE** /api/users/{id} | deleteUser
+*SongbookApi.UserResourceApi* | [**getAddedSongsByUserIdUsingGET**](docs/UserResourceApi.md#getAddedSongsByUserIdUsingGET) | **GET** /api/users/{id}/added-songs | getAddedSongsByUserId
+*SongbookApi.UserResourceApi* | [**getAllUsersUsingGET**](docs/UserResourceApi.md#getAllUsersUsingGET) | **GET** /api/users | getAllUsers
+*SongbookApi.UserResourceApi* | [**getEditedSongsByUserIdUsingGET**](docs/UserResourceApi.md#getEditedSongsByUserIdUsingGET) | **GET** /api/users/{id}/edited-songs | getEditedSongsByUserId
+*SongbookApi.UserResourceApi* | [**getPlaylistsByUserIdUsingGET**](docs/UserResourceApi.md#getPlaylistsByUserIdUsingGET) | **GET** /api/users/{id}/playlists | getPlaylistsByUserId
+*SongbookApi.UserResourceApi* | [**getRatingsByUserIdUsingGET**](docs/UserResourceApi.md#getRatingsByUserIdUsingGET) | **GET** /api/users/{id}/ratings | getRatingsByUserId
+*SongbookApi.UserResourceApi* | [**getRatingsOfSongByUserIdUsingGET**](docs/UserResourceApi.md#getRatingsOfSongByUserIdUsingGET) | **GET** /api/users/{id}/ratings/{songId} | getRatingsOfSongByUserId
+*SongbookApi.UserResourceApi* | [**getSongsByUserIdUsingGET**](docs/UserResourceApi.md#getSongsByUserIdUsingGET) | **GET** /api/users/{id}/songs | getSongsByUserId
+*SongbookApi.UserResourceApi* | [**getUserByIdUsingGET**](docs/UserResourceApi.md#getUserByIdUsingGET) | **GET** /api/users/{id} | getUserById
+*SongbookApi.UserResourceApi* | [**getUserRoleUsingGET**](docs/UserResourceApi.md#getUserRoleUsingGET) | **GET** /api/users/{id}/role | getUserRole
+*SongbookApi.UserResourceApi* | [**removePlaylistUsingPATCH**](docs/UserResourceApi.md#removePlaylistUsingPATCH) | **PATCH** /api/users/{id}/remove-playlist/{playlistId} | removePlaylist
+*SongbookApi.UserResourceApi* | [**removeRatingUsingPATCH**](docs/UserResourceApi.md#removeRatingUsingPATCH) | **PATCH** /api/users/{id}/remove-rating/{ratingId} | removeRating
 *SongbookApi.UserResourceApi* | [**removeSongFromLibraryUsingPATCH**](docs/UserResourceApi.md#removeSongFromLibraryUsingPATCH) | **PATCH** /api/users/{id}/remove-song/{songId} | removeSongFromLibrary
-*SongbookApi.UserRoleResourceApi* | [**createUsingPOST6**](docs/UserRoleResourceApi.md#createUsingPOST6) | **POST** /api/user_roles | create
-*SongbookApi.UserRoleResourceApi* | [**deleteUsingDELETE7**](docs/UserRoleResourceApi.md#deleteUsingDELETE7) | **DELETE** /api/user_roles/id/{id} | delete
-*SongbookApi.UserRoleResourceApi* | [**getAllUsingGET7**](docs/UserRoleResourceApi.md#getAllUsingGET7) | **GET** /api/user_roles | getAll
-*SongbookApi.UserRoleResourceApi* | [**getByIdUsingGET7**](docs/UserRoleResourceApi.md#getByIdUsingGET7) | **GET** /api/user_roles/id/{id} | getById
-*SongbookApi.UserRoleResourceApi* | [**getByNameSearchQueryUsingGET**](docs/UserRoleResourceApi.md#getByNameSearchQueryUsingGET) | **GET** /api/user_roles/name/{searchQuery} | getByNameSearchQuery
-*SongbookApi.UserRoleResourceApi* | [**getUsersByUserRoleIdUsingGET**](docs/UserRoleResourceApi.md#getUsersByUserRoleIdUsingGET) | **GET** /api/user_roles/id/{id}/users | getUsersByUserRoleId
-*SongbookApi.UserRoleResourceApi* | [**updateUsingPUT6**](docs/UserRoleResourceApi.md#updateUsingPUT6) | **PUT** /api/user_roles | update
-*SongbookApi.UserSongRatingResourceApi* | [**createUsingPOST7**](docs/UserSongRatingResourceApi.md#createUsingPOST7) | **POST** /api/ratings | create
-*SongbookApi.UserSongRatingResourceApi* | [**deleteUsingDELETE8**](docs/UserSongRatingResourceApi.md#deleteUsingDELETE8) | **DELETE** /api/ratings/{userId}/{songId} | delete
-*SongbookApi.UserSongRatingResourceApi* | [**getAllUsingGET8**](docs/UserSongRatingResourceApi.md#getAllUsingGET8) | **GET** /api/ratings | getAll
-*SongbookApi.UserSongRatingResourceApi* | [**getBySongIdUsingGET1**](docs/UserSongRatingResourceApi.md#getBySongIdUsingGET1) | **GET** /api/ratings/song/{id} | getBySongId
-*SongbookApi.UserSongRatingResourceApi* | [**getByUserIdAndSongIdUsingGET**](docs/UserSongRatingResourceApi.md#getByUserIdAndSongIdUsingGET) | **GET** /api/ratings/{userId}/{songId} | getByUserIdAndSongId
-*SongbookApi.UserSongRatingResourceApi* | [**getByUserIdUsingGET**](docs/UserSongRatingResourceApi.md#getByUserIdUsingGET) | **GET** /api/ratings/user/{id} | getByUserId
-*SongbookApi.UserSongRatingResourceApi* | [**updateUsingPUT7**](docs/UserSongRatingResourceApi.md#updateUsingPUT7) | **PUT** /api/ratings | update
+*SongbookApi.UserResourceApi* | [**updateUserUsingPUT**](docs/UserResourceApi.md#updateUserUsingPUT) | **PUT** /api/users | updateUser
+*SongbookApi.UserRoleResourceApi* | [**createRoleUsingPOST**](docs/UserRoleResourceApi.md#createRoleUsingPOST) | **POST** /api/user_roles | createRole
+*SongbookApi.UserRoleResourceApi* | [**deleteRoleUsingDELETE**](docs/UserRoleResourceApi.md#deleteRoleUsingDELETE) | **DELETE** /api/user_roles/{id} | deleteRole
+*SongbookApi.UserRoleResourceApi* | [**getAllRolesUsingGET**](docs/UserRoleResourceApi.md#getAllRolesUsingGET) | **GET** /api/user_roles | getAllRoles
+*SongbookApi.UserRoleResourceApi* | [**getRoleByIdUsingGET**](docs/UserRoleResourceApi.md#getRoleByIdUsingGET) | **GET** /api/user_roles/{id} | getRoleById
+*SongbookApi.UserRoleResourceApi* | [**getRoleByNameSearchQueryUsingGET**](docs/UserRoleResourceApi.md#getRoleByNameSearchQueryUsingGET) | **GET** /api/user_roles/name/{searchQuery} | getRoleByNameSearchQuery
+*SongbookApi.UserRoleResourceApi* | [**getUserRoleUsersUsingGET**](docs/UserRoleResourceApi.md#getUserRoleUsersUsingGET) | **GET** /api/user_roles/{id}/users | getUserRoleUsers
+*SongbookApi.UserRoleResourceApi* | [**updateRoleUsingPUT**](docs/UserRoleResourceApi.md#updateRoleUsingPUT) | **PUT** /api/user_roles | updateRole
+*SongbookApi.UserSongRatingResourceApi* | [**createRatingUsingPOST**](docs/UserSongRatingResourceApi.md#createRatingUsingPOST) | **POST** /api/ratings | createRating
+*SongbookApi.UserSongRatingResourceApi* | [**deleteRatingUsingDELETE**](docs/UserSongRatingResourceApi.md#deleteRatingUsingDELETE) | **DELETE** /api/ratings/{id} | deleteRating
+*SongbookApi.UserSongRatingResourceApi* | [**getAllRatingsUsingGET**](docs/UserSongRatingResourceApi.md#getAllRatingsUsingGET) | **GET** /api/ratings | getAllRatings
+*SongbookApi.UserSongRatingResourceApi* | [**getRatingByIdUsingGET**](docs/UserSongRatingResourceApi.md#getRatingByIdUsingGET) | **GET** /api/ratings/{id} | getRatingById
+*SongbookApi.UserSongRatingResourceApi* | [**getRatingByUserIdAndSongIdUsingGET**](docs/UserSongRatingResourceApi.md#getRatingByUserIdAndSongIdUsingGET) | **GET** /api/ratings/{userId}/{songId} | getRatingByUserIdAndSongId
+*SongbookApi.UserSongRatingResourceApi* | [**updateRatingUsingPUT**](docs/UserSongRatingResourceApi.md#updateRatingUsingPUT) | **PUT** /api/ratings | updateRating
+*SongbookApi.VerseResourceApi* | [**addLineUsingPATCH**](docs/VerseResourceApi.md#addLineUsingPATCH) | **PATCH** /api/verses/{id}/add-line | addLine
+*SongbookApi.VerseResourceApi* | [**getAllVersesUsingGET**](docs/VerseResourceApi.md#getAllVersesUsingGET) | **GET** /api/verses | getAllVerses
+*SongbookApi.VerseResourceApi* | [**getVerseByIdUsingGET**](docs/VerseResourceApi.md#getVerseByIdUsingGET) | **GET** /api/verses/{id} | getVerseById
+*SongbookApi.VerseResourceApi* | [**getVerseLinesUsingGET**](docs/VerseResourceApi.md#getVerseLinesUsingGET) | **GET** /api/verses/{id}/lines | getVerseLines
+*SongbookApi.VerseResourceApi* | [**removeLineUsingPATCH**](docs/VerseResourceApi.md#removeLineUsingPATCH) | **PATCH** /api/verses/{id}/remove-line/{lineId} | removeLine
+*SongbookApi.VerseResourceApi* | [**updateVerseUsingPUT**](docs/VerseResourceApi.md#updateVerseUsingPUT) | **PUT** /api/verses | updateVerse
 
 
 ## Documentation for Models
@@ -201,12 +227,18 @@ Class | Method | HTTP request | Description
  - [SongbookApi.AuthorDTO](docs/AuthorDTO.md)
  - [SongbookApi.CategoryDTO](docs/CategoryDTO.md)
  - [SongbookApi.CreateCoauthorDTO](docs/CreateCoauthorDTO.md)
+ - [SongbookApi.CreateGuitarCordDTO](docs/CreateGuitarCordDTO.md)
+ - [SongbookApi.CreateLineDTO](docs/CreateLineDTO.md)
  - [SongbookApi.CreatePlaylistDTO](docs/CreatePlaylistDTO.md)
  - [SongbookApi.CreateSongDTO](docs/CreateSongDTO.md)
+ - [SongbookApi.CreateVerseDTO](docs/CreateVerseDTO.md)
  - [SongbookApi.EmailChangeDTO](docs/EmailChangeDTO.md)
  - [SongbookApi.File](docs/File.md)
+ - [SongbookApi.GuitarCordDTO](docs/GuitarCordDTO.md)
  - [SongbookApi.InputStream](docs/InputStream.md)
+ - [SongbookApi.LineDTO](docs/LineDTO.md)
  - [SongbookApi.LoginForm](docs/LoginForm.md)
+ - [SongbookApi.NameChangeDTO](docs/NameChangeDTO.md)
  - [SongbookApi.PasswordChangeDTO](docs/PasswordChangeDTO.md)
  - [SongbookApi.PlaylistDTO](docs/PlaylistDTO.md)
  - [SongbookApi.RegisterNewUserForm](docs/RegisterNewUserForm.md)
@@ -220,10 +252,12 @@ Class | Method | HTTP request | Description
  - [SongbookApi.TokenDTO](docs/TokenDTO.md)
  - [SongbookApi.URI](docs/URI.md)
  - [SongbookApi.URL](docs/URL.md)
+ - [SongbookApi.URLStreamHandler](docs/URLStreamHandler.md)
  - [SongbookApi.UniversalCreateDTO](docs/UniversalCreateDTO.md)
  - [SongbookApi.UserDTO](docs/UserDTO.md)
  - [SongbookApi.UserRoleDTO](docs/UserRoleDTO.md)
  - [SongbookApi.UserSongRatingDTO](docs/UserSongRatingDTO.md)
+ - [SongbookApi.VerseDTO](docs/VerseDTO.md)
 
 
 ## Documentation for Authorization

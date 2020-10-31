@@ -15,6 +15,7 @@
  */
 
 import {ApiClient} from '../ApiClient';
+import {URL} from './URL';
 
 /**
  * The AuthorDTO model module.
@@ -44,14 +45,23 @@ export class AuthorDTO {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new AuthorDTO();
+      if (data.hasOwnProperty('biographyUrl'))
+        obj.biographyUrl = URL.constructFromObject(data['biographyUrl']);
       if (data.hasOwnProperty('id'))
         obj.id = ApiClient.convertToType(data['id'], 'Number');
       if (data.hasOwnProperty('name'))
         obj.name = ApiClient.convertToType(data['name'], 'String');
+      if (data.hasOwnProperty('photoResource'))
+        obj.photoResource = ApiClient.convertToType(data['photoResource'], 'String');
     }
     return obj;
   }
 }
+
+/**
+ * @member {module:model/URL} biographyUrl
+ */
+AuthorDTO.prototype.biographyUrl = undefined;
 
 /**
  * @member {Number} id
@@ -62,5 +72,10 @@ AuthorDTO.prototype.id = undefined;
  * @member {String} name
  */
 AuthorDTO.prototype.name = undefined;
+
+/**
+ * @member {String} photoResource
+ */
+AuthorDTO.prototype.photoResource = undefined;
 
 

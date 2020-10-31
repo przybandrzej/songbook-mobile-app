@@ -1,23 +1,23 @@
 # SongbookApi.TagResourceApi
 
-All URIs are relative to *https://stk-uep.pl*
+All URIs are relative to *https://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createUsingPOST5**](TagResourceApi.md#createUsingPOST5) | **POST** /api/tags | create
-[**deleteUsingDELETE5**](TagResourceApi.md#deleteUsingDELETE5) | **DELETE** /api/tags/id/{id} | delete
-[**getAllUsingGET5**](TagResourceApi.md#getAllUsingGET5) | **GET** /api/tags | getAll
-[**getByIdUsingGET5**](TagResourceApi.md#getByIdUsingGET5) | **GET** /api/tags/id/{id} | getById
-[**getByNameUsingGET2**](TagResourceApi.md#getByNameUsingGET2) | **GET** /api/tags/name/{name} | getByName
-[**getSongsByTagIdUsingGET**](TagResourceApi.md#getSongsByTagIdUsingGET) | **GET** /api/tags/id/{id}/songs | getSongsByTagId
-[**updateUsingPUT5**](TagResourceApi.md#updateUsingPUT5) | **PUT** /api/tags | update
+[**createTagUsingPOST**](TagResourceApi.md#createTagUsingPOST) | **POST** /api/tags | createTag
+[**deleteTagUsingDELETE**](TagResourceApi.md#deleteTagUsingDELETE) | **DELETE** /api/tags/id/{id} | deleteTag
+[**getAllTagsUsingGET**](TagResourceApi.md#getAllTagsUsingGET) | **GET** /api/tags | getAllTags
+[**getSongsByTagUsingGET**](TagResourceApi.md#getSongsByTagUsingGET) | **GET** /api/tags/{id}/songs | getSongsByTag
+[**getTagByIdUsingGET**](TagResourceApi.md#getTagByIdUsingGET) | **GET** /api/tags/{id} | getTagById
+[**getTagByNameUsingGET**](TagResourceApi.md#getTagByNameUsingGET) | **GET** /api/tags/name/{name} | getTagByName
+[**updateTagUsingPUT**](TagResourceApi.md#updateTagUsingPUT) | **PUT** /api/tags | updateTag
 
 
-<a name="createUsingPOST5"></a>
-# **createUsingPOST5**
-> TagDTO createUsingPOST5(tagDto)
+<a name="createTagUsingPOST"></a>
+# **createTagUsingPOST**
+> TagDTO createTagUsingPOST(tagDto)
 
-create
+createTag
 
 ### Example
 ```javascript
@@ -28,7 +28,7 @@ let apiInstance = new SongbookApi.TagResourceApi();
 let tagDto = new SongbookApi.UniversalCreateDTO(); // UniversalCreateDTO | tagDto
 
 
-apiInstance.createUsingPOST5(tagDto, (error, data, response) => {
+apiInstance.createTagUsingPOST(tagDto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -56,11 +56,11 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: */*
 
-<a name="deleteUsingDELETE5"></a>
-# **deleteUsingDELETE5**
-> deleteUsingDELETE5(id)
+<a name="deleteTagUsingDELETE"></a>
+# **deleteTagUsingDELETE**
+> deleteTagUsingDELETE(id)
 
-delete
+deleteTag
 
 ### Example
 ```javascript
@@ -71,7 +71,7 @@ let apiInstance = new SongbookApi.TagResourceApi();
 let id = 789; // Number | id
 
 
-apiInstance.deleteUsingDELETE5(id, (error, data, response) => {
+apiInstance.deleteTagUsingDELETE(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -99,11 +99,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getAllUsingGET5"></a>
-# **getAllUsingGET5**
-> [TagDTO] getAllUsingGET5(opts)
+<a name="getAllTagsUsingGET"></a>
+# **getAllTagsUsingGET**
+> [TagDTO] getAllTagsUsingGET(opts)
 
-getAll
+getAllTags
 
 ### Example
 ```javascript
@@ -115,7 +115,7 @@ let opts = {
   'limit': 56 // Number | limit
 };
 
-apiInstance.getAllUsingGET5(opts, (error, data, response) => {
+apiInstance.getAllTagsUsingGET(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -143,97 +143,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getByIdUsingGET5"></a>
-# **getByIdUsingGET5**
-> TagDTO getByIdUsingGET5(id)
+<a name="getSongsByTagUsingGET"></a>
+# **getSongsByTagUsingGET**
+> [SongDTO] getSongsByTagUsingGET(id)
 
-getById
-
-### Example
-```javascript
-import {SongbookApi} from 'songbook_api';
-
-let apiInstance = new SongbookApi.TagResourceApi();
-
-let id = 789; // Number | id
-
-
-apiInstance.getByIdUsingGET5(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Number**| id | 
-
-### Return type
-
-[**TagDTO**](TagDTO.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-<a name="getByNameUsingGET2"></a>
-# **getByNameUsingGET2**
-> [TagDTO] getByNameUsingGET2(name)
-
-getByName
-
-### Example
-```javascript
-import {SongbookApi} from 'songbook_api';
-
-let apiInstance = new SongbookApi.TagResourceApi();
-
-let name = "name_example"; // String | name
-
-
-apiInstance.getByNameUsingGET2(name, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **name** | **String**| name | 
-
-### Return type
-
-[**[TagDTO]**](TagDTO.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-<a name="getSongsByTagIdUsingGET"></a>
-# **getSongsByTagIdUsingGET**
-> [SongDTO] getSongsByTagIdUsingGET(id)
-
-getSongsByTagId
+getSongsByTag
 
 ### Example
 ```javascript
@@ -244,7 +158,7 @@ let apiInstance = new SongbookApi.TagResourceApi();
 let id = 789; // Number | id
 
 
-apiInstance.getSongsByTagIdUsingGET(id, (error, data, response) => {
+apiInstance.getSongsByTagUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -272,11 +186,97 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="updateUsingPUT5"></a>
-# **updateUsingPUT5**
-> TagDTO updateUsingPUT5(tagDto)
+<a name="getTagByIdUsingGET"></a>
+# **getTagByIdUsingGET**
+> TagDTO getTagByIdUsingGET(id)
 
-update
+getTagById
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.TagResourceApi();
+
+let id = 789; // Number | id
+
+
+apiInstance.getTagByIdUsingGET(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| id | 
+
+### Return type
+
+[**TagDTO**](TagDTO.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getTagByNameUsingGET"></a>
+# **getTagByNameUsingGET**
+> [TagDTO] getTagByNameUsingGET(name)
+
+getTagByName
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.TagResourceApi();
+
+let name = "name_example"; // String | name
+
+
+apiInstance.getTagByNameUsingGET(name, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **name** | **String**| name | 
+
+### Return type
+
+[**[TagDTO]**](TagDTO.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="updateTagUsingPUT"></a>
+# **updateTagUsingPUT**
+> TagDTO updateTagUsingPUT(tagDto)
+
+updateTag
 
 ### Example
 ```javascript
@@ -287,7 +287,7 @@ let apiInstance = new SongbookApi.TagResourceApi();
 let tagDto = new SongbookApi.TagDTO(); // TagDTO | tagDto
 
 
-apiInstance.updateUsingPUT5(tagDto, (error, data, response) => {
+apiInstance.updateTagUsingPUT(tagDto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {

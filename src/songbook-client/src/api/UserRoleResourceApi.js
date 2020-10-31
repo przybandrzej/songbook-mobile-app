@@ -39,25 +39,25 @@ export class UserRoleResourceApi {
 
 
     /**
-     * Callback function to receive the result of the createUsingPOST6 operation.
-     * @callback module:api/UserRoleResourceApi~createUsingPOST6Callback
+     * Callback function to receive the result of the createRoleUsingPOST operation.
+     * @callback module:api/UserRoleResourceApi~createRoleUsingPOSTCallback
      * @param {String} error Error message, if any.
      * @param {module:model/UserRoleDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * create
+     * createRole
      * @param {module:model/UniversalCreateDTO} userRoleDto userRoleDto
-     * @param {module:api/UserRoleResourceApi~createUsingPOST6Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UserRoleResourceApi~createRoleUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserRoleDTO}
      */
-    createUsingPOST6(userRoleDto, callback) {
+    createRoleUsingPOST(userRoleDto, callback) {
       let postBody = userRoleDto;
 
       // verify the required parameter 'userRoleDto' is set
       if (userRoleDto === undefined || userRoleDto === null) {
-        throw new Error("Missing the required parameter 'userRoleDto' when calling createUsingPOST6");
+        throw new Error("Missing the required parameter 'userRoleDto' when calling createRoleUsingPOST");
       }
 
 
@@ -83,24 +83,24 @@ export class UserRoleResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the deleteUsingDELETE7 operation.
-     * @callback module:api/UserRoleResourceApi~deleteUsingDELETE7Callback
+     * Callback function to receive the result of the deleteRoleUsingDELETE operation.
+     * @callback module:api/UserRoleResourceApi~deleteRoleUsingDELETECallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * delete
+     * deleteRole
      * @param {Number} id id
-     * @param {module:api/UserRoleResourceApi~deleteUsingDELETE7Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UserRoleResourceApi~deleteRoleUsingDELETECallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteUsingDELETE7(id, callback) {
+    deleteRoleUsingDELETE(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling deleteUsingDELETE7");
+        throw new Error("Missing the required parameter 'id' when calling deleteRoleUsingDELETE");
       }
 
 
@@ -120,26 +120,26 @@ export class UserRoleResourceApi {
       let returnType = null;
 
       return this.apiClient.callApi(
-        '/api/user_roles/id/{id}', 'DELETE',
+        '/api/user_roles/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getAllUsingGET7 operation.
-     * @callback module:api/UserRoleResourceApi~getAllUsingGET7Callback
+     * Callback function to receive the result of the getAllRolesUsingGET operation.
+     * @callback module:api/UserRoleResourceApi~getAllRolesUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/UserRoleDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getAll
-     * @param {module:api/UserRoleResourceApi~getAllUsingGET7Callback} callback The callback function, accepting three arguments: error, data, response
+     * getAllRoles
+     * @param {module:api/UserRoleResourceApi~getAllRolesUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/UserRoleDTO>}
      */
-    getAllUsingGET7(callback) {
+    getAllRolesUsingGET(callback) {
       let postBody = null;
 
 
@@ -165,25 +165,25 @@ export class UserRoleResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the getByIdUsingGET7 operation.
-     * @callback module:api/UserRoleResourceApi~getByIdUsingGET7Callback
+     * Callback function to receive the result of the getRoleByIdUsingGET operation.
+     * @callback module:api/UserRoleResourceApi~getRoleByIdUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {module:model/UserRoleDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getById
+     * getRoleById
      * @param {Number} id id
-     * @param {module:api/UserRoleResourceApi~getByIdUsingGET7Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UserRoleResourceApi~getRoleByIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserRoleDTO}
      */
-    getByIdUsingGET7(id, callback) {
+    getRoleByIdUsingGET(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getByIdUsingGET7");
+        throw new Error("Missing the required parameter 'id' when calling getRoleByIdUsingGET");
       }
 
 
@@ -203,32 +203,32 @@ export class UserRoleResourceApi {
       let returnType = UserRoleDTO;
 
       return this.apiClient.callApi(
-        '/api/user_roles/id/{id}', 'GET',
+        '/api/user_roles/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getByNameSearchQueryUsingGET operation.
-     * @callback module:api/UserRoleResourceApi~getByNameSearchQueryUsingGETCallback
+     * Callback function to receive the result of the getRoleByNameSearchQueryUsingGET operation.
+     * @callback module:api/UserRoleResourceApi~getRoleByNameSearchQueryUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/UserRoleDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getByNameSearchQuery
+     * getRoleByNameSearchQuery
      * @param {String} searchQuery searchQuery
-     * @param {module:api/UserRoleResourceApi~getByNameSearchQueryUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UserRoleResourceApi~getRoleByNameSearchQueryUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/UserRoleDTO>}
      */
-    getByNameSearchQueryUsingGET(searchQuery, callback) {
+    getRoleByNameSearchQueryUsingGET(searchQuery, callback) {
       let postBody = null;
 
       // verify the required parameter 'searchQuery' is set
       if (searchQuery === undefined || searchQuery === null) {
-        throw new Error("Missing the required parameter 'searchQuery' when calling getByNameSearchQueryUsingGET");
+        throw new Error("Missing the required parameter 'searchQuery' when calling getRoleByNameSearchQueryUsingGET");
       }
 
 
@@ -255,25 +255,25 @@ export class UserRoleResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the getUsersByUserRoleIdUsingGET operation.
-     * @callback module:api/UserRoleResourceApi~getUsersByUserRoleIdUsingGETCallback
+     * Callback function to receive the result of the getUserRoleUsersUsingGET operation.
+     * @callback module:api/UserRoleResourceApi~getUserRoleUsersUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/UserDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getUsersByUserRoleId
+     * getUserRoleUsers
      * @param {Number} id id
-     * @param {module:api/UserRoleResourceApi~getUsersByUserRoleIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UserRoleResourceApi~getUserRoleUsersUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/UserDTO>}
      */
-    getUsersByUserRoleIdUsingGET(id, callback) {
+    getUserRoleUsersUsingGET(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getUsersByUserRoleIdUsingGET");
+        throw new Error("Missing the required parameter 'id' when calling getUserRoleUsersUsingGET");
       }
 
 
@@ -293,32 +293,32 @@ export class UserRoleResourceApi {
       let returnType = [UserDTO];
 
       return this.apiClient.callApi(
-        '/api/user_roles/id/{id}/users', 'GET',
+        '/api/user_roles/{id}/users', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the updateUsingPUT6 operation.
-     * @callback module:api/UserRoleResourceApi~updateUsingPUT6Callback
+     * Callback function to receive the result of the updateRoleUsingPUT operation.
+     * @callback module:api/UserRoleResourceApi~updateRoleUsingPUTCallback
      * @param {String} error Error message, if any.
      * @param {module:model/UserRoleDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * update
+     * updateRole
      * @param {module:model/UserRoleDTO} userRoleDto userRoleDto
-     * @param {module:api/UserRoleResourceApi~updateUsingPUT6Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/UserRoleResourceApi~updateRoleUsingPUTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/UserRoleDTO}
      */
-    updateUsingPUT6(userRoleDto, callback) {
+    updateRoleUsingPUT(userRoleDto, callback) {
       let postBody = userRoleDto;
 
       // verify the required parameter 'userRoleDto' is set
       if (userRoleDto === undefined || userRoleDto === null) {
-        throw new Error("Missing the required parameter 'userRoleDto' when calling updateUsingPUT6");
+        throw new Error("Missing the required parameter 'userRoleDto' when calling updateRoleUsingPUT");
       }
 
 

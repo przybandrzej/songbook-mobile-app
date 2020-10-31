@@ -1,23 +1,23 @@
 # SongbookApi.AuthorResourceApi
 
-All URIs are relative to *https://stk-uep.pl*
+All URIs are relative to *https://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createUsingPOST**](AuthorResourceApi.md#createUsingPOST) | **POST** /api/authors | create
-[**deleteUsingDELETE**](AuthorResourceApi.md#deleteUsingDELETE) | **DELETE** /api/authors/id/{id} | delete
-[**getAllUsingGET**](AuthorResourceApi.md#getAllUsingGET) | **GET** /api/authors | getAll
-[**getByIdUsingGET**](AuthorResourceApi.md#getByIdUsingGET) | **GET** /api/authors/id/{id} | getById
-[**getByNameFragmentUsingGET**](AuthorResourceApi.md#getByNameFragmentUsingGET) | **GET** /api/authors/name/{name} | getByNameFragment
-[**getSongsByAuthorIdUsingGET**](AuthorResourceApi.md#getSongsByAuthorIdUsingGET) | **GET** /api/authors/id/{id}/songs | getSongsByAuthorId
-[**updateUsingPUT**](AuthorResourceApi.md#updateUsingPUT) | **PUT** /api/authors | update
+[**createAuthorUsingPOST**](AuthorResourceApi.md#createAuthorUsingPOST) | **POST** /api/authors | createAuthor
+[**deleteAuthorUsingDELETE**](AuthorResourceApi.md#deleteAuthorUsingDELETE) | **DELETE** /api/authors/{id} | deleteAuthor
+[**getAllAuthorsUsingGET**](AuthorResourceApi.md#getAllAuthorsUsingGET) | **GET** /api/authors | getAllAuthors
+[**getAuthorByIdUsingGET**](AuthorResourceApi.md#getAuthorByIdUsingGET) | **GET** /api/authors/{id} | getAuthorById
+[**getAuthorByNameFragmentUsingGET**](AuthorResourceApi.md#getAuthorByNameFragmentUsingGET) | **GET** /api/authors/name/{name} | getAuthorByNameFragment
+[**getSongsByAuthorIdUsingGET**](AuthorResourceApi.md#getSongsByAuthorIdUsingGET) | **GET** /api/authors/{id}/songs | getSongsByAuthorId
+[**updateAuthorUsingPUT**](AuthorResourceApi.md#updateAuthorUsingPUT) | **PUT** /api/authors | updateAuthor
 
 
-<a name="createUsingPOST"></a>
-# **createUsingPOST**
-> AuthorDTO createUsingPOST(authorDto)
+<a name="createAuthorUsingPOST"></a>
+# **createAuthorUsingPOST**
+> AuthorDTO createAuthorUsingPOST(authorDto)
 
-create
+createAuthor
 
 ### Example
 ```javascript
@@ -28,7 +28,7 @@ let apiInstance = new SongbookApi.AuthorResourceApi();
 let authorDto = new SongbookApi.UniversalCreateDTO(); // UniversalCreateDTO | authorDto
 
 
-apiInstance.createUsingPOST(authorDto, (error, data, response) => {
+apiInstance.createAuthorUsingPOST(authorDto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -56,11 +56,11 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: */*
 
-<a name="deleteUsingDELETE"></a>
-# **deleteUsingDELETE**
-> deleteUsingDELETE(id)
+<a name="deleteAuthorUsingDELETE"></a>
+# **deleteAuthorUsingDELETE**
+> deleteAuthorUsingDELETE(id)
 
-delete
+deleteAuthor
 
 ### Example
 ```javascript
@@ -71,7 +71,7 @@ let apiInstance = new SongbookApi.AuthorResourceApi();
 let id = 789; // Number | id
 
 
-apiInstance.deleteUsingDELETE(id, (error, data, response) => {
+apiInstance.deleteAuthorUsingDELETE(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -99,11 +99,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getAllUsingGET"></a>
-# **getAllUsingGET**
-> [AuthorDTO] getAllUsingGET(opts)
+<a name="getAllAuthorsUsingGET"></a>
+# **getAllAuthorsUsingGET**
+> [AuthorDTO] getAllAuthorsUsingGET(opts)
 
-getAll
+getAllAuthors
 
 ### Example
 ```javascript
@@ -115,7 +115,7 @@ let opts = {
   'limit': 56 // Number | limit
 };
 
-apiInstance.getAllUsingGET(opts, (error, data, response) => {
+apiInstance.getAllAuthorsUsingGET(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -143,11 +143,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getByIdUsingGET"></a>
-# **getByIdUsingGET**
-> AuthorDTO getByIdUsingGET(id)
+<a name="getAuthorByIdUsingGET"></a>
+# **getAuthorByIdUsingGET**
+> AuthorDTO getAuthorByIdUsingGET(id)
 
-getById
+getAuthorById
 
 ### Example
 ```javascript
@@ -158,7 +158,7 @@ let apiInstance = new SongbookApi.AuthorResourceApi();
 let id = 789; // Number | id
 
 
-apiInstance.getByIdUsingGET(id, (error, data, response) => {
+apiInstance.getAuthorByIdUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -186,11 +186,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getByNameFragmentUsingGET"></a>
-# **getByNameFragmentUsingGET**
-> [AuthorDTO] getByNameFragmentUsingGET(name, opts)
+<a name="getAuthorByNameFragmentUsingGET"></a>
+# **getAuthorByNameFragmentUsingGET**
+> [AuthorDTO] getAuthorByNameFragmentUsingGET(name, opts)
 
-getByNameFragment
+getAuthorByNameFragment
 
 ### Example
 ```javascript
@@ -204,7 +204,7 @@ let opts = {
   'limit': 56 // Number | limit
 };
 
-apiInstance.getByNameFragmentUsingGET(name, opts, (error, data, response) => {
+apiInstance.getAuthorByNameFragmentUsingGET(name, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -276,11 +276,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="updateUsingPUT"></a>
-# **updateUsingPUT**
-> AuthorDTO updateUsingPUT(authorDto)
+<a name="updateAuthorUsingPUT"></a>
+# **updateAuthorUsingPUT**
+> AuthorDTO updateAuthorUsingPUT(authorDto)
 
-update
+updateAuthor
 
 ### Example
 ```javascript
@@ -291,7 +291,7 @@ let apiInstance = new SongbookApi.AuthorResourceApi();
 let authorDto = new SongbookApi.AuthorDTO(); // AuthorDTO | authorDto
 
 
-apiInstance.updateUsingPUT(authorDto, (error, data, response) => {
+apiInstance.updateAuthorUsingPUT(authorDto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {

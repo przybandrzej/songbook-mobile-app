@@ -39,25 +39,25 @@ export class TagResourceApi {
 
 
     /**
-     * Callback function to receive the result of the createUsingPOST5 operation.
-     * @callback module:api/TagResourceApi~createUsingPOST5Callback
+     * Callback function to receive the result of the createTagUsingPOST operation.
+     * @callback module:api/TagResourceApi~createTagUsingPOSTCallback
      * @param {String} error Error message, if any.
      * @param {module:model/TagDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * create
+     * createTag
      * @param {module:model/UniversalCreateDTO} tagDto tagDto
-     * @param {module:api/TagResourceApi~createUsingPOST5Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/TagResourceApi~createTagUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TagDTO}
      */
-    createUsingPOST5(tagDto, callback) {
+    createTagUsingPOST(tagDto, callback) {
       let postBody = tagDto;
 
       // verify the required parameter 'tagDto' is set
       if (tagDto === undefined || tagDto === null) {
-        throw new Error("Missing the required parameter 'tagDto' when calling createUsingPOST5");
+        throw new Error("Missing the required parameter 'tagDto' when calling createTagUsingPOST");
       }
 
 
@@ -83,24 +83,24 @@ export class TagResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the deleteUsingDELETE5 operation.
-     * @callback module:api/TagResourceApi~deleteUsingDELETE5Callback
+     * Callback function to receive the result of the deleteTagUsingDELETE operation.
+     * @callback module:api/TagResourceApi~deleteTagUsingDELETECallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * delete
+     * deleteTag
      * @param {Number} id id
-     * @param {module:api/TagResourceApi~deleteUsingDELETE5Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/TagResourceApi~deleteTagUsingDELETECallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteUsingDELETE5(id, callback) {
+    deleteTagUsingDELETE(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling deleteUsingDELETE5");
+        throw new Error("Missing the required parameter 'id' when calling deleteTagUsingDELETE");
       }
 
 
@@ -127,21 +127,21 @@ export class TagResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the getAllUsingGET5 operation.
-     * @callback module:api/TagResourceApi~getAllUsingGET5Callback
+     * Callback function to receive the result of the getAllTagsUsingGET operation.
+     * @callback module:api/TagResourceApi~getAllTagsUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/TagDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getAll
+     * getAllTags
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit limit
-     * @param {module:api/TagResourceApi~getAllUsingGET5Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/TagResourceApi~getAllTagsUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/TagDTO>}
      */
-    getAllUsingGET5(opts, callback) {
+    getAllTagsUsingGET(opts, callback) {
       opts = opts || {};
       let postBody = null;
 
@@ -169,25 +169,70 @@ export class TagResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the getByIdUsingGET5 operation.
-     * @callback module:api/TagResourceApi~getByIdUsingGET5Callback
+     * Callback function to receive the result of the getSongsByTagUsingGET operation.
+     * @callback module:api/TagResourceApi~getSongsByTagUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * getSongsByTag
+     * @param {Number} id id
+     * @param {module:api/TagResourceApi~getSongsByTagUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/SongDTO>}
+     */
+    getSongsByTagUsingGET(id, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getSongsByTagUsingGET");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongDTO];
+
+      return this.apiClient.callApi(
+        '/api/tags/{id}/songs', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getTagByIdUsingGET operation.
+     * @callback module:api/TagResourceApi~getTagByIdUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {module:model/TagDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getById
+     * getTagById
      * @param {Number} id id
-     * @param {module:api/TagResourceApi~getByIdUsingGET5Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/TagResourceApi~getTagByIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TagDTO}
      */
-    getByIdUsingGET5(id, callback) {
+    getTagByIdUsingGET(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getByIdUsingGET5");
+        throw new Error("Missing the required parameter 'id' when calling getTagByIdUsingGET");
       }
 
 
@@ -207,32 +252,32 @@ export class TagResourceApi {
       let returnType = TagDTO;
 
       return this.apiClient.callApi(
-        '/api/tags/id/{id}', 'GET',
+        '/api/tags/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getByNameUsingGET2 operation.
-     * @callback module:api/TagResourceApi~getByNameUsingGET2Callback
+     * Callback function to receive the result of the getTagByNameUsingGET operation.
+     * @callback module:api/TagResourceApi~getTagByNameUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/TagDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getByName
+     * getTagByName
      * @param {String} name name
-     * @param {module:api/TagResourceApi~getByNameUsingGET2Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/TagResourceApi~getTagByNameUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/TagDTO>}
      */
-    getByNameUsingGET2(name, callback) {
+    getTagByNameUsingGET(name, callback) {
       let postBody = null;
 
       // verify the required parameter 'name' is set
       if (name === undefined || name === null) {
-        throw new Error("Missing the required parameter 'name' when calling getByNameUsingGET2");
+        throw new Error("Missing the required parameter 'name' when calling getTagByNameUsingGET");
       }
 
 
@@ -259,70 +304,25 @@ export class TagResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the getSongsByTagIdUsingGET operation.
-     * @callback module:api/TagResourceApi~getSongsByTagIdUsingGETCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * getSongsByTagId
-     * @param {Number} id id
-     * @param {module:api/TagResourceApi~getSongsByTagIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/SongDTO>}
-     */
-    getSongsByTagIdUsingGET(id, callback) {
-      let postBody = null;
-
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getSongsByTagIdUsingGET");
-      }
-
-
-      let pathParams = {
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['*/*'];
-      let returnType = [SongDTO];
-
-      return this.apiClient.callApi(
-        '/api/tags/id/{id}/songs', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the updateUsingPUT5 operation.
-     * @callback module:api/TagResourceApi~updateUsingPUT5Callback
+     * Callback function to receive the result of the updateTagUsingPUT operation.
+     * @callback module:api/TagResourceApi~updateTagUsingPUTCallback
      * @param {String} error Error message, if any.
      * @param {module:model/TagDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * update
+     * updateTag
      * @param {module:model/TagDTO} tagDto tagDto
-     * @param {module:api/TagResourceApi~updateUsingPUT5Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/TagResourceApi~updateTagUsingPUTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/TagDTO}
      */
-    updateUsingPUT5(tagDto, callback) {
+    updateTagUsingPUT(tagDto, callback) {
       let postBody = tagDto;
 
       // verify the required parameter 'tagDto' is set
       if (tagDto === undefined || tagDto === null) {
-        throw new Error("Missing the required parameter 'tagDto' when calling updateUsingPUT5");
+        throw new Error("Missing the required parameter 'tagDto' when calling updateTagUsingPUT");
       }
 
 

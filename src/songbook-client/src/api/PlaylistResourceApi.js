@@ -15,9 +15,9 @@
  */
 
 import {ApiClient} from "../ApiClient";
-import {CreatePlaylistDTO} from '../model/CreatePlaylistDTO';
 import {PlaylistDTO} from '../model/PlaylistDTO';
 import {Resource} from '../model/Resource';
+import {SongDTO} from '../model/SongDTO';
 
 /**
 * PlaylistResource service.
@@ -39,30 +39,30 @@ export class PlaylistResourceApi {
 
 
     /**
-     * Callback function to receive the result of the addSongUsingPATCH operation.
-     * @callback module:api/PlaylistResourceApi~addSongUsingPATCHCallback
+     * Callback function to receive the result of the addSongToPlaylistUsingPATCH operation.
+     * @callback module:api/PlaylistResourceApi~addSongToPlaylistUsingPATCHCallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * addSong
+     * addSongToPlaylist
      * @param {Number} id id
      * @param {Number} songId songId
-     * @param {module:api/PlaylistResourceApi~addSongUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/PlaylistResourceApi~addSongToPlaylistUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    addSongUsingPATCH(id, songId, callback) {
+    addSongToPlaylistUsingPATCH(id, songId, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling addSongUsingPATCH");
+        throw new Error("Missing the required parameter 'id' when calling addSongToPlaylistUsingPATCH");
       }
 
       // verify the required parameter 'songId' is set
       if (songId === undefined || songId === null) {
-        throw new Error("Missing the required parameter 'songId' when calling addSongUsingPATCH");
+        throw new Error("Missing the required parameter 'songId' when calling addSongToPlaylistUsingPATCH");
       }
 
 
@@ -90,68 +90,24 @@ export class PlaylistResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the createUsingPOST2 operation.
-     * @callback module:api/PlaylistResourceApi~createUsingPOST2Callback
-     * @param {String} error Error message, if any.
-     * @param {module:model/PlaylistDTO} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * create
-     * @param {module:model/CreatePlaylistDTO} dto dto
-     * @param {module:api/PlaylistResourceApi~createUsingPOST2Callback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/PlaylistDTO}
-     */
-    createUsingPOST2(dto, callback) {
-      let postBody = dto;
-
-      // verify the required parameter 'dto' is set
-      if (dto === undefined || dto === null) {
-        throw new Error("Missing the required parameter 'dto' when calling createUsingPOST2");
-      }
-
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['*/*'];
-      let returnType = PlaylistDTO;
-
-      return this.apiClient.callApi(
-        '/api/playlists', 'POST',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the deleteUsingDELETE2 operation.
-     * @callback module:api/PlaylistResourceApi~deleteUsingDELETE2Callback
+     * Callback function to receive the result of the deletePlaylistUsingDELETE operation.
+     * @callback module:api/PlaylistResourceApi~deletePlaylistUsingDELETECallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * delete
+     * deletePlaylist
      * @param {Number} id id
-     * @param {module:api/PlaylistResourceApi~deleteUsingDELETE2Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/PlaylistResourceApi~deletePlaylistUsingDELETECallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteUsingDELETE2(id, callback) {
+    deletePlaylistUsingDELETE(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling deleteUsingDELETE2");
+        throw new Error("Missing the required parameter 'id' when calling deletePlaylistUsingDELETE");
       }
 
 
@@ -223,22 +179,22 @@ export class PlaylistResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the getAllUsingGET3 operation.
-     * @callback module:api/PlaylistResourceApi~getAllUsingGET3Callback
+     * Callback function to receive the result of the getAllPlaylistsUsingGET operation.
+     * @callback module:api/PlaylistResourceApi~getAllPlaylistsUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/PlaylistDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getAll
+     * getAllPlaylists
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.includePrivate include_private (default to false)
      * @param {Number} opts.limit limit
-     * @param {module:api/PlaylistResourceApi~getAllUsingGET3Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/PlaylistResourceApi~getAllPlaylistsUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/PlaylistDTO>}
      */
-    getAllUsingGET3(opts, callback) {
+    getAllPlaylistsUsingGET(opts, callback) {
       opts = opts || {};
       let postBody = null;
 
@@ -267,25 +223,25 @@ export class PlaylistResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the getByIdUsingGET3 operation.
-     * @callback module:api/PlaylistResourceApi~getByIdUsingGET3Callback
+     * Callback function to receive the result of the getPlaylistByIdUsingGET operation.
+     * @callback module:api/PlaylistResourceApi~getPlaylistByIdUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {module:model/PlaylistDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getById
+     * getPlaylistById
      * @param {Number} id id
-     * @param {module:api/PlaylistResourceApi~getByIdUsingGET3Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/PlaylistResourceApi~getPlaylistByIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PlaylistDTO}
      */
-    getByIdUsingGET3(id, callback) {
+    getPlaylistByIdUsingGET(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getByIdUsingGET3");
+        throw new Error("Missing the required parameter 'id' when calling getPlaylistByIdUsingGET");
       }
 
 
@@ -305,36 +261,36 @@ export class PlaylistResourceApi {
       let returnType = PlaylistDTO;
 
       return this.apiClient.callApi(
-        '/api/playlists/id/{id}', 'GET',
+        '/api/playlists/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getByNameUsingGET1 operation.
-     * @callback module:api/PlaylistResourceApi~getByNameUsingGET1Callback
+     * Callback function to receive the result of the getPlaylistByNameUsingGET operation.
+     * @callback module:api/PlaylistResourceApi~getPlaylistByNameUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/PlaylistDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getByName
+     * getPlaylistByName
      * @param {String} name name
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.includePrivate include_private (default to false)
      * @param {Number} opts.limit limit
-     * @param {module:api/PlaylistResourceApi~getByNameUsingGET1Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/PlaylistResourceApi~getPlaylistByNameUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/PlaylistDTO>}
      */
-    getByNameUsingGET1(name, opts, callback) {
+    getPlaylistByNameUsingGET(name, opts, callback) {
       opts = opts || {};
       let postBody = null;
 
       // verify the required parameter 'name' is set
       if (name === undefined || name === null) {
-        throw new Error("Missing the required parameter 'name' when calling getByNameUsingGET1");
+        throw new Error("Missing the required parameter 'name' when calling getPlaylistByNameUsingGET");
       }
 
 
@@ -363,28 +319,25 @@ export class PlaylistResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the getByOwnerIdUsingGET operation.
-     * @callback module:api/PlaylistResourceApi~getByOwnerIdUsingGETCallback
+     * Callback function to receive the result of the getPlaylistSongsUsingGET operation.
+     * @callback module:api/PlaylistResourceApi~getPlaylistSongsUsingGETCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/PlaylistDTO>} data The data returned by the service call.
+     * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getByOwnerId
+     * getPlaylistSongs
      * @param {Number} id id
-     * @param {Object} opts Optional parameters
-     * @param {Boolean} opts.includePrivate include_private (default to false)
-     * @param {module:api/PlaylistResourceApi~getByOwnerIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/PlaylistDTO>}
+     * @param {module:api/PlaylistResourceApi~getPlaylistSongsUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/SongDTO>}
      */
-    getByOwnerIdUsingGET(id, opts, callback) {
-      opts = opts || {};
+    getPlaylistSongsUsingGET(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getByOwnerIdUsingGET");
+        throw new Error("Missing the required parameter 'id' when calling getPlaylistSongsUsingGET");
       }
 
 
@@ -392,7 +345,6 @@ export class PlaylistResourceApi {
         'id': id
       };
       let queryParams = {
-        'include_private': opts['includePrivate']
       };
       let headerParams = {
       };
@@ -402,40 +354,40 @@ export class PlaylistResourceApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['*/*'];
-      let returnType = [PlaylistDTO];
+      let returnType = [SongDTO];
 
       return this.apiClient.callApi(
-        '/api/playlists/ownerId/{id}', 'GET',
+        '/api/playlists/{id}/songs', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the removeSongUsingPATCH operation.
-     * @callback module:api/PlaylistResourceApi~removeSongUsingPATCHCallback
+     * Callback function to receive the result of the removeSongFromPlaylistUsingPATCH operation.
+     * @callback module:api/PlaylistResourceApi~removeSongFromPlaylistUsingPATCHCallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * removeSong
+     * removeSongFromPlaylist
      * @param {Number} id id
      * @param {Number} songId songId
-     * @param {module:api/PlaylistResourceApi~removeSongUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/PlaylistResourceApi~removeSongFromPlaylistUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
      */
-    removeSongUsingPATCH(id, songId, callback) {
+    removeSongFromPlaylistUsingPATCH(id, songId, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling removeSongUsingPATCH");
+        throw new Error("Missing the required parameter 'id' when calling removeSongFromPlaylistUsingPATCH");
       }
 
       // verify the required parameter 'songId' is set
       if (songId === undefined || songId === null) {
-        throw new Error("Missing the required parameter 'songId' when calling removeSongUsingPATCH");
+        throw new Error("Missing the required parameter 'songId' when calling removeSongFromPlaylistUsingPATCH");
       }
 
 
@@ -463,25 +415,25 @@ export class PlaylistResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the updateUsingPUT2 operation.
-     * @callback module:api/PlaylistResourceApi~updateUsingPUT2Callback
+     * Callback function to receive the result of the updatePlaylistUsingPUT operation.
+     * @callback module:api/PlaylistResourceApi~updatePlaylistUsingPUTCallback
      * @param {String} error Error message, if any.
      * @param {module:model/PlaylistDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * update
+     * updatePlaylist
      * @param {module:model/PlaylistDTO} dto dto
-     * @param {module:api/PlaylistResourceApi~updateUsingPUT2Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/PlaylistResourceApi~updatePlaylistUsingPUTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/PlaylistDTO}
      */
-    updateUsingPUT2(dto, callback) {
+    updatePlaylistUsingPUT(dto, callback) {
       let postBody = dto;
 
       // verify the required parameter 'dto' is set
       if (dto === undefined || dto === null) {
-        throw new Error("Missing the required parameter 'dto' when calling updateUsingPUT2");
+        throw new Error("Missing the required parameter 'dto' when calling updatePlaylistUsingPUT");
       }
 
 

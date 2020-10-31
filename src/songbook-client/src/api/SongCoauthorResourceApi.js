@@ -37,25 +37,25 @@ export class SongCoauthorResourceApi {
 
 
     /**
-     * Callback function to receive the result of the createUsingPOST3 operation.
-     * @callback module:api/SongCoauthorResourceApi~createUsingPOST3Callback
+     * Callback function to receive the result of the createCoauthorUsingPOST operation.
+     * @callback module:api/SongCoauthorResourceApi~createCoauthorUsingPOSTCallback
      * @param {String} error Error message, if any.
      * @param {module:model/SongCoauthorDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * create
+     * createCoauthor
      * @param {module:model/SongCoauthorDTO} songCoauthorDTO songCoauthorDTO
-     * @param {module:api/SongCoauthorResourceApi~createUsingPOST3Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SongCoauthorResourceApi~createCoauthorUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SongCoauthorDTO}
      */
-    createUsingPOST3(songCoauthorDTO, callback) {
+    createCoauthorUsingPOST(songCoauthorDTO, callback) {
       let postBody = songCoauthorDTO;
 
       // verify the required parameter 'songCoauthorDTO' is set
       if (songCoauthorDTO === undefined || songCoauthorDTO === null) {
-        throw new Error("Missing the required parameter 'songCoauthorDTO' when calling createUsingPOST3");
+        throw new Error("Missing the required parameter 'songCoauthorDTO' when calling createCoauthorUsingPOST");
       }
 
 
@@ -81,43 +81,29 @@ export class SongCoauthorResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the deleteUsingDELETE3 operation.
-     * @callback module:api/SongCoauthorResourceApi~deleteUsingDELETE3Callback
+     * Callback function to receive the result of the deleteCoauthorUsingDELETE operation.
+     * @callback module:api/SongCoauthorResourceApi~deleteCoauthorUsingDELETECallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * delete
-     * @param {Number} authorId authorId
-     * @param {String} _function function
-     * @param {Number} songId songId
-     * @param {module:api/SongCoauthorResourceApi~deleteUsingDELETE3Callback} callback The callback function, accepting three arguments: error, data, response
+     * deleteCoauthor
+     * @param {Number} id id
+     * @param {module:api/SongCoauthorResourceApi~deleteCoauthorUsingDELETECallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteUsingDELETE3(authorId, _function, songId, callback) {
+    deleteCoauthorUsingDELETE(id, callback) {
       let postBody = null;
 
-      // verify the required parameter 'authorId' is set
-      if (authorId === undefined || authorId === null) {
-        throw new Error("Missing the required parameter 'authorId' when calling deleteUsingDELETE3");
-      }
-
-      // verify the required parameter '_function' is set
-      if (_function === undefined || _function === null) {
-        throw new Error("Missing the required parameter '_function' when calling deleteUsingDELETE3");
-      }
-
-      // verify the required parameter 'songId' is set
-      if (songId === undefined || songId === null) {
-        throw new Error("Missing the required parameter 'songId' when calling deleteUsingDELETE3");
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling deleteCoauthorUsingDELETE");
       }
 
 
       let pathParams = {
-        'authorId': authorId,
-        'function': _function,
-        'songId': songId
+        'id': id
       };
       let queryParams = {
       };
@@ -132,32 +118,115 @@ export class SongCoauthorResourceApi {
       let returnType = null;
 
       return this.apiClient.callApi(
-        '/api/coauthors/{songId}/{authorId}/{function}', 'DELETE',
+        '/api/coauthors/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getByAuthorIdUsingGET operation.
-     * @callback module:api/SongCoauthorResourceApi~getByAuthorIdUsingGETCallback
+     * Callback function to receive the result of the getAllCoauthorsUsingGET operation.
+     * @callback module:api/SongCoauthorResourceApi~getAllCoauthorsUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/SongCoauthorDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getByAuthorId
-     * @param {Number} id id
-     * @param {module:api/SongCoauthorResourceApi~getByAuthorIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * getAllCoauthors
+     * @param {module:api/SongCoauthorResourceApi~getAllCoauthorsUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongCoauthorDTO>}
      */
-    getByAuthorIdUsingGET(id, callback) {
+    getAllCoauthorsUsingGET(callback) {
+      let postBody = null;
+
+
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongCoauthorDTO];
+
+      return this.apiClient.callApi(
+        '/api/coauthors', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getCoauthorByIdUsingGET operation.
+     * @callback module:api/SongCoauthorResourceApi~getCoauthorByIdUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SongCoauthorDTO} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * getCoauthorById
+     * @param {Number} id id
+     * @param {module:api/SongCoauthorResourceApi~getCoauthorByIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SongCoauthorDTO}
+     */
+    getCoauthorByIdUsingGET(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getByAuthorIdUsingGET");
+        throw new Error("Missing the required parameter 'id' when calling getCoauthorByIdUsingGET");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = SongCoauthorDTO;
+
+      return this.apiClient.callApi(
+        '/api/coauthors/{id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getCoauthorsByAuthorIdUsingGET operation.
+     * @callback module:api/SongCoauthorResourceApi~getCoauthorsByAuthorIdUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/SongCoauthorDTO>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * getCoauthorsByAuthorId
+     * @param {Number} id id
+     * @param {module:api/SongCoauthorResourceApi~getCoauthorsByAuthorIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/SongCoauthorDTO>}
+     */
+    getCoauthorsByAuthorIdUsingGET(id, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getCoauthorsByAuthorIdUsingGET");
       }
 
 
@@ -184,25 +253,25 @@ export class SongCoauthorResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the getByFunctionUsingGET operation.
-     * @callback module:api/SongCoauthorResourceApi~getByFunctionUsingGETCallback
+     * Callback function to receive the result of the getCoauthorsByFunctionUsingGET operation.
+     * @callback module:api/SongCoauthorResourceApi~getCoauthorsByFunctionUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/SongCoauthorDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getByFunction
+     * getCoauthorsByFunction
      * @param {module:model/String} _function function
-     * @param {module:api/SongCoauthorResourceApi~getByFunctionUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SongCoauthorResourceApi~getCoauthorsByFunctionUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongCoauthorDTO>}
      */
-    getByFunctionUsingGET(_function, callback) {
+    getCoauthorsByFunctionUsingGET(_function, callback) {
       let postBody = null;
 
       // verify the required parameter '_function' is set
       if (_function === undefined || _function === null) {
-        throw new Error("Missing the required parameter '_function' when calling getByFunctionUsingGET");
+        throw new Error("Missing the required parameter '_function' when calling getCoauthorsByFunctionUsingGET");
       }
 
 
@@ -229,25 +298,25 @@ export class SongCoauthorResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the getBySongIdUsingGET operation.
-     * @callback module:api/SongCoauthorResourceApi~getBySongIdUsingGETCallback
+     * Callback function to receive the result of the getCoauthorsBySongIdUsingGET operation.
+     * @callback module:api/SongCoauthorResourceApi~getCoauthorsBySongIdUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/SongCoauthorDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getBySongId
+     * getCoauthorsBySongId
      * @param {Number} id id
-     * @param {module:api/SongCoauthorResourceApi~getBySongIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SongCoauthorResourceApi~getCoauthorsBySongIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongCoauthorDTO>}
      */
-    getBySongIdUsingGET(id, callback) {
+    getCoauthorsBySongIdUsingGET(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getBySongIdUsingGET");
+        throw new Error("Missing the required parameter 'id' when calling getCoauthorsBySongIdUsingGET");
       }
 
 
@@ -274,25 +343,25 @@ export class SongCoauthorResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the updateUsingPUT3 operation.
-     * @callback module:api/SongCoauthorResourceApi~updateUsingPUT3Callback
+     * Callback function to receive the result of the updateCoauthorUsingPUT operation.
+     * @callback module:api/SongCoauthorResourceApi~updateCoauthorUsingPUTCallback
      * @param {String} error Error message, if any.
      * @param {module:model/SongCoauthorDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * update
+     * updateCoauthor
      * @param {module:model/SongCoauthorDTO} songCoauthorDTO songCoauthorDTO
-     * @param {module:api/SongCoauthorResourceApi~updateUsingPUT3Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SongCoauthorResourceApi~updateCoauthorUsingPUTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SongCoauthorDTO}
      */
-    updateUsingPUT3(songCoauthorDTO, callback) {
+    updateCoauthorUsingPUT(songCoauthorDTO, callback) {
       let postBody = songCoauthorDTO;
 
       // verify the required parameter 'songCoauthorDTO' is set
       if (songCoauthorDTO === undefined || songCoauthorDTO === null) {
-        throw new Error("Missing the required parameter 'songCoauthorDTO' when calling updateUsingPUT3");
+        throw new Error("Missing the required parameter 'songCoauthorDTO' when calling updateCoauthorUsingPUT");
       }
 
 

@@ -16,6 +16,7 @@
 
 import superagent from "superagent";
 import querystring from "querystring";
+import { HttpInterceptor } from "../../http-interceptor";
 
 /**
 * @module ApiClient
@@ -34,12 +35,12 @@ export class ApiClient {
     /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default https://stk-uep.pl
+         * @default https://localhost:8080
          */
-    static basePath = 'https://stk-uep.pl'.replace(/\/+$/, '');
+    static basePath = 'https://localhost:8080'.replace(/\/+$/, '');
 
     constructor() {
-
+        this.interceptor = new HttpInterceptor();
 
         /**
          * The authentication methods to be included for all API calls.
@@ -402,6 +403,7 @@ export class ApiClient {
 
         // apply authentications
         this.applyAuthToRequest(request, authNames);
+        request = this.interceptor.setAuthToken(request);
 
         // set query parameters
         if (httpMethod.toUpperCase() === 'GET' && this.cache === false) {

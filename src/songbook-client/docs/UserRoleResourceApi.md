@@ -1,23 +1,23 @@
 # SongbookApi.UserRoleResourceApi
 
-All URIs are relative to *https://stk-uep.pl*
+All URIs are relative to *https://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createUsingPOST6**](UserRoleResourceApi.md#createUsingPOST6) | **POST** /api/user_roles | create
-[**deleteUsingDELETE7**](UserRoleResourceApi.md#deleteUsingDELETE7) | **DELETE** /api/user_roles/id/{id} | delete
-[**getAllUsingGET7**](UserRoleResourceApi.md#getAllUsingGET7) | **GET** /api/user_roles | getAll
-[**getByIdUsingGET7**](UserRoleResourceApi.md#getByIdUsingGET7) | **GET** /api/user_roles/id/{id} | getById
-[**getByNameSearchQueryUsingGET**](UserRoleResourceApi.md#getByNameSearchQueryUsingGET) | **GET** /api/user_roles/name/{searchQuery} | getByNameSearchQuery
-[**getUsersByUserRoleIdUsingGET**](UserRoleResourceApi.md#getUsersByUserRoleIdUsingGET) | **GET** /api/user_roles/id/{id}/users | getUsersByUserRoleId
-[**updateUsingPUT6**](UserRoleResourceApi.md#updateUsingPUT6) | **PUT** /api/user_roles | update
+[**createRoleUsingPOST**](UserRoleResourceApi.md#createRoleUsingPOST) | **POST** /api/user_roles | createRole
+[**deleteRoleUsingDELETE**](UserRoleResourceApi.md#deleteRoleUsingDELETE) | **DELETE** /api/user_roles/{id} | deleteRole
+[**getAllRolesUsingGET**](UserRoleResourceApi.md#getAllRolesUsingGET) | **GET** /api/user_roles | getAllRoles
+[**getRoleByIdUsingGET**](UserRoleResourceApi.md#getRoleByIdUsingGET) | **GET** /api/user_roles/{id} | getRoleById
+[**getRoleByNameSearchQueryUsingGET**](UserRoleResourceApi.md#getRoleByNameSearchQueryUsingGET) | **GET** /api/user_roles/name/{searchQuery} | getRoleByNameSearchQuery
+[**getUserRoleUsersUsingGET**](UserRoleResourceApi.md#getUserRoleUsersUsingGET) | **GET** /api/user_roles/{id}/users | getUserRoleUsers
+[**updateRoleUsingPUT**](UserRoleResourceApi.md#updateRoleUsingPUT) | **PUT** /api/user_roles | updateRole
 
 
-<a name="createUsingPOST6"></a>
-# **createUsingPOST6**
-> UserRoleDTO createUsingPOST6(userRoleDto)
+<a name="createRoleUsingPOST"></a>
+# **createRoleUsingPOST**
+> UserRoleDTO createRoleUsingPOST(userRoleDto)
 
-create
+createRole
 
 ### Example
 ```javascript
@@ -28,7 +28,7 @@ let apiInstance = new SongbookApi.UserRoleResourceApi();
 let userRoleDto = new SongbookApi.UniversalCreateDTO(); // UniversalCreateDTO | userRoleDto
 
 
-apiInstance.createUsingPOST6(userRoleDto, (error, data, response) => {
+apiInstance.createRoleUsingPOST(userRoleDto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -56,11 +56,11 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: */*
 
-<a name="deleteUsingDELETE7"></a>
-# **deleteUsingDELETE7**
-> deleteUsingDELETE7(id)
+<a name="deleteRoleUsingDELETE"></a>
+# **deleteRoleUsingDELETE**
+> deleteRoleUsingDELETE(id)
 
-delete
+deleteRole
 
 ### Example
 ```javascript
@@ -71,7 +71,7 @@ let apiInstance = new SongbookApi.UserRoleResourceApi();
 let id = 789; // Number | id
 
 
-apiInstance.deleteUsingDELETE7(id, (error, data, response) => {
+apiInstance.deleteRoleUsingDELETE(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -99,11 +99,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getAllUsingGET7"></a>
-# **getAllUsingGET7**
-> [UserRoleDTO] getAllUsingGET7()
+<a name="getAllRolesUsingGET"></a>
+# **getAllRolesUsingGET**
+> [UserRoleDTO] getAllRolesUsingGET()
 
-getAll
+getAllRoles
 
 ### Example
 ```javascript
@@ -111,7 +111,7 @@ import {SongbookApi} from 'songbook_api';
 
 let apiInstance = new SongbookApi.UserRoleResourceApi();
 
-apiInstance.getAllUsingGET7((error, data, response) => {
+apiInstance.getAllRolesUsingGET((error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -136,11 +136,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getByIdUsingGET7"></a>
-# **getByIdUsingGET7**
-> UserRoleDTO getByIdUsingGET7(id)
+<a name="getRoleByIdUsingGET"></a>
+# **getRoleByIdUsingGET**
+> UserRoleDTO getRoleByIdUsingGET(id)
 
-getById
+getRoleById
 
 ### Example
 ```javascript
@@ -151,7 +151,7 @@ let apiInstance = new SongbookApi.UserRoleResourceApi();
 let id = 789; // Number | id
 
 
-apiInstance.getByIdUsingGET7(id, (error, data, response) => {
+apiInstance.getRoleByIdUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -179,11 +179,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getByNameSearchQueryUsingGET"></a>
-# **getByNameSearchQueryUsingGET**
-> [UserRoleDTO] getByNameSearchQueryUsingGET(searchQuery)
+<a name="getRoleByNameSearchQueryUsingGET"></a>
+# **getRoleByNameSearchQueryUsingGET**
+> [UserRoleDTO] getRoleByNameSearchQueryUsingGET(searchQuery)
 
-getByNameSearchQuery
+getRoleByNameSearchQuery
 
 ### Example
 ```javascript
@@ -194,7 +194,7 @@ let apiInstance = new SongbookApi.UserRoleResourceApi();
 let searchQuery = "searchQuery_example"; // String | searchQuery
 
 
-apiInstance.getByNameSearchQueryUsingGET(searchQuery, (error, data, response) => {
+apiInstance.getRoleByNameSearchQueryUsingGET(searchQuery, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -222,11 +222,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getUsersByUserRoleIdUsingGET"></a>
-# **getUsersByUserRoleIdUsingGET**
-> [UserDTO] getUsersByUserRoleIdUsingGET(id)
+<a name="getUserRoleUsersUsingGET"></a>
+# **getUserRoleUsersUsingGET**
+> [UserDTO] getUserRoleUsersUsingGET(id)
 
-getUsersByUserRoleId
+getUserRoleUsers
 
 ### Example
 ```javascript
@@ -237,7 +237,7 @@ let apiInstance = new SongbookApi.UserRoleResourceApi();
 let id = 789; // Number | id
 
 
-apiInstance.getUsersByUserRoleIdUsingGET(id, (error, data, response) => {
+apiInstance.getUserRoleUsersUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -265,11 +265,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="updateUsingPUT6"></a>
-# **updateUsingPUT6**
-> UserRoleDTO updateUsingPUT6(userRoleDto)
+<a name="updateRoleUsingPUT"></a>
+# **updateRoleUsingPUT**
+> UserRoleDTO updateRoleUsingPUT(userRoleDto)
 
-update
+updateRole
 
 ### Example
 ```javascript
@@ -280,7 +280,7 @@ let apiInstance = new SongbookApi.UserRoleResourceApi();
 let userRoleDto = new SongbookApi.UserRoleDTO(); // UserRoleDTO | userRoleDto
 
 
-apiInstance.updateUsingPUT6(userRoleDto, (error, data, response) => {
+apiInstance.updateRoleUsingPUT(userRoleDto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
