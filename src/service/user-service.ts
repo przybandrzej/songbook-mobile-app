@@ -1,22 +1,19 @@
-import { UserRoleService } from './user-role-service';
 import { UserRole } from './../model/user-role';
 import { User } from './../model/user';
 import { forkJoin, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PlaylistDTO, SongDTO, UserDTO, UserRoleDTO, UserRoleResourceApi } from '../songbook-client/src';
+import { PlaylistDTO, SongDTO, UserDTO, UserRoleDTO } from '../songbook-client/src';
 import { UserResourceApi } from '../songbook-client/src/api/UserResourceApi';
 
 export class UserService {
 
     private api: UserResourceApi;
-    private roleService: UserRoleService;
 
     constructor() {
         this.api = new UserResourceApi();
-        this.roleService = new UserRoleService();
     }
 
-    public toEntity(dto: UserDTO): User {
+    public static toEntity(dto: UserDTO): User {
         return {
             id: dto.id,
             username: dto.username,
@@ -39,7 +36,7 @@ export class UserService {
                     const list: Observable<User>[] = [];
                     for (const dto of data) {
                         list.push(this.getUserRole(dto.id).pipe(map(role => {
-                            const user = this.toEntity(dto);
+                            const user = UserService.toEntity(dto);
                             user.role = role;
                             return user;
                         })));
@@ -65,7 +62,7 @@ export class UserService {
             })
         });
         return forkJoin([usr$, this.getUserRole(id)]).pipe(map(data => {
-            const user = this.toEntity(data[0]);
+            const user = UserService.toEntity(data[0]);
             user.role = data[1];
             return user;
         }));
@@ -88,7 +85,7 @@ export class UserService {
         return new Observable<UserRole>(subscriber => {
             this.api.getUserRoleUsingGET(id, (error: any, data: UserRoleDTO, response: any) => {
                 if (!error) {
-                    subscriber.next(this.roleService.toEntity(data));
+                    subscriber.next(UserRoleService.toEntity(data));
                     subscriber.complete();
                 } else {
                     subscriber.error(error);

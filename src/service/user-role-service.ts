@@ -8,14 +8,12 @@ import { UserService } from './user-service';
 export class UserRoleService {
 
     private api: UserRoleResourceApi;
-    private userService: UserService;
 
     constructor() {
         this.api = new UserRoleResourceApi();
-        this.userService = new UserService();
     }
 
-    public toEntity(dto: UserRoleDTO): UserRole {
+    public static toEntity(dto: UserRoleDTO): UserRole {
         return {
             id: dto.id,
             name: dto.name
@@ -28,7 +26,7 @@ export class UserRoleService {
                 if (error) {
                     subscriber.error(error);
                 } else {
-                    subscriber.next(data.map(it => this.toEntity(it)));
+                    subscriber.next(data.map(it => UserRoleService.toEntity(it)));
                     subscriber.complete();
                 }
             });
@@ -41,7 +39,7 @@ export class UserRoleService {
                 if (error) {
                     subscriber.error(error);
                 } else {
-                    subscriber.next(this.toEntity(data));
+                    subscriber.next(UserRoleService.toEntity(data));
                     subscriber.complete();
                 }
             });
@@ -62,7 +60,7 @@ export class UserRoleService {
         });
         return forkJoin([role$, users$]).pipe(map(data => {
             return data[1].map(it => {
-                const user = this.userService.toEntity(it);
+                const user = UserService.toEntity(it);
                 user.role = data[0];
                 return user;
             });
