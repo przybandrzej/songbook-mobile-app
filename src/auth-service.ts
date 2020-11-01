@@ -120,7 +120,7 @@ export class AuthService {
                 }
             });
         }
-        this.startCounting();
+        //this.startCounting();
     }
 
     private setUser(user: User | null): void {
