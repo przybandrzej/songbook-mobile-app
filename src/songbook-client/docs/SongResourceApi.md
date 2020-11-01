@@ -36,7 +36,7 @@ Method | HTTP request | Description
 
 <a name="addCoauthorToSongUsingPATCH"></a>
 # **addCoauthorToSongUsingPATCH**
-> addCoauthorToSongUsingPATCH(coauthor, id)
+> SongCoauthorDTO addCoauthorToSongUsingPATCH(coauthor, id)
 
 addCoauthorToSong
 
@@ -55,7 +55,7 @@ apiInstance.addCoauthorToSongUsingPATCH(coauthor, id, (error, data, response) =>
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**SongCoauthorDTO**](SongCoauthorDTO.md)
 
 ### Authorization
 
@@ -82,7 +82,7 @@ No authorization required
 
 <a name="addTagToSongUsingPATCH"></a>
 # **addTagToSongUsingPATCH**
-> SongDTO addTagToSongUsingPATCH(id, tag)
+> TagDTO addTagToSongUsingPATCH(id, tag)
 
 addTagToSong
 
@@ -115,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SongDTO**](SongDTO.md)
+[**TagDTO**](TagDTO.md)
 
 ### Authorization
 
@@ -128,7 +128,7 @@ No authorization required
 
 <a name="addTagsToSongBulkUsingPATCH"></a>
 # **addTagsToSongBulkUsingPATCH**
-> SongDTO addTagsToSongBulkUsingPATCH(id, tags)
+> [TagDTO] addTagsToSongBulkUsingPATCH(id, tags)
 
 addTagsToSongBulk
 
@@ -161,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SongDTO**](SongDTO.md)
+[**[TagDTO]**](TagDTO.md)
 
 ### Authorization
 
@@ -174,7 +174,7 @@ No authorization required
 
 <a name="addVerseToSongUsingPATCH"></a>
 # **addVerseToSongUsingPATCH**
-> addVerseToSongUsingPATCH(id, verse)
+> VerseDTO addVerseToSongUsingPATCH(id, verse)
 
 addVerseToSong
 
@@ -193,7 +193,7 @@ apiInstance.addVerseToSongUsingPATCH(id, verse, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -207,7 +207,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**VerseDTO**](VerseDTO.md)
 
 ### Authorization
 
@@ -1004,7 +1004,7 @@ No authorization required
 
 <a name="removeTagFromSongUsingPATCH"></a>
 # **removeTagFromSongUsingPATCH**
-> SongDTO removeTagFromSongUsingPATCH(id, tagId)
+> removeTagFromSongUsingPATCH(id, tagId)
 
 removeTagFromSong
 
@@ -1023,7 +1023,7 @@ apiInstance.removeTagFromSongUsingPATCH(id, tagId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 });
 ```
@@ -1037,7 +1037,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SongDTO**](SongDTO.md)
+null (empty response body)
 
 ### Authorization
 
@@ -1050,7 +1050,7 @@ No authorization required
 
 <a name="removeTagsFromSongBulkUsingPATCH"></a>
 # **removeTagsFromSongBulkUsingPATCH**
-> SongDTO removeTagsFromSongBulkUsingPATCH(id, tagIds)
+> removeTagsFromSongBulkUsingPATCH(id, tagIds)
 
 removeTagsFromSongBulk
 
@@ -1069,7 +1069,7 @@ apiInstance.removeTagsFromSongBulkUsingPATCH(id, tagIds, (error, data, response)
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 });
 ```
@@ -1083,7 +1083,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SongDTO**](SongDTO.md)
+null (empty response body)
 
 ### Authorization
 

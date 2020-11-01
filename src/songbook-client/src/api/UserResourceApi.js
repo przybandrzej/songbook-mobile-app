@@ -14,15 +14,15 @@
  *
  */
 
-import { ApiClient } from "../ApiClient";
-import { CreatePlaylistDTO } from '../model/CreatePlaylistDTO';
-import { PlaylistDTO } from '../model/PlaylistDTO';
-import { SongAddDTO } from '../model/SongAddDTO';
-import { SongDTO } from '../model/SongDTO';
-import { SongEditDTO } from '../model/SongEditDTO';
-import { UserDTO } from '../model/UserDTO';
-import { UserRoleDTO } from '../model/UserRoleDTO';
-import { UserSongRatingDTO } from '../model/UserSongRatingDTO';
+import {ApiClient} from "../ApiClient";
+import {CreatePlaylistDTO} from '../model/CreatePlaylistDTO';
+import {PlaylistDTO} from '../model/PlaylistDTO';
+import {SongAddDTO} from '../model/SongAddDTO';
+import {SongDTO} from '../model/SongDTO';
+import {SongEditDTO} from '../model/SongEditDTO';
+import {UserDTO} from '../model/UserDTO';
+import {UserRoleDTO} from '../model/UserRoleDTO';
+import {UserSongRatingDTO} from '../model/UserSongRatingDTO';
 
 /**
 * UserResource service.
@@ -31,817 +31,820 @@ import { UserSongRatingDTO } from '../model/UserSongRatingDTO';
 */
 export class UserResourceApi {
 
-  /**
-  * Constructs a new UserResourceApi. 
-  * @alias module:api/UserResourceApi
-  * @class
-  * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
-  * default to {@link module:ApiClient#instance} if unspecified.
-  */
-  constructor(apiClient) {
-    this.apiClient = apiClient || ApiClient.instance;
-  }
-
-
-  /**
-   * Callback function to receive the result of the addPlaylistUsingPATCH operation.
-   * @callback module:api/UserResourceApi~addPlaylistUsingPATCHCallback
-   * @param {String} error Error message, if any.
-   * @param data This operation does not return a value.
-   * @param {String} response The complete HTTP response.
-   */
-
-  /**
-   * addPlaylist
-   * @param {Number} id id
-   * @param {module:model/CreatePlaylistDTO} playlistDTO playlistDTO
-   * @param {module:api/UserResourceApi~addPlaylistUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
-   */
-  addPlaylistUsingPATCH(id, playlistDTO, callback) {
-    let postBody = playlistDTO;
-
-    // verify the required parameter 'id' is set
-    if (id === undefined || id === null) {
-      throw new Error("Missing the required parameter 'id' when calling addPlaylistUsingPATCH");
-    }
-
-    // verify the required parameter 'playlistDTO' is set
-    if (playlistDTO === undefined || playlistDTO === null) {
-      throw new Error("Missing the required parameter 'playlistDTO' when calling addPlaylistUsingPATCH");
+    /**
+    * Constructs a new UserResourceApi. 
+    * @alias module:api/UserResourceApi
+    * @class
+    * @param {module:ApiClient} [apiClient] Optional API client implementation to use,
+    * default to {@link module:ApiClient#instance} if unspecified.
+    */
+    constructor(apiClient) {
+        this.apiClient = apiClient || ApiClient.instance;
     }
 
 
-    let pathParams = {
-      'id': id
-    };
-    let queryParams = {
-    };
-    let headerParams = {
-    };
-    let formParams = {
-    };
+    /**
+     * Callback function to receive the result of the addPlaylistUsingPATCH operation.
+     * @callback module:api/UserResourceApi~addPlaylistUsingPATCHCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/PlaylistDTO} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
 
-    let authNames = [];
-    let contentTypes = ['application/json'];
-    let accepts = ['*/*'];
-    let returnType = null;
+    /**
+     * addPlaylist
+     * @param {Number} id id
+     * @param {module:model/CreatePlaylistDTO} playlistDTO playlistDTO
+     * @param {module:api/UserResourceApi~addPlaylistUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/PlaylistDTO}
+     */
+    addPlaylistUsingPATCH(id, playlistDTO, callback) {
+      let postBody = playlistDTO;
 
-    return this.apiClient.callApi(
-      '/api/users/{id}/add-playlist', 'PATCH',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
-  }
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling addPlaylistUsingPATCH");
+      }
 
-  /**
-   * Callback function to receive the result of the addRatingUsingPATCH operation.
-   * @callback module:api/UserResourceApi~addRatingUsingPATCHCallback
-   * @param {String} error Error message, if any.
-   * @param data This operation does not return a value.
-   * @param {String} response The complete HTTP response.
-   */
+      // verify the required parameter 'playlistDTO' is set
+      if (playlistDTO === undefined || playlistDTO === null) {
+        throw new Error("Missing the required parameter 'playlistDTO' when calling addPlaylistUsingPATCH");
+      }
 
-  /**
-   * addRating
-   * @param {Number} id id
-   * @param {module:model/UserSongRatingDTO} ratingDTO ratingDTO
-   * @param {module:api/UserResourceApi~addRatingUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
-   */
-  addRatingUsingPATCH(id, ratingDTO, callback) {
-    let postBody = ratingDTO;
 
-    // verify the required parameter 'id' is set
-    if (id === undefined || id === null) {
-      throw new Error("Missing the required parameter 'id' when calling addRatingUsingPATCH");
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = PlaylistDTO;
+
+      return this.apiClient.callApi(
+        '/api/users/{id}/add-playlist', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
     }
 
-    // verify the required parameter 'ratingDTO' is set
-    if (ratingDTO === undefined || ratingDTO === null) {
-      throw new Error("Missing the required parameter 'ratingDTO' when calling addRatingUsingPATCH");
+    /**
+     * Callback function to receive the result of the addRatingUsingPATCH operation.
+     * @callback module:api/UserResourceApi~addRatingUsingPATCHCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/UserSongRatingDTO} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * addRating
+     * @param {Number} id id
+     * @param {module:model/UserSongRatingDTO} ratingDTO ratingDTO
+     * @param {module:api/UserResourceApi~addRatingUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/UserSongRatingDTO}
+     */
+    addRatingUsingPATCH(id, ratingDTO, callback) {
+      let postBody = ratingDTO;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling addRatingUsingPATCH");
+      }
+
+      // verify the required parameter 'ratingDTO' is set
+      if (ratingDTO === undefined || ratingDTO === null) {
+        throw new Error("Missing the required parameter 'ratingDTO' when calling addRatingUsingPATCH");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = UserSongRatingDTO;
+
+      return this.apiClient.callApi(
+        '/api/users/{id}/add-rating', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
     }
 
+    /**
+     * Callback function to receive the result of the addSongToLibraryUsingPATCH operation.
+     * @callback module:api/UserResourceApi~addSongToLibraryUsingPATCHCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
 
-    let pathParams = {
-      'id': id
-    };
-    let queryParams = {
-    };
-    let headerParams = {
-    };
-    let formParams = {
-    };
+    /**
+     * addSongToLibrary
+     * @param {Number} id id
+     * @param {Number} songId songId
+     * @param {module:api/UserResourceApi~addSongToLibraryUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    addSongToLibraryUsingPATCH(id, songId, callback) {
+      let postBody = null;
 
-    let authNames = [];
-    let contentTypes = ['application/json'];
-    let accepts = ['*/*'];
-    let returnType = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling addSongToLibraryUsingPATCH");
+      }
 
-    return this.apiClient.callApi(
-      '/api/users/{id}/add-rating', 'PATCH',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
-  }
+      // verify the required parameter 'songId' is set
+      if (songId === undefined || songId === null) {
+        throw new Error("Missing the required parameter 'songId' when calling addSongToLibraryUsingPATCH");
+      }
 
-  /**
-   * Callback function to receive the result of the addSongToLibraryUsingPATCH operation.
-   * @callback module:api/UserResourceApi~addSongToLibraryUsingPATCHCallback
-   * @param {String} error Error message, if any.
-   * @param data This operation does not return a value.
-   * @param {String} response The complete HTTP response.
-   */
 
-  /**
-   * addSongToLibrary
-   * @param {Number} id id
-   * @param {Number} songId songId
-   * @param {module:api/UserResourceApi~addSongToLibraryUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
-   */
-  addSongToLibraryUsingPATCH(id, songId, callback) {
-    let postBody = null;
+      let pathParams = {
+        'id': id,
+        'songId': songId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
 
-    // verify the required parameter 'id' is set
-    if (id === undefined || id === null) {
-      throw new Error("Missing the required parameter 'id' when calling addSongToLibraryUsingPATCH");
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/api/users/{id}/add-song/{songId}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
     }
 
-    // verify the required parameter 'songId' is set
-    if (songId === undefined || songId === null) {
-      throw new Error("Missing the required parameter 'songId' when calling addSongToLibraryUsingPATCH");
+    /**
+     * Callback function to receive the result of the deleteUserUsingDELETE operation.
+     * @callback module:api/UserResourceApi~deleteUserUsingDELETECallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * deleteUser
+     * @param {Number} id id
+     * @param {module:api/UserResourceApi~deleteUserUsingDELETECallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    deleteUserUsingDELETE(id, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling deleteUserUsingDELETE");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/api/users/{id}', 'DELETE',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
     }
 
+    /**
+     * Callback function to receive the result of the getAddedSongsByUserIdUsingGET operation.
+     * @callback module:api/UserResourceApi~getAddedSongsByUserIdUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/SongAddDTO>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
 
-    let pathParams = {
-      'id': id,
-      'songId': songId
-    };
-    let queryParams = {
-    };
-    let headerParams = {
-    };
-    let formParams = {
-    };
+    /**
+     * getAddedSongsByUserId
+     * @param {Number} id id
+     * @param {module:api/UserResourceApi~getAddedSongsByUserIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/SongAddDTO>}
+     */
+    getAddedSongsByUserIdUsingGET(id, callback) {
+      let postBody = null;
 
-    let authNames = [];
-    let contentTypes = ['application/json'];
-    let accepts = ['*/*'];
-    let returnType = null;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getAddedSongsByUserIdUsingGET");
+      }
 
-    return this.apiClient.callApi(
-      '/api/users/{id}/add-song/{songId}', 'PATCH',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
-  }
 
-  /**
-   * Callback function to receive the result of the deleteUserUsingDELETE operation.
-   * @callback module:api/UserResourceApi~deleteUserUsingDELETECallback
-   * @param {String} error Error message, if any.
-   * @param data This operation does not return a value.
-   * @param {String} response The complete HTTP response.
-   */
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
 
-  /**
-   * deleteUser
-   * @param {Number} id id
-   * @param {module:api/UserResourceApi~deleteUserUsingDELETECallback} callback The callback function, accepting three arguments: error, data, response
-   */
-  deleteUserUsingDELETE(id, callback) {
-    let postBody = null;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongAddDTO];
 
-    // verify the required parameter 'id' is set
-    if (id === undefined || id === null) {
-      throw new Error("Missing the required parameter 'id' when calling deleteUserUsingDELETE");
+      return this.apiClient.callApi(
+        '/api/users/{id}/added-songs', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
     }
 
+    /**
+     * Callback function to receive the result of the getAllUsersUsingGET operation.
+     * @callback module:api/UserResourceApi~getAllUsersUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/UserDTO>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
 
-    let pathParams = {
-      'id': id
-    };
-    let queryParams = {
-    };
-    let headerParams = {
-    };
-    let formParams = {
-    };
+    /**
+     * getAllUsers
+     * @param {Object} opts Optional parameters
+     * @param {Number} opts.limit limit
+     * @param {module:api/UserResourceApi~getAllUsersUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/UserDTO>}
+     */
+    getAllUsersUsingGET(opts, callback) {
+      opts = opts || {};
+      let postBody = null;
 
-    let authNames = [];
-    let contentTypes = [];
-    let accepts = ['*/*'];
-    let returnType = null;
 
-    return this.apiClient.callApi(
-      '/api/users/{id}', 'DELETE',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
-  }
+      let pathParams = {
+      };
+      let queryParams = {
+        'limit': opts['limit']
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
 
-  /**
-   * Callback function to receive the result of the getAddedSongsByUserIdUsingGET operation.
-   * @callback module:api/UserResourceApi~getAddedSongsByUserIdUsingGETCallback
-   * @param {String} error Error message, if any.
-   * @param {Array.<module:model/SongAddDTO>} data The data returned by the service call.
-   * @param {String} response The complete HTTP response.
-   */
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [UserDTO];
 
-  /**
-   * getAddedSongsByUserId
-   * @param {Number} id id
-   * @param {module:api/UserResourceApi~getAddedSongsByUserIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-   * data is of type: {@link Array.<module:model/SongAddDTO>}
-   */
-  getAddedSongsByUserIdUsingGET(id, callback) {
-    let postBody = null;
-
-    // verify the required parameter 'id' is set
-    if (id === undefined || id === null) {
-      throw new Error("Missing the required parameter 'id' when calling getAddedSongsByUserIdUsingGET");
+      return this.apiClient.callApi(
+        '/api/users', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
     }
 
+    /**
+     * Callback function to receive the result of the getEditedSongsByUserIdUsingGET operation.
+     * @callback module:api/UserResourceApi~getEditedSongsByUserIdUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/SongEditDTO>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
 
-    let pathParams = {
-      'id': id
-    };
-    let queryParams = {
-    };
-    let headerParams = {
-    };
-    let formParams = {
-    };
+    /**
+     * getEditedSongsByUserId
+     * @param {Number} id id
+     * @param {module:api/UserResourceApi~getEditedSongsByUserIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/SongEditDTO>}
+     */
+    getEditedSongsByUserIdUsingGET(id, callback) {
+      let postBody = null;
 
-    let authNames = [];
-    let contentTypes = [];
-    let accepts = ['*/*'];
-    let returnType = [SongAddDTO];
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getEditedSongsByUserIdUsingGET");
+      }
 
-    return this.apiClient.callApi(
-      '/api/users/{id}/added-songs', 'GET',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
-  }
 
-  /**
-   * Callback function to receive the result of the getAllUsersUsingGET operation.
-   * @callback module:api/UserResourceApi~getAllUsersUsingGETCallback
-   * @param {String} error Error message, if any.
-   * @param {Array.<module:model/UserDTO>} data The data returned by the service call.
-   * @param {String} response The complete HTTP response.
-   */
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
 
-  /**
-   * getAllUsers
-   * @param {Object} opts Optional parameters
-   * @param {Number} opts.limit limit
-   * @param {module:api/UserResourceApi~getAllUsersUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-   * data is of type: {@link Array.<module:model/UserDTO>}
-   */
-  getAllUsersUsingGET(opts, callback) {
-    opts = opts || {};
-    let postBody = null;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongEditDTO];
 
-    let pathParams = {
-    };
-    let queryParams = {
-      'limit': opts['limit']
-    };
-    let headerParams = {
-    };
-    let formParams = {
-    };
-
-    let authNames = [];
-    let contentTypes = [];
-    let accepts = ['*/*'];
-    let returnType = [UserDTO];
-
-    return this.apiClient.callApi(
-      '/api/users', 'GET',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
-  }
-
-  /**
-   * Callback function to receive the result of the getEditedSongsByUserIdUsingGET operation.
-   * @callback module:api/UserResourceApi~getEditedSongsByUserIdUsingGETCallback
-   * @param {String} error Error message, if any.
-   * @param {Array.<module:model/SongEditDTO>} data The data returned by the service call.
-   * @param {String} response The complete HTTP response.
-   */
-
-  /**
-   * getEditedSongsByUserId
-   * @param {Number} id id
-   * @param {module:api/UserResourceApi~getEditedSongsByUserIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-   * data is of type: {@link Array.<module:model/SongEditDTO>}
-   */
-  getEditedSongsByUserIdUsingGET(id, callback) {
-    let postBody = null;
-
-    // verify the required parameter 'id' is set
-    if (id === undefined || id === null) {
-      throw new Error("Missing the required parameter 'id' when calling getEditedSongsByUserIdUsingGET");
+      return this.apiClient.callApi(
+        '/api/users/{id}/edited-songs', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
     }
 
+    /**
+     * Callback function to receive the result of the getPlaylistsByUserIdUsingGET operation.
+     * @callback module:api/UserResourceApi~getPlaylistsByUserIdUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/PlaylistDTO>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
 
-    let pathParams = {
-      'id': id
-    };
-    let queryParams = {
-    };
-    let headerParams = {
-    };
-    let formParams = {
-    };
+    /**
+     * getPlaylistsByUserId
+     * @param {Number} id id
+     * @param {module:api/UserResourceApi~getPlaylistsByUserIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/PlaylistDTO>}
+     */
+    getPlaylistsByUserIdUsingGET(id, callback) {
+      let postBody = null;
 
-    let authNames = [];
-    let contentTypes = [];
-    let accepts = ['*/*'];
-    let returnType = [SongEditDTO];
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getPlaylistsByUserIdUsingGET");
+      }
 
-    return this.apiClient.callApi(
-      '/api/users/{id}/edited-songs', 'GET',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
-  }
 
-  /**
-   * Callback function to receive the result of the getPlaylistsByUserIdUsingGET operation.
-   * @callback module:api/UserResourceApi~getPlaylistsByUserIdUsingGETCallback
-   * @param {String} error Error message, if any.
-   * @param {Array.<module:model/PlaylistDTO>} data The data returned by the service call.
-   * @param {String} response The complete HTTP response.
-   */
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
 
-  /**
-   * getPlaylistsByUserId
-   * @param {Number} id id
-   * @param {module:api/UserResourceApi~getPlaylistsByUserIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-   * data is of type: {@link Array.<module:model/PlaylistDTO>}
-   */
-  getPlaylistsByUserIdUsingGET(id, callback) {
-    let postBody = null;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [PlaylistDTO];
 
-    // verify the required parameter 'id' is set
-    if (id === undefined || id === null) {
-      throw new Error("Missing the required parameter 'id' when calling getPlaylistsByUserIdUsingGET");
+      return this.apiClient.callApi(
+        '/api/users/{id}/playlists', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
     }
 
+    /**
+     * Callback function to receive the result of the getRatingsByUserIdUsingGET operation.
+     * @callback module:api/UserResourceApi~getRatingsByUserIdUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/UserSongRatingDTO>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
 
-    let pathParams = {
-      'id': id
-    };
-    let queryParams = {
-    };
-    let headerParams = {
-    };
-    let formParams = {
-    };
+    /**
+     * getRatingsByUserId
+     * @param {Number} id id
+     * @param {module:api/UserResourceApi~getRatingsByUserIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/UserSongRatingDTO>}
+     */
+    getRatingsByUserIdUsingGET(id, callback) {
+      let postBody = null;
 
-    let authNames = [];
-    let contentTypes = [];
-    let accepts = ['*/*'];
-    let returnType = [PlaylistDTO];
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getRatingsByUserIdUsingGET");
+      }
 
-    return this.apiClient.callApi(
-      '/api/users/{id}/playlists', 'GET',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
-  }
 
-  /**
-   * Callback function to receive the result of the getRatingsByUserIdUsingGET operation.
-   * @callback module:api/UserResourceApi~getRatingsByUserIdUsingGETCallback
-   * @param {String} error Error message, if any.
-   * @param {Array.<module:model/UserSongRatingDTO>} data The data returned by the service call.
-   * @param {String} response The complete HTTP response.
-   */
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
 
-  /**
-   * getRatingsByUserId
-   * @param {Number} id id
-   * @param {module:api/UserResourceApi~getRatingsByUserIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-   * data is of type: {@link Array.<module:model/UserSongRatingDTO>}
-   */
-  getRatingsByUserIdUsingGET(id, callback) {
-    let postBody = null;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [UserSongRatingDTO];
 
-    // verify the required parameter 'id' is set
-    if (id === undefined || id === null) {
-      throw new Error("Missing the required parameter 'id' when calling getRatingsByUserIdUsingGET");
+      return this.apiClient.callApi(
+        '/api/users/{id}/ratings', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
     }
 
+    /**
+     * Callback function to receive the result of the getRatingsOfSongByUserIdUsingGET operation.
+     * @callback module:api/UserResourceApi~getRatingsOfSongByUserIdUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/UserSongRatingDTO} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
 
-    let pathParams = {
-      'id': id
-    };
-    let queryParams = {
-    };
-    let headerParams = {
-    };
-    let formParams = {
-    };
+    /**
+     * getRatingsOfSongByUserId
+     * @param {Number} id id
+     * @param {Number} songId songId
+     * @param {module:api/UserResourceApi~getRatingsOfSongByUserIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/UserSongRatingDTO}
+     */
+    getRatingsOfSongByUserIdUsingGET(id, songId, callback) {
+      let postBody = null;
 
-    let authNames = [];
-    let contentTypes = [];
-    let accepts = ['*/*'];
-    let returnType = [UserSongRatingDTO];
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getRatingsOfSongByUserIdUsingGET");
+      }
 
-    return this.apiClient.callApi(
-      '/api/users/{id}/ratings', 'GET',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
-  }
+      // verify the required parameter 'songId' is set
+      if (songId === undefined || songId === null) {
+        throw new Error("Missing the required parameter 'songId' when calling getRatingsOfSongByUserIdUsingGET");
+      }
 
-  /**
-   * Callback function to receive the result of the getRatingsOfSongByUserIdUsingGET operation.
-   * @callback module:api/UserResourceApi~getRatingsOfSongByUserIdUsingGETCallback
-   * @param {String} error Error message, if any.
-   * @param {module:model/UserSongRatingDTO} data The data returned by the service call.
-   * @param {String} response The complete HTTP response.
-   */
 
-  /**
-   * getRatingsOfSongByUserId
-   * @param {Number} id id
-   * @param {Number} songId songId
-   * @param {module:api/UserResourceApi~getRatingsOfSongByUserIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-   * data is of type: {@link module:model/UserSongRatingDTO}
-   */
-  getRatingsOfSongByUserIdUsingGET(id, songId, callback) {
-    let postBody = null;
+      let pathParams = {
+        'id': id,
+        'songId': songId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
 
-    // verify the required parameter 'id' is set
-    if (id === undefined || id === null) {
-      throw new Error("Missing the required parameter 'id' when calling getRatingsOfSongByUserIdUsingGET");
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = UserSongRatingDTO;
+
+      return this.apiClient.callApi(
+        '/api/users/{id}/ratings/{songId}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
     }
 
-    // verify the required parameter 'songId' is set
-    if (songId === undefined || songId === null) {
-      throw new Error("Missing the required parameter 'songId' when calling getRatingsOfSongByUserIdUsingGET");
+    /**
+     * Callback function to receive the result of the getSongsByUserIdUsingGET operation.
+     * @callback module:api/UserResourceApi~getSongsByUserIdUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * getSongsByUserId
+     * @param {Number} id id
+     * @param {module:api/UserResourceApi~getSongsByUserIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/SongDTO>}
+     */
+    getSongsByUserIdUsingGET(id, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getSongsByUserIdUsingGET");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongDTO];
+
+      return this.apiClient.callApi(
+        '/api/users/{id}/songs', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
     }
 
+    /**
+     * Callback function to receive the result of the getUserByIdUsingGET operation.
+     * @callback module:api/UserResourceApi~getUserByIdUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/UserDTO} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
 
-    let pathParams = {
-      'id': id,
-      'songId': songId
-    };
-    let queryParams = {
-    };
-    let headerParams = {
-    };
-    let formParams = {
-    };
+    /**
+     * getUserById
+     * @param {Number} id id
+     * @param {module:api/UserResourceApi~getUserByIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/UserDTO}
+     */
+    getUserByIdUsingGET(id, callback) {
+      let postBody = null;
 
-    let authNames = [];
-    let contentTypes = [];
-    let accepts = ['*/*'];
-    let returnType = UserSongRatingDTO;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getUserByIdUsingGET");
+      }
 
-    return this.apiClient.callApi(
-      '/api/users/{id}/ratings/{songId}', 'GET',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
-  }
 
-  /**
-   * Callback function to receive the result of the getSongsByUserIdUsingGET operation.
-   * @callback module:api/UserResourceApi~getSongsByUserIdUsingGETCallback
-   * @param {String} error Error message, if any.
-   * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
-   * @param {String} response The complete HTTP response.
-   */
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
 
-  /**
-   * getSongsByUserId
-   * @param {Number} id id
-   * @param {module:api/UserResourceApi~getSongsByUserIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-   * data is of type: {@link Array.<module:model/SongDTO>}
-   */
-  getSongsByUserIdUsingGET(id, callback) {
-    let postBody = null;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = UserDTO;
 
-    // verify the required parameter 'id' is set
-    if (id === undefined || id === null) {
-      throw new Error("Missing the required parameter 'id' when calling getSongsByUserIdUsingGET");
+      return this.apiClient.callApi(
+        '/api/users/{id}', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
     }
 
+    /**
+     * Callback function to receive the result of the getUserRoleUsingGET operation.
+     * @callback module:api/UserResourceApi~getUserRoleUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/UserRoleDTO} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
 
-    let pathParams = {
-      'id': id
-    };
-    let queryParams = {
-    };
-    let headerParams = {
-    };
-    let formParams = {
-    };
+    /**
+     * getUserRole
+     * @param {Number} id id
+     * @param {module:api/UserResourceApi~getUserRoleUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/UserRoleDTO}
+     */
+    getUserRoleUsingGET(id, callback) {
+      let postBody = null;
 
-    let authNames = [];
-    let contentTypes = [];
-    let accepts = ['*/*'];
-    let returnType = [SongDTO];
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getUserRoleUsingGET");
+      }
 
-    return this.apiClient.callApi(
-      '/api/users/{id}/songs', 'GET',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
-  }
 
-  /**
-   * Callback function to receive the result of the getUserByIdUsingGET operation.
-   * @callback module:api/UserResourceApi~getUserByIdUsingGETCallback
-   * @param {String} error Error message, if any.
-   * @param {module:model/UserDTO} data The data returned by the service call.
-   * @param {String} response The complete HTTP response.
-   */
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
 
-  /**
-   * getUserById
-   * @param {Number} id id
-   * @param {module:api/UserResourceApi~getUserByIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-   * data is of type: {@link module:model/UserDTO}
-   */
-  getUserByIdUsingGET(id, callback) {
-    let postBody = null;
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = UserRoleDTO;
 
-    // verify the required parameter 'id' is set
-    if (id === undefined || id === null) {
-      throw new Error("Missing the required parameter 'id' when calling getUserByIdUsingGET");
+      return this.apiClient.callApi(
+        '/api/users/{id}/role', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
     }
 
+    /**
+     * Callback function to receive the result of the removePlaylistUsingPATCH operation.
+     * @callback module:api/UserResourceApi~removePlaylistUsingPATCHCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
 
-    let pathParams = {
-      'id': id
-    };
-    let queryParams = {
-    };
-    let headerParams = {
-    };
-    let formParams = {
-    };
+    /**
+     * removePlaylist
+     * @param {Number} id id
+     * @param {Number} playlistId playlistId
+     * @param {module:api/UserResourceApi~removePlaylistUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    removePlaylistUsingPATCH(id, playlistId, callback) {
+      let postBody = null;
 
-    let authNames = [];
-    let contentTypes = [];
-    let accepts = ['*/*'];
-    let returnType = UserDTO;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling removePlaylistUsingPATCH");
+      }
 
-    return this.apiClient.callApi(
-      '/api/users/{id}', 'GET',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
-  }
+      // verify the required parameter 'playlistId' is set
+      if (playlistId === undefined || playlistId === null) {
+        throw new Error("Missing the required parameter 'playlistId' when calling removePlaylistUsingPATCH");
+      }
 
-  /**
-   * Callback function to receive the result of the getUserRoleUsingGET operation.
-   * @callback module:api/UserResourceApi~getUserRoleUsingGETCallback
-   * @param {String} error Error message, if any.
-   * @param {module:model/UserRoleDTO} data The data returned by the service call.
-   * @param {String} response The complete HTTP response.
-   */
 
-  /**
-   * getUserRole
-   * @param {Number} id id
-   * @param {module:api/UserResourceApi~getUserRoleUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-   * data is of type: {@link module:model/UserRoleDTO}
-   */
-  getUserRoleUsingGET(id, callback) {
-    let postBody = null;
+      let pathParams = {
+        'id': id,
+        'playlistId': playlistId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
 
-    // verify the required parameter 'id' is set
-    if (id === undefined || id === null) {
-      throw new Error("Missing the required parameter 'id' when calling getUserRoleUsingGET");
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/api/users/{id}/remove-playlist/{playlistId}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
     }
 
+    /**
+     * Callback function to receive the result of the removeRatingUsingPATCH operation.
+     * @callback module:api/UserResourceApi~removeRatingUsingPATCHCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
 
-    let pathParams = {
-      'id': id
-    };
-    let queryParams = {
-    };
-    let headerParams = {
-    };
-    let formParams = {
-    };
+    /**
+     * removeRating
+     * @param {Number} id id
+     * @param {Number} ratingId ratingId
+     * @param {module:api/UserResourceApi~removeRatingUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    removeRatingUsingPATCH(id, ratingId, callback) {
+      let postBody = null;
 
-    let authNames = [];
-    let contentTypes = [];
-    let accepts = ['*/*'];
-    let returnType = UserRoleDTO;
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling removeRatingUsingPATCH");
+      }
 
-    return this.apiClient.callApi(
-      '/api/users/{id}/role', 'GET',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
-  }
+      // verify the required parameter 'ratingId' is set
+      if (ratingId === undefined || ratingId === null) {
+        throw new Error("Missing the required parameter 'ratingId' when calling removeRatingUsingPATCH");
+      }
 
-  /**
-   * Callback function to receive the result of the removePlaylistUsingPATCH operation.
-   * @callback module:api/UserResourceApi~removePlaylistUsingPATCHCallback
-   * @param {String} error Error message, if any.
-   * @param data This operation does not return a value.
-   * @param {String} response The complete HTTP response.
-   */
 
-  /**
-   * removePlaylist
-   * @param {Number} id id
-   * @param {Number} playlistId playlistId
-   * @param {module:api/UserResourceApi~removePlaylistUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
-   */
-  removePlaylistUsingPATCH(id, playlistId, callback) {
-    let postBody = null;
+      let pathParams = {
+        'id': id,
+        'ratingId': ratingId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
 
-    // verify the required parameter 'id' is set
-    if (id === undefined || id === null) {
-      throw new Error("Missing the required parameter 'id' when calling removePlaylistUsingPATCH");
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/api/users/{id}/remove-rating/{ratingId}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
     }
 
-    // verify the required parameter 'playlistId' is set
-    if (playlistId === undefined || playlistId === null) {
-      throw new Error("Missing the required parameter 'playlistId' when calling removePlaylistUsingPATCH");
+    /**
+     * Callback function to receive the result of the removeSongFromLibraryUsingPATCH operation.
+     * @callback module:api/UserResourceApi~removeSongFromLibraryUsingPATCHCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * removeSongFromLibrary
+     * @param {Number} id id
+     * @param {Number} songId songId
+     * @param {module:api/UserResourceApi~removeSongFromLibraryUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    removeSongFromLibraryUsingPATCH(id, songId, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling removeSongFromLibraryUsingPATCH");
+      }
+
+      // verify the required parameter 'songId' is set
+      if (songId === undefined || songId === null) {
+        throw new Error("Missing the required parameter 'songId' when calling removeSongFromLibraryUsingPATCH");
+      }
+
+
+      let pathParams = {
+        'id': id,
+        'songId': songId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/api/users/{id}/remove-song/{songId}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
     }
 
+    /**
+     * Callback function to receive the result of the updateUserUsingPUT operation.
+     * @callback module:api/UserResourceApi~updateUserUsingPUTCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/UserDTO} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
 
-    let pathParams = {
-      'id': id,
-      'playlistId': playlistId
-    };
-    let queryParams = {
-    };
-    let headerParams = {
-    };
-    let formParams = {
-    };
+    /**
+     * updateUser
+     * @param {module:model/UserDTO} userDTO userDTO
+     * @param {module:api/UserResourceApi~updateUserUsingPUTCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/UserDTO}
+     */
+    updateUserUsingPUT(userDTO, callback) {
+      let postBody = userDTO;
 
-    let authNames = [];
-    let contentTypes = ['application/json'];
-    let accepts = ['*/*'];
-    let returnType = null;
+      // verify the required parameter 'userDTO' is set
+      if (userDTO === undefined || userDTO === null) {
+        throw new Error("Missing the required parameter 'userDTO' when calling updateUserUsingPUT");
+      }
 
-    return this.apiClient.callApi(
-      '/api/users/{id}/remove-playlist/{playlistId}', 'PATCH',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
-  }
 
-  /**
-   * Callback function to receive the result of the removeRatingUsingPATCH operation.
-   * @callback module:api/UserResourceApi~removeRatingUsingPATCHCallback
-   * @param {String} error Error message, if any.
-   * @param data This operation does not return a value.
-   * @param {String} response The complete HTTP response.
-   */
+      let pathParams = {
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
 
-  /**
-   * removeRating
-   * @param {Number} id id
-   * @param {Number} ratingId ratingId
-   * @param {module:api/UserResourceApi~removeRatingUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
-   */
-  removeRatingUsingPATCH(id, ratingId, callback) {
-    let postBody = null;
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = UserDTO;
 
-    // verify the required parameter 'id' is set
-    if (id === undefined || id === null) {
-      throw new Error("Missing the required parameter 'id' when calling removeRatingUsingPATCH");
+      return this.apiClient.callApi(
+        '/api/users', 'PUT',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
     }
-
-    // verify the required parameter 'ratingId' is set
-    if (ratingId === undefined || ratingId === null) {
-      throw new Error("Missing the required parameter 'ratingId' when calling removeRatingUsingPATCH");
-    }
-
-
-    let pathParams = {
-      'id': id,
-      'ratingId': ratingId
-    };
-    let queryParams = {
-    };
-    let headerParams = {
-    };
-    let formParams = {
-    };
-
-    let authNames = [];
-    let contentTypes = ['application/json'];
-    let accepts = ['*/*'];
-    let returnType = null;
-
-    return this.apiClient.callApi(
-      '/api/users/{id}/remove-rating/{ratingId}', 'PATCH',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
-  }
-
-  /**
-   * Callback function to receive the result of the removeSongFromLibraryUsingPATCH operation.
-   * @callback module:api/UserResourceApi~removeSongFromLibraryUsingPATCHCallback
-   * @param {String} error Error message, if any.
-   * @param data This operation does not return a value.
-   * @param {String} response The complete HTTP response.
-   */
-
-  /**
-   * removeSongFromLibrary
-   * @param {Number} id id
-   * @param {Number} songId songId
-   * @param {module:api/UserResourceApi~removeSongFromLibraryUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
-   */
-  removeSongFromLibraryUsingPATCH(id, songId, callback) {
-    let postBody = null;
-
-    // verify the required parameter 'id' is set
-    if (id === undefined || id === null) {
-      throw new Error("Missing the required parameter 'id' when calling removeSongFromLibraryUsingPATCH");
-    }
-
-    // verify the required parameter 'songId' is set
-    if (songId === undefined || songId === null) {
-      throw new Error("Missing the required parameter 'songId' when calling removeSongFromLibraryUsingPATCH");
-    }
-
-
-    let pathParams = {
-      'id': id,
-      'songId': songId
-    };
-    let queryParams = {
-    };
-    let headerParams = {
-    };
-    let formParams = {
-    };
-
-    let authNames = [];
-    let contentTypes = ['application/json'];
-    let accepts = ['*/*'];
-    let returnType = null;
-
-    return this.apiClient.callApi(
-      '/api/users/{id}/remove-song/{songId}', 'PATCH',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
-  }
-
-  /**
-   * Callback function to receive the result of the updateUserUsingPUT operation.
-   * @callback module:api/UserResourceApi~updateUserUsingPUTCallback
-   * @param {String} error Error message, if any.
-   * @param {module:model/UserDTO} data The data returned by the service call.
-   * @param {String} response The complete HTTP response.
-   */
-
-  /**
-   * updateUser
-   * @param {module:model/UserDTO} userDTO userDTO
-   * @param {module:api/UserResourceApi~updateUserUsingPUTCallback} callback The callback function, accepting three arguments: error, data, response
-   * data is of type: {@link module:model/UserDTO}
-   */
-  updateUserUsingPUT(userDTO, callback) {
-    let postBody = userDTO;
-
-    // verify the required parameter 'userDTO' is set
-    if (userDTO === undefined || userDTO === null) {
-      throw new Error("Missing the required parameter 'userDTO' when calling updateUserUsingPUT");
-    }
-
-
-    let pathParams = {
-    };
-    let queryParams = {
-    };
-    let headerParams = {
-    };
-    let formParams = {
-    };
-
-    let authNames = [];
-    let contentTypes = ['application/json'];
-    let accepts = ['*/*'];
-    let returnType = UserDTO;
-
-    return this.apiClient.callApi(
-      '/api/users', 'PUT',
-      pathParams, queryParams, headerParams, formParams, postBody,
-      authNames, contentTypes, accepts, returnType, callback
-    );
-  }
 
 
 }

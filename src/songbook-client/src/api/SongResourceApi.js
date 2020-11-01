@@ -54,7 +54,7 @@ export class SongResourceApi {
      * Callback function to receive the result of the addCoauthorToSongUsingPATCH operation.
      * @callback module:api/SongResourceApi~addCoauthorToSongUsingPATCHCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {module:model/SongCoauthorDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -63,6 +63,7 @@ export class SongResourceApi {
      * @param {module:model/CreateCoauthorDTO} coauthor coauthor
      * @param {Number} id id
      * @param {module:api/SongResourceApi~addCoauthorToSongUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SongCoauthorDTO}
      */
     addCoauthorToSongUsingPATCH(coauthor, id, callback) {
       let postBody = coauthor;
@@ -91,7 +92,7 @@ export class SongResourceApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['*/*'];
-      let returnType = null;
+      let returnType = SongCoauthorDTO;
 
       return this.apiClient.callApi(
         '/api/songs/{id}/add-coauthor', 'PATCH',
@@ -104,7 +105,7 @@ export class SongResourceApi {
      * Callback function to receive the result of the addTagToSongUsingPATCH operation.
      * @callback module:api/SongResourceApi~addTagToSongUsingPATCHCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/SongDTO} data The data returned by the service call.
+     * @param {module:model/TagDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -113,7 +114,7 @@ export class SongResourceApi {
      * @param {Number} id id
      * @param {module:model/UniversalCreateDTO} tag tag
      * @param {module:api/SongResourceApi~addTagToSongUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SongDTO}
+     * data is of type: {@link module:model/TagDTO}
      */
     addTagToSongUsingPATCH(id, tag, callback) {
       let postBody = tag;
@@ -142,7 +143,7 @@ export class SongResourceApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['*/*'];
-      let returnType = SongDTO;
+      let returnType = TagDTO;
 
       return this.apiClient.callApi(
         '/api/songs/{id}/add-tag', 'PATCH',
@@ -155,7 +156,7 @@ export class SongResourceApi {
      * Callback function to receive the result of the addTagsToSongBulkUsingPATCH operation.
      * @callback module:api/SongResourceApi~addTagsToSongBulkUsingPATCHCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/SongDTO} data The data returned by the service call.
+     * @param {Array.<module:model/TagDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -164,7 +165,7 @@ export class SongResourceApi {
      * @param {Number} id id
      * @param {Array.<module:model/UniversalCreateDTO>} tags tags
      * @param {module:api/SongResourceApi~addTagsToSongBulkUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SongDTO}
+     * data is of type: {@link Array.<module:model/TagDTO>}
      */
     addTagsToSongBulkUsingPATCH(id, tags, callback) {
       let postBody = tags;
@@ -193,7 +194,7 @@ export class SongResourceApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['*/*'];
-      let returnType = SongDTO;
+      let returnType = [TagDTO];
 
       return this.apiClient.callApi(
         '/api/songs/{id}/add-tag-bulk', 'PATCH',
@@ -206,7 +207,7 @@ export class SongResourceApi {
      * Callback function to receive the result of the addVerseToSongUsingPATCH operation.
      * @callback module:api/SongResourceApi~addVerseToSongUsingPATCHCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {module:model/VerseDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -215,6 +216,7 @@ export class SongResourceApi {
      * @param {Number} id id
      * @param {module:model/CreateVerseDTO} verse verse
      * @param {module:api/SongResourceApi~addVerseToSongUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/VerseDTO}
      */
     addVerseToSongUsingPATCH(id, verse, callback) {
       let postBody = verse;
@@ -243,7 +245,7 @@ export class SongResourceApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['*/*'];
-      let returnType = null;
+      let returnType = VerseDTO;
 
       return this.apiClient.callApi(
         '/api/songs/{id}/add-verse', 'PATCH',
@@ -1073,7 +1075,7 @@ export class SongResourceApi {
      * Callback function to receive the result of the removeTagFromSongUsingPATCH operation.
      * @callback module:api/SongResourceApi~removeTagFromSongUsingPATCHCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/SongDTO} data The data returned by the service call.
+     * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1082,7 +1084,6 @@ export class SongResourceApi {
      * @param {Number} id id
      * @param {Number} tagId tagId
      * @param {module:api/SongResourceApi~removeTagFromSongUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SongDTO}
      */
     removeTagFromSongUsingPATCH(id, tagId, callback) {
       let postBody = null;
@@ -1112,7 +1113,7 @@ export class SongResourceApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['*/*'];
-      let returnType = SongDTO;
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/songs/{id}/remove-tag/{tagId}', 'PATCH',
@@ -1125,7 +1126,7 @@ export class SongResourceApi {
      * Callback function to receive the result of the removeTagsFromSongBulkUsingPATCH operation.
      * @callback module:api/SongResourceApi~removeTagsFromSongBulkUsingPATCHCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/SongDTO} data The data returned by the service call.
+     * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1134,7 +1135,6 @@ export class SongResourceApi {
      * @param {Number} id id
      * @param {String} tagIds tagIds
      * @param {module:api/SongResourceApi~removeTagsFromSongBulkUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SongDTO}
      */
     removeTagsFromSongBulkUsingPATCH(id, tagIds, callback) {
       let postBody = null;
@@ -1164,7 +1164,7 @@ export class SongResourceApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['*/*'];
-      let returnType = SongDTO;
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/songs/{id}/remove-tag-bulk/{tagIds}', 'PATCH',

@@ -25,7 +25,7 @@ Method | HTTP request | Description
 
 <a name="addPlaylistUsingPATCH"></a>
 # **addPlaylistUsingPATCH**
-> addPlaylistUsingPATCH(id, playlistDTO)
+> PlaylistDTO addPlaylistUsingPATCH(id, playlistDTO)
 
 addPlaylist
 
@@ -44,7 +44,7 @@ apiInstance.addPlaylistUsingPATCH(id, playlistDTO, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -58,7 +58,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**PlaylistDTO**](PlaylistDTO.md)
 
 ### Authorization
 
@@ -71,7 +71,7 @@ No authorization required
 
 <a name="addRatingUsingPATCH"></a>
 # **addRatingUsingPATCH**
-> addRatingUsingPATCH(id, ratingDTO)
+> UserSongRatingDTO addRatingUsingPATCH(id, ratingDTO)
 
 addRating
 
@@ -90,7 +90,7 @@ apiInstance.addRatingUsingPATCH(id, ratingDTO, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -104,7 +104,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**UserSongRatingDTO**](UserSongRatingDTO.md)
 
 ### Authorization
 

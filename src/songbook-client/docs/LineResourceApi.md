@@ -14,7 +14,7 @@ Method | HTTP request | Description
 
 <a name="addGuitarCordUsingPATCH"></a>
 # **addGuitarCordUsingPATCH**
-> addGuitarCordUsingPATCH(cord, id)
+> GuitarCordDTO addGuitarCordUsingPATCH(cord, id)
 
 addGuitarCord
 
@@ -33,7 +33,7 @@ apiInstance.addGuitarCordUsingPATCH(cord, id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully.');
+    console.log('API called successfully. Returned data: ' + data);
   }
 });
 ```
@@ -47,7 +47,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-null (empty response body)
+[**GuitarCordDTO**](GuitarCordDTO.md)
 
 ### Authorization
 

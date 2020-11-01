@@ -42,7 +42,7 @@ export class LineResourceApi {
      * Callback function to receive the result of the addGuitarCordUsingPATCH operation.
      * @callback module:api/LineResourceApi~addGuitarCordUsingPATCHCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {module:model/GuitarCordDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -51,6 +51,7 @@ export class LineResourceApi {
      * @param {module:model/CreateGuitarCordDTO} cord cord
      * @param {Number} id id
      * @param {module:api/LineResourceApi~addGuitarCordUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/GuitarCordDTO}
      */
     addGuitarCordUsingPATCH(cord, id, callback) {
       let postBody = cord;
@@ -79,7 +80,7 @@ export class LineResourceApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['*/*'];
-      let returnType = null;
+      let returnType = GuitarCordDTO;
 
       return this.apiClient.callApi(
         '/api/lines/{id}/add-guitar-cord', 'PATCH',

@@ -42,7 +42,7 @@ export class VerseResourceApi {
      * Callback function to receive the result of the addLineUsingPATCH operation.
      * @callback module:api/VerseResourceApi~addLineUsingPATCHCallback
      * @param {String} error Error message, if any.
-     * @param data This operation does not return a value.
+     * @param {module:model/LineDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -51,6 +51,7 @@ export class VerseResourceApi {
      * @param {Number} id id
      * @param {module:model/CreateLineDTO} line line
      * @param {module:api/VerseResourceApi~addLineUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/LineDTO}
      */
     addLineUsingPATCH(id, line, callback) {
       let postBody = line;
@@ -79,7 +80,7 @@ export class VerseResourceApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['*/*'];
-      let returnType = null;
+      let returnType = LineDTO;
 
       return this.apiClient.callApi(
         '/api/verses/{id}/add-line', 'PATCH',
