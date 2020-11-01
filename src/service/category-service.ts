@@ -22,7 +22,7 @@ export class CategoryService {
             this.api.getAllCategoriesUsingGET(
                 (error: any, data: CategoryDTO[], response: any) => {
                     if (error) {
-                        subscriber.error(error);
+                        subscriber.error(error.response.body);
                     } else {
                         subscriber.next(data.map(CategoryService.toEntity));
                         subscriber.complete();
@@ -37,7 +37,7 @@ export class CategoryService {
             this.api.getCategoryByIdUsingGET(id,
                 (error: any, data: CategoryDTO, response: any) => {
                     if (error) {
-                        subscriber.error(error);
+                        subscriber.error(error.response.body);
                     } else {
                         subscriber.next(CategoryService.toEntity(data));
                         subscriber.complete();

@@ -24,7 +24,7 @@ export class AuthorService {
             this.api.getAuthorByIdUsingGET(id,
                 (error: any, data: AuthorDTO, response: any) => {
                     if (error) {
-                        subscriber.error(error);
+                        subscriber.error(error.response.body);
                     } else {
                         subscriber.next(AuthorService.toEntity(data));
                         subscriber.complete();

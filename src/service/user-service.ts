@@ -1,4 +1,4 @@
-import { PlaylistService } from './playlist-service';
+import { PlaylistMapper } from './playlist-mapper';
 import { Playlist } from './../model/playlist';
 import { UserRoleService } from './user-role-service';
 import { UserRole } from './../model/user-role';
@@ -34,7 +34,7 @@ export class UserService {
         return new Observable<User[]>(subscriber => {
             this.api.getAllUsersUsingGET({ limit }, (error: any, data: UserDTO[], response: any) => {
                 if (error) {
-                    subscriber.error(error);
+                    subscriber.error(error.response.body);
                 } else {
                     const list: Observable<User>[] = [];
                     for (const dto of data) {
@@ -43,6 +43,10 @@ export class UserService {
                             user.role = role;
                             return user;
                         })));
+                    }
+                    if (list.length === 0) {
+                        subscriber.next([]);
+                        subscriber.complete();
                     }
                     forkJoin(list).subscribe(next => {
                         subscriber.next(next);
@@ -60,7 +64,7 @@ export class UserService {
                     subscriber.next(dto);
                     subscriber.complete();
                 } else {
-                    subscriber.error(error);
+                    subscriber.error(error.response.body);
                 }
             })
         });
@@ -91,7 +95,7 @@ export class UserService {
                     subscriber.next(UserRoleService.toEntity(data));
                     subscriber.complete();
                 } else {
-                    subscriber.error(error);
+                    subscriber.error(error.response.body);
                 }
             })
         });
@@ -104,7 +108,7 @@ export class UserService {
                     subscriber.next(data);
                     subscriber.complete();
                 } else {
-                    subscriber.error(error);
+                    subscriber.error(error.response.body);
                 }
             })
         });
@@ -118,14 +122,14 @@ export class UserService {
                     subscriber.next(data);
                     subscriber.complete();
                 } else {
-                    subscriber.error(error);
+                    subscriber.error(error.response.body);
                 }
             })
         });
         return forkJoin([user$, playlists$]).pipe(map(data => {
             const user = data[0];
             return data[1].map(it => {
-                const playlist = PlaylistService.toEntity(it);
+                const playlist = PlaylistMapper.toEntity(it);
                 playlist.owner = user;
                 return playlist;
             });
@@ -142,7 +146,7 @@ export function getUserById(id: number): Observable<User> {
                 subscriber.next(UserRoleService.toEntity(data));
                 subscriber.complete();
             } else {
-                subscriber.error(error);
+                subscriber.error(error.response.body);
             }
         })
     });
@@ -152,7 +156,7 @@ export function getUserById(id: number): Observable<User> {
                 subscriber.next(dto);
                 subscriber.complete();
             } else {
-                subscriber.error(error);
+                subscriber.error(error.response.body);
             }
         })
     });

@@ -24,7 +24,7 @@ export class UserRoleService {
         return new Observable<UserRole[]>(subscriber => {
             this.api.getAllRolesUsingGET((error: any, data: UserRoleDTO[], response: any) => {
                 if (error) {
-                    subscriber.error(error);
+                    subscriber.error(error.response.body);
                 } else {
                     subscriber.next(data.map(it => UserRoleService.toEntity(it)));
                     subscriber.complete();
@@ -37,7 +37,7 @@ export class UserRoleService {
         return new Observable<UserRole>(subscriber => {
             this.api.getRoleByIdUsingGET(id, (error: any, data: UserRoleDTO, response: any) => {
                 if (error) {
-                    subscriber.error(error);
+                    subscriber.error(error.response.body);
                 } else {
                     subscriber.next(UserRoleService.toEntity(data));
                     subscriber.complete();
@@ -51,7 +51,7 @@ export class UserRoleService {
         const users$ = new Observable<UserDTO[]>(subscriber => {
             this.api.getUserRoleUsersUsingGET(id, (error: any, data: UserDTO[], response: any) => {
                 if (error) {
-                    subscriber.error(error);
+                    subscriber.error(error.response.body);
                 } else {
                     subscriber.next(data);
                     subscriber.complete();

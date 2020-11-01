@@ -58,22 +58,18 @@ export class AuthService {
     private initToken(): void {
         AuthService.getToken().subscribe(token => {
             if (token) {
-                console.log('get token');
                 AppState.token = token;
                 const expiration = +JSON.parse(base64.decode(token.split('.')[1])).expiration_in_milliseconds;
                 this.setLogged((expiration - new Date().getTime()) > 0);
             } else {
-                console.log('no token');
                 this.setLogged(false);
             }
         });
     }
 
     public login(loginForm: LoginForm, errorCallback?: (error: any) => void): void {
-        console.log('Login ' + JSON.stringify(loginForm));
         this.authApi.authenticateUsingPOST(loginForm,
             (error: any, token: TokenDTO, response: any) => {
-                console.log(error);
                 if (error && errorCallback) {
                     errorCallback(error);
                 }
@@ -98,10 +94,8 @@ export class AuthService {
     }
 
     public setLoggedOut(): void {
-        console.log('set logged out');
         AuthService.removeToken().subscribe(
             () => {
-                console.log('token removed');
                 AppState.token = undefined;
                 this.loggedInSubject.next(false);
                 this.setUser(null);
@@ -111,7 +105,6 @@ export class AuthService {
     }
 
     public setLoggedIn(): void {
-        console.log('set logged in');
         this.loggedInSubject.next(true);
         if (!this.lastUser) {
             this.authApi.getAccountUsingGET((error: any, data: UserDTO, response: any) => {
