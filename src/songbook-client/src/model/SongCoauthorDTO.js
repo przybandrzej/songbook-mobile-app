@@ -28,11 +28,13 @@ export class SongCoauthorDTO {
    * @class
    * @param authorId {Number} 
    * @param coauthorFunction {module:model/SongCoauthorDTO.CoauthorFunctionEnum} 
+   * @param id {Number} 
    * @param songId {Number} 
    */
-  constructor(authorId, coauthorFunction, songId) {
+  constructor(authorId, coauthorFunction, id, songId) {
     this.authorId = authorId;
     this.coauthorFunction = coauthorFunction;
+    this.id = id;
     this.songId = songId;
   }
 
@@ -50,6 +52,8 @@ export class SongCoauthorDTO {
         obj.authorId = ApiClient.convertToType(data['authorId'], 'Number');
       if (data.hasOwnProperty('coauthorFunction'))
         obj.coauthorFunction = ApiClient.convertToType(data['coauthorFunction'], 'String');
+      if (data.hasOwnProperty('id'))
+        obj.id = ApiClient.convertToType(data['id'], 'Number');
       if (data.hasOwnProperty('songId'))
         obj.songId = ApiClient.convertToType(data['songId'], 'Number');
     }
@@ -85,6 +89,11 @@ SongCoauthorDTO.CoauthorFunctionEnum = {
  * @member {module:model/SongCoauthorDTO.CoauthorFunctionEnum} coauthorFunction
  */
 SongCoauthorDTO.prototype.coauthorFunction = undefined;
+
+/**
+ * @member {Number} id
+ */
+SongCoauthorDTO.prototype.id = undefined;
 
 /**
  * @member {Number} songId

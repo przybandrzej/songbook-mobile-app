@@ -28,14 +28,12 @@ export class UserDTO {
    * @class
    * @param email {String} 
    * @param id {Number} 
-   * @param songs {Array.<Number>} 
    * @param userRoleId {Number} 
    * @param username {String} 
    */
-  constructor(email, id, songs, userRoleId, username) {
+  constructor(email, id, userRoleId, username) {
     this.email = email;
     this.id = id;
-    this.songs = songs;
     this.userRoleId = userRoleId;
     this.username = username;
   }
@@ -64,8 +62,6 @@ export class UserDTO {
         obj.lastName = ApiClient.convertToType(data['lastName'], 'String');
       if (data.hasOwnProperty('registrationDate'))
         obj.registrationDate = ApiClient.convertToType(data['registrationDate'], 'Date');
-      if (data.hasOwnProperty('songs'))
-        obj.songs = ApiClient.convertToType(data['songs'], ['Number']);
       if (data.hasOwnProperty('userRoleId'))
         obj.userRoleId = ApiClient.convertToType(data['userRoleId'], 'Number');
       if (data.hasOwnProperty('username'))
@@ -109,11 +105,6 @@ UserDTO.prototype.lastName = undefined;
  * @member {Date} registrationDate
  */
 UserDTO.prototype.registrationDate = undefined;
-
-/**
- * @member {Array.<Number>} songs
- */
-UserDTO.prototype.songs = undefined;
 
 /**
  * @member {Number} userRoleId

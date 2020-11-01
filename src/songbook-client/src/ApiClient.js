@@ -16,6 +16,7 @@
 
 import superagent from "superagent";
 import querystring from "querystring";
+import { AppState } from "react-native";
 
 /**
 * @module ApiClient
@@ -34,12 +35,11 @@ export class ApiClient {
     /**
          * The base URL against which to resolve every API call's (relative) path.
          * @type {String}
-         * @default https://stk-uep.pl
+         * @default https://localhost:8080
          */
-    static basePath = 'https://stk-uep.pl'.replace(/\/+$/, '');
+    static basePath = 'https://localhost:8080'.replace(/\/+$/, '');
 
     constructor() {
-
 
         /**
          * The authentication methods to be included for all API calls.
@@ -300,50 +300,6 @@ export class ApiClient {
     }
 
     /**
-    * Applies authentication headers to the request.
-    * @param {Object} request The request object created by a <code>superagent()</code> call.
-    * @param {Array.<String>} authNames An array of authentication method names.
-    */
-    applyAuthToRequest(request, authNames) {
-        authNames.forEach((authName) => {
-            var auth = this.authentications[authName];
-            switch (auth.type) {
-                case 'basic':
-                    if (auth.username || auth.password) {
-                        request.auth(auth.username || '', auth.password || '');
-                    }
-
-                    break;
-                case 'apiKey':
-                    if (auth.apiKey) {
-                        var data = {};
-                        if (auth.apiKeyPrefix) {
-                            data[auth.name] = auth.apiKeyPrefix + ' ' + auth.apiKey;
-                        } else {
-                            data[auth.name] = auth.apiKey;
-                        }
-
-                        if (auth['in'] === 'header') {
-                            request.set(data);
-                        } else {
-                            request.query(data);
-                        }
-                    }
-
-                    break;
-                case 'oauth2':
-                    if (auth.accessToken) {
-                        request.set({ 'Authorization': 'Bearer ' + auth.accessToken });
-                    }
-
-                    break;
-                default:
-                    throw new Error('Unknown authentication type: ' + auth.type);
-            }
-        });
-    }
-
-    /**
     * Deserializes an HTTP response body into a value of the specified type.
     * @param {Object} response A SuperAgent response object.
     * @param {(String|Array.<String>|Object.<String, Object>|Function)} returnType The type to return. Pass a string for simple types
@@ -400,14 +356,14 @@ export class ApiClient {
         var url = this.buildUrl(path, pathParams);
         var request = superagent(httpMethod, url);
 
-        // apply authentications
-        this.applyAuthToRequest(request, authNames);
-
+        const token = AppState.token;
+        if (token) {
+            request.set({ 'Authorization': 'Bearer ' + token });
+        }
         // set query parameters
         if (httpMethod.toUpperCase() === 'GET' && this.cache === false) {
             queryParams['_'] = new Date().getTime();
         }
-
         request.query(this.normalizeParams(queryParams));
 
         // set header parameters
@@ -469,8 +425,6 @@ export class ApiClient {
                 request.withCredentials();
             }
         }
-
-
 
         request.end((error, response) => {
             if (callback) {

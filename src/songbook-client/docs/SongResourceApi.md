@@ -1,38 +1,88 @@
 # SongbookApi.SongResourceApi
 
-All URIs are relative to *https://stk-uep.pl*
+All URIs are relative to *https://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
+[**addCoauthorToSongUsingPATCH**](SongResourceApi.md#addCoauthorToSongUsingPATCH) | **PATCH** /api/songs/{id}/add-coauthor | addCoauthorToSong
 [**addTagToSongUsingPATCH**](SongResourceApi.md#addTagToSongUsingPATCH) | **PATCH** /api/songs/{id}/add-tag | addTagToSong
 [**addTagsToSongBulkUsingPATCH**](SongResourceApi.md#addTagsToSongBulkUsingPATCH) | **PATCH** /api/songs/{id}/add-tag-bulk | addTagsToSongBulk
-[**approveSongUsingPUT**](SongResourceApi.md#approveSongUsingPUT) | **PUT** /api/songs/{id}/approve | approveSong
-[**createUsingPOST4**](SongResourceApi.md#createUsingPOST4) | **POST** /api/songs | create
-[**deleteUsingDELETE4**](SongResourceApi.md#deleteUsingDELETE4) | **DELETE** /api/songs/id/{id} | delete
-[**getAllUsingGET4**](SongResourceApi.md#getAllUsingGET4) | **GET** /api/songs | getAll
-[**getByAuthorUsingGET**](SongResourceApi.md#getByAuthorUsingGET) | **GET** /api/songs/author/{authorId} | getByAuthor
-[**getByCategoryUsingGET1**](SongResourceApi.md#getByCategoryUsingGET1) | **GET** /api/songs/category/{categoryId} | getByCategory
-[**getByIdUsingGET4**](SongResourceApi.md#getByIdUsingGET4) | **GET** /api/songs/id/{id} | getById
-[**getByLyricsFragmentUsingGET1**](SongResourceApi.md#getByLyricsFragmentUsingGET1) | **GET** /api/songs/lyrics_fragment/{value} | getByLyricsFragment
-[**getByRatingUsingGET**](SongResourceApi.md#getByRatingUsingGET) | **GET** /api/songs/rating | getByRating
-[**getByTagUsingGET1**](SongResourceApi.md#getByTagUsingGET1) | **GET** /api/songs/tag/{tagId} | getByTag
-[**getByTitleFragmentUsingGET1**](SongResourceApi.md#getByTitleFragmentUsingGET1) | **GET** /api/songs/title/{title} | getByTitleFragment
-[**getLatestUsingGET1**](SongResourceApi.md#getLatestUsingGET1) | **GET** /api/songs/latest | getLatest
-[**getSongPlaylistsUsingGET**](SongResourceApi.md#getSongPlaylistsUsingGET) | **GET** /api/songs/id/{id}/playlists | getSongPlaylists
-[**getSongRatingsUsingGET**](SongResourceApi.md#getSongRatingsUsingGET) | **GET** /api/songs/id/{id}/ratings | getSongRatings
-[**getSongUserLibrariesUsingGET**](SongResourceApi.md#getSongUserLibrariesUsingGET) | **GET** /api/songs/id/{id}/users | getSongUserLibraries
-[**getSongsAddedByUserUsingGET**](SongResourceApi.md#getSongsAddedByUserUsingGET) | **GET** /api/songs/user/{id}/added | getSongsAddedByUser
-[**getSongsEditedByUserUsingGET**](SongResourceApi.md#getSongsEditedByUserUsingGET) | **GET** /api/songs/user/{id}/edited | getSongsEditedByUser
-[**getUserSongsUsingGET**](SongResourceApi.md#getUserSongsUsingGET) | **GET** /api/songs/user/{id} | getUserSongs
-[**loadFromFileUsingPOST**](SongResourceApi.md#loadFromFileUsingPOST) | **POST** /api/songs/upload | loadFromFile
+[**addVerseToSongUsingPATCH**](SongResourceApi.md#addVerseToSongUsingPATCH) | **PATCH** /api/songs/{id}/add-verse | addVerseToSong
+[**approveSongUsingPATCH**](SongResourceApi.md#approveSongUsingPATCH) | **PATCH** /api/songs/{id}/approve | approveSong
+[**createSongUsingPOST**](SongResourceApi.md#createSongUsingPOST) | **POST** /api/songs | createSong
+[**deleteSongUsingDELETE**](SongResourceApi.md#deleteSongUsingDELETE) | **DELETE** /api/songs/{id} | deleteSong
+[**getAllSongsUsingGET**](SongResourceApi.md#getAllSongsUsingGET) | **GET** /api/songs | getAllSongs
+[**getSongAddedByUsingGET**](SongResourceApi.md#getSongAddedByUsingGET) | **GET** /api/songs/{id}/added-by | getSongAddedBy
+[**getSongAuthorUsingGET**](SongResourceApi.md#getSongAuthorUsingGET) | **GET** /api/songs/{id}/author | getSongAuthor
+[**getSongByIdUsingGET**](SongResourceApi.md#getSongByIdUsingGET) | **GET** /api/songs/{id} | getSongById
+[**getSongByTitleFragmentUsingGET**](SongResourceApi.md#getSongByTitleFragmentUsingGET) | **GET** /api/songs/title/{title} | getSongByTitleFragment
+[**getSongCategoryUsingGET**](SongResourceApi.md#getSongCategoryUsingGET) | **GET** /api/songs/{id}/category | getSongCategory
+[**getSongCoauthorsUsingGET**](SongResourceApi.md#getSongCoauthorsUsingGET) | **GET** /api/songs/{id}/coauthors | getSongCoauthors
+[**getSongEditsUsingGET**](SongResourceApi.md#getSongEditsUsingGET) | **GET** /api/songs/{id}/edits | getSongEdits
+[**getSongPlaylistsUsingGET**](SongResourceApi.md#getSongPlaylistsUsingGET) | **GET** /api/songs/{id}/playlists | getSongPlaylists
+[**getSongRatingsUsingGET**](SongResourceApi.md#getSongRatingsUsingGET) | **GET** /api/songs/{id}/ratings | getSongRatings
+[**getSongTagsUsingGET**](SongResourceApi.md#getSongTagsUsingGET) | **GET** /api/songs/{id}/tags | getSongTags
+[**getSongUserLibrariesUsingGET**](SongResourceApi.md#getSongUserLibrariesUsingGET) | **GET** /api/songs/{id}/users | getSongUserLibraries
+[**getSongVersesUsingGET**](SongResourceApi.md#getSongVersesUsingGET) | **GET** /api/songs/{id}/verses | getSongVerses
+[**loadSongFromFileUsingPOST**](SongResourceApi.md#loadSongFromFileUsingPOST) | **POST** /api/songs/upload | loadSongFromFile
+[**removeCoauthorFromSongUsingPATCH**](SongResourceApi.md#removeCoauthorFromSongUsingPATCH) | **PATCH** /api/songs/{id}/remove-coauthor/{coauthorId} | removeCoauthorFromSong
 [**removeTagFromSongUsingPATCH**](SongResourceApi.md#removeTagFromSongUsingPATCH) | **PATCH** /api/songs/{id}/remove-tag/{tagId} | removeTagFromSong
 [**removeTagsFromSongBulkUsingPATCH**](SongResourceApi.md#removeTagsFromSongBulkUsingPATCH) | **PATCH** /api/songs/{id}/remove-tag-bulk/{tagIds} | removeTagsFromSongBulk
-[**updateUsingPUT4**](SongResourceApi.md#updateUsingPUT4) | **PUT** /api/songs | update
+[**removeVerseFromSongUsingPATCH**](SongResourceApi.md#removeVerseFromSongUsingPATCH) | **PATCH** /api/songs/{id}/remove-verse/{verseId} | removeVerseFromSong
+[**setAuthorUsingPATCH**](SongResourceApi.md#setAuthorUsingPATCH) | **PATCH** /api/songs/{id}/set-author/{authorId} | setAuthor
+[**setCategoryUsingPATCH**](SongResourceApi.md#setCategoryUsingPATCH) | **PATCH** /api/songs/{id}/set-category/{categoryId} | setCategory
+[**updateSongUsingPUT**](SongResourceApi.md#updateSongUsingPUT) | **PUT** /api/songs | updateSong
 
+
+<a name="addCoauthorToSongUsingPATCH"></a>
+# **addCoauthorToSongUsingPATCH**
+> SongCoauthorDTO addCoauthorToSongUsingPATCH(coauthor, id)
+
+addCoauthorToSong
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.SongResourceApi();
+
+let coauthor = new SongbookApi.CreateCoauthorDTO(); // CreateCoauthorDTO | coauthor
+
+let id = 789; // Number | id
+
+
+apiInstance.addCoauthorToSongUsingPATCH(coauthor, id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coauthor** | [**CreateCoauthorDTO**](CreateCoauthorDTO.md)| coauthor | 
+ **id** | **Number**| id | 
+
+### Return type
+
+[**SongCoauthorDTO**](SongCoauthorDTO.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
 
 <a name="addTagToSongUsingPATCH"></a>
 # **addTagToSongUsingPATCH**
-> SongDTO addTagToSongUsingPATCH(id, tag)
+> TagDTO addTagToSongUsingPATCH(id, tag)
 
 addTagToSong
 
@@ -65,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SongDTO**](SongDTO.md)
+[**TagDTO**](TagDTO.md)
 
 ### Authorization
 
@@ -78,7 +128,7 @@ No authorization required
 
 <a name="addTagsToSongBulkUsingPATCH"></a>
 # **addTagsToSongBulkUsingPATCH**
-> SongDTO addTagsToSongBulkUsingPATCH(id, tags)
+> [TagDTO] addTagsToSongBulkUsingPATCH(id, tags)
 
 addTagsToSongBulk
 
@@ -111,7 +161,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SongDTO**](SongDTO.md)
+[**[TagDTO]**](TagDTO.md)
 
 ### Authorization
 
@@ -122,9 +172,55 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: */*
 
-<a name="approveSongUsingPUT"></a>
-# **approveSongUsingPUT**
-> SongDTO approveSongUsingPUT(id)
+<a name="addVerseToSongUsingPATCH"></a>
+# **addVerseToSongUsingPATCH**
+> VerseDTO addVerseToSongUsingPATCH(id, verse)
+
+addVerseToSong
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.SongResourceApi();
+
+let id = 789; // Number | id
+
+let verse = new SongbookApi.CreateVerseDTO(); // CreateVerseDTO | verse
+
+
+apiInstance.addVerseToSongUsingPATCH(id, verse, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| id | 
+ **verse** | [**CreateVerseDTO**](CreateVerseDTO.md)| verse | 
+
+### Return type
+
+[**VerseDTO**](VerseDTO.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+<a name="approveSongUsingPATCH"></a>
+# **approveSongUsingPATCH**
+> SongDTO approveSongUsingPATCH(id)
 
 approveSong
 
@@ -137,7 +233,7 @@ let apiInstance = new SongbookApi.SongResourceApi();
 let id = 789; // Number | id
 
 
-apiInstance.approveSongUsingPUT(id, (error, data, response) => {
+apiInstance.approveSongUsingPATCH(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -165,11 +261,11 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: */*
 
-<a name="createUsingPOST4"></a>
-# **createUsingPOST4**
-> SongDTO createUsingPOST4(obj)
+<a name="createSongUsingPOST"></a>
+# **createSongUsingPOST**
+> SongDTO createSongUsingPOST(obj)
 
-create
+createSong
 
 ### Example
 ```javascript
@@ -180,7 +276,7 @@ let apiInstance = new SongbookApi.SongResourceApi();
 let obj = new SongbookApi.CreateSongDTO(); // CreateSongDTO | obj
 
 
-apiInstance.createUsingPOST4(obj, (error, data, response) => {
+apiInstance.createSongUsingPOST(obj, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -208,11 +304,11 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: */*
 
-<a name="deleteUsingDELETE4"></a>
-# **deleteUsingDELETE4**
-> deleteUsingDELETE4(id)
+<a name="deleteSongUsingDELETE"></a>
+# **deleteSongUsingDELETE**
+> deleteSongUsingDELETE(id)
 
-delete
+deleteSong
 
 ### Example
 ```javascript
@@ -223,7 +319,7 @@ let apiInstance = new SongbookApi.SongResourceApi();
 let id = 789; // Number | id
 
 
-apiInstance.deleteUsingDELETE4(id, (error, data, response) => {
+apiInstance.deleteSongUsingDELETE(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -251,11 +347,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getAllUsingGET4"></a>
-# **getAllUsingGET4**
-> [SongDTO] getAllUsingGET4(opts)
+<a name="getAllSongsUsingGET"></a>
+# **getAllSongsUsingGET**
+> [SongDTO] getAllSongsUsingGET(opts)
 
-getAll
+getAllSongs
 
 ### Example
 ```javascript
@@ -268,7 +364,7 @@ let opts = {
   'limit': 56 // Number | limit
 };
 
-apiInstance.getAllUsingGET4(opts, (error, data, response) => {
+apiInstance.getAllSongsUsingGET(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -297,105 +393,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getByAuthorUsingGET"></a>
-# **getByAuthorUsingGET**
-> [SongDTO] getByAuthorUsingGET(authorId, opts)
+<a name="getSongAddedByUsingGET"></a>
+# **getSongAddedByUsingGET**
+> SongAddDTO getSongAddedByUsingGET(id)
 
-getByAuthor
-
-### Example
-```javascript
-import {SongbookApi} from 'songbook_api';
-
-let apiInstance = new SongbookApi.SongResourceApi();
-
-let authorId = 789; // Number | authorId
-
-let opts = { 
-  'limit': 56 // Number | limit
-};
-
-apiInstance.getByAuthorUsingGET(authorId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **authorId** | **Number**| authorId | 
- **limit** | **Number**| limit | [optional] 
-
-### Return type
-
-[**[SongDTO]**](SongDTO.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-<a name="getByCategoryUsingGET1"></a>
-# **getByCategoryUsingGET1**
-> [SongDTO] getByCategoryUsingGET1(categoryId, opts)
-
-getByCategory
-
-### Example
-```javascript
-import {SongbookApi} from 'songbook_api';
-
-let apiInstance = new SongbookApi.SongResourceApi();
-
-let categoryId = 789; // Number | categoryId
-
-let opts = { 
-  'limit': 56 // Number | limit
-};
-
-apiInstance.getByCategoryUsingGET1(categoryId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **categoryId** | **Number**| categoryId | 
- **limit** | **Number**| limit | [optional] 
-
-### Return type
-
-[**[SongDTO]**](SongDTO.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-<a name="getByIdUsingGET4"></a>
-# **getByIdUsingGET4**
-> SongDTO getByIdUsingGET4(id)
-
-getById
+getSongAddedBy
 
 ### Example
 ```javascript
@@ -406,7 +408,93 @@ let apiInstance = new SongbookApi.SongResourceApi();
 let id = 789; // Number | id
 
 
-apiInstance.getByIdUsingGET4(id, (error, data, response) => {
+apiInstance.getSongAddedByUsingGET(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| id | 
+
+### Return type
+
+[**SongAddDTO**](SongAddDTO.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getSongAuthorUsingGET"></a>
+# **getSongAuthorUsingGET**
+> AuthorDTO getSongAuthorUsingGET(id)
+
+getSongAuthor
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.SongResourceApi();
+
+let id = 789; // Number | id
+
+
+apiInstance.getSongAuthorUsingGET(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| id | 
+
+### Return type
+
+[**AuthorDTO**](AuthorDTO.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getSongByIdUsingGET"></a>
+# **getSongByIdUsingGET**
+> SongDTO getSongByIdUsingGET(id)
+
+getSongById
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.SongResourceApi();
+
+let id = 789; // Number | id
+
+
+apiInstance.getSongByIdUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -434,153 +522,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getByLyricsFragmentUsingGET1"></a>
-# **getByLyricsFragmentUsingGET1**
-> [SongDTO] getByLyricsFragmentUsingGET1(value, opts)
+<a name="getSongByTitleFragmentUsingGET"></a>
+# **getSongByTitleFragmentUsingGET**
+> [SongDTO] getSongByTitleFragmentUsingGET(title, opts)
 
-getByLyricsFragment
-
-### Example
-```javascript
-import {SongbookApi} from 'songbook_api';
-
-let apiInstance = new SongbookApi.SongResourceApi();
-
-let value = "value_example"; // String | value
-
-let opts = { 
-  'limit': 56 // Number | limit
-};
-
-apiInstance.getByLyricsFragmentUsingGET1(value, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **value** | **String**| value | 
- **limit** | **Number**| limit | [optional] 
-
-### Return type
-
-[**[SongDTO]**](SongDTO.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-<a name="getByRatingUsingGET"></a>
-# **getByRatingUsingGET**
-> [SongDTO] getByRatingUsingGET(opts)
-
-getByRating
-
-### Example
-```javascript
-import {SongbookApi} from 'songbook_api';
-
-let apiInstance = new SongbookApi.SongResourceApi();
-
-let opts = { 
-  'equal': 1.2, // Number | equal
-  'greaterThanEqual': 1.2, // Number | greaterThanEqual
-  'lessThanEqual': 1.2 // Number | lessThanEqual
-};
-
-apiInstance.getByRatingUsingGET(opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **equal** | **Number**| equal | [optional] 
- **greaterThanEqual** | **Number**| greaterThanEqual | [optional] 
- **lessThanEqual** | **Number**| lessThanEqual | [optional] 
-
-### Return type
-
-[**[SongDTO]**](SongDTO.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-<a name="getByTagUsingGET1"></a>
-# **getByTagUsingGET1**
-> [SongDTO] getByTagUsingGET1(tagId, opts)
-
-getByTag
-
-### Example
-```javascript
-import {SongbookApi} from 'songbook_api';
-
-let apiInstance = new SongbookApi.SongResourceApi();
-
-let tagId = 789; // Number | tagId
-
-let opts = { 
-  'limit': 56 // Number | limit
-};
-
-apiInstance.getByTagUsingGET1(tagId, opts, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **tagId** | **Number**| tagId | 
- **limit** | **Number**| limit | [optional] 
-
-### Return type
-
-[**[SongDTO]**](SongDTO.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-<a name="getByTitleFragmentUsingGET1"></a>
-# **getByTitleFragmentUsingGET1**
-> [SongDTO] getByTitleFragmentUsingGET1(title, opts)
-
-getByTitleFragment
+getSongByTitleFragment
 
 ### Example
 ```javascript
@@ -594,7 +540,7 @@ let opts = {
   'limit': 56 // Number | limit
 };
 
-apiInstance.getByTitleFragmentUsingGET1(title, opts, (error, data, response) => {
+apiInstance.getSongByTitleFragmentUsingGET(title, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -623,11 +569,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getLatestUsingGET1"></a>
-# **getLatestUsingGET1**
-> [SongDTO] getLatestUsingGET1(limit)
+<a name="getSongCategoryUsingGET"></a>
+# **getSongCategoryUsingGET**
+> CategoryDTO getSongCategoryUsingGET(id)
 
-getLatest
+getSongCategory
 
 ### Example
 ```javascript
@@ -635,10 +581,10 @@ import {SongbookApi} from 'songbook_api';
 
 let apiInstance = new SongbookApi.SongResourceApi();
 
-let limit = 56; // Number | limit
+let id = 789; // Number | id
 
 
-apiInstance.getLatestUsingGET1(limit, (error, data, response) => {
+apiInstance.getSongCategoryUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -651,11 +597,97 @@ apiInstance.getLatestUsingGET1(limit, (error, data, response) => {
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **limit** | **Number**| limit | 
+ **id** | **Number**| id | 
 
 ### Return type
 
-[**[SongDTO]**](SongDTO.md)
+[**CategoryDTO**](CategoryDTO.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getSongCoauthorsUsingGET"></a>
+# **getSongCoauthorsUsingGET**
+> [SongCoauthorDTO] getSongCoauthorsUsingGET(id)
+
+getSongCoauthors
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.SongResourceApi();
+
+let id = 789; // Number | id
+
+
+apiInstance.getSongCoauthorsUsingGET(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| id | 
+
+### Return type
+
+[**[SongCoauthorDTO]**](SongCoauthorDTO.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getSongEditsUsingGET"></a>
+# **getSongEditsUsingGET**
+> [SongEditDTO] getSongEditsUsingGET(id)
+
+getSongEdits
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.SongResourceApi();
+
+let id = 789; // Number | id
+
+
+apiInstance.getSongEditsUsingGET(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| id | 
+
+### Return type
+
+[**[SongEditDTO]**](SongEditDTO.md)
 
 ### Authorization
 
@@ -752,6 +784,49 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
+<a name="getSongTagsUsingGET"></a>
+# **getSongTagsUsingGET**
+> [TagDTO] getSongTagsUsingGET(id)
+
+getSongTags
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.SongResourceApi();
+
+let id = 789; // Number | id
+
+
+apiInstance.getSongTagsUsingGET(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| id | 
+
+### Return type
+
+[**[TagDTO]**](TagDTO.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
 <a name="getSongUserLibrariesUsingGET"></a>
 # **getSongUserLibrariesUsingGET**
 > [UserDTO] getSongUserLibrariesUsingGET(id)
@@ -795,11 +870,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getSongsAddedByUserUsingGET"></a>
-# **getSongsAddedByUserUsingGET**
-> [SongDTO] getSongsAddedByUserUsingGET(id)
+<a name="getSongVersesUsingGET"></a>
+# **getSongVersesUsingGET**
+> [VerseDTO] getSongVersesUsingGET(id)
 
-getSongsAddedByUser
+getSongVerses
 
 ### Example
 ```javascript
@@ -810,7 +885,7 @@ let apiInstance = new SongbookApi.SongResourceApi();
 let id = 789; // Number | id
 
 
-apiInstance.getSongsAddedByUserUsingGET(id, (error, data, response) => {
+apiInstance.getSongVersesUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -827,7 +902,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**[SongDTO]**](SongDTO.md)
+[**[VerseDTO]**](VerseDTO.md)
 
 ### Authorization
 
@@ -838,97 +913,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getSongsEditedByUserUsingGET"></a>
-# **getSongsEditedByUserUsingGET**
-> [SongDTO] getSongsEditedByUserUsingGET(id)
+<a name="loadSongFromFileUsingPOST"></a>
+# **loadSongFromFileUsingPOST**
+> SongDTO loadSongFromFileUsingPOST(file)
 
-getSongsEditedByUser
-
-### Example
-```javascript
-import {SongbookApi} from 'songbook_api';
-
-let apiInstance = new SongbookApi.SongResourceApi();
-
-let id = 789; // Number | id
-
-
-apiInstance.getSongsEditedByUserUsingGET(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Number**| id | 
-
-### Return type
-
-[**[SongDTO]**](SongDTO.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-<a name="getUserSongsUsingGET"></a>
-# **getUserSongsUsingGET**
-> [SongDTO] getUserSongsUsingGET(id)
-
-getUserSongs
-
-### Example
-```javascript
-import {SongbookApi} from 'songbook_api';
-
-let apiInstance = new SongbookApi.SongResourceApi();
-
-let id = 789; // Number | id
-
-
-apiInstance.getUserSongsUsingGET(id, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **id** | **Number**| id | 
-
-### Return type
-
-[**[SongDTO]**](SongDTO.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: */*
-
-<a name="loadFromFileUsingPOST"></a>
-# **loadFromFileUsingPOST**
-> SongDTO loadFromFileUsingPOST(file)
-
-loadFromFile
+loadSongFromFile
 
 ### Example
 ```javascript
@@ -939,7 +928,7 @@ let apiInstance = new SongbookApi.SongResourceApi();
 let file = "/path/to/file.txt"; // File | file
 
 
-apiInstance.loadFromFileUsingPOST(file, (error, data, response) => {
+apiInstance.loadSongFromFileUsingPOST(file, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -967,9 +956,55 @@ No authorization required
  - **Content-Type**: multipart/form-data
  - **Accept**: */*
 
+<a name="removeCoauthorFromSongUsingPATCH"></a>
+# **removeCoauthorFromSongUsingPATCH**
+> removeCoauthorFromSongUsingPATCH(coauthorId, id)
+
+removeCoauthorFromSong
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.SongResourceApi();
+
+let coauthorId = 789; // Number | coauthorId
+
+let id = 789; // Number | id
+
+
+apiInstance.removeCoauthorFromSongUsingPATCH(coauthorId, id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **coauthorId** | **Number**| coauthorId | 
+ **id** | **Number**| id | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
 <a name="removeTagFromSongUsingPATCH"></a>
 # **removeTagFromSongUsingPATCH**
-> SongDTO removeTagFromSongUsingPATCH(id, tagId)
+> removeTagFromSongUsingPATCH(id, tagId)
 
 removeTagFromSong
 
@@ -988,7 +1023,7 @@ apiInstance.removeTagFromSongUsingPATCH(id, tagId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 });
 ```
@@ -1002,7 +1037,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SongDTO**](SongDTO.md)
+null (empty response body)
 
 ### Authorization
 
@@ -1015,7 +1050,7 @@ No authorization required
 
 <a name="removeTagsFromSongBulkUsingPATCH"></a>
 # **removeTagsFromSongBulkUsingPATCH**
-> SongDTO removeTagsFromSongBulkUsingPATCH(id, tagIds)
+> removeTagsFromSongBulkUsingPATCH(id, tagIds)
 
 removeTagsFromSongBulk
 
@@ -1034,7 +1069,7 @@ apiInstance.removeTagsFromSongBulkUsingPATCH(id, tagIds, (error, data, response)
   if (error) {
     console.error(error);
   } else {
-    console.log('API called successfully. Returned data: ' + data);
+    console.log('API called successfully.');
   }
 });
 ```
@@ -1048,7 +1083,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**SongDTO**](SongDTO.md)
+null (empty response body)
 
 ### Authorization
 
@@ -1059,11 +1094,149 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: */*
 
-<a name="updateUsingPUT4"></a>
-# **updateUsingPUT4**
-> SongDTO updateUsingPUT4(obj)
+<a name="removeVerseFromSongUsingPATCH"></a>
+# **removeVerseFromSongUsingPATCH**
+> removeVerseFromSongUsingPATCH(id, verseId)
 
-update
+removeVerseFromSong
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.SongResourceApi();
+
+let id = 789; // Number | id
+
+let verseId = 789; // Number | verseId
+
+
+apiInstance.removeVerseFromSongUsingPATCH(id, verseId, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| id | 
+ **verseId** | **Number**| verseId | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+<a name="setAuthorUsingPATCH"></a>
+# **setAuthorUsingPATCH**
+> setAuthorUsingPATCH(authorId, id)
+
+setAuthor
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.SongResourceApi();
+
+let authorId = 789; // Number | authorId
+
+let id = 789; // Number | id
+
+
+apiInstance.setAuthorUsingPATCH(authorId, id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **authorId** | **Number**| authorId | 
+ **id** | **Number**| id | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+<a name="setCategoryUsingPATCH"></a>
+# **setCategoryUsingPATCH**
+> setCategoryUsingPATCH(categoryId, id)
+
+setCategory
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.SongResourceApi();
+
+let categoryId = 789; // Number | categoryId
+
+let id = 789; // Number | id
+
+
+apiInstance.setCategoryUsingPATCH(categoryId, id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **categoryId** | **Number**| categoryId | 
+ **id** | **Number**| id | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+<a name="updateSongUsingPUT"></a>
+# **updateSongUsingPUT**
+> SongDTO updateSongUsingPUT(obj)
+
+updateSong
 
 ### Example
 ```javascript
@@ -1074,7 +1247,7 @@ let apiInstance = new SongbookApi.SongResourceApi();
 let obj = new SongbookApi.SongDTO(); // SongDTO | obj
 
 
-apiInstance.updateUsingPUT4(obj, (error, data, response) => {
+apiInstance.updateSongUsingPUT(obj, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {

@@ -75,7 +75,7 @@ export class AdminResourceApi {
       let returnType = UserDTO;
 
       return this.apiClient.callApi(
-        '/api/admin/activate-user/{userId}', 'PATCH',
+        '/api/admin/{userId}/activate-user', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -127,51 +127,7 @@ export class AdminResourceApi {
       let returnType = UserDTO;
 
       return this.apiClient.callApi(
-        '/api/admin/update-role/{userId}/{roleId}', 'PATCH',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the updateUserUsingPUT operation.
-     * @callback module:api/AdminResourceApi~updateUserUsingPUTCallback
-     * @param {String} error Error message, if any.
-     * @param {module:model/UserDTO} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * updateUser
-     * @param {module:model/UserDTO} userDTO userDTO
-     * @param {module:api/AdminResourceApi~updateUserUsingPUTCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/UserDTO}
-     */
-    updateUserUsingPUT(userDTO, callback) {
-      let postBody = userDTO;
-
-      // verify the required parameter 'userDTO' is set
-      if (userDTO === undefined || userDTO === null) {
-        throw new Error("Missing the required parameter 'userDTO' when calling updateUserUsingPUT");
-      }
-
-
-      let pathParams = {
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = ['application/json'];
-      let accepts = ['*/*'];
-      let returnType = UserDTO;
-
-      return this.apiClient.callApi(
-        '/api/admin/update-user', 'PUT',
+        '/api/admin/{userId}/update-role/{roleId}', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

@@ -27,10 +27,12 @@ export class CreatePlaylistDTO {
    * @alias module:model/CreatePlaylistDTO
    * @class
    * @param isPrivate {Boolean} 
+   * @param ownerId {Number} 
    * @param songs {Array.<Number>} 
    */
-  constructor(isPrivate, songs) {
+  constructor(isPrivate, ownerId, songs) {
     this.isPrivate = isPrivate;
+    this.ownerId = ownerId;
     this.songs = songs;
   }
 
@@ -48,6 +50,8 @@ export class CreatePlaylistDTO {
         obj.isPrivate = ApiClient.convertToType(data['isPrivate'], 'Boolean');
       if (data.hasOwnProperty('name'))
         obj.name = ApiClient.convertToType(data['name'], 'String');
+      if (data.hasOwnProperty('ownerId'))
+        obj.ownerId = ApiClient.convertToType(data['ownerId'], 'Number');
       if (data.hasOwnProperty('songs'))
         obj.songs = ApiClient.convertToType(data['songs'], ['Number']);
     }
@@ -64,6 +68,11 @@ CreatePlaylistDTO.prototype.isPrivate = undefined;
  * @member {String} name
  */
 CreatePlaylistDTO.prototype.name = undefined;
+
+/**
+ * @member {Number} ownerId
+ */
+CreatePlaylistDTO.prototype.ownerId = undefined;
 
 /**
  * @member {Array.<Number>} songs

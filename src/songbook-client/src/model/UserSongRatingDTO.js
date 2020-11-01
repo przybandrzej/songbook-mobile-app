@@ -26,11 +26,13 @@ export class UserSongRatingDTO {
    * Constructs a new <code>UserSongRatingDTO</code>.
    * @alias module:model/UserSongRatingDTO
    * @class
+   * @param id {Number} 
    * @param rating {Number} 
    * @param songId {Number} 
    * @param userId {Number} 
    */
-  constructor(rating, songId, userId) {
+  constructor(id, rating, songId, userId) {
+    this.id = id;
     this.rating = rating;
     this.songId = songId;
     this.userId = userId;
@@ -46,6 +48,8 @@ export class UserSongRatingDTO {
   static constructFromObject(data, obj) {
     if (data) {
       obj = obj || new UserSongRatingDTO();
+      if (data.hasOwnProperty('id'))
+        obj.id = ApiClient.convertToType(data['id'], 'Number');
       if (data.hasOwnProperty('rating'))
         obj.rating = ApiClient.convertToType(data['rating'], 'Number');
       if (data.hasOwnProperty('songId'))
@@ -56,6 +60,11 @@ export class UserSongRatingDTO {
     return obj;
   }
 }
+
+/**
+ * @member {Number} id
+ */
+UserSongRatingDTO.prototype.id = undefined;
 
 /**
  * @member {Number} rating

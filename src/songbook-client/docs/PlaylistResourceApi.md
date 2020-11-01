@@ -1,26 +1,25 @@
 # SongbookApi.PlaylistResourceApi
 
-All URIs are relative to *https://stk-uep.pl*
+All URIs are relative to *https://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**addSongUsingPATCH**](PlaylistResourceApi.md#addSongUsingPATCH) | **PATCH** /api/playlists/{id}/add-song/{songId} | addSong
-[**createUsingPOST2**](PlaylistResourceApi.md#createUsingPOST2) | **POST** /api/playlists | create
-[**deleteUsingDELETE2**](PlaylistResourceApi.md#deleteUsingDELETE2) | **DELETE** /api/playlists/id/{id} | delete
+[**addSongToPlaylistUsingPATCH**](PlaylistResourceApi.md#addSongToPlaylistUsingPATCH) | **PATCH** /api/playlists/{id}/add-song/{songId} | addSongToPlaylist
+[**deletePlaylistUsingDELETE**](PlaylistResourceApi.md#deletePlaylistUsingDELETE) | **DELETE** /api/playlists/id/{id} | deletePlaylist
 [**downloadPlaylistPdfSongbookUsingGET**](PlaylistResourceApi.md#downloadPlaylistPdfSongbookUsingGET) | **GET** /api/playlists/download/{id} | downloadPlaylistPdfSongbook
-[**getAllUsingGET3**](PlaylistResourceApi.md#getAllUsingGET3) | **GET** /api/playlists | getAll
-[**getByIdUsingGET3**](PlaylistResourceApi.md#getByIdUsingGET3) | **GET** /api/playlists/id/{id} | getById
-[**getByNameUsingGET1**](PlaylistResourceApi.md#getByNameUsingGET1) | **GET** /api/playlists/name/{name} | getByName
-[**getByOwnerIdUsingGET**](PlaylistResourceApi.md#getByOwnerIdUsingGET) | **GET** /api/playlists/ownerId/{id} | getByOwnerId
-[**removeSongUsingPATCH**](PlaylistResourceApi.md#removeSongUsingPATCH) | **PATCH** /api/playlists/{id}/remove-song/{songId} | removeSong
-[**updateUsingPUT2**](PlaylistResourceApi.md#updateUsingPUT2) | **PUT** /api/playlists | update
+[**getAllPlaylistsUsingGET**](PlaylistResourceApi.md#getAllPlaylistsUsingGET) | **GET** /api/playlists | getAllPlaylists
+[**getPlaylistByIdUsingGET**](PlaylistResourceApi.md#getPlaylistByIdUsingGET) | **GET** /api/playlists/{id} | getPlaylistById
+[**getPlaylistByNameUsingGET**](PlaylistResourceApi.md#getPlaylistByNameUsingGET) | **GET** /api/playlists/name/{name} | getPlaylistByName
+[**getPlaylistSongsUsingGET**](PlaylistResourceApi.md#getPlaylistSongsUsingGET) | **GET** /api/playlists/{id}/songs | getPlaylistSongs
+[**removeSongFromPlaylistUsingPATCH**](PlaylistResourceApi.md#removeSongFromPlaylistUsingPATCH) | **PATCH** /api/playlists/{id}/remove-song/{songId} | removeSongFromPlaylist
+[**updatePlaylistUsingPUT**](PlaylistResourceApi.md#updatePlaylistUsingPUT) | **PUT** /api/playlists | updatePlaylist
 
 
-<a name="addSongUsingPATCH"></a>
-# **addSongUsingPATCH**
-> addSongUsingPATCH(id, songId)
+<a name="addSongToPlaylistUsingPATCH"></a>
+# **addSongToPlaylistUsingPATCH**
+> addSongToPlaylistUsingPATCH(id, songId)
 
-addSong
+addSongToPlaylist
 
 ### Example
 ```javascript
@@ -33,7 +32,7 @@ let id = 789; // Number | id
 let songId = 789; // Number | songId
 
 
-apiInstance.addSongUsingPATCH(id, songId, (error, data, response) => {
+apiInstance.addSongToPlaylistUsingPATCH(id, songId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -62,54 +61,11 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: */*
 
-<a name="createUsingPOST2"></a>
-# **createUsingPOST2**
-> PlaylistDTO createUsingPOST2(dto)
+<a name="deletePlaylistUsingDELETE"></a>
+# **deletePlaylistUsingDELETE**
+> deletePlaylistUsingDELETE(id)
 
-create
-
-### Example
-```javascript
-import {SongbookApi} from 'songbook_api';
-
-let apiInstance = new SongbookApi.PlaylistResourceApi();
-
-let dto = new SongbookApi.CreatePlaylistDTO(); // CreatePlaylistDTO | dto
-
-
-apiInstance.createUsingPOST2(dto, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **dto** | [**CreatePlaylistDTO**](CreatePlaylistDTO.md)| dto | 
-
-### Return type
-
-[**PlaylistDTO**](PlaylistDTO.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: */*
-
-<a name="deleteUsingDELETE2"></a>
-# **deleteUsingDELETE2**
-> deleteUsingDELETE2(id)
-
-delete
+deletePlaylist
 
 ### Example
 ```javascript
@@ -120,7 +76,7 @@ let apiInstance = new SongbookApi.PlaylistResourceApi();
 let id = 789; // Number | id
 
 
-apiInstance.deleteUsingDELETE2(id, (error, data, response) => {
+apiInstance.deletePlaylistUsingDELETE(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -191,11 +147,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getAllUsingGET3"></a>
-# **getAllUsingGET3**
-> [PlaylistDTO] getAllUsingGET3(opts)
+<a name="getAllPlaylistsUsingGET"></a>
+# **getAllPlaylistsUsingGET**
+> [PlaylistDTO] getAllPlaylistsUsingGET(opts)
 
-getAll
+getAllPlaylists
 
 ### Example
 ```javascript
@@ -208,7 +164,7 @@ let opts = {
   'limit': 56 // Number | limit
 };
 
-apiInstance.getAllUsingGET3(opts, (error, data, response) => {
+apiInstance.getAllPlaylistsUsingGET(opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -237,11 +193,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getByIdUsingGET3"></a>
-# **getByIdUsingGET3**
-> PlaylistDTO getByIdUsingGET3(id)
+<a name="getPlaylistByIdUsingGET"></a>
+# **getPlaylistByIdUsingGET**
+> PlaylistDTO getPlaylistByIdUsingGET(id)
 
-getById
+getPlaylistById
 
 ### Example
 ```javascript
@@ -252,7 +208,7 @@ let apiInstance = new SongbookApi.PlaylistResourceApi();
 let id = 789; // Number | id
 
 
-apiInstance.getByIdUsingGET3(id, (error, data, response) => {
+apiInstance.getPlaylistByIdUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -280,11 +236,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getByNameUsingGET1"></a>
-# **getByNameUsingGET1**
-> [PlaylistDTO] getByNameUsingGET1(name, opts)
+<a name="getPlaylistByNameUsingGET"></a>
+# **getPlaylistByNameUsingGET**
+> [PlaylistDTO] getPlaylistByNameUsingGET(name, opts)
 
-getByName
+getPlaylistByName
 
 ### Example
 ```javascript
@@ -299,7 +255,7 @@ let opts = {
   'limit': 56 // Number | limit
 };
 
-apiInstance.getByNameUsingGET1(name, opts, (error, data, response) => {
+apiInstance.getPlaylistByNameUsingGET(name, opts, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -329,11 +285,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getByOwnerIdUsingGET"></a>
-# **getByOwnerIdUsingGET**
-> [PlaylistDTO] getByOwnerIdUsingGET(id, opts)
+<a name="getPlaylistSongsUsingGET"></a>
+# **getPlaylistSongsUsingGET**
+> [SongDTO] getPlaylistSongsUsingGET(id)
 
-getByOwnerId
+getPlaylistSongs
 
 ### Example
 ```javascript
@@ -343,11 +299,8 @@ let apiInstance = new SongbookApi.PlaylistResourceApi();
 
 let id = 789; // Number | id
 
-let opts = { 
-  'includePrivate': false // Boolean | include_private
-};
 
-apiInstance.getByOwnerIdUsingGET(id, opts, (error, data, response) => {
+apiInstance.getPlaylistSongsUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -361,11 +314,10 @@ apiInstance.getByOwnerIdUsingGET(id, opts, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Number**| id | 
- **includePrivate** | **Boolean**| include_private | [optional] [default to false]
 
 ### Return type
 
-[**[PlaylistDTO]**](PlaylistDTO.md)
+[**[SongDTO]**](SongDTO.md)
 
 ### Authorization
 
@@ -376,11 +328,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="removeSongUsingPATCH"></a>
-# **removeSongUsingPATCH**
-> removeSongUsingPATCH(id, songId)
+<a name="removeSongFromPlaylistUsingPATCH"></a>
+# **removeSongFromPlaylistUsingPATCH**
+> removeSongFromPlaylistUsingPATCH(id, songId)
 
-removeSong
+removeSongFromPlaylist
 
 ### Example
 ```javascript
@@ -393,7 +345,7 @@ let id = 789; // Number | id
 let songId = 789; // Number | songId
 
 
-apiInstance.removeSongUsingPATCH(id, songId, (error, data, response) => {
+apiInstance.removeSongFromPlaylistUsingPATCH(id, songId, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -422,11 +374,11 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: */*
 
-<a name="updateUsingPUT2"></a>
-# **updateUsingPUT2**
-> PlaylistDTO updateUsingPUT2(dto)
+<a name="updatePlaylistUsingPUT"></a>
+# **updatePlaylistUsingPUT**
+> PlaylistDTO updatePlaylistUsingPUT(dto)
 
-update
+updatePlaylist
 
 ### Example
 ```javascript
@@ -437,7 +389,7 @@ let apiInstance = new SongbookApi.PlaylistResourceApi();
 let dto = new SongbookApi.PlaylistDTO(); // PlaylistDTO | dto
 
 
-apiInstance.updateUsingPUT2(dto, (error, data, response) => {
+apiInstance.updatePlaylistUsingPUT(dto, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {

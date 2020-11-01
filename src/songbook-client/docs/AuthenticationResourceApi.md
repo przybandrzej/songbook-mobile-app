@@ -1,19 +1,21 @@
 # SongbookApi.AuthenticationResourceApi
 
-All URIs are relative to *https://stk-uep.pl*
+All URIs are relative to *https://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**activateAccountUsingGET**](AuthenticationResourceApi.md#activateAccountUsingGET) | **GET** /api/activate | activateAccount
 [**authenticateUsingPOST**](AuthenticationResourceApi.md#authenticateUsingPOST) | **POST** /api/authenticate | authenticate
 [**changeEmailUsingPATCH**](AuthenticationResourceApi.md#changeEmailUsingPATCH) | **PATCH** /api/account/change-email | changeEmail
+[**changeFirstNameUsingPATCH**](AuthenticationResourceApi.md#changeFirstNameUsingPATCH) | **PATCH** /api/account/change-first-name | changeFirstName
+[**changeImageUrlUsingPATCH**](AuthenticationResourceApi.md#changeImageUrlUsingPATCH) | **PATCH** /api/account/change-image/{url} | changeImageUrl
+[**changeLastNameUsingPATCH**](AuthenticationResourceApi.md#changeLastNameUsingPATCH) | **PATCH** /api/account/change-last-name | changeLastName
 [**changePasswordUsingPOST**](AuthenticationResourceApi.md#changePasswordUsingPOST) | **POST** /api/account/change-password | changePassword
 [**finishPasswordResetUsingPOST**](AuthenticationResourceApi.md#finishPasswordResetUsingPOST) | **POST** /api/account/reset-password/finish | finishPasswordReset
 [**getAccountUsingGET**](AuthenticationResourceApi.md#getAccountUsingGET) | **GET** /api/account | getAccount
 [**isAuthenticatedUsingGET**](AuthenticationResourceApi.md#isAuthenticatedUsingGET) | **GET** /api/is-authenticated | isAuthenticated
 [**registerUsingPOST**](AuthenticationResourceApi.md#registerUsingPOST) | **POST** /api/register | register
 [**requestPasswordResetUsingPOST**](AuthenticationResourceApi.md#requestPasswordResetUsingPOST) | **POST** /api/account/reset-password/init | requestPasswordReset
-[**saveAccountUsingPOST**](AuthenticationResourceApi.md#saveAccountUsingPOST) | **POST** /api/account | saveAccount
 
 
 <a name="activateAccountUsingGET"></a>
@@ -131,6 +133,135 @@ apiInstance.changeEmailUsingPATCH(emailChangeDTO, (error, data, response) => {
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **emailChangeDTO** | [**EmailChangeDTO**](EmailChangeDTO.md)| emailChangeDTO | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+<a name="changeFirstNameUsingPATCH"></a>
+# **changeFirstNameUsingPATCH**
+> changeFirstNameUsingPATCH(nameChangeDTO)
+
+changeFirstName
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.AuthenticationResourceApi();
+
+let nameChangeDTO = new SongbookApi.NameChangeDTO(); // NameChangeDTO | nameChangeDTO
+
+
+apiInstance.changeFirstNameUsingPATCH(nameChangeDTO, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **nameChangeDTO** | [**NameChangeDTO**](NameChangeDTO.md)| nameChangeDTO | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+<a name="changeImageUrlUsingPATCH"></a>
+# **changeImageUrlUsingPATCH**
+> changeImageUrlUsingPATCH(url)
+
+changeImageUrl
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.AuthenticationResourceApi();
+
+let url = "url_example"; // String | url
+
+
+apiInstance.changeImageUrlUsingPATCH(url, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **url** | **String**| url | 
+
+### Return type
+
+null (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: */*
+
+<a name="changeLastNameUsingPATCH"></a>
+# **changeLastNameUsingPATCH**
+> changeLastNameUsingPATCH(nameChangeDTO)
+
+changeLastName
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.AuthenticationResourceApi();
+
+let nameChangeDTO = new SongbookApi.NameChangeDTO(); // NameChangeDTO | nameChangeDTO
+
+
+apiInstance.changeLastNameUsingPATCH(nameChangeDTO, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **nameChangeDTO** | [**NameChangeDTO**](NameChangeDTO.md)| nameChangeDTO | 
 
 ### Return type
 
@@ -381,49 +512,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 null (empty response body)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: */*
-
-<a name="saveAccountUsingPOST"></a>
-# **saveAccountUsingPOST**
-> UserDTO saveAccountUsingPOST(userDTO)
-
-saveAccount
-
-### Example
-```javascript
-import {SongbookApi} from 'songbook_api';
-
-let apiInstance = new SongbookApi.AuthenticationResourceApi();
-
-let userDTO = new SongbookApi.UserDTO(); // UserDTO | userDTO
-
-
-apiInstance.saveAccountUsingPOST(userDTO, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userDTO** | [**UserDTO**](UserDTO.md)| userDTO | 
-
-### Return type
-
-[**UserDTO**](UserDTO.md)
 
 ### Authorization
 

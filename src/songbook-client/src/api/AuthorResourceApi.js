@@ -39,25 +39,25 @@ export class AuthorResourceApi {
 
 
     /**
-     * Callback function to receive the result of the createUsingPOST operation.
-     * @callback module:api/AuthorResourceApi~createUsingPOSTCallback
+     * Callback function to receive the result of the createAuthorUsingPOST operation.
+     * @callback module:api/AuthorResourceApi~createAuthorUsingPOSTCallback
      * @param {String} error Error message, if any.
      * @param {module:model/AuthorDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * create
+     * createAuthor
      * @param {module:model/UniversalCreateDTO} authorDto authorDto
-     * @param {module:api/AuthorResourceApi~createUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AuthorResourceApi~createAuthorUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AuthorDTO}
      */
-    createUsingPOST(authorDto, callback) {
+    createAuthorUsingPOST(authorDto, callback) {
       let postBody = authorDto;
 
       // verify the required parameter 'authorDto' is set
       if (authorDto === undefined || authorDto === null) {
-        throw new Error("Missing the required parameter 'authorDto' when calling createUsingPOST");
+        throw new Error("Missing the required parameter 'authorDto' when calling createAuthorUsingPOST");
       }
 
 
@@ -83,24 +83,24 @@ export class AuthorResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the deleteUsingDELETE operation.
-     * @callback module:api/AuthorResourceApi~deleteUsingDELETECallback
+     * Callback function to receive the result of the deleteAuthorUsingDELETE operation.
+     * @callback module:api/AuthorResourceApi~deleteAuthorUsingDELETECallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * delete
+     * deleteAuthor
      * @param {Number} id id
-     * @param {module:api/AuthorResourceApi~deleteUsingDELETECallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AuthorResourceApi~deleteAuthorUsingDELETECallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteUsingDELETE(id, callback) {
+    deleteAuthorUsingDELETE(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling deleteUsingDELETE");
+        throw new Error("Missing the required parameter 'id' when calling deleteAuthorUsingDELETE");
       }
 
 
@@ -120,28 +120,28 @@ export class AuthorResourceApi {
       let returnType = null;
 
       return this.apiClient.callApi(
-        '/api/authors/id/{id}', 'DELETE',
+        '/api/authors/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getAllUsingGET operation.
-     * @callback module:api/AuthorResourceApi~getAllUsingGETCallback
+     * Callback function to receive the result of the getAllAuthorsUsingGET operation.
+     * @callback module:api/AuthorResourceApi~getAllAuthorsUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/AuthorDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getAll
+     * getAllAuthors
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit limit
-     * @param {module:api/AuthorResourceApi~getAllUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AuthorResourceApi~getAllAuthorsUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AuthorDTO>}
      */
-    getAllUsingGET(opts, callback) {
+    getAllAuthorsUsingGET(opts, callback) {
       opts = opts || {};
       let postBody = null;
 
@@ -169,25 +169,25 @@ export class AuthorResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the getByIdUsingGET operation.
-     * @callback module:api/AuthorResourceApi~getByIdUsingGETCallback
+     * Callback function to receive the result of the getAuthorByIdUsingGET operation.
+     * @callback module:api/AuthorResourceApi~getAuthorByIdUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {module:model/AuthorDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getById
+     * getAuthorById
      * @param {Number} id id
-     * @param {module:api/AuthorResourceApi~getByIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AuthorResourceApi~getAuthorByIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AuthorDTO}
      */
-    getByIdUsingGET(id, callback) {
+    getAuthorByIdUsingGET(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getByIdUsingGET");
+        throw new Error("Missing the required parameter 'id' when calling getAuthorByIdUsingGET");
       }
 
 
@@ -207,35 +207,35 @@ export class AuthorResourceApi {
       let returnType = AuthorDTO;
 
       return this.apiClient.callApi(
-        '/api/authors/id/{id}', 'GET',
+        '/api/authors/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getByNameFragmentUsingGET operation.
-     * @callback module:api/AuthorResourceApi~getByNameFragmentUsingGETCallback
+     * Callback function to receive the result of the getAuthorByNameFragmentUsingGET operation.
+     * @callback module:api/AuthorResourceApi~getAuthorByNameFragmentUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/AuthorDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getByNameFragment
+     * getAuthorByNameFragment
      * @param {String} name name
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit limit
-     * @param {module:api/AuthorResourceApi~getByNameFragmentUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AuthorResourceApi~getAuthorByNameFragmentUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/AuthorDTO>}
      */
-    getByNameFragmentUsingGET(name, opts, callback) {
+    getAuthorByNameFragmentUsingGET(name, opts, callback) {
       opts = opts || {};
       let postBody = null;
 
       // verify the required parameter 'name' is set
       if (name === undefined || name === null) {
-        throw new Error("Missing the required parameter 'name' when calling getByNameFragmentUsingGET");
+        throw new Error("Missing the required parameter 'name' when calling getAuthorByNameFragmentUsingGET");
       }
 
 
@@ -301,32 +301,32 @@ export class AuthorResourceApi {
       let returnType = [SongDTO];
 
       return this.apiClient.callApi(
-        '/api/authors/id/{id}/songs', 'GET',
+        '/api/authors/{id}/songs', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the updateUsingPUT operation.
-     * @callback module:api/AuthorResourceApi~updateUsingPUTCallback
+     * Callback function to receive the result of the updateAuthorUsingPUT operation.
+     * @callback module:api/AuthorResourceApi~updateAuthorUsingPUTCallback
      * @param {String} error Error message, if any.
      * @param {module:model/AuthorDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * update
+     * updateAuthor
      * @param {module:model/AuthorDTO} authorDto authorDto
-     * @param {module:api/AuthorResourceApi~updateUsingPUTCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AuthorResourceApi~updateAuthorUsingPUTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/AuthorDTO}
      */
-    updateUsingPUT(authorDto, callback) {
+    updateAuthorUsingPUT(authorDto, callback) {
       let postBody = authorDto;
 
       // verify the required parameter 'authorDto' is set
       if (authorDto === undefined || authorDto === null) {
-        throw new Error("Missing the required parameter 'authorDto' when calling updateUsingPUT");
+        throw new Error("Missing the required parameter 'authorDto' when calling updateAuthorUsingPUT");
       }
 
 

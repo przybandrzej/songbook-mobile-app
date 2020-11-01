@@ -1,12 +1,11 @@
 # SongbookApi.AdminResourceApi
 
-All URIs are relative to *https://stk-uep.pl*
+All URIs are relative to *https://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**activateUserUsingPATCH**](AdminResourceApi.md#activateUserUsingPATCH) | **PATCH** /api/admin/activate-user/{userId} | activateUser
-[**updateUserRoleUsingPATCH**](AdminResourceApi.md#updateUserRoleUsingPATCH) | **PATCH** /api/admin/update-role/{userId}/{roleId} | updateUserRole
-[**updateUserUsingPUT**](AdminResourceApi.md#updateUserUsingPUT) | **PUT** /api/admin/update-user | updateUser
+[**activateUserUsingPATCH**](AdminResourceApi.md#activateUserUsingPATCH) | **PATCH** /api/admin/{userId}/activate-user | activateUser
+[**updateUserRoleUsingPATCH**](AdminResourceApi.md#updateUserRoleUsingPATCH) | **PATCH** /api/admin/{userId}/update-role/{roleId} | updateUserRole
 
 
 <a name="activateUserUsingPATCH"></a>
@@ -84,49 +83,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **roleId** | **Number**| roleId | 
  **userId** | **Number**| userId | 
-
-### Return type
-
-[**UserDTO**](UserDTO.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: */*
-
-<a name="updateUserUsingPUT"></a>
-# **updateUserUsingPUT**
-> UserDTO updateUserUsingPUT(userDTO)
-
-updateUser
-
-### Example
-```javascript
-import {SongbookApi} from 'songbook_api';
-
-let apiInstance = new SongbookApi.AdminResourceApi();
-
-let userDTO = new SongbookApi.UserDTO(); // UserDTO | userDTO
-
-
-apiInstance.updateUserUsingPUT(userDTO, (error, data, response) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.log('API called successfully. Returned data: ' + data);
-  }
-});
-```
-
-### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **userDTO** | [**UserDTO**](UserDTO.md)| userDTO | 
 
 ### Return type
 

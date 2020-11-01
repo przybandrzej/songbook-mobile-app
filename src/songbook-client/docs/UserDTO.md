@@ -10,7 +10,6 @@ Name | Type | Description | Notes
 **imageUrl** | **String** |  | [optional] 
 **lastName** | **String** |  | [optional] 
 **registrationDate** | **Date** |  | [optional] 
-**songs** | **[Number]** |  | 
 **userRoleId** | **Number** |  | 
 **username** | **String** |  | 
 

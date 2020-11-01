@@ -37,21 +37,21 @@ export class AwaitingSongResourceApi {
 
 
     /**
-     * Callback function to receive the result of the getAllUsingGET1 operation.
-     * @callback module:api/AwaitingSongResourceApi~getAllUsingGET1Callback
+     * Callback function to receive the result of the getAllAwaitingSongsUsingGET operation.
+     * @callback module:api/AwaitingSongResourceApi~getAllAwaitingSongsUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getAll
+     * getAllAwaitingSongs
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit limit
-     * @param {module:api/AwaitingSongResourceApi~getAllUsingGET1Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AwaitingSongResourceApi~getAllAwaitingSongsUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongDTO>}
      */
-    getAllUsingGET1(opts, callback) {
+    getAllAwaitingSongsUsingGET(opts, callback) {
       opts = opts || {};
       let postBody = null;
 
@@ -79,74 +79,25 @@ export class AwaitingSongResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the getByCategoryUsingGET operation.
-     * @callback module:api/AwaitingSongResourceApi~getByCategoryUsingGETCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * getByCategory
-     * @param {Number} categoryId categoryId
-     * @param {Object} opts Optional parameters
-     * @param {Number} opts.limit limit
-     * @param {module:api/AwaitingSongResourceApi~getByCategoryUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/SongDTO>}
-     */
-    getByCategoryUsingGET(categoryId, opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-
-      // verify the required parameter 'categoryId' is set
-      if (categoryId === undefined || categoryId === null) {
-        throw new Error("Missing the required parameter 'categoryId' when calling getByCategoryUsingGET");
-      }
-
-
-      let pathParams = {
-        'categoryId': categoryId
-      };
-      let queryParams = {
-        'limit': opts['limit']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['*/*'];
-      let returnType = [SongDTO];
-
-      return this.apiClient.callApi(
-        '/api/awaiting-songs/category/{categoryId}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getByIdUsingGET1 operation.
-     * @callback module:api/AwaitingSongResourceApi~getByIdUsingGET1Callback
+     * Callback function to receive the result of the getAwaitingSongByIdUsingGET operation.
+     * @callback module:api/AwaitingSongResourceApi~getAwaitingSongByIdUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {module:model/SongDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getById
+     * getAwaitingSongById
      * @param {Number} id id
-     * @param {module:api/AwaitingSongResourceApi~getByIdUsingGET1Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AwaitingSongResourceApi~getAwaitingSongByIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SongDTO}
      */
-    getByIdUsingGET1(id, callback) {
+    getAwaitingSongByIdUsingGET(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getByIdUsingGET1");
+        throw new Error("Missing the required parameter 'id' when calling getAwaitingSongByIdUsingGET");
       }
 
 
@@ -166,133 +117,35 @@ export class AwaitingSongResourceApi {
       let returnType = SongDTO;
 
       return this.apiClient.callApi(
-        '/api/awaiting-songs/id/{id}', 'GET',
+        '/api/awaiting-songs/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getByLyricsFragmentUsingGET operation.
-     * @callback module:api/AwaitingSongResourceApi~getByLyricsFragmentUsingGETCallback
+     * Callback function to receive the result of the getAwaitingSongByTitleFragmentUsingGET operation.
+     * @callback module:api/AwaitingSongResourceApi~getAwaitingSongByTitleFragmentUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getByLyricsFragment
-     * @param {String} value value
-     * @param {Object} opts Optional parameters
-     * @param {Number} opts.limit limit
-     * @param {module:api/AwaitingSongResourceApi~getByLyricsFragmentUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/SongDTO>}
-     */
-    getByLyricsFragmentUsingGET(value, opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-
-      // verify the required parameter 'value' is set
-      if (value === undefined || value === null) {
-        throw new Error("Missing the required parameter 'value' when calling getByLyricsFragmentUsingGET");
-      }
-
-
-      let pathParams = {
-        'value': value
-      };
-      let queryParams = {
-        'limit': opts['limit']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['*/*'];
-      let returnType = [SongDTO];
-
-      return this.apiClient.callApi(
-        '/api/awaiting-songs/lyrics_fragment/{value}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getByTagUsingGET operation.
-     * @callback module:api/AwaitingSongResourceApi~getByTagUsingGETCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * getByTag
-     * @param {Number} tagId tagId
-     * @param {Object} opts Optional parameters
-     * @param {Number} opts.limit limit
-     * @param {module:api/AwaitingSongResourceApi~getByTagUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/SongDTO>}
-     */
-    getByTagUsingGET(tagId, opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-
-      // verify the required parameter 'tagId' is set
-      if (tagId === undefined || tagId === null) {
-        throw new Error("Missing the required parameter 'tagId' when calling getByTagUsingGET");
-      }
-
-
-      let pathParams = {
-        'tagId': tagId
-      };
-      let queryParams = {
-        'limit': opts['limit']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['*/*'];
-      let returnType = [SongDTO];
-
-      return this.apiClient.callApi(
-        '/api/awaiting-songs/tag/{tagId}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getByTitleFragmentUsingGET operation.
-     * @callback module:api/AwaitingSongResourceApi~getByTitleFragmentUsingGETCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * getByTitleFragment
+     * getAwaitingSongByTitleFragment
      * @param {String} title title
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit limit
-     * @param {module:api/AwaitingSongResourceApi~getByTitleFragmentUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/AwaitingSongResourceApi~getAwaitingSongByTitleFragmentUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongDTO>}
      */
-    getByTitleFragmentUsingGET(title, opts, callback) {
+    getAwaitingSongByTitleFragmentUsingGET(title, opts, callback) {
       opts = opts || {};
       let postBody = null;
 
       // verify the required parameter 'title' is set
       if (title === undefined || title === null) {
-        throw new Error("Missing the required parameter 'title' when calling getByTitleFragmentUsingGET");
+        throw new Error("Missing the required parameter 'title' when calling getAwaitingSongByTitleFragmentUsingGET");
       }
 
 
@@ -314,51 +167,6 @@ export class AwaitingSongResourceApi {
 
       return this.apiClient.callApi(
         '/api/awaiting-songs/title/{title}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getLatestUsingGET operation.
-     * @callback module:api/AwaitingSongResourceApi~getLatestUsingGETCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * getLatest
-     * @param {Number} limit limit
-     * @param {module:api/AwaitingSongResourceApi~getLatestUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/SongDTO>}
-     */
-    getLatestUsingGET(limit, callback) {
-      let postBody = null;
-
-      // verify the required parameter 'limit' is set
-      if (limit === undefined || limit === null) {
-        throw new Error("Missing the required parameter 'limit' when calling getLatestUsingGET");
-      }
-
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'limit': limit
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['*/*'];
-      let returnType = [SongDTO];
-
-      return this.apiClient.callApi(
-        '/api/awaiting-songs/latest', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );

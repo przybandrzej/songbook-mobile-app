@@ -15,12 +15,21 @@
  */
 
 import {ApiClient} from "../ApiClient";
+import {AuthorDTO} from '../model/AuthorDTO';
+import {CategoryDTO} from '../model/CategoryDTO';
+import {CreateCoauthorDTO} from '../model/CreateCoauthorDTO';
 import {CreateSongDTO} from '../model/CreateSongDTO';
+import {CreateVerseDTO} from '../model/CreateVerseDTO';
 import {PlaylistDTO} from '../model/PlaylistDTO';
+import {SongAddDTO} from '../model/SongAddDTO';
+import {SongCoauthorDTO} from '../model/SongCoauthorDTO';
 import {SongDTO} from '../model/SongDTO';
+import {SongEditDTO} from '../model/SongEditDTO';
+import {TagDTO} from '../model/TagDTO';
 import {UniversalCreateDTO} from '../model/UniversalCreateDTO';
 import {UserDTO} from '../model/UserDTO';
 import {UserSongRatingDTO} from '../model/UserSongRatingDTO';
+import {VerseDTO} from '../model/VerseDTO';
 
 /**
 * SongResource service.
@@ -42,10 +51,61 @@ export class SongResourceApi {
 
 
     /**
+     * Callback function to receive the result of the addCoauthorToSongUsingPATCH operation.
+     * @callback module:api/SongResourceApi~addCoauthorToSongUsingPATCHCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/SongCoauthorDTO} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * addCoauthorToSong
+     * @param {module:model/CreateCoauthorDTO} coauthor coauthor
+     * @param {Number} id id
+     * @param {module:api/SongResourceApi~addCoauthorToSongUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SongCoauthorDTO}
+     */
+    addCoauthorToSongUsingPATCH(coauthor, id, callback) {
+      let postBody = coauthor;
+
+      // verify the required parameter 'coauthor' is set
+      if (coauthor === undefined || coauthor === null) {
+        throw new Error("Missing the required parameter 'coauthor' when calling addCoauthorToSongUsingPATCH");
+      }
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling addCoauthorToSongUsingPATCH");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = SongCoauthorDTO;
+
+      return this.apiClient.callApi(
+        '/api/songs/{id}/add-coauthor', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the addTagToSongUsingPATCH operation.
      * @callback module:api/SongResourceApi~addTagToSongUsingPATCHCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/SongDTO} data The data returned by the service call.
+     * @param {module:model/TagDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -54,7 +114,7 @@ export class SongResourceApi {
      * @param {Number} id id
      * @param {module:model/UniversalCreateDTO} tag tag
      * @param {module:api/SongResourceApi~addTagToSongUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SongDTO}
+     * data is of type: {@link module:model/TagDTO}
      */
     addTagToSongUsingPATCH(id, tag, callback) {
       let postBody = tag;
@@ -83,7 +143,7 @@ export class SongResourceApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['*/*'];
-      let returnType = SongDTO;
+      let returnType = TagDTO;
 
       return this.apiClient.callApi(
         '/api/songs/{id}/add-tag', 'PATCH',
@@ -96,7 +156,7 @@ export class SongResourceApi {
      * Callback function to receive the result of the addTagsToSongBulkUsingPATCH operation.
      * @callback module:api/SongResourceApi~addTagsToSongBulkUsingPATCHCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/SongDTO} data The data returned by the service call.
+     * @param {Array.<module:model/TagDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
@@ -105,7 +165,7 @@ export class SongResourceApi {
      * @param {Number} id id
      * @param {Array.<module:model/UniversalCreateDTO>} tags tags
      * @param {module:api/SongResourceApi~addTagsToSongBulkUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SongDTO}
+     * data is of type: {@link Array.<module:model/TagDTO>}
      */
     addTagsToSongBulkUsingPATCH(id, tags, callback) {
       let postBody = tags;
@@ -134,7 +194,7 @@ export class SongResourceApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['*/*'];
-      let returnType = SongDTO;
+      let returnType = [TagDTO];
 
       return this.apiClient.callApi(
         '/api/songs/{id}/add-tag-bulk', 'PATCH',
@@ -144,8 +204,59 @@ export class SongResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the approveSongUsingPUT operation.
-     * @callback module:api/SongResourceApi~approveSongUsingPUTCallback
+     * Callback function to receive the result of the addVerseToSongUsingPATCH operation.
+     * @callback module:api/SongResourceApi~addVerseToSongUsingPATCHCallback
+     * @param {String} error Error message, if any.
+     * @param {module:model/VerseDTO} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * addVerseToSong
+     * @param {Number} id id
+     * @param {module:model/CreateVerseDTO} verse verse
+     * @param {module:api/SongResourceApi~addVerseToSongUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/VerseDTO}
+     */
+    addVerseToSongUsingPATCH(id, verse, callback) {
+      let postBody = verse;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling addVerseToSongUsingPATCH");
+      }
+
+      // verify the required parameter 'verse' is set
+      if (verse === undefined || verse === null) {
+        throw new Error("Missing the required parameter 'verse' when calling addVerseToSongUsingPATCH");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = VerseDTO;
+
+      return this.apiClient.callApi(
+        '/api/songs/{id}/add-verse', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the approveSongUsingPATCH operation.
+     * @callback module:api/SongResourceApi~approveSongUsingPATCHCallback
      * @param {String} error Error message, if any.
      * @param {module:model/SongDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
@@ -154,15 +265,15 @@ export class SongResourceApi {
     /**
      * approveSong
      * @param {Number} id id
-     * @param {module:api/SongResourceApi~approveSongUsingPUTCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SongResourceApi~approveSongUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SongDTO}
      */
-    approveSongUsingPUT(id, callback) {
+    approveSongUsingPATCH(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling approveSongUsingPUT");
+        throw new Error("Missing the required parameter 'id' when calling approveSongUsingPATCH");
       }
 
 
@@ -182,32 +293,32 @@ export class SongResourceApi {
       let returnType = SongDTO;
 
       return this.apiClient.callApi(
-        '/api/songs/{id}/approve', 'PUT',
+        '/api/songs/{id}/approve', 'PATCH',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the createUsingPOST4 operation.
-     * @callback module:api/SongResourceApi~createUsingPOST4Callback
+     * Callback function to receive the result of the createSongUsingPOST operation.
+     * @callback module:api/SongResourceApi~createSongUsingPOSTCallback
      * @param {String} error Error message, if any.
      * @param {module:model/SongDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * create
+     * createSong
      * @param {module:model/CreateSongDTO} obj obj
-     * @param {module:api/SongResourceApi~createUsingPOST4Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SongResourceApi~createSongUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SongDTO}
      */
-    createUsingPOST4(obj, callback) {
+    createSongUsingPOST(obj, callback) {
       let postBody = obj;
 
       // verify the required parameter 'obj' is set
       if (obj === undefined || obj === null) {
-        throw new Error("Missing the required parameter 'obj' when calling createUsingPOST4");
+        throw new Error("Missing the required parameter 'obj' when calling createSongUsingPOST");
       }
 
 
@@ -233,24 +344,24 @@ export class SongResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the deleteUsingDELETE4 operation.
-     * @callback module:api/SongResourceApi~deleteUsingDELETE4Callback
+     * Callback function to receive the result of the deleteSongUsingDELETE operation.
+     * @callback module:api/SongResourceApi~deleteSongUsingDELETECallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * delete
+     * deleteSong
      * @param {Number} id id
-     * @param {module:api/SongResourceApi~deleteUsingDELETE4Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SongResourceApi~deleteSongUsingDELETECallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteUsingDELETE4(id, callback) {
+    deleteSongUsingDELETE(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling deleteUsingDELETE4");
+        throw new Error("Missing the required parameter 'id' when calling deleteSongUsingDELETE");
       }
 
 
@@ -270,29 +381,29 @@ export class SongResourceApi {
       let returnType = null;
 
       return this.apiClient.callApi(
-        '/api/songs/id/{id}', 'DELETE',
+        '/api/songs/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getAllUsingGET4 operation.
-     * @callback module:api/SongResourceApi~getAllUsingGET4Callback
+     * Callback function to receive the result of the getAllSongsUsingGET operation.
+     * @callback module:api/SongResourceApi~getAllSongsUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getAll
+     * getAllSongs
      * @param {Object} opts Optional parameters
      * @param {Boolean} opts.includeAwaiting include_awaiting
      * @param {Number} opts.limit limit
-     * @param {module:api/SongResourceApi~getAllUsingGET4Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SongResourceApi~getAllSongsUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongDTO>}
      */
-    getAllUsingGET4(opts, callback) {
+    getAllSongsUsingGET(opts, callback) {
       opts = opts || {};
       let postBody = null;
 
@@ -321,36 +432,32 @@ export class SongResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the getByAuthorUsingGET operation.
-     * @callback module:api/SongResourceApi~getByAuthorUsingGETCallback
+     * Callback function to receive the result of the getSongAddedByUsingGET operation.
+     * @callback module:api/SongResourceApi~getSongAddedByUsingGETCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
+     * @param {module:model/SongAddDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getByAuthor
-     * @param {Number} authorId authorId
-     * @param {Object} opts Optional parameters
-     * @param {Number} opts.limit limit
-     * @param {module:api/SongResourceApi~getByAuthorUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/SongDTO>}
+     * getSongAddedBy
+     * @param {Number} id id
+     * @param {module:api/SongResourceApi~getSongAddedByUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/SongAddDTO}
      */
-    getByAuthorUsingGET(authorId, opts, callback) {
-      opts = opts || {};
+    getSongAddedByUsingGET(id, callback) {
       let postBody = null;
 
-      // verify the required parameter 'authorId' is set
-      if (authorId === undefined || authorId === null) {
-        throw new Error("Missing the required parameter 'authorId' when calling getByAuthorUsingGET");
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getSongAddedByUsingGET");
       }
 
 
       let pathParams = {
-        'authorId': authorId
+        'id': id
       };
       let queryParams = {
-        'limit': opts['limit']
       };
       let headerParams = {
       };
@@ -360,46 +467,42 @@ export class SongResourceApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['*/*'];
-      let returnType = [SongDTO];
+      let returnType = SongAddDTO;
 
       return this.apiClient.callApi(
-        '/api/songs/author/{authorId}', 'GET',
+        '/api/songs/{id}/added-by', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getByCategoryUsingGET1 operation.
-     * @callback module:api/SongResourceApi~getByCategoryUsingGET1Callback
+     * Callback function to receive the result of the getSongAuthorUsingGET operation.
+     * @callback module:api/SongResourceApi~getSongAuthorUsingGETCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
+     * @param {module:model/AuthorDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getByCategory
-     * @param {Number} categoryId categoryId
-     * @param {Object} opts Optional parameters
-     * @param {Number} opts.limit limit
-     * @param {module:api/SongResourceApi~getByCategoryUsingGET1Callback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/SongDTO>}
+     * getSongAuthor
+     * @param {Number} id id
+     * @param {module:api/SongResourceApi~getSongAuthorUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/AuthorDTO}
      */
-    getByCategoryUsingGET1(categoryId, opts, callback) {
-      opts = opts || {};
+    getSongAuthorUsingGET(id, callback) {
       let postBody = null;
 
-      // verify the required parameter 'categoryId' is set
-      if (categoryId === undefined || categoryId === null) {
-        throw new Error("Missing the required parameter 'categoryId' when calling getByCategoryUsingGET1");
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getSongAuthorUsingGET");
       }
 
 
       let pathParams = {
-        'categoryId': categoryId
+        'id': id
       };
       let queryParams = {
-        'limit': opts['limit']
       };
       let headerParams = {
       };
@@ -409,35 +512,35 @@ export class SongResourceApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['*/*'];
-      let returnType = [SongDTO];
+      let returnType = AuthorDTO;
 
       return this.apiClient.callApi(
-        '/api/songs/category/{categoryId}', 'GET',
+        '/api/songs/{id}/author', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getByIdUsingGET4 operation.
-     * @callback module:api/SongResourceApi~getByIdUsingGET4Callback
+     * Callback function to receive the result of the getSongByIdUsingGET operation.
+     * @callback module:api/SongResourceApi~getSongByIdUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {module:model/SongDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getById
+     * getSongById
      * @param {Number} id id
-     * @param {module:api/SongResourceApi~getByIdUsingGET4Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SongResourceApi~getSongByIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SongDTO}
      */
-    getByIdUsingGET4(id, callback) {
+    getSongByIdUsingGET(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getByIdUsingGET4");
+        throw new Error("Missing the required parameter 'id' when calling getSongByIdUsingGET");
       }
 
 
@@ -457,179 +560,35 @@ export class SongResourceApi {
       let returnType = SongDTO;
 
       return this.apiClient.callApi(
-        '/api/songs/id/{id}', 'GET',
+        '/api/songs/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getByLyricsFragmentUsingGET1 operation.
-     * @callback module:api/SongResourceApi~getByLyricsFragmentUsingGET1Callback
+     * Callback function to receive the result of the getSongByTitleFragmentUsingGET operation.
+     * @callback module:api/SongResourceApi~getSongByTitleFragmentUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getByLyricsFragment
-     * @param {String} value value
-     * @param {Object} opts Optional parameters
-     * @param {Number} opts.limit limit
-     * @param {module:api/SongResourceApi~getByLyricsFragmentUsingGET1Callback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/SongDTO>}
-     */
-    getByLyricsFragmentUsingGET1(value, opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-
-      // verify the required parameter 'value' is set
-      if (value === undefined || value === null) {
-        throw new Error("Missing the required parameter 'value' when calling getByLyricsFragmentUsingGET1");
-      }
-
-
-      let pathParams = {
-        'value': value
-      };
-      let queryParams = {
-        'limit': opts['limit']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['*/*'];
-      let returnType = [SongDTO];
-
-      return this.apiClient.callApi(
-        '/api/songs/lyrics_fragment/{value}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getByRatingUsingGET operation.
-     * @callback module:api/SongResourceApi~getByRatingUsingGETCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * getByRating
-     * @param {Object} opts Optional parameters
-     * @param {Number} opts.equal equal
-     * @param {Number} opts.greaterThanEqual greaterThanEqual
-     * @param {Number} opts.lessThanEqual lessThanEqual
-     * @param {module:api/SongResourceApi~getByRatingUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/SongDTO>}
-     */
-    getByRatingUsingGET(opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-
-
-      let pathParams = {
-      };
-      let queryParams = {
-        'equal': opts['equal'],
-        'greaterThanEqual': opts['greaterThanEqual'],
-        'lessThanEqual': opts['lessThanEqual']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['*/*'];
-      let returnType = [SongDTO];
-
-      return this.apiClient.callApi(
-        '/api/songs/rating', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getByTagUsingGET1 operation.
-     * @callback module:api/SongResourceApi~getByTagUsingGET1Callback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * getByTag
-     * @param {Number} tagId tagId
-     * @param {Object} opts Optional parameters
-     * @param {Number} opts.limit limit
-     * @param {module:api/SongResourceApi~getByTagUsingGET1Callback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/SongDTO>}
-     */
-    getByTagUsingGET1(tagId, opts, callback) {
-      opts = opts || {};
-      let postBody = null;
-
-      // verify the required parameter 'tagId' is set
-      if (tagId === undefined || tagId === null) {
-        throw new Error("Missing the required parameter 'tagId' when calling getByTagUsingGET1");
-      }
-
-
-      let pathParams = {
-        'tagId': tagId
-      };
-      let queryParams = {
-        'limit': opts['limit']
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['*/*'];
-      let returnType = [SongDTO];
-
-      return this.apiClient.callApi(
-        '/api/songs/tag/{tagId}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getByTitleFragmentUsingGET1 operation.
-     * @callback module:api/SongResourceApi~getByTitleFragmentUsingGET1Callback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * getByTitleFragment
+     * getSongByTitleFragment
      * @param {String} title title
      * @param {Object} opts Optional parameters
      * @param {Number} opts.limit limit
-     * @param {module:api/SongResourceApi~getByTitleFragmentUsingGET1Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SongResourceApi~getSongByTitleFragmentUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/SongDTO>}
      */
-    getByTitleFragmentUsingGET1(title, opts, callback) {
+    getSongByTitleFragmentUsingGET(title, opts, callback) {
       opts = opts || {};
       let postBody = null;
 
       // verify the required parameter 'title' is set
       if (title === undefined || title === null) {
-        throw new Error("Missing the required parameter 'title' when calling getByTitleFragmentUsingGET1");
+        throw new Error("Missing the required parameter 'title' when calling getSongByTitleFragmentUsingGET");
       }
 
 
@@ -657,32 +616,32 @@ export class SongResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the getLatestUsingGET1 operation.
-     * @callback module:api/SongResourceApi~getLatestUsingGET1Callback
+     * Callback function to receive the result of the getSongCategoryUsingGET operation.
+     * @callback module:api/SongResourceApi~getSongCategoryUsingGETCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
+     * @param {module:model/CategoryDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getLatest
-     * @param {Number} limit limit
-     * @param {module:api/SongResourceApi~getLatestUsingGET1Callback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/SongDTO>}
+     * getSongCategory
+     * @param {Number} id id
+     * @param {module:api/SongResourceApi~getSongCategoryUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link module:model/CategoryDTO}
      */
-    getLatestUsingGET1(limit, callback) {
+    getSongCategoryUsingGET(id, callback) {
       let postBody = null;
 
-      // verify the required parameter 'limit' is set
-      if (limit === undefined || limit === null) {
-        throw new Error("Missing the required parameter 'limit' when calling getLatestUsingGET1");
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getSongCategoryUsingGET");
       }
 
 
       let pathParams = {
+        'id': id
       };
       let queryParams = {
-        'limit': limit
       };
       let headerParams = {
       };
@@ -692,10 +651,100 @@ export class SongResourceApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['*/*'];
-      let returnType = [SongDTO];
+      let returnType = CategoryDTO;
 
       return this.apiClient.callApi(
-        '/api/songs/latest', 'GET',
+        '/api/songs/{id}/category', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getSongCoauthorsUsingGET operation.
+     * @callback module:api/SongResourceApi~getSongCoauthorsUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/SongCoauthorDTO>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * getSongCoauthors
+     * @param {Number} id id
+     * @param {module:api/SongResourceApi~getSongCoauthorsUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/SongCoauthorDTO>}
+     */
+    getSongCoauthorsUsingGET(id, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getSongCoauthorsUsingGET");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongCoauthorDTO];
+
+      return this.apiClient.callApi(
+        '/api/songs/{id}/coauthors', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getSongEditsUsingGET operation.
+     * @callback module:api/SongResourceApi~getSongEditsUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/SongEditDTO>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * getSongEdits
+     * @param {Number} id id
+     * @param {module:api/SongResourceApi~getSongEditsUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/SongEditDTO>}
+     */
+    getSongEditsUsingGET(id, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getSongEditsUsingGET");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [SongEditDTO];
+
+      return this.apiClient.callApi(
+        '/api/songs/{id}/edits', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -740,7 +789,7 @@ export class SongResourceApi {
       let returnType = [PlaylistDTO];
 
       return this.apiClient.callApi(
-        '/api/songs/id/{id}/playlists', 'GET',
+        '/api/songs/{id}/playlists', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -785,7 +834,52 @@ export class SongResourceApi {
       let returnType = [UserSongRatingDTO];
 
       return this.apiClient.callApi(
-        '/api/songs/id/{id}/ratings', 'GET',
+        '/api/songs/{id}/ratings', 'GET',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the getSongTagsUsingGET operation.
+     * @callback module:api/SongResourceApi~getSongTagsUsingGETCallback
+     * @param {String} error Error message, if any.
+     * @param {Array.<module:model/TagDTO>} data The data returned by the service call.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * getSongTags
+     * @param {Number} id id
+     * @param {module:api/SongResourceApi~getSongTagsUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/TagDTO>}
+     */
+    getSongTagsUsingGET(id, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling getSongTagsUsingGET");
+      }
+
+
+      let pathParams = {
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = [];
+      let accepts = ['*/*'];
+      let returnType = [TagDTO];
+
+      return this.apiClient.callApi(
+        '/api/songs/{id}/tags', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
@@ -830,32 +924,32 @@ export class SongResourceApi {
       let returnType = [UserDTO];
 
       return this.apiClient.callApi(
-        '/api/songs/id/{id}/users', 'GET',
+        '/api/songs/{id}/users', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getSongsAddedByUserUsingGET operation.
-     * @callback module:api/SongResourceApi~getSongsAddedByUserUsingGETCallback
+     * Callback function to receive the result of the getSongVersesUsingGET operation.
+     * @callback module:api/SongResourceApi~getSongVersesUsingGETCallback
      * @param {String} error Error message, if any.
-     * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
+     * @param {Array.<module:model/VerseDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getSongsAddedByUser
+     * getSongVerses
      * @param {Number} id id
-     * @param {module:api/SongResourceApi~getSongsAddedByUserUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/SongDTO>}
+     * @param {module:api/SongResourceApi~getSongVersesUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * data is of type: {@link Array.<module:model/VerseDTO>}
      */
-    getSongsAddedByUserUsingGET(id, callback) {
+    getSongVersesUsingGET(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getSongsAddedByUserUsingGET");
+        throw new Error("Missing the required parameter 'id' when calling getSongVersesUsingGET");
       }
 
 
@@ -872,125 +966,35 @@ export class SongResourceApi {
       let authNames = [];
       let contentTypes = [];
       let accepts = ['*/*'];
-      let returnType = [SongDTO];
+      let returnType = [VerseDTO];
 
       return this.apiClient.callApi(
-        '/api/songs/user/{id}/added', 'GET',
+        '/api/songs/{id}/verses', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getSongsEditedByUserUsingGET operation.
-     * @callback module:api/SongResourceApi~getSongsEditedByUserUsingGETCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * getSongsEditedByUser
-     * @param {Number} id id
-     * @param {module:api/SongResourceApi~getSongsEditedByUserUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/SongDTO>}
-     */
-    getSongsEditedByUserUsingGET(id, callback) {
-      let postBody = null;
-
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getSongsEditedByUserUsingGET");
-      }
-
-
-      let pathParams = {
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['*/*'];
-      let returnType = [SongDTO];
-
-      return this.apiClient.callApi(
-        '/api/songs/user/{id}/edited', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the getUserSongsUsingGET operation.
-     * @callback module:api/SongResourceApi~getUserSongsUsingGETCallback
-     * @param {String} error Error message, if any.
-     * @param {Array.<module:model/SongDTO>} data The data returned by the service call.
-     * @param {String} response The complete HTTP response.
-     */
-
-    /**
-     * getUserSongs
-     * @param {Number} id id
-     * @param {module:api/SongResourceApi~getUserSongsUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link Array.<module:model/SongDTO>}
-     */
-    getUserSongsUsingGET(id, callback) {
-      let postBody = null;
-
-      // verify the required parameter 'id' is set
-      if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getUserSongsUsingGET");
-      }
-
-
-      let pathParams = {
-        'id': id
-      };
-      let queryParams = {
-      };
-      let headerParams = {
-      };
-      let formParams = {
-      };
-
-      let authNames = [];
-      let contentTypes = [];
-      let accepts = ['*/*'];
-      let returnType = [SongDTO];
-
-      return this.apiClient.callApi(
-        '/api/songs/user/{id}', 'GET',
-        pathParams, queryParams, headerParams, formParams, postBody,
-        authNames, contentTypes, accepts, returnType, callback
-      );
-    }
-
-    /**
-     * Callback function to receive the result of the loadFromFileUsingPOST operation.
-     * @callback module:api/SongResourceApi~loadFromFileUsingPOSTCallback
+     * Callback function to receive the result of the loadSongFromFileUsingPOST operation.
+     * @callback module:api/SongResourceApi~loadSongFromFileUsingPOSTCallback
      * @param {String} error Error message, if any.
      * @param {module:model/SongDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * loadFromFile
+     * loadSongFromFile
      * @param {File} file file
-     * @param {module:api/SongResourceApi~loadFromFileUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SongResourceApi~loadSongFromFileUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SongDTO}
      */
-    loadFromFileUsingPOST(file, callback) {
+    loadSongFromFileUsingPOST(file, callback) {
       let postBody = null;
 
       // verify the required parameter 'file' is set
       if (file === undefined || file === null) {
-        throw new Error("Missing the required parameter 'file' when calling loadFromFileUsingPOST");
+        throw new Error("Missing the required parameter 'file' when calling loadSongFromFileUsingPOST");
       }
 
 
@@ -1017,10 +1021,61 @@ export class SongResourceApi {
     }
 
     /**
+     * Callback function to receive the result of the removeCoauthorFromSongUsingPATCH operation.
+     * @callback module:api/SongResourceApi~removeCoauthorFromSongUsingPATCHCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * removeCoauthorFromSong
+     * @param {Number} coauthorId coauthorId
+     * @param {Number} id id
+     * @param {module:api/SongResourceApi~removeCoauthorFromSongUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    removeCoauthorFromSongUsingPATCH(coauthorId, id, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'coauthorId' is set
+      if (coauthorId === undefined || coauthorId === null) {
+        throw new Error("Missing the required parameter 'coauthorId' when calling removeCoauthorFromSongUsingPATCH");
+      }
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling removeCoauthorFromSongUsingPATCH");
+      }
+
+
+      let pathParams = {
+        'coauthorId': coauthorId,
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/api/songs/{id}/remove-coauthor/{coauthorId}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
      * Callback function to receive the result of the removeTagFromSongUsingPATCH operation.
      * @callback module:api/SongResourceApi~removeTagFromSongUsingPATCHCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/SongDTO} data The data returned by the service call.
+     * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1029,7 +1084,6 @@ export class SongResourceApi {
      * @param {Number} id id
      * @param {Number} tagId tagId
      * @param {module:api/SongResourceApi~removeTagFromSongUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SongDTO}
      */
     removeTagFromSongUsingPATCH(id, tagId, callback) {
       let postBody = null;
@@ -1059,7 +1113,7 @@ export class SongResourceApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['*/*'];
-      let returnType = SongDTO;
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/songs/{id}/remove-tag/{tagId}', 'PATCH',
@@ -1072,7 +1126,7 @@ export class SongResourceApi {
      * Callback function to receive the result of the removeTagsFromSongBulkUsingPATCH operation.
      * @callback module:api/SongResourceApi~removeTagsFromSongBulkUsingPATCHCallback
      * @param {String} error Error message, if any.
-     * @param {module:model/SongDTO} data The data returned by the service call.
+     * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
@@ -1081,7 +1135,6 @@ export class SongResourceApi {
      * @param {Number} id id
      * @param {String} tagIds tagIds
      * @param {module:api/SongResourceApi~removeTagsFromSongBulkUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
-     * data is of type: {@link module:model/SongDTO}
      */
     removeTagsFromSongBulkUsingPATCH(id, tagIds, callback) {
       let postBody = null;
@@ -1111,7 +1164,7 @@ export class SongResourceApi {
       let authNames = [];
       let contentTypes = ['application/json'];
       let accepts = ['*/*'];
-      let returnType = SongDTO;
+      let returnType = null;
 
       return this.apiClient.callApi(
         '/api/songs/{id}/remove-tag-bulk/{tagIds}', 'PATCH',
@@ -1121,25 +1174,178 @@ export class SongResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the updateUsingPUT4 operation.
-     * @callback module:api/SongResourceApi~updateUsingPUT4Callback
+     * Callback function to receive the result of the removeVerseFromSongUsingPATCH operation.
+     * @callback module:api/SongResourceApi~removeVerseFromSongUsingPATCHCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * removeVerseFromSong
+     * @param {Number} id id
+     * @param {Number} verseId verseId
+     * @param {module:api/SongResourceApi~removeVerseFromSongUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    removeVerseFromSongUsingPATCH(id, verseId, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling removeVerseFromSongUsingPATCH");
+      }
+
+      // verify the required parameter 'verseId' is set
+      if (verseId === undefined || verseId === null) {
+        throw new Error("Missing the required parameter 'verseId' when calling removeVerseFromSongUsingPATCH");
+      }
+
+
+      let pathParams = {
+        'id': id,
+        'verseId': verseId
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/api/songs/{id}/remove-verse/{verseId}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the setAuthorUsingPATCH operation.
+     * @callback module:api/SongResourceApi~setAuthorUsingPATCHCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * setAuthor
+     * @param {Number} authorId authorId
+     * @param {Number} id id
+     * @param {module:api/SongResourceApi~setAuthorUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    setAuthorUsingPATCH(authorId, id, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'authorId' is set
+      if (authorId === undefined || authorId === null) {
+        throw new Error("Missing the required parameter 'authorId' when calling setAuthorUsingPATCH");
+      }
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling setAuthorUsingPATCH");
+      }
+
+
+      let pathParams = {
+        'authorId': authorId,
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/api/songs/{id}/set-author/{authorId}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the setCategoryUsingPATCH operation.
+     * @callback module:api/SongResourceApi~setCategoryUsingPATCHCallback
+     * @param {String} error Error message, if any.
+     * @param data This operation does not return a value.
+     * @param {String} response The complete HTTP response.
+     */
+
+    /**
+     * setCategory
+     * @param {Number} categoryId categoryId
+     * @param {Number} id id
+     * @param {module:api/SongResourceApi~setCategoryUsingPATCHCallback} callback The callback function, accepting three arguments: error, data, response
+     */
+    setCategoryUsingPATCH(categoryId, id, callback) {
+      let postBody = null;
+
+      // verify the required parameter 'categoryId' is set
+      if (categoryId === undefined || categoryId === null) {
+        throw new Error("Missing the required parameter 'categoryId' when calling setCategoryUsingPATCH");
+      }
+
+      // verify the required parameter 'id' is set
+      if (id === undefined || id === null) {
+        throw new Error("Missing the required parameter 'id' when calling setCategoryUsingPATCH");
+      }
+
+
+      let pathParams = {
+        'categoryId': categoryId,
+        'id': id
+      };
+      let queryParams = {
+      };
+      let headerParams = {
+      };
+      let formParams = {
+      };
+
+      let authNames = [];
+      let contentTypes = ['application/json'];
+      let accepts = ['*/*'];
+      let returnType = null;
+
+      return this.apiClient.callApi(
+        '/api/songs/{id}/set-category/{categoryId}', 'PATCH',
+        pathParams, queryParams, headerParams, formParams, postBody,
+        authNames, contentTypes, accepts, returnType, callback
+      );
+    }
+
+    /**
+     * Callback function to receive the result of the updateSongUsingPUT operation.
+     * @callback module:api/SongResourceApi~updateSongUsingPUTCallback
      * @param {String} error Error message, if any.
      * @param {module:model/SongDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * update
+     * updateSong
      * @param {module:model/SongDTO} obj obj
-     * @param {module:api/SongResourceApi~updateUsingPUT4Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/SongResourceApi~updateSongUsingPUTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/SongDTO}
      */
-    updateUsingPUT4(obj, callback) {
+    updateSongUsingPUT(obj, callback) {
       let postBody = obj;
 
       // verify the required parameter 'obj' is set
       if (obj === undefined || obj === null) {
-        throw new Error("Missing the required parameter 'obj' when calling updateUsingPUT4");
+        throw new Error("Missing the required parameter 'obj' when calling updateSongUsingPUT");
       }
 
 

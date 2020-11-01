@@ -39,25 +39,25 @@ export class CategoryResourceApi {
 
 
     /**
-     * Callback function to receive the result of the createUsingPOST1 operation.
-     * @callback module:api/CategoryResourceApi~createUsingPOST1Callback
+     * Callback function to receive the result of the createCategoryUsingPOST operation.
+     * @callback module:api/CategoryResourceApi~createCategoryUsingPOSTCallback
      * @param {String} error Error message, if any.
      * @param {module:model/CategoryDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * create
+     * createCategory
      * @param {module:model/UniversalCreateDTO} categoryDto categoryDto
-     * @param {module:api/CategoryResourceApi~createUsingPOST1Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/CategoryResourceApi~createCategoryUsingPOSTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CategoryDTO}
      */
-    createUsingPOST1(categoryDto, callback) {
+    createCategoryUsingPOST(categoryDto, callback) {
       let postBody = categoryDto;
 
       // verify the required parameter 'categoryDto' is set
       if (categoryDto === undefined || categoryDto === null) {
-        throw new Error("Missing the required parameter 'categoryDto' when calling createUsingPOST1");
+        throw new Error("Missing the required parameter 'categoryDto' when calling createCategoryUsingPOST");
       }
 
 
@@ -83,24 +83,24 @@ export class CategoryResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the deleteUsingDELETE1 operation.
-     * @callback module:api/CategoryResourceApi~deleteUsingDELETE1Callback
+     * Callback function to receive the result of the deleteCategoryUsingDELETE operation.
+     * @callback module:api/CategoryResourceApi~deleteCategoryUsingDELETECallback
      * @param {String} error Error message, if any.
      * @param data This operation does not return a value.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * delete
+     * deleteCategory
      * @param {Number} id id
-     * @param {module:api/CategoryResourceApi~deleteUsingDELETE1Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/CategoryResourceApi~deleteCategoryUsingDELETECallback} callback The callback function, accepting three arguments: error, data, response
      */
-    deleteUsingDELETE1(id, callback) {
+    deleteCategoryUsingDELETE(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling deleteUsingDELETE1");
+        throw new Error("Missing the required parameter 'id' when calling deleteCategoryUsingDELETE");
       }
 
 
@@ -120,26 +120,26 @@ export class CategoryResourceApi {
       let returnType = null;
 
       return this.apiClient.callApi(
-        '/api/categories/id/{id}', 'DELETE',
+        '/api/categories/{id}', 'DELETE',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getAllUsingGET2 operation.
-     * @callback module:api/CategoryResourceApi~getAllUsingGET2Callback
+     * Callback function to receive the result of the getAllCategoriesUsingGET operation.
+     * @callback module:api/CategoryResourceApi~getAllCategoriesUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/CategoryDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getAll
-     * @param {module:api/CategoryResourceApi~getAllUsingGET2Callback} callback The callback function, accepting three arguments: error, data, response
+     * getAllCategories
+     * @param {module:api/CategoryResourceApi~getAllCategoriesUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/CategoryDTO>}
      */
-    getAllUsingGET2(callback) {
+    getAllCategoriesUsingGET(callback) {
       let postBody = null;
 
 
@@ -165,25 +165,25 @@ export class CategoryResourceApi {
     }
 
     /**
-     * Callback function to receive the result of the getByIdUsingGET2 operation.
-     * @callback module:api/CategoryResourceApi~getByIdUsingGET2Callback
+     * Callback function to receive the result of the getCategoryByIdUsingGET operation.
+     * @callback module:api/CategoryResourceApi~getCategoryByIdUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {module:model/CategoryDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getById
+     * getCategoryById
      * @param {Number} id id
-     * @param {module:api/CategoryResourceApi~getByIdUsingGET2Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/CategoryResourceApi~getCategoryByIdUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CategoryDTO}
      */
-    getByIdUsingGET2(id, callback) {
+    getCategoryByIdUsingGET(id, callback) {
       let postBody = null;
 
       // verify the required parameter 'id' is set
       if (id === undefined || id === null) {
-        throw new Error("Missing the required parameter 'id' when calling getByIdUsingGET2");
+        throw new Error("Missing the required parameter 'id' when calling getCategoryByIdUsingGET");
       }
 
 
@@ -203,32 +203,32 @@ export class CategoryResourceApi {
       let returnType = CategoryDTO;
 
       return this.apiClient.callApi(
-        '/api/categories/id/{id}', 'GET',
+        '/api/categories/{id}', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the getByNameUsingGET operation.
-     * @callback module:api/CategoryResourceApi~getByNameUsingGETCallback
+     * Callback function to receive the result of the getCategoryByNameUsingGET operation.
+     * @callback module:api/CategoryResourceApi~getCategoryByNameUsingGETCallback
      * @param {String} error Error message, if any.
      * @param {Array.<module:model/CategoryDTO>} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * getByName
+     * getCategoryByName
      * @param {String} name name
-     * @param {module:api/CategoryResourceApi~getByNameUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/CategoryResourceApi~getCategoryByNameUsingGETCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link Array.<module:model/CategoryDTO>}
      */
-    getByNameUsingGET(name, callback) {
+    getCategoryByNameUsingGET(name, callback) {
       let postBody = null;
 
       // verify the required parameter 'name' is set
       if (name === undefined || name === null) {
-        throw new Error("Missing the required parameter 'name' when calling getByNameUsingGET");
+        throw new Error("Missing the required parameter 'name' when calling getCategoryByNameUsingGET");
       }
 
 
@@ -293,32 +293,32 @@ export class CategoryResourceApi {
       let returnType = [SongDTO];
 
       return this.apiClient.callApi(
-        '/api/categories/id/{id}/songs', 'GET',
+        '/api/categories/{id}/songs', 'GET',
         pathParams, queryParams, headerParams, formParams, postBody,
         authNames, contentTypes, accepts, returnType, callback
       );
     }
 
     /**
-     * Callback function to receive the result of the updateUsingPUT1 operation.
-     * @callback module:api/CategoryResourceApi~updateUsingPUT1Callback
+     * Callback function to receive the result of the updateCategoryUsingPUT operation.
+     * @callback module:api/CategoryResourceApi~updateCategoryUsingPUTCallback
      * @param {String} error Error message, if any.
      * @param {module:model/CategoryDTO} data The data returned by the service call.
      * @param {String} response The complete HTTP response.
      */
 
     /**
-     * update
+     * updateCategory
      * @param {module:model/CategoryDTO} categoryDto categoryDto
-     * @param {module:api/CategoryResourceApi~updateUsingPUT1Callback} callback The callback function, accepting three arguments: error, data, response
+     * @param {module:api/CategoryResourceApi~updateCategoryUsingPUTCallback} callback The callback function, accepting three arguments: error, data, response
      * data is of type: {@link module:model/CategoryDTO}
      */
-    updateUsingPUT1(categoryDto, callback) {
+    updateCategoryUsingPUT(categoryDto, callback) {
       let postBody = categoryDto;
 
       // verify the required parameter 'categoryDto' is set
       if (categoryDto === undefined || categoryDto === null) {
-        throw new Error("Missing the required parameter 'categoryDto' when calling updateUsingPUT1");
+        throw new Error("Missing the required parameter 'categoryDto' when calling updateCategoryUsingPUT");
       }
 
 

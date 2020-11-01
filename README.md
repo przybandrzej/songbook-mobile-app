@@ -17,8 +17,9 @@ The project comes with one environment cofig file `./config/env/dev.json`. Insid
 Switching between environments is achieved by running `npm run env:dev` (or env:prod/test etc). This command runs `node config/set-environment.js dev` under the hood which switches between config files and generates `env.json` file in the root directory of the project. The `env.json` file contains the env variables currently used by the application.
 
 ### Running the application  
-First run dev server by `npm run start`.  
 To run the app run `npm run android:dev` (or ios:dev). This will switch the env to dev mode and run the android version of the application just like running `react-native run-android` command.
+
+**Running local dev API** - set `API_URL` in `dev.json` file to local IPv4 of the API.
 
 ### Building the application  
 `npm run build:android:dev` (or ios) will switch env mode to dev and run `react-native bundle --platform android ...` under the hood. 

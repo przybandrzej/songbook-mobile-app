@@ -5,6 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **authorId** | **Number** |  | 
 **coauthorFunction** | **String** |  | 
+**id** | **Number** |  | 
 **songId** | **Number** |  | 
 
 

@@ -30,14 +30,12 @@ export class PlaylistDTO {
    * @param isPrivate {Boolean} 
    * @param name {String} 
    * @param ownerId {Number} 
-   * @param songs {Array.<Number>} 
    */
-  constructor(id, isPrivate, name, ownerId, songs) {
+  constructor(id, isPrivate, name, ownerId) {
     this.id = id;
     this.isPrivate = isPrivate;
     this.name = name;
     this.ownerId = ownerId;
-    this.songs = songs;
   }
 
   /**
@@ -60,8 +58,6 @@ export class PlaylistDTO {
         obj.name = ApiClient.convertToType(data['name'], 'String');
       if (data.hasOwnProperty('ownerId'))
         obj.ownerId = ApiClient.convertToType(data['ownerId'], 'Number');
-      if (data.hasOwnProperty('songs'))
-        obj.songs = ApiClient.convertToType(data['songs'], ['Number']);
     }
     return obj;
   }
@@ -91,10 +87,5 @@ PlaylistDTO.prototype.name = undefined;
  * @member {Number} ownerId
  */
 PlaylistDTO.prototype.ownerId = undefined;
-
-/**
- * @member {Array.<Number>} songs
- */
-PlaylistDTO.prototype.songs = undefined;
 
 

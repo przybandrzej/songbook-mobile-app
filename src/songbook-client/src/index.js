@@ -18,12 +18,18 @@ import {ApiClient} from './ApiClient';
 import {AuthorDTO} from './model/AuthorDTO';
 import {CategoryDTO} from './model/CategoryDTO';
 import {CreateCoauthorDTO} from './model/CreateCoauthorDTO';
+import {CreateGuitarCordDTO} from './model/CreateGuitarCordDTO';
+import {CreateLineDTO} from './model/CreateLineDTO';
 import {CreatePlaylistDTO} from './model/CreatePlaylistDTO';
 import {CreateSongDTO} from './model/CreateSongDTO';
+import {CreateVerseDTO} from './model/CreateVerseDTO';
 import {EmailChangeDTO} from './model/EmailChangeDTO';
 import {File} from './model/File';
+import {GuitarCordDTO} from './model/GuitarCordDTO';
 import {InputStream} from './model/InputStream';
+import {LineDTO} from './model/LineDTO';
 import {LoginForm} from './model/LoginForm';
+import {NameChangeDTO} from './model/NameChangeDTO';
 import {PasswordChangeDTO} from './model/PasswordChangeDTO';
 import {PlaylistDTO} from './model/PlaylistDTO';
 import {RegisterNewUserForm} from './model/RegisterNewUserForm';
@@ -37,15 +43,19 @@ import {TokenAndPasswordDTO} from './model/TokenAndPasswordDTO';
 import {TokenDTO} from './model/TokenDTO';
 import {URI} from './model/URI';
 import {URL} from './model/URL';
+import {URLStreamHandler} from './model/URLStreamHandler';
 import {UniversalCreateDTO} from './model/UniversalCreateDTO';
 import {UserDTO} from './model/UserDTO';
 import {UserRoleDTO} from './model/UserRoleDTO';
 import {UserSongRatingDTO} from './model/UserSongRatingDTO';
+import {VerseDTO} from './model/VerseDTO';
 import {AdminResourceApi} from './api/AdminResourceApi';
 import {AuthenticationResourceApi} from './api/AuthenticationResourceApi';
 import {AuthorResourceApi} from './api/AuthorResourceApi';
 import {AwaitingSongResourceApi} from './api/AwaitingSongResourceApi';
 import {CategoryResourceApi} from './api/CategoryResourceApi';
+import {GuitarCordResourceApi} from './api/GuitarCordResourceApi';
+import {LineResourceApi} from './api/LineResourceApi';
 import {PlaylistResourceApi} from './api/PlaylistResourceApi';
 import {SongCoauthorResourceApi} from './api/SongCoauthorResourceApi';
 import {SongResourceApi} from './api/SongResourceApi';
@@ -53,6 +63,7 @@ import {TagResourceApi} from './api/TagResourceApi';
 import {UserResourceApi} from './api/UserResourceApi';
 import {UserRoleResourceApi} from './api/UserRoleResourceApi';
 import {UserSongRatingResourceApi} from './api/UserSongRatingResourceApi';
+import {VerseResourceApi} from './api/VerseResourceApi';
 
 
 /**
@@ -112,6 +123,18 @@ export {
     CreateCoauthorDTO,
 
     /**
+     * The CreateGuitarCordDTO model constructor.
+     * @property {module:model/CreateGuitarCordDTO}
+     */
+    CreateGuitarCordDTO,
+
+    /**
+     * The CreateLineDTO model constructor.
+     * @property {module:model/CreateLineDTO}
+     */
+    CreateLineDTO,
+
+    /**
      * The CreatePlaylistDTO model constructor.
      * @property {module:model/CreatePlaylistDTO}
      */
@@ -122,6 +145,12 @@ export {
      * @property {module:model/CreateSongDTO}
      */
     CreateSongDTO,
+
+    /**
+     * The CreateVerseDTO model constructor.
+     * @property {module:model/CreateVerseDTO}
+     */
+    CreateVerseDTO,
 
     /**
      * The EmailChangeDTO model constructor.
@@ -136,16 +165,34 @@ export {
     File,
 
     /**
+     * The GuitarCordDTO model constructor.
+     * @property {module:model/GuitarCordDTO}
+     */
+    GuitarCordDTO,
+
+    /**
      * The InputStream model constructor.
      * @property {module:model/InputStream}
      */
     InputStream,
 
     /**
+     * The LineDTO model constructor.
+     * @property {module:model/LineDTO}
+     */
+    LineDTO,
+
+    /**
      * The LoginForm model constructor.
      * @property {module:model/LoginForm}
      */
     LoginForm,
+
+    /**
+     * The NameChangeDTO model constructor.
+     * @property {module:model/NameChangeDTO}
+     */
+    NameChangeDTO,
 
     /**
      * The PasswordChangeDTO model constructor.
@@ -226,6 +273,12 @@ export {
     URL,
 
     /**
+     * The URLStreamHandler model constructor.
+     * @property {module:model/URLStreamHandler}
+     */
+    URLStreamHandler,
+
+    /**
      * The UniversalCreateDTO model constructor.
      * @property {module:model/UniversalCreateDTO}
      */
@@ -248,6 +301,12 @@ export {
      * @property {module:model/UserSongRatingDTO}
      */
     UserSongRatingDTO,
+
+    /**
+     * The VerseDTO model constructor.
+     * @property {module:model/VerseDTO}
+     */
+    VerseDTO,
 
     /**
     * The AdminResourceApi service constructor.
@@ -278,6 +337,18 @@ export {
     * @property {module:api/CategoryResourceApi}
     */
     CategoryResourceApi,
+
+    /**
+    * The GuitarCordResourceApi service constructor.
+    * @property {module:api/GuitarCordResourceApi}
+    */
+    GuitarCordResourceApi,
+
+    /**
+    * The LineResourceApi service constructor.
+    * @property {module:api/LineResourceApi}
+    */
+    LineResourceApi,
 
     /**
     * The PlaylistResourceApi service constructor.
@@ -319,5 +390,11 @@ export {
     * The UserSongRatingResourceApi service constructor.
     * @property {module:api/UserSongRatingResourceApi}
     */
-    UserSongRatingResourceApi
+    UserSongRatingResourceApi,
+
+    /**
+    * The VerseResourceApi service constructor.
+    * @property {module:api/VerseResourceApi}
+    */
+    VerseResourceApi
 };

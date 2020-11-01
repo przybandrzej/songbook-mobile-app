@@ -1,22 +1,24 @@
 # SongbookApi.SongCoauthorResourceApi
 
-All URIs are relative to *https://stk-uep.pl*
+All URIs are relative to *https://localhost:8080*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**createUsingPOST3**](SongCoauthorResourceApi.md#createUsingPOST3) | **POST** /api/coauthors | create
-[**deleteUsingDELETE3**](SongCoauthorResourceApi.md#deleteUsingDELETE3) | **DELETE** /api/coauthors/{songId}/{authorId}/{function} | delete
-[**getByAuthorIdUsingGET**](SongCoauthorResourceApi.md#getByAuthorIdUsingGET) | **GET** /api/coauthors/author/{id} | getByAuthorId
-[**getByFunctionUsingGET**](SongCoauthorResourceApi.md#getByFunctionUsingGET) | **GET** /api/coauthors/function/{function} | getByFunction
-[**getBySongIdUsingGET**](SongCoauthorResourceApi.md#getBySongIdUsingGET) | **GET** /api/coauthors/song/{id} | getBySongId
-[**updateUsingPUT3**](SongCoauthorResourceApi.md#updateUsingPUT3) | **PUT** /api/coauthors | update
+[**createCoauthorUsingPOST**](SongCoauthorResourceApi.md#createCoauthorUsingPOST) | **POST** /api/coauthors | createCoauthor
+[**deleteCoauthorUsingDELETE**](SongCoauthorResourceApi.md#deleteCoauthorUsingDELETE) | **DELETE** /api/coauthors/{id} | deleteCoauthor
+[**getAllCoauthorsUsingGET**](SongCoauthorResourceApi.md#getAllCoauthorsUsingGET) | **GET** /api/coauthors | getAllCoauthors
+[**getCoauthorByIdUsingGET**](SongCoauthorResourceApi.md#getCoauthorByIdUsingGET) | **GET** /api/coauthors/{id} | getCoauthorById
+[**getCoauthorsByAuthorIdUsingGET**](SongCoauthorResourceApi.md#getCoauthorsByAuthorIdUsingGET) | **GET** /api/coauthors/author/{id} | getCoauthorsByAuthorId
+[**getCoauthorsByFunctionUsingGET**](SongCoauthorResourceApi.md#getCoauthorsByFunctionUsingGET) | **GET** /api/coauthors/function/{function} | getCoauthorsByFunction
+[**getCoauthorsBySongIdUsingGET**](SongCoauthorResourceApi.md#getCoauthorsBySongIdUsingGET) | **GET** /api/coauthors/song/{id} | getCoauthorsBySongId
+[**updateCoauthorUsingPUT**](SongCoauthorResourceApi.md#updateCoauthorUsingPUT) | **PUT** /api/coauthors | updateCoauthor
 
 
-<a name="createUsingPOST3"></a>
-# **createUsingPOST3**
-> SongCoauthorDTO createUsingPOST3(songCoauthorDTO)
+<a name="createCoauthorUsingPOST"></a>
+# **createCoauthorUsingPOST**
+> SongCoauthorDTO createCoauthorUsingPOST(songCoauthorDTO)
 
-create
+createCoauthor
 
 ### Example
 ```javascript
@@ -27,7 +29,7 @@ let apiInstance = new SongbookApi.SongCoauthorResourceApi();
 let songCoauthorDTO = new SongbookApi.SongCoauthorDTO(); // SongCoauthorDTO | songCoauthorDTO
 
 
-apiInstance.createUsingPOST3(songCoauthorDTO, (error, data, response) => {
+apiInstance.createCoauthorUsingPOST(songCoauthorDTO, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -55,11 +57,11 @@ No authorization required
  - **Content-Type**: application/json
  - **Accept**: */*
 
-<a name="deleteUsingDELETE3"></a>
-# **deleteUsingDELETE3**
-> deleteUsingDELETE3(authorId, _function, songId)
+<a name="deleteCoauthorUsingDELETE"></a>
+# **deleteCoauthorUsingDELETE**
+> deleteCoauthorUsingDELETE(id)
 
-delete
+deleteCoauthor
 
 ### Example
 ```javascript
@@ -67,14 +69,10 @@ import {SongbookApi} from 'songbook_api';
 
 let apiInstance = new SongbookApi.SongCoauthorResourceApi();
 
-let authorId = 789; // Number | authorId
-
-let _function = "_function_example"; // String | function
-
-let songId = 789; // Number | songId
+let id = 789; // Number | id
 
 
-apiInstance.deleteUsingDELETE3(authorId, _function, songId, (error, data, response) => {
+apiInstance.deleteCoauthorUsingDELETE(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -87,9 +85,7 @@ apiInstance.deleteUsingDELETE3(authorId, _function, songId, (error, data, respon
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **authorId** | **Number**| authorId | 
- **_function** | **String**| function | 
- **songId** | **Number**| songId | 
+ **id** | **Number**| id | 
 
 ### Return type
 
@@ -104,11 +100,48 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getByAuthorIdUsingGET"></a>
-# **getByAuthorIdUsingGET**
-> [SongCoauthorDTO] getByAuthorIdUsingGET(id)
+<a name="getAllCoauthorsUsingGET"></a>
+# **getAllCoauthorsUsingGET**
+> [SongCoauthorDTO] getAllCoauthorsUsingGET()
 
-getByAuthorId
+getAllCoauthors
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.SongCoauthorResourceApi();
+
+apiInstance.getAllCoauthorsUsingGET((error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+This endpoint does not need any parameter.
+
+### Return type
+
+[**[SongCoauthorDTO]**](SongCoauthorDTO.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getCoauthorByIdUsingGET"></a>
+# **getCoauthorByIdUsingGET**
+> SongCoauthorDTO getCoauthorByIdUsingGET(id)
+
+getCoauthorById
 
 ### Example
 ```javascript
@@ -119,7 +152,50 @@ let apiInstance = new SongbookApi.SongCoauthorResourceApi();
 let id = 789; // Number | id
 
 
-apiInstance.getByAuthorIdUsingGET(id, (error, data, response) => {
+apiInstance.getCoauthorByIdUsingGET(id, (error, data, response) => {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+});
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **id** | **Number**| id | 
+
+### Return type
+
+[**SongCoauthorDTO**](SongCoauthorDTO.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: */*
+
+<a name="getCoauthorsByAuthorIdUsingGET"></a>
+# **getCoauthorsByAuthorIdUsingGET**
+> [SongCoauthorDTO] getCoauthorsByAuthorIdUsingGET(id)
+
+getCoauthorsByAuthorId
+
+### Example
+```javascript
+import {SongbookApi} from 'songbook_api';
+
+let apiInstance = new SongbookApi.SongCoauthorResourceApi();
+
+let id = 789; // Number | id
+
+
+apiInstance.getCoauthorsByAuthorIdUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -147,11 +223,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getByFunctionUsingGET"></a>
-# **getByFunctionUsingGET**
-> [SongCoauthorDTO] getByFunctionUsingGET(_function)
+<a name="getCoauthorsByFunctionUsingGET"></a>
+# **getCoauthorsByFunctionUsingGET**
+> [SongCoauthorDTO] getCoauthorsByFunctionUsingGET(_function)
 
-getByFunction
+getCoauthorsByFunction
 
 ### Example
 ```javascript
@@ -162,7 +238,7 @@ let apiInstance = new SongbookApi.SongCoauthorResourceApi();
 let _function = "_function_example"; // String | function
 
 
-apiInstance.getByFunctionUsingGET(_function, (error, data, response) => {
+apiInstance.getCoauthorsByFunctionUsingGET(_function, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -190,11 +266,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="getBySongIdUsingGET"></a>
-# **getBySongIdUsingGET**
-> [SongCoauthorDTO] getBySongIdUsingGET(id)
+<a name="getCoauthorsBySongIdUsingGET"></a>
+# **getCoauthorsBySongIdUsingGET**
+> [SongCoauthorDTO] getCoauthorsBySongIdUsingGET(id)
 
-getBySongId
+getCoauthorsBySongId
 
 ### Example
 ```javascript
@@ -205,7 +281,7 @@ let apiInstance = new SongbookApi.SongCoauthorResourceApi();
 let id = 789; // Number | id
 
 
-apiInstance.getBySongIdUsingGET(id, (error, data, response) => {
+apiInstance.getCoauthorsBySongIdUsingGET(id, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {
@@ -233,11 +309,11 @@ No authorization required
  - **Content-Type**: Not defined
  - **Accept**: */*
 
-<a name="updateUsingPUT3"></a>
-# **updateUsingPUT3**
-> SongCoauthorDTO updateUsingPUT3(songCoauthorDTO)
+<a name="updateCoauthorUsingPUT"></a>
+# **updateCoauthorUsingPUT**
+> SongCoauthorDTO updateCoauthorUsingPUT(songCoauthorDTO)
 
-update
+updateCoauthor
 
 ### Example
 ```javascript
@@ -248,7 +324,7 @@ let apiInstance = new SongbookApi.SongCoauthorResourceApi();
 let songCoauthorDTO = new SongbookApi.SongCoauthorDTO(); // SongCoauthorDTO | songCoauthorDTO
 
 
-apiInstance.updateUsingPUT3(songCoauthorDTO, (error, data, response) => {
+apiInstance.updateCoauthorUsingPUT(songCoauthorDTO, (error, data, response) => {
   if (error) {
     console.error(error);
   } else {

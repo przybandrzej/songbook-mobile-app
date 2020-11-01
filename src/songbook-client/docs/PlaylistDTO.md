@@ -8,6 +8,5 @@ Name | Type | Description | Notes
 **isPrivate** | **Boolean** |  | 
 **name** | **String** |  | 
 **ownerId** | **Number** |  | 
-**songs** | **[Number]** |  | 
 
 
