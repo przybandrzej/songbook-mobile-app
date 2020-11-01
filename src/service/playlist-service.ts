@@ -1,4 +1,5 @@
-import { PlaylistResourceApi } from "../songbook-client/src";
+import { Playlist } from './../model/playlist';
+import { PlaylistDTO, PlaylistResourceApi } from "../songbook-client/src";
 
 export class PlaylistService {
 
@@ -7,4 +8,15 @@ export class PlaylistService {
     constructor() {
         this.api = new PlaylistResourceApi();
     }
+
+    public static toEntity(dto: PlaylistDTO): Playlist {
+        return {
+            id: dto.id,
+            name: dto.name,
+            isPrivate: dto.isPrivate,
+            creationTime: dto.creationTime,
+            owner: undefined
+        };
+    }
+
 }

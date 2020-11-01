@@ -1,3 +1,5 @@
+import { PlaylistService } from './playlist-service';
+import { Playlist } from './../model/playlist';
 import { UserRoleService } from './user-role-service';
 import { UserRole } from './../model/user-role';
 import { User } from './../model/user';
@@ -69,7 +71,7 @@ export class UserService {
         }));
     }
 
-    public deleteUser(id: number): Observable<void> {
+    /*public deleteUser(id: number): Observable<void> {
         return new Observable<void>(subscriber => {
             this.api.deleteUserUsingDELETE(id, (error: any, data: void, response: any) => {
                 if (!error) {
@@ -80,7 +82,7 @@ export class UserService {
                 }
             })
         });
-    }
+    }*/
 
     public getUserRole(id: number): Observable<UserRole> {
         return new Observable<UserRole>(subscriber => {
@@ -108,8 +110,9 @@ export class UserService {
         });
     }
 
-    public getUserPlaylists(id: number): Observable<PlaylistDTO[]> {
-        return new Observable<PlaylistDTO[]>(subscriber => {
+    public getUserPlaylists(id: number): Observable<Playlist[]> {
+        const user$ = this.getUser(id);
+        const playlists$ = new Observable<PlaylistDTO[]>(subscriber => {
             this.api.getUserByIdUsingGET(id, (error: any, data: PlaylistDTO[], response: any) => {
                 if (!error) {
                     subscriber.next(data);
@@ -119,5 +122,43 @@ export class UserService {
                 }
             })
         });
+        return forkJoin([user$, playlists$]).pipe(map(data => {
+            const user = data[0];
+            return data[1].map(it => {
+                const playlist = PlaylistService.toEntity(it);
+                playlist.owner = user;
+                return playlist;
+            });
+        }));
     }
+
+}
+
+export function getUserById(id: number): Observable<User> {
+    const api = new UserResourceApi();
+    const usrRole$ = new Observable<UserRole>(subscriber => {
+        api.getUserRoleUsingGET(id, (error: any, data: UserRoleDTO, response: any) => {
+            if (!error) {
+                subscriber.next(UserRoleService.toEntity(data));
+                subscriber.complete();
+            } else {
+                subscriber.error(error);
+            }
+        })
+    });
+    const usr$ = new Observable<UserDTO>(subscriber => {
+        api.getUserByIdUsingGET(id, (error: any, dto: UserDTO, response: any) => {
+            if (!error) {
+                subscriber.next(dto);
+                subscriber.complete();
+            } else {
+                subscriber.error(error);
+            }
+        })
+    });
+    return forkJoin([usr$, usrRole$]).pipe(map(data => {
+        const user = UserService.toEntity(data[0]);
+        user.role = data[1];
+        return user;
+    }));
 }
