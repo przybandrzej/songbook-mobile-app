@@ -19,12 +19,21 @@ import { GuitarCordMapper } from './guitar-cord-mapper';
 
 export class SongService {
 
+    private static Instance: SongService;
+
+    public static getInstance(): SongService {
+        if (!SongService.Instance) {
+            SongService.Instance = new SongService();
+        }
+        return SongService.Instance;
+    }
+
     private api: SongResourceApi;
     private authorService: AuthorService;
     private lineApi: LineResourceApi;
     private verseApi: VerseResourceApi;
 
-    constructor() {
+    private constructor() {
         this.api = new SongResourceApi();
         this.authorService = new AuthorService();
         this.verseApi = new VerseResourceApi();

@@ -27,6 +27,7 @@
     "querystring": "0.2.0",
     "react": "16.13.1",
     "react-native": "0.63.3",
+    "react-native-splash-screen": "^3.2.0",
     "rxjs": "^6.6.3",
     "superagent": "3.7.0"
   },
